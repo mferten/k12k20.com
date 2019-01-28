@@ -115,7 +115,8 @@ var usaAppLanTexts;
 var appLanguageInstructionTable;
 var appLanguageDataTable;
 var applicationLanguageId = -1;
-var sameWordInJSON = {}; // english-word : id_ (each unique one)
+var moreThanOneWords = {}; // save the same word's id...
+var enteredWordValues = {}; // to retrieve the value if the same word...
 
 // including the initial immediate run the Functions.
 setTimeout(function () {
