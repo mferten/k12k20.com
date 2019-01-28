@@ -74,12 +74,12 @@ class LanguageController extends Controller
 
     public function textsSave(Request $request)
     {
-        return ApplicationLanguageText::saveApplicationLanguageTexts($request['applicationLanguageId'], $request['count'], $request['texts']);
+        return ApplicationLanguageText::saveApplicationLanguageTexts($request['count'], $request['texts'], $request['applicationLanguageId']);
     }
 
     public function textsCreate(Request $request)
     {
-        return ApplicationLanguageText::createApplicationLanguageTexts($request['countryId'], $request['languageId'], $request['count'], $request['texts']);
+        return ApplicationLanguageText::createApplicationLanguageTexts($request['count'], $request['texts'], $request['countryId'], $request['languageId']);
     }
 
     public function dataSaveCreate(Request $request)

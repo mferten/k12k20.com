@@ -51,7 +51,7 @@ class ApplicationLanguageText extends Model
         }
     }
 
-    public static function saveApplicationLanguageTexts($applicationLanguageId, $count, $texts)
+    public static function saveApplicationLanguageTexts($count, $texts, $applicationLanguageId)
     {
         # Retrieve each tagId to replace the Text
         # If does not Exist: insert tagId + Text
@@ -78,18 +78,15 @@ class ApplicationLanguageText extends Model
             }
         }
         # No Exception: Success
-        return "success";
+        return $applicationLanguageId;
     }
 
-    public static function createApplicationLanguageTexts($countryId, $languageId, $count, $texts)
+    public static function createApplicationLanguageTexts($count, $texts, $countryId, $languageId)
     {
-        // Create new Applicaiton Language and retrieve the Application Language ID to pass it to save.
-        $applicationLanguageId = ApplicationLanguage::getApplicationLanguageId($countryId, $languageId);
-        if ($applicationLanguageId == -1)
-        {
-            $applicationLanguageId = ApplicationLanguage::createNewApplicationLanguage($countryId, $languageId);
-        }
-        ApplicationLanguageText::saveApplicationLanguageTexts($applicationLanguageId, $count, $texts);
+        // Create the new Application Language (Country-Language) and receive the new Application Language Id
+        $applicationLanguageId = ApplicationLanguage::createNewApplicationLanguage($countryId, $languageId);
+        // Save new Application Language's Texts
+        ApplicationLanguageText::saveApplicationLanguageTexts($count, $texts, $applicationLanguageId);
     }
 
     public static function deleteApplicationLanguageTexts($applicationLanguageId)

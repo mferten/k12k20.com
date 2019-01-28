@@ -1,4 +1,4 @@
-"use strict"; //testing K12K20.COM
+"use strict";
 
 initializationUtilityForAll(); // get the initial application values (default or saved)
 

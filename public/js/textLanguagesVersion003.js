@@ -115,6 +115,7 @@ var usaAppLanTexts;
 var appLanguageInstructionTable;
 var appLanguageDataTable;
 var applicationLanguageId = -1;
+var sameWordInJSON = {}; // english-word : id_ (each unique one)
 
 // including the initial immediate run the Functions.
 setTimeout(function () {
@@ -210,7 +211,8 @@ function createTheTable() // this should be a method to be shared by Data Langua
 function insertEachRow(htmlTableWithTexts,trElement,thElement,tdElement,labelElement,textElement,inputElement)
 {
     var numberOfObjects = usaAppLanTexts.length;
-    if (numberOfObjects > 0) applicationLanguageId = tagsTextsArray[0].application_language_id;
+    if (tagsTextsArray != "no row" && tagsTextsArray.length > 0) applicationLanguageId = tagsTextsArray[0].application_language_id;
+    else applicationLanguageId = -1; // new entry "no row"
     for (var loop = 0; loop < numberOfObjects; loop++)
     {
         trElement = document.createElement("tr");
@@ -257,11 +259,15 @@ function saveApplicationLanguageTexts()
 {
     var xhttpsaveTagsTexts = new XMLHttpRequest(); // Get the Application Language and its Texts from the database (if exists)
     var texts = getTagIdTextsArray(); // Set up Tag and Text Array
+    var dataWorlds = new FormData();
+    // in controller: $request['count'], $request['texts'], $request['applicationLanguageId']);
+    // in controller: $request['count'], $request['texts'], $request['countryId'], $request['languageId']);
+    dataWorlds.append("count", usaAppLanTexts.length); // keep the sequence fixed since PHP receives with the same order (hard coded Request...)
+    dataWorlds.append("texts", texts);
     xhttpsaveTagsTexts.onreadystatechange = function() // On Ready State Change
     {
         if (xhttpsaveTagsTexts.readyState == 4 && xhttpsaveTagsTexts.status == 200)
         {
-            // if applicationLanguageId == applicationTextLanguageSelectedIndex (same in dataLanguagesVersion...)
             // ===> trigger "appLanguageToUse" change event (as if the Application Text Language is changed!)
             return (xhttpsaveTagsTexts.responseText == "success") ? true : false;
         }
@@ -269,27 +275,18 @@ function saveApplicationLanguageTexts()
     // Pass: the application_language_id (1) (it exists); [TagId and Text] Array (2):
     if (applicationLanguageId != -1)
     {
-        xhttpsaveTagsTexts.open("POST", "/ajax/texts/save?applicationLanguageId="
-            +applicationLanguageId
-            +"&count="
-            +usaAppLanTexts.length
-            +"&texts="
-            +texts, true);
+        dataWorlds.append("applicationLanguageId", applicationLanguageId);
+        xhttpsaveTagsTexts.open("POST", "/ajax/texts/save", true);
     }
     // Pass: the Country_id(1) and language_id(2) (it does not exist); [TagId and Text] Array (3):
     else
     {
-        xhttpsaveTagsTexts.open("POST", "/ajax/texts/create?countryId="
-            +document.getElementById("appCountry").selectedIndex
-            +"&languageId="
-            +document.getElementById("appLanguage").selectedIndex
-            +"&count="
-            +usaAppLanTexts.length
-            +"&texts="
-            +texts, true);
+        dataWorlds.append("countryId", document.getElementById("appCountry").selectedIndex);
+        dataWorlds.append("languageId", document.getElementById("appLanguage").selectedIndex);
+        xhttpsaveTagsTexts.open("POST", "/ajax/texts/create", true);
     }
     xhttpsaveTagsTexts.setRequestHeader('X-CSRF-TOKEN', document.getElementsByName('csrf-token')[0].getAttribute('content'));
-    xhttpsaveTagsTexts.send(); // Start the Ajax Communication (call PHP program through Route => Controller)
+    xhttpsaveTagsTexts.send(dataWorlds); // Start the Ajax Communication (call PHP program through Route => Controller)
 }
 
 // Retrieve (if any) and Set Up the Selected Application Language Texts for the Page
@@ -309,6 +306,7 @@ function getThisApplicationLanguageTexts()
             {
                 tagsTextsArray = JSON.parse(tagsTextsArray);
             }
+            else applicationLanguageId = -1; // not found: A new entry...
         }
     };
     xhttploadTagsTexts.open("GET", "/ajax/texts?countryId="
@@ -319,7 +317,7 @@ function getThisApplicationLanguageTexts()
     xhttploadTagsTexts.send();
 }
 
-// USA English is the Base Application Language: ApplicationLanguageId = 1
+// USA English is the Base Application Language: applicationLanguageId = 1
 function getUsaApplicationLanguageTexts()
 {
     // Get the New Language Texts from the database

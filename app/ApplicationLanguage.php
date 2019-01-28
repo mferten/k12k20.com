@@ -90,10 +90,10 @@ class ApplicationLanguage extends Model
     public static function createNewApplicationLanguage($countryId, $languageId)
     {
         // Create new Applicaiton Language and retrieve the Application Language ID to pass it to save.
-        $testing = ApplicationLanguage::where("country_id","=",$countryId)->where("language_id","=",$languageId)->pluck("id");
-        if ($testing->count()>0)
+        $applicationLanguage = ApplicationLanguage::where('country_id', '=', $countryId)->where('language_id', '=', $languageId)->first();
+        if ($applicationLanguage && $applicationLanguage->count()>0)
         {
-            // does exist
+            return $applicationLanguage->id;
         }
         else
         {
