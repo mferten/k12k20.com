@@ -1,22 +1,22 @@
 'use strict';
 
 // retrieve the external js files if not open yet
-importAnExternalJSFileIfNotYetWithNoProcessing("EWorldCountriesData", "js/eWorldCountriesData.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("CountriesTableData", "js/countriesTableData.js");
 importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForDashboard", "js/staticDataForDashboard.js");
+
+// add this into master.blade.php <script src="js/countryCodes.js"></script> for Table Data
+// add this into master.blade.php <script src="js/addNewCountryFlag.js"> to Create World View or Each Region Flags object.
 
 currentEWorldPage = "eWorld Countries";
 initializationUtilityForFlags();
 
 /*
     add these external files if need to rebuild the static (saved) data
-    js/addNewCountryFlag.js
-    js/countryCodes.js
-    js/flagsSVGFiles.js
-    getCountryCodesTableData(); // call
-
 */
 
+
 setTimeout(function () {
+    // (0) getCountryCodesTableData(); // call if data is not saved but this is for to save it.
     var eWorldCountriesBody =  document.createElement("body");
     eWorldCountriesBody.setAttribute("name","register");
     var eWorldCountriesHeader = document.createElement("header");
@@ -66,8 +66,7 @@ setTimeout(function () {
     var eWorldCountriesTable = document.createElement("TABLE");
     eWorldCountriesTable.setAttribute("id", "id_CountryListMenu");
     eWorldCountriesTable.setAttribute("class", "displayNone");
-    // if the Table Data is Saved, to rebuild comment this decodeURI out
-    eWorldCountriesTable.innerHTML = decodeURIComponent(countriesTableData);
+    eWorldCountriesTable.innerHTML = decodeURIComponent(countriesTableData); // (1) if the Table Data is Saved, to rebuild comment this decodeURI out
     eWorldCountriesTableDiv.appendChild(eWorldCountriesTable);
     eWorldCountriesMainDivTwo.appendChild(eWorldCountriesTableDiv);
 
@@ -109,18 +108,17 @@ setTimeout(function () {
     // Application Language Drop Down (Select/Options)
     document.getElementById("topHTML").replaceChild(eWorldCountriesBody, document.body);
     setTimeout(function () {
+        // (2) to rebuld the Table use this one
+        /*
+        createATable("id_CountryListMenu", ["Country","Region","Capital","Largest","Population","Surface","Income","Country Codes"],
+            countryCodesOfAllCountries, -999, "Array", myUndefined, true, 16);
+        */
         setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
             startupValuesJSONObject.language);
         document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
     }, 250);
     document.getElementById("id_CountryFacts").innerHTML = selectedApplicationLanguageTexts["id_Countries"]; // start place holder
-}, 650);
-
-/*
-    // to rebuld the Table use this one
-    createATable("id_CountryListMenu", ["Country","Region","Capital","Largest","Population","Surface","Income","Country Codes"],
-        countryCodesOfAllCountries, -999, "Array", myUndefined, true, 16);
- */
+}, 450);
 
 var aToZObject = "%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_A%22%20class%3D%22selectedInputTag%20aToZ%22%3EA%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_B%22%20class%3D%22aToZ%22%3EB%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_C%22%20class%3D%22aToZ%22%3EC%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_D%22%20class%3D%22aToZ%22%3ED%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_E%22%20class%3D%22aToZ%22%3EE%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_F%22%20class%3D%22aToZ%22%3EF%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_G%22%20class%3D%22aToZ%22%3EG%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_H%22%20class%3D%22aToZ%22%3EH%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_I%22%20class%3D%22aToZ%22%3EI%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_J%22%20class%3D%22aToZ%22%3EJ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_K%22%20class%3D%22aToZ%22%3EK%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_L%22%20class%3D%22aToZ%22%3EL%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_M%22%20class%3D%22aToZ%22%3EM%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_N%22%20class%3D%22aToZ%22%3EN%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_O%22%20class%3D%22aToZ%22%3EO%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_P%22%20class%3D%22aToZ%22%3EP%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Q%22%20class%3D%22aToZ%22%3EQ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_R%22%20class%3D%22aToZ%22%3ER%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_S%22%20class%3D%22aToZ%22%3ES%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_T%22%20class%3D%22aToZ%22%3ET%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_U%22%20class%3D%22aToZ%22%3EU%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_V%22%20class%3D%22aToZ%22%3EV%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_W%22%20class%3D%22aToZ%22%3EW%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_X%22%20class%3D%22aToZ%22%3E%3Cdel%3EX%3C%2Fdel%3E%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Y%22%20class%3D%22aToZ%22%3EY%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Z%22%20class%3D%22aToZ%22%3EZ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_All%22%20class%3D%22aToZ%22%3EAll%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20";
 
@@ -165,40 +163,46 @@ var rowsByLetter = { "id_A":{"start":1,"end":16}, "id_B":{"start":17,"end":38}, 
     "id_U":{"start":238,"end":245}, "id_V":{"start":246,"end":250}, "id_W":{"start":251,"end":252}, "id_Y":{"start":253,"end":253}, "id_Z":{"start":254,"end":255},
     "id_All":{"start":1,"end":255} };
 
+var processTheseTH = {0:true,1:true,2:true,4:true,5:true,6:true};
+var fourBelongsToOthers = {"United States Minor Outlying Islands (the)":"UnitedStatesofAmerica",
+    "Heard Island and McDonald Islands":"Australia", "Bouvet Island":"Norway" };
 var currentLetter = myUndefined;
 var tableRowsByCapitalCity = {};
 var currentSortIcon;
 var headerRow;
 
-var fourBelongsToOthers = {"United States Minor Outlying Islands (the)":"UnitedStatesofAmerica",
-    "Heard Island and McDonald Islands":"Australia", "Bouvet Island":"Norway" };
+var allCountryLanguages;
 
 dashBoardFlag = true; // emulate Dashboard since we see all the countries
 
-var allCountryLanguages;
 setTimeout(function() { // this will activate the event listener on this page and addEVent ones will be bypassed...
     allCountryLanguages = allLanguages; // emulate Dashboard since we see all the countries
-
-    // this.addEventListener("click", countryCodesClickEvents, false); // add click event listener: addEvent will handle this
-    // this.addEventListener("change", countryCodesChangeEvents, false); // add change event listener: addEvent will handle this
     triggerAMouseEvent("id_A");
     document.getElementsByTagName("body")[0].classList.add("countryCodeBodyBackground");
-    // setTheTableData(); // if the Table Data is NOT saved
-    // /* if table data is SAVED
+    // setTheTableData(); // (3) if the Table Data is NOT saved
+    // /* (4) if table data is SAVED
     var tableRows = document.getElementById("id_CountryListMenu").rows; // if the Table Data is Saved
     headerRow = tableRows[0];
     for (var oneRow in tableRows)
     {
         if (oneRow >= 1 && oneRow <= 255)
             tableRowsByCapitalCity[tableRows[oneRow].cells[9].innerHTML] =  tableRows[oneRow];
-    } // */
+    }
+    for (var oneHeading in showPointer)
+    {
+        if (oneHeading.indexOf("ThText") != -1 && document.getElementById(oneHeading))
+            document.getElementById(oneHeading).innerHTML = selectedApplicationLanguageTexts[oneHeading];
+    }
+    document.getElementById("id_Country CodesThText").innerHTML = selectedApplicationLanguageTexts["id_Country CodesThText"];
+    // */
     document.getElementById("id_CountryListMenu").classList.remove("displayNone");
     document.getElementById("id_CountryListMenuDiv").classList.remove("displayNone");
     // set the default (initial) sort
     currentSortIcon = "id_CountryTh";
-    document.getElementById(currentSortIcon+"Text").classList.add("selectedInputTag");
-    // console.log(encodeURIComponent(document.getElementById("id_CountryListMenu").innerHTML)); // print if not SAVED (to be SAVED)
-    // console.log(encodeURIComponent(document.getElementById("id_Letters26").innerHTML));
+    if (document.getElementById(currentSortIcon+"Text"))
+        document.getElementById(currentSortIcon+"Text").classList.add("selectedInputTag");
+    // (5) console.log(encodeURIComponent(document.getElementById("id_CountryListMenu").innerHTML)); // print if not SAVED (to be SAVED)
+    // (6) console.log(encodeURIComponent(document.getElementById("id_Letters26").innerHTML)); // to save A-Z
     // id_A to Z and ALL add Click Event for iPhone/iPad
     if (appleProduct) {
         var letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z','All'];
@@ -209,15 +213,12 @@ setTimeout(function() { // this will activate the event listener on this page an
             document.getElementById(ii).addEventListener("click", countryCodesClickEvents, false);
         }
     }
-}, 650);
+}, 850);
 
-var processTheseTH = {0:true,1:true,2:true,4:true,5:true,6:true};
 function setTheTableData()
 {
     var tableRows = document.getElementById("id_CountryListMenu").rows;
-
-    var tableRows = document.getElementById("id_CountryListMenu").rows; // if the Table Data is Saved
-    headerRow = tableRows[0]; // if the Table Data is Saved
+    headerRow = tableRows[0];
     for (var oneRow in tableRows)
     {
         if (oneRow >= 1 && oneRow <= 255)
@@ -292,10 +293,9 @@ function setHeaderRowIds(headerRow)
             var oneHeadingSpan;
             if (processTheseTH[oneCell])
                 oneHeadingSpan = getASpanElement("id_" + headerRow.cells[oneCell].innerHTML  + "ThText", "sortIconTh",
-                    headerRow.cells[oneCell].innerHTML, myUndefined, myUndefined, true);
+                    selectedApplicationLanguageTexts["id_" + headerRow.cells[oneCell].innerHTML  + "ThText"], myUndefined, myUndefined, true);
             else oneHeadingSpan = getASpanElement("id_" + headerRow.cells[oneCell].innerHTML  + "ThText", myUndefined,
-                headerRow.cells[oneCell].innerHTML, myUndefined, myUndefined, true);
-            // selectedApplicationLanguageTexts["id_" + headerRow.cells[oneCell].innerHTML], myUndefined, myUndefined, true); when Application Data is active
+                selectedApplicationLanguageTexts["id_" + headerRow.cells[oneCell].innerHTML  + "ThText"], myUndefined, myUndefined, true);
             headerRow.cells[oneCell].innerHTML = "";
             headerRow.cells[oneCell].appendChild(oneHeadingSpan);
         }
