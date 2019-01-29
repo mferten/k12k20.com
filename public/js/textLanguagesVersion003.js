@@ -236,6 +236,10 @@ function insertEachRow(htmlTableWithTexts,trElement,thElement,tdElement,labelEle
         else { inputElement.innerHTML = tagsTextsArray[loop].text; }
         tdElement.appendChild(inputElement);
         trElement.appendChild(tdElement);
+        if (moreThanOneWords[usaAppLanTexts[loop].text]) {
+            moreThanOneWords[usaAppLanTexts[loop].id] = usaAppLanTexts[loop].text;
+            trElement.setAttribute("class", "displayNone");
+        }
         htmlTableWithTexts.appendChild(trElement);
     }
     setTheTable(htmlTableWithTexts);
@@ -293,6 +297,7 @@ function saveApplicationLanguageTexts()
 // Retrieve (if any) and Set Up the Selected Application Language Texts for the Page
 function getThisApplicationLanguageTexts()
 {
+    moreThanOneWords = {};
     // Get the New Language Texts from the database
     var xhttploadTagsTexts = new XMLHttpRequest();
     // into an Array of "tag" => "text"
@@ -360,6 +365,7 @@ function isThereAnEntry()
 
 function getTagIdTextsArray()
 {
+    enteredWordValues = {}; // read all and set the english word to entered value and use it to fill in "displayNone" "tr" row
     // Read all the Table Text
     var numberOfObjects = usaAppLanTexts.length;
     var notBlank = 0;
