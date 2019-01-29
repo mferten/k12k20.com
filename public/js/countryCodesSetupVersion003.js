@@ -194,7 +194,7 @@ setTimeout(function() { // this will activate the event listener on this page an
             document.getElementById(oneHeading).innerHTML = selectedApplicationLanguageTexts[oneHeading];
     }
     document.getElementById("id_Country CodesThText").innerHTML = selectedApplicationLanguageTexts["id_Country CodesThText"];
-    // */
+    // end of (4) */
     document.getElementById("id_CountryListMenu").classList.remove("displayNone");
     document.getElementById("id_CountryListMenuDiv").classList.remove("displayNone");
     // set the default (initial) sort

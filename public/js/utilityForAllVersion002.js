@@ -578,9 +578,11 @@ function createOneOption(selectElement, text, value, name, idName)
 {
     var optionNode = document.createElement("option");
     if (idName) optionNode.setAttribute("id", startWithURL[idName]);
-    else if (name=="Reports") optionNode.setAttribute("id", "id_" + text);
+    else if (name == "Reports" || name == "DrivingSide") optionNode.setAttribute("id", "id_" + text);
     // create text node
-    var textNode = document.createTextNode(text);
+    var textNode;
+    if (name == "Reports" || name == "DrivingSide") textNode = document.createTextNode(selectedApplicationLanguageTexts["id_" + text]);
+    else textNode = document.createTextNode(text);
     // add text node to <option>
     optionNode.appendChild(textNode);
     // set value="" on the <option>
