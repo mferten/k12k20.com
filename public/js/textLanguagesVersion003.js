@@ -143,8 +143,7 @@ setTimeout(function () {
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
-    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
-        startupValuesJSONObject.language);
+    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
     document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
 }, 350);
 
@@ -372,6 +371,8 @@ function getTagIdTextsArray()
     var texts = ""; // a string with | to explode
     for (var loop = 0; loop < numberOfObjects; loop++)
     {
+        if (moreThanOneWords[usaAppLanTexts[loop].id]) // if a duplicate text's ID.. (previously saved), get the Value (saved Words Values)
+            document.getElementById(tdText).value = enteredWordValues[moreThanOneWords[usaAppLanTexts[loop].id]];
         var tdText = "text" + loop;
         texts += document.getElementById(tdText).value.trim() + "|";
     }

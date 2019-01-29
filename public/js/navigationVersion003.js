@@ -5,6 +5,7 @@ var previousMenuItem = "none";
 
 function createNavigationTags(navElement)
 {
+    previousMenuItem = "none";
     // Navigation element
     var whereNav = navElement.getAttribute("data-nav");
     // Citation, Registration, Web Page Text Language, Data Language, About
@@ -63,9 +64,9 @@ function createOneNavItem(navAId,navAClass,navTextId,navValue,navUlElement,navEl
 
 function startNavigationItem(event) {
     if (event.target && event.target.id && initialMenuItems[event.target.id]) {
-        if (previousMenuItem != initialMenuItems[event.target.id]) { // ignores the same menu selection (no extra navigation item creation: double triple...
+        if (previousMenuItem != event.target.id) { // ignores the same menu selection (no extra navigation item creation: double triple...
             initialMenuItems[event.target.id](event.target.id);
-            previousMenuItem = initialMenuItems[event.target.id];
+            previousMenuItem = event.target.id;
         }
     }
 }

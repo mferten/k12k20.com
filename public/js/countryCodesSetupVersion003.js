@@ -113,8 +113,7 @@ setTimeout(function () {
         createATable("id_CountryListMenu", ["Country","Region","Capital","Largest","Population","Surface","Income","Country Codes"],
             countryCodesOfAllCountries, -999, "Array", myUndefined, true, 16);
         */
-        setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
-            startupValuesJSONObject.language);
+        setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
         document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
     }, 250);
     document.getElementById("id_CountryFacts").innerHTML = selectedApplicationLanguageTexts["id_Countries"]; // start place holder

@@ -39,7 +39,7 @@ addCitationPBlock("/images/Flag_of_the_United_Nations.svg", "United Nations", se
     "id_CountryInformation");
 addCitationPBlock("/images/Wikimedia-logo.svg","Wikimedia", selectedApplicationLanguageTexts["id_SVGNationalFlags"],
     "https://commons.wikimedia.org/wiki/Category:SVG_flags_by_country","id_SVGNationalFlags");
-addCitationPBlock("/images/Seal_of_the_United_States_Navy_Band.png", selectedApplicationLanguageTexts["id_NationalAnthem"], " the National Anthems",
+addCitationPBlock("/images/Seal_of_the_United_States_Navy_Band.png", "USA Navy Band", selectedApplicationLanguageTexts["id_NationalAnthem"],
     "http://www.navyband.navy.mil/anthems.html","id_NationalAnthem");
 addCitationPBlock("/images/CentOS_Graphical_Symbol.svg", "CentOS", selectedApplicationLanguageTexts["id_LinuxServer"], "https://www.centos.org","id_LinuxServer");
 addCitationPBlock("/images/Apache_PoweredBy.svg", "Apache", selectedApplicationLanguageTexts["id_WebServer"], "https://httpd.apache.org","id_WebServer");
@@ -58,10 +58,9 @@ setTimeout(function() {
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
-    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
-        startupValuesJSONObject.language);
+    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
     document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
-}, 350);
+}, 450);
 
 function addCitationPBlock(imageSource, aText, pText, URL, idName)
 {

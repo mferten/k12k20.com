@@ -16,7 +16,7 @@
 var versionNumber; // a string: keeping the decimals: // application version
 var applicationStarted;
 var applicationLanguageDropDownValuesStartedFlag = false; // only once to be retrieved the initial value.
-var applicationTextLanguageSelectedIndex;
+var applicationTextLanguageSelectedIndex = -1;
 
 // Startup values in StartupValues Constructor Object
 var startupValuesJSONObject;
@@ -46,6 +46,7 @@ var languageOfCountries = [];
 
 // Application Text
 var selectedApplicationLanguageTexts = [];
+var selectedApplicationLanguageTextsB = [];
 
 var appleProduct = false;
 var iPhone = false;
@@ -67,6 +68,8 @@ var playAnthem;
 var currentTime;
 var currentTimeString;
 var utc;
+
+var textB;
 
 // simplemaps region numbers
 var regionNumbers = {NorthAmerica:0, SouthAmerica:1, Europe:2, Africa:3, Oceania:4, Asia:5};
@@ -121,7 +124,7 @@ var noAscDesListing = {"Reports":"Reports","Country":"Country","Color2nd":"Color
 // ****     2- Functions     ******
 
 // execute this method for each Page requires this external JS file (acts af if it just opened for the requested SPA page)
-function initializationUtilityForAll(navigationName) {
+function initializationUtilityForAll() {
     // versionNumber must match to the Local Storage, if not (for now) Delete the Storage to start a new: Version II, it will it will be upgraded
     // With Version II, the Local Storage will only have the version Number: All the files/objects will be in indexedDB: max is 50 MB not 10MB
     versionNumber = "1.91";
@@ -146,8 +149,9 @@ function initializationUtilityForAll(navigationName) {
     if (selectedApplicationLanguageTexts.length == 0) { // if blank retrieve otherwise keep it as selected: This is a SPA: a Single Page Application RCP.. Nice!
           selectedApplicationLanguageTexts = startupValuesJSONObject.applicationLanguageText;
     }
-    if (!applicationTextLanguageSelectedIndex)
+    if (applicationTextLanguageSelectedIndex == -1) {
         applicationTextLanguageSelectedIndex = (startupValuesJSONObject.language.substring(22)-1);
+    }
     isAppleProduct();
 }
 
@@ -250,10 +254,14 @@ function setApplicationLanguage(languageId, apply) // Dynamic data: a user can a
         {
             if (xhttploadTagsTexts.responseText != "no row")
             {
-                selectedApplicationLanguageTexts = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts
                 if (apply) // Apply new Application Text into the Page (not on Registration Startup Values time)
                 {
+                    selectedApplicationLanguageTexts = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts
                     applyTheLanguageTexts();
+                }
+                else {
+                      // only Register: Startup has two Application Language Selection: One like others to apply the other to save for later Startup use.
+                     selectedApplicationLanguageTextsB = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts to be used when the application starts
                 }
             }
         }
@@ -599,7 +607,7 @@ function createOneOption(selectElement, text, value, name, idName)
  *  "options": Option values Array
  *  selectElement: Select Drop Down Box DOM element
  */
-function setApplicationLanguageOptions(options, selectElement, startupValue)
+function setApplicationLanguageOptions(options, selectElement)
 {
     // "key in" works both with Arrays and JSON Objects
     for (var key in options)
@@ -609,11 +617,6 @@ function setApplicationLanguageOptions(options, selectElement, startupValue)
         optionNode.setAttribute("id", options[key].id);
         // set value
         optionNode.setAttribute("value", options[key].value);
-        // if this is the startup value, set it
-        if (startupValue && options[key].value == startupValue)
-        {
-            optionNode.setAttribute("selected", true);
-        }
         // create text node
         var textNode = document.createTextNode(options[key].text);
         // add text node to <option>
@@ -650,12 +653,12 @@ function setApplicationLanguageOptions(options, selectElement, startupValue)
 /*
  * Set the complete Drop Down Box values by Using above setOptions
  */
-function setApplicationLanguageDropDownBox(selectId, optionsArray, startupValue)
+function setApplicationLanguageDropDownBox(selectId, optionsArray)
 {
     var selectElement = document.getElementById(selectId);
     if (selectElement)
     {
-        setApplicationLanguageOptions(optionsArray, selectElement, startupValue)
+        setApplicationLanguageOptions(optionsArray, selectElement)
     }
 }
 
@@ -674,8 +677,7 @@ function setSelectOptionsFromServerData()
 {
     // Application Language Drop Down (Select/Options)
     setTimeout(function () {
-        setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
-            startupValuesJSONObject.language);
+        setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
         document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
     }, 1100);
     setTimeout(function () {

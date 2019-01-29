@@ -62,9 +62,8 @@ function setMenuImage() {
         menuBody.classList.remove("displayNone");
         // Application Language Drop Down (Select/Options)
         setTimeout(function () {
-            setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
-                startupValuesJSONObject.language);
-            document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
+            setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
+            document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = true;
         }, 450);
     },400);
 }

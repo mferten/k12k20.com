@@ -143,15 +143,13 @@ setTimeout(function () {
 
 // Application Language Drop Down (Select/Options) for Based Application Language Selection: Accent Entry...
 setTimeout(function () {
-    setApplicationLanguageDropDownBox("appLanguageToUseB", JSON.parse(applicationLanguageDropDownValues),
-        startupValuesJSONObject.language);
+    setApplicationLanguageDropDownBox("appLanguageToUseB", JSON.parse(applicationLanguageDropDownValues));
     document.getElementById("appLanguageToUseB").selectedIndex = 0;
 }, 350);
 
 // Application Language Drop Down (Select/Options) for Based Application Language Selection: Accent Entry...
 setTimeout(function () {
-    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
-        startupValuesJSONObject.language);
+    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
     document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
 }, 350);
 

@@ -26,13 +26,13 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"id_PanelTwoText":"Made a difference","id_PanelThreeText":"Music","id_PanelFourText":"People","id_PanelFiveText":"Animals","id_PanelSixText":"Shopping",' +
 '"id_PanelSevenText":"Food","id_PanelEightText":"Liveability","id_PanelTwoOneText":"Children","id_ListAscending":"List Ascending","id_ListDescending":"List Descending",' +
 '"title_CombineSearchReverse":"Reverse","id_Menu":"Nice to Meet the World","id_CountryCodes":"World Country Codes","id_CountryList":"World Countries",' +
-'"id_StartWith":"Start With","id_Searching":"World","id_CleanToiletDisplay":"Clean Restroom","id_CapitalCitiesDisplay":"Capital",' +
+'"id_StartWith":"Start with","id_Searching":"World","id_CleanToiletDisplay":"Clean Restroom","id_CapitalCitiesDisplay":"Capital",' +
 '"id_Surfing":"World Regions","id_ElementarySchool":"Elementary School","id_MiddleSchool":"Middle School","id_HighSchool":"High School","id_College":"College",' +
 '"id_Please":"Please","id_SelectQuestion":"Ask a Question","id_FromCategory":"From the Categories","id_ShowAnswer":"Show the Answer","id_ShowCountry":"Show the Country",' +
 '"id_AnthemApple":"Anthem","id_GreetingApple":"Greeting","id_Countries":"World Countries","id_Save":"Save","id_DataLanguages_Ii18n":"World Languages",' +
 '"id_LanguagePlaceHolder":"- Please Select a Country and a Language -","id_AmericanEnglish":"USA English","id_AmericanEnglishInOtherLanguage":"Translated Text",' +
 '"id_EWorldMagic":"www.K12K20.com Got the Magic, Thanks to","id_InteractiveMaps":"for the Interactive Maps","id_CountryInformation":"for the Country Facts",' +
-'"id_SVGNationalFlags":"for the SVG National Flags","id_NationalAnthem":"for the National Anthems","id_LinuxServer":"for the Linux Server",' +
+'"id_SVGNationalFlags":"for the SVG National Flags","id_NationalAnthem":"for the National Anthems","id_LinuxServer":"for the Linux Server","id_AppLanguageToUseB":"Start with",' +
 '"id_WebServer":"for the Web Server","id_MailServer":"for the Mail Server","id_WorldFactsCia":"for the World Facts","id_WorldFactsWiki":"for the World Facts",' +
 '"id_HowItWorks":"How it works?","id_TechnologiesTitle":"Technologies","id_HowTechnologiesUsed":' +
 '"How the Technologies are Used?","id_InternationalizationI18n":"Internationalization(i18n)",' +

@@ -86,8 +86,7 @@ setTimeout(function() {
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
-    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
-        startupValuesJSONObject.language);
+    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
     document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
 }, 350);
 

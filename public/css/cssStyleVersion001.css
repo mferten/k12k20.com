@@ -719,7 +719,7 @@ li a:hover {
     margin: .6rem 0 0 auto;
 }
 
-#id_StartWith {
+#id_StartWith, #id_AppLanguageToUseB {
     color: #eab358;
     font-size: 1.5rem;
     font-weight: bold;
