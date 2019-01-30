@@ -906,7 +906,7 @@ function numberFixedToString(number)
 }
 
 function createATable(tableElement, headings, tableData, columnLocations, objectType, header, staticFlag, howManyRows)
-{
+{   console.log(header);
     var tableTag = document.getElementById(tableElement);
     var htmlTableWithTexts = document.createElement("tbody");
     var trElement;
@@ -965,7 +965,7 @@ function createOneTd(trElement, tdElement, textElement, text, staticFlag, countr
 }
 
 function createTableRows(htmlTableWithTexts, trElement, tdElement, textElement, columnLocations, tableData, objectType, headings, howManyRows, staticFlag)
-{
+{   console.log(headings);
     var usedTableRowCount = 0;
     var loop = 1;
     for (var country in tableData) {

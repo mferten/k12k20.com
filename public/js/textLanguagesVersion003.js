@@ -374,9 +374,11 @@ function getTagIdTextsArray()
     for (var loop = 0; loop < numberOfObjects; loop++)
     {
         // while I created the table, I saved each USA English word's td id in a JSON object: word: tagId.
-        // any word (one or many) will read this first td's id entered value since duplicate one won't be seen (display None) 
+        // any word (one or many) will read this first td's id entered value since duplicate one won't be seen (display None)
         texts += document.getElementById(enteredWordValues[usaAppLanTexts[loop].text]).value.trim() + "|";
     }
+    // remove the last one otherwise there will be one empty one...
+    texts = texts.substring(0, texts.lastIndexOf("|"));
     return texts;
 }
 

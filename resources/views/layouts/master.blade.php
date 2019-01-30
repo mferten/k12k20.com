@@ -11,11 +11,11 @@
         </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="eWorld Surfing: SVG Maps & Flags: RCP (Rich Client Platform) - SPA (Single Page Application)">
-        <meta name="keywords" content="eWorld Surfing: SVG Maps & Flags RCP -SPA">
+        <meta name="description" content="K12K20.com: SVG Maps & Flags: RCP (Rich Client Platform) - SPA (Single Page Application)">
+        <meta name="keywords" content="K12K20.com: SVG Maps & Flags RCP -SPA">
         <meta name="author" content="MFE Mehmet Fatih Erten">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>eWorld Surfing: SVG World Maps & Flags: RCP -SPA</title>
+        <title>K12K20.com: World SVG Maps & Flags: RCP - SPA</title>
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/cssStyleVersion001.css">

@@ -116,6 +116,7 @@ var numberOfObjects;
 var appLanguageInstructionTable;
 var appLanguageDataTable;
 var applicationLanguageId = -1;
+var enteredWordValues;
 var texts;
 var usaTexts;
 
@@ -223,11 +224,11 @@ function createTheTable() // this should be a method to be shared by Text Langua
 
 function insertEachRow(htmlTableWithTexts,trElement,thElement,tdElement,labelElement,textElement,inputElement)
 {
+    var rowCount = 0;
+    enteredWordValues = {};
     for (var loop = 0; loop < numberOfObjects; loop++)
     {
         trElement = document.createElement("tr");
-        if (loop%2 != 0) trElement.setAttribute("class", "oddRow"); // coloring each row different alternatively
-        else trElement.setAttribute("class", "evenRow");
         tdElement = document.createElement("td");
         labelElement = document.createElement("label")
         labelElement.setAttribute("for", "text" + loop);
@@ -246,6 +247,15 @@ function insertEachRow(htmlTableWithTexts,trElement,thElement,tdElement,labelEle
         else { if (tagsTextsArray[loop]) inputElement.innerHTML = tagsTextsArray[loop].this_language_feature_value; }
         tdElement.appendChild(inputElement);
         trElement.appendChild(tdElement);
+        if (enteredWordValues[usaAppLanTexts[loop]]) { // found: not the first one
+            trElement.classList.add("displayNone");
+        }
+        else {
+            if (rowCount%2 != 0) trElement.classList.add("oddRow"); // coloring each row different alternatively
+            else trElement.classList.add("evenRow");
+            rowCount++;
+            enteredWordValues[usaAppLanTexts[loop]] = "text"+loop; // first one's Id to retrieve the entered value.
+        }
         htmlTableWithTexts.appendChild(trElement);
     }
     setTheTable(htmlTableWithTexts);
@@ -379,7 +389,9 @@ function getTagIdTextsArray()
     texts = ""; // a string with | to explode
     for (var loop = 0; loop < numberOfObjects; loop++)
     {
-        texts += document.getElementById("text" + loop).value.trim() + "|";
+        // while I created the table, I saved each USA English word's td id in a JSON object: word: tagId.
+        // any word (one or many) will read this first td's id entered value since duplicate one won't be seen (display None)
+        texts += document.getElementById(enteredWordValues[usaAppLanTexts[loop]]).value.trim() + "|";
     }
     // remove the last one otherwise there will be one empty one...
     texts = texts.substring(0, texts.lastIndexOf("|"));
