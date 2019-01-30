@@ -115,8 +115,7 @@ var usaAppLanTexts;
 var appLanguageInstructionTable;
 var appLanguageDataTable;
 var applicationLanguageId = -1;
-var moreThanOneWords = {}; // save the same word's id...
-var enteredWordValues = {}; // to retrieve the value if the same word...
+var enteredWordValues;
 
 // including the initial immediate run the Functions.
 setTimeout(function () {
@@ -213,11 +212,11 @@ function insertEachRow(htmlTableWithTexts,trElement,thElement,tdElement,labelEle
     var numberOfObjects = usaAppLanTexts.length;
     if (tagsTextsArray != "no row" && tagsTextsArray.length > 0) applicationLanguageId = tagsTextsArray[0].application_language_id;
     else applicationLanguageId = -1; // new entry "no row"
+    var rowCount = 0;
+    enteredWordValues = {};
     for (var loop = 0; loop < numberOfObjects; loop++)
     {
         trElement = document.createElement("tr");
-        if (loop%2 != 0) trElement.setAttribute("class", "oddRow"); // coloring each row different alternatively
-        else trElement.setAttribute("class", "evenRow");
         tdElement = document.createElement("td");
         labelElement = document.createElement("label")
         labelElement.setAttribute("for", "text" + loop);
@@ -235,9 +234,14 @@ function insertEachRow(htmlTableWithTexts,trElement,thElement,tdElement,labelEle
         else { inputElement.innerHTML = tagsTextsArray[loop].text; }
         tdElement.appendChild(inputElement);
         trElement.appendChild(tdElement);
-        if (moreThanOneWords[usaAppLanTexts[loop].text]) {
-            moreThanOneWords[usaAppLanTexts[loop].id] = usaAppLanTexts[loop].text;
-            trElement.setAttribute("class", "displayNone");
+        if (enteredWordValues[usaAppLanTexts[loop].text]) { // found: not the first one
+            trElement.classList.add("displayNone");
+        }
+        else {
+            if (rowCount%2 != 0) trElement.classList.add("oddRow"); // coloring each row different alternatively
+            else trElement.classList.add("evenRow");
+            rowCount++;
+            enteredWordValues[usaAppLanTexts[loop].text] = "text"+loop; // first one's Id to retrieve the entered value.
         }
         htmlTableWithTexts.appendChild(trElement);
     }
@@ -296,7 +300,6 @@ function saveApplicationLanguageTexts()
 // Retrieve (if any) and Set Up the Selected Application Language Texts for the Page
 function getThisApplicationLanguageTexts()
 {
-    moreThanOneWords = {};
     // Get the New Language Texts from the database
     var xhttploadTagsTexts = new XMLHttpRequest();
     // into an Array of "tag" => "text"
@@ -364,17 +367,15 @@ function isThereAnEntry()
 
 function getTagIdTextsArray()
 {
-    enteredWordValues = {}; // read all and set the english word to entered value and use it to fill in "displayNone" "tr" row
     // Read all the Table Text
     var numberOfObjects = usaAppLanTexts.length;
     var notBlank = 0;
     var texts = ""; // a string with | to explode
     for (var loop = 0; loop < numberOfObjects; loop++)
     {
-        if (moreThanOneWords[usaAppLanTexts[loop].id]) // if a duplicate text's ID.. (previously saved), get the Value (saved Words Values)
-            document.getElementById(tdText).value = enteredWordValues[moreThanOneWords[usaAppLanTexts[loop].id]];
-        var tdText = "text" + loop;
-        texts += document.getElementById(tdText).value.trim() + "|";
+        // while I created the table, I saved each USA English word's td id in a JSON object: word: tagId.
+        // any word (one or many) will read this first td's id entered value since duplicate one won't be seen (display None) 
+        texts += document.getElementById(enteredWordValues[usaAppLanTexts[loop].text]).value.trim() + "|";
     }
     return texts;
 }

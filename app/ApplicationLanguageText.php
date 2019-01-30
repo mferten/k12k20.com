@@ -7,6 +7,8 @@ use App\ApplicationLanguage;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class ApplicationLanguageText extends Model
 {
 
@@ -57,6 +59,8 @@ class ApplicationLanguageText extends Model
         # If does not Exist: insert tagId + Text
         //  *** loop here with the parameter Array.....
         $textArray = explode("|", $texts);
+        # Initiate a new timestamp
+        $timestamp = Carbon::now()->toDateTimeString(); # same is OK
         for ($loop = 0; $loop < $count; $loop++)
         {
             # USA_ENGLISH i18n Tags Count rows regardless of any data in it will be saved (even only one i18n tag has text in it)
@@ -65,6 +69,8 @@ class ApplicationLanguageText extends Model
             if ($applicationTexts == null)
             {
                 $newOne = new ApplicationLanguageText; // this way save() takes care of the create_at and updated_at
+                $newOne->created_at = $timestamp;
+                $newOne->updated_at = $timestamp;
                 $newOne->application_language_id = $applicationLanguageId;
                 $newOne->application_i18ntag_id = $loop+1;
                 $newOne->text = $textArray[$loop];
@@ -73,6 +79,7 @@ class ApplicationLanguageText extends Model
             # found Row: update
             else
             {
+                $applicationTexts->updated_at = $timestamp;
                 $applicationTexts->text = $textArray[$loop];
                 $applicationTexts->update();
             }
