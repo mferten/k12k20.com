@@ -56,9 +56,9 @@ var searchedSelectFieldsFilteredCountries = { "Color":"","Color2nd":"","Color3rd
 
 // for Printing/Reporting
 var categoryDescription = {"Color":"Flag Color","Color2nd":"Second Flag Color","Color3rd":"Third Flag Color","Shape":"Flag Shape","Shape2nd":"Second Flag Shape",
-    "Shape3rd":"Third Flag Shape","Cell":"Cellular Phone","Language":"Language","Population":"Population","Income":"Income - GDP","Overweight":"Overweight Ratio %",
+    "Shape3rd":"Third Flag Shape","Cell":"Cellular Phone","Language":"Language Name","Population":"Population Name","Income":"Income - GDP","Overweight":"Overweight Ratio %",
     "LifeExpectancy":"Life Expectancy","Internet":"Internet Usage %","RandD":"R & D per GDP%","CleanWater":"Clean Drinking Water %","CleanToilet":"Clean Toilet Facility %",
-    "CapitalCities":"Capital Cities","LandArea":"Surface Area","Water":"Oceans, Seas or Lakes","Religion":"Religion","DrivingSide":"Driving Side","SexRatio":"Sex Ratio M per 100 F",
+    "CapitalCities":"Capital Cities","LandArea":"Surface Area","Water":"Oceans, Seas or Lakes","Religion":"Religion Name","DrivingSide":"Driving Side","SexRatio":"Sex Ratio M per 100 F",
     "SeatRatio":"Seats Held By Women %"};
 
 // set option value and text
