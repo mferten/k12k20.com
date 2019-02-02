@@ -8,12 +8,8 @@ importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForDashboard", "js/sta
 // add this into master.blade.php <script src="js/addNewCountryFlag.js"> to Create World View or Each Region Flags object.
 
 currentEWorldPage = "eWorld Countries";
+
 initializationUtilityForFlags();
-
-/*
-    add these external files if need to rebuild the static (saved) data
-*/
-
 
 setTimeout(function () {
     // (0) getCountryCodesTableData(); // call if data is not saved but this is for to save it.
@@ -95,12 +91,12 @@ setTimeout(function () {
 
     var eWorldCountriesFooter = document.createElement("footer");
     eWorldCountriesFooter.setAttribute("class","center");
-    var eWorldCountriesFooterSpan = document.createElement("span");
-    eWorldCountriesFooterSpan.setAttribute("id","id_CopyRight");
-    var eWorldCountriesFooterP = document.createElement("span");
-    eWorldCountriesFooterP.setAttribute("id","id_LanguageImplementedBy");
-    eWorldCountriesFooterP.appendChild(eWorldCountriesFooterSpan);
+    var eWorldCountriesFooterP = document.createElement("p");
+    eWorldCountriesFooterP.setAttribute("id","id_CopyRight");
+    var eWorldCountriesFooterP2 = document.createElement("p");
+    eWorldCountriesFooterP2.setAttribute("id","id_LanguageImplementedBy");
     eWorldCountriesFooter.appendChild(eWorldCountriesFooterP);
+    eWorldCountriesFooter.appendChild(eWorldCountriesFooterP2);
 
     eWorldCountriesBody.appendChild(eWorldCountriesMain);
     eWorldCountriesBody.appendChild(eWorldCountriesNav);
@@ -115,9 +111,9 @@ setTimeout(function () {
         */
         setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
         document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
-    }, 250);
+    }, 350);
     document.getElementById("id_CountryFacts").innerHTML = selectedApplicationLanguageTexts["id_Countries"]; // start place holder
-}, 450);
+}, 550);
 
 var aToZObject = "%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_A%22%20class%3D%22selectedInputTag%20aToZ%22%3EA%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_B%22%20class%3D%22aToZ%22%3EB%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_C%22%20class%3D%22aToZ%22%3EC%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_D%22%20class%3D%22aToZ%22%3ED%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_E%22%20class%3D%22aToZ%22%3EE%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_F%22%20class%3D%22aToZ%22%3EF%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_G%22%20class%3D%22aToZ%22%3EG%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_H%22%20class%3D%22aToZ%22%3EH%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_I%22%20class%3D%22aToZ%22%3EI%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_J%22%20class%3D%22aToZ%22%3EJ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_K%22%20class%3D%22aToZ%22%3EK%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_L%22%20class%3D%22aToZ%22%3EL%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_M%22%20class%3D%22aToZ%22%3EM%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_N%22%20class%3D%22aToZ%22%3EN%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_O%22%20class%3D%22aToZ%22%3EO%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_P%22%20class%3D%22aToZ%22%3EP%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Q%22%20class%3D%22aToZ%22%3EQ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_R%22%20class%3D%22aToZ%22%3ER%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_S%22%20class%3D%22aToZ%22%3ES%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_T%22%20class%3D%22aToZ%22%3ET%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_U%22%20class%3D%22aToZ%22%3EU%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_V%22%20class%3D%22aToZ%22%3EV%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_W%22%20class%3D%22aToZ%22%3EW%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_X%22%20class%3D%22aToZ%22%3E%3Cdel%3EX%3C%2Fdel%3E%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Y%22%20class%3D%22aToZ%22%3EY%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Z%22%20class%3D%22aToZ%22%3EZ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_All%22%20class%3D%22aToZ%22%3EAll%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20";
 

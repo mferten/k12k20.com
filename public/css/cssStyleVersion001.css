@@ -148,7 +148,7 @@ ul {
 }
 
 li {
-    margin: .5rem;
+    margin: .4rem;
     font-weight: bold;
     color: #282828;
 }
@@ -699,7 +699,7 @@ li a:hover {
 }
 
 .languageTable {
-    height: 28rem;
+    height: 27rem;
     color: #190623;
     margin: 0 auto;
     width: 95%;
@@ -713,6 +713,10 @@ li a:hover {
 
 .languageInput {
     width: 100%;
+}
+
+#id_LanguageImplementedBy, #id_CopyRight {
+    margin: 0;
 }
 
 #muteMySound {
@@ -735,7 +739,7 @@ li a:hover {
 
 #id_Surfing, #id_Searching, #id_Countries {
     font-family: 'Fontdiner Swanky', cursive;
-    letter-spacing: .2rem;
+    letter-spacing: .16rem;
 }
 
 #menuHeader {
@@ -766,7 +770,7 @@ li a:hover {
 }
 
 #id_FirstMessage {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-family: 'Fontdiner Swanky', cursive;
     letter-spacing: .1rem;
 }

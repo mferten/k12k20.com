@@ -121,12 +121,12 @@ setTimeout(function() {
 
     var registerFooter = document.createElement("footer");
     registerFooter.setAttribute("class","center");
-    var registerFooterSpan = document.createElement("span");
-    registerFooterSpan.setAttribute("id","id_CopyRight");
-    var registerFooterP = document.createElement("span");
-    registerFooterP.setAttribute("id","id_LanguageImplementedBy");
-    registerFooter.appendChild(registerFooterSpan);
+    var registerFooterP = document.createElement("p");
+    registerFooterP.setAttribute("id","id_CopyRight");
+    var registerFooterP2 = document.createElement("p");
+    registerFooterP2.setAttribute("id","id_LanguageImplementedBy");
     registerFooter.appendChild(registerFooterP);
+    registerFooter.appendChild(registerFooterP2);
 
     registerBody.appendChild(registerMain);
     registerBody.appendChild(registerNav);

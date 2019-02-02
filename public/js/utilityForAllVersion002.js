@@ -121,6 +121,9 @@ var notInUNData = {"AntarcticTreatySystem":"AntarcticTreatySystem","BritishIndia
 var noAscDesListing = {"Reports":"Reports","Country":"Country","Color2nd":"Color2nd",
     "Color3rd":"Color3rd","Shape2nd":"Shape2nd","Shape3rd":"Shape3rd"};
 
+var pageHeaderI18n = {"Text Languages":"id_TextLanguages", "Data Languages":"id_DataLanguages", "AboutMe":"id_AboutMe", "Citation":"id_Citations",
+    "eWorld Countries":"id_Countries", "Startup":"id_Register", "Menu":"id_Menu", "eWorld Global":"id_Searching", "eWorld Regional":"id_Surfing"};
+
 // ****     2- Functions     ******
 
 // execute this method for each Page requires this external JS file (acts af if it just opened for the requested SPA page)
@@ -318,7 +321,7 @@ function applyTheLanguageTexts()
                             else document.getElementById(key).innerHTML =
                                 selectedApplicationLanguageTexts["id_" + document.querySelectorAll('input[type="radio"]:checked')[0].id];
                         } else if (key == "id_FirstMessage") {
-                            setH1HeaderAfterLanguageChange(key);
+                            document.getElementById(key).innerHTML = selectedApplicationLanguageTexts[pageHeaderI18n[currentEWorldPage]];
                         } else if (dashBoardFlag && key == "id_ListAscending") {
                             listDescendingAscendingText(key, "id_ListAscending");
                         } else if (dashBoardFlag && key == "id_ListDescending") {
@@ -342,18 +345,6 @@ function applyTheLanguageTexts()
             }
         }
     }
-}
-
-function setH1HeaderAfterLanguageChange(key) {
-    if (currentEWorldPage == "Text Languages") document.getElementById(key).innerHTML = selectedApplicationLanguageTexts["id_TextLanguages"];
-    else if (currentEWorldPage == "Data Languages") document.getElementById(key).innerHTML = selectedApplicationLanguageTexts["id_DataLanguages"];
-    else if (currentEWorldPage == "AboutMe") document.getElementById(key).innerHTML = selectedApplicationLanguageTexts["id_AboutMe"];
-    else if (currentEWorldPage == "Citation") document.getElementById(key).innerHTML = selectedApplicationLanguageTexts["id_Citations"];
-    else if (currentEWorldPage == "eWorld Countries") document.getElementById(key).innerHTML = selectedApplicationLanguageTexts["id_Countries"];
-    else if (currentEWorldPage == "Startup") document.getElementById(key).innerHTML = selectedApplicationLanguageTexts["id_Register"];
-    else if (currentEWorldPage == "Menu") document.getElementById(key).innerHTML = selectedApplicationLanguageTexts["id_Menu"];
-    else if (dashBoardFlag) document.getElementById(key).innerHTML = selectedApplicationLanguageTexts["id_Searching"];
-    else document.getElementById(key).innerHTML =  selectedApplicationLanguageTexts["id_Surfing"];
 }
 
 function listDescendingAscendingText(key, id)
@@ -906,7 +897,7 @@ function numberFixedToString(number)
 }
 
 function createATable(tableElement, headings, tableData, columnLocations, objectType, header, staticFlag, howManyRows)
-{   console.log(header);
+{
     var tableTag = document.getElementById(tableElement);
     var htmlTableWithTexts = document.createElement("tbody");
     var trElement;
@@ -932,7 +923,7 @@ function createATable(tableElement, headings, tableData, columnLocations, object
         else
         {
             if (staticFlag) textElement = document.createTextNode(headings[key]); // Country Codes is a pre-defined fix data
-            else textElement = document.createTextNode(categoryDescription[headings[key]]?categoryDescription[headings[key]]:headings[key]);
+            else textElement = document.createTextNode(categoryDescription[headings[key]]?selectedApplicationLanguageTexts[categoryDescription[headings[key]]]:headings[key]);
             thElement.appendChild(textElement);
         }
         trElement.appendChild(thElement);
@@ -965,7 +956,7 @@ function createOneTd(trElement, tdElement, textElement, text, staticFlag, countr
 }
 
 function createTableRows(htmlTableWithTexts, trElement, tdElement, textElement, columnLocations, tableData, objectType, headings, howManyRows, staticFlag)
-{   console.log(headings);
+{
     var usedTableRowCount = 0;
     var loop = 1;
     for (var country in tableData) {
@@ -1473,7 +1464,7 @@ function setNavFooterTags(navigationName, noWaitFlag) {
     setTimeout(function () {
         document.getElementById("id_Navigation").setAttribute("data-nav", navigationName); // must be before createNaviationTags
         createNavigationTags(document.getElementById("id_Navigation"));
-        document.getElementById("id_CopyRight").innerHTML = "©2017-" + new Date().getFullYear() + " Mehmet F Erten";
+        document.getElementById("id_CopyRight").innerHTML = "©2017-" + new Date().getFullYear() + " k12k20.com";
     }, (noWaitFlag)?75:750);
 }
 
@@ -1484,12 +1475,12 @@ function createNavFooterAddIntoBodyAndReplaceBody(tagBody, tagHeader, tagMain) {
     tagNav.setAttribute("class","center");
     var tagFooter = document.createElement("footer");
     tagFooter.setAttribute("class","center");
-    var tagFooterSpan = document.createElement("span");
-    tagFooterSpan.setAttribute("id","id_CopyRight");
-    var tagFooterP = document.createElement("span");
-    tagFooterP.setAttribute("id","id_LanguageImplementedBy");
-    tagFooterP.appendChild(tagFooterSpan);
+    var tagFooterP = document.createElement("p");
+    tagFooterP.setAttribute("id","id_CopyRight");
+    var tagFooterP2 = document.createElement("p"); // This and others the same code should be in a function.. single entry point... (MEHMET to do list)
+    tagFooterP2.setAttribute("id","id_LanguageImplementedBy");
     tagFooter.appendChild(tagFooterP);
+    tagFooter.appendChild(tagFooterP2);
 
     tagBody.appendChild(tagHeader);
     tagBody.appendChild(tagMain);

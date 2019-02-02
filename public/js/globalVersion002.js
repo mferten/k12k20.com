@@ -79,12 +79,12 @@ setTimeout(function () {
 
     var globalFooter = document.createElement("footer");
     globalFooter.setAttribute("class","center");
-    var globalFooterSpan = document.createElement("span");
-    globalFooterSpan.setAttribute("id","id_CopyRight");
-    var globalFooterP = document.createElement("span");
-    globalFooterP.setAttribute("id","id_LanguageImplementedBy");
-    globalFooter.appendChild(globalFooterSpan);
+    var globalFooterP = document.createElement("p");
+    globalFooterP.setAttribute("id","id_CopyRight");
+    var globalFooterP2 = document.createElement("p");
+    globalFooterP2.setAttribute("id","id_LanguageImplementedBy");
     globalFooter.appendChild(globalFooterP);
+    globalFooter.appendChild(globalFooterP2);
 
     globalBody.appendChild(globalNav);
     globalBody.appendChild(globalFooter);

@@ -1,3 +1,4 @@
+
 'use strict';
 
 // immediately self-evoking function (function () {..} ) ();
@@ -124,6 +125,7 @@ function addChangeEvents(event)
         } else if (selectionId == "appLanguageToUse" && selectionValue != "ChooseOne") { /* Application Language Selection */
             setApplicationLanguage(document.getElementById("appLanguageToUse").value.substring(22), true); // Change the Web Page Text Language
             applicationTextLanguageSelectedIndex = (document.getElementById("appLanguageToUse").value.substring(22)-1);
+            if (dashBoardFlag) showWorldView(); // if world view and language change: show World View (if a report it will be replaced with the map)
             // For the Language Pages: Take care of the second id_ChooseOne (double)
             if (currentEWorldPage == "Text Languages" || currentEWorldPage == "Data Languages") {
                 setTimeout(function() {
@@ -224,7 +226,7 @@ function runReports()
 {
     // (1) array one for Column Locations, (2) Headings Array select name addition, (3) Header creation
     var selectedFieldsArray = [];
-    var headingsArray = ["Count", "Country"];
+    var headingsArray = ["Count", selectedApplicationLanguageTexts["id_Country"]];
     var selectionValuesAsTitle = ""; // Reverse, Combine: None, And, Or..
     if (document.getElementById("id_RadioCombineReverseSearch").checked)
         selectionValuesAsTitle = "This is a Reverse Image of ";
@@ -234,22 +236,27 @@ function runReports()
         if (document.getElementById(x).options[0].value != document.getElementById(x).value) // used criteria
         {
             selectedFieldsArray.push(countrySelectableFeatureLocation[x]);
-            headingsArray.push(x);
-            selectionValuesAsTitle += categoryDescription[x] + " " + document.getElementById(x).options[document.getElementById(x).selectedIndex].innerHTML + " ";
-            if (combinedFlag == "id_RadioCombineAndSearch") selectionValuesAsTitle += "and ";
-            else if (combinedFlag == "id_RadioCombineOrSearch")  selectionValuesAsTitle += "or ";
+            headingsArray.push(selectedApplicationLanguageTexts["id_" + x]);
+            // categoryDescription[x]);           document.getElementById(x).options[document.getElementById(x).selectedIndex].innerHTML
+            // Text Language (ie: Religion)       Data language (ie: Buddism)
+            selectionValuesAsTitle += selectedApplicationLanguageTexts[categoryDescription[categoryDescription[x]]] + " " +
+                document.getElementById(x).options[document.getElementById(x).selectedIndex].innerHTML + " "; // this is the Data Language
+            if (combinedFlag == "id_RadioCombineAndSearch") selectionValuesAsTitle += selectedApplicationLanguageTexts["id_And"] + " ";
+            else if (combinedFlag == "id_RadioCombineOrSearch")  selectionValuesAsTitle += selectedApplicationLanguageTexts["id_Or"] + " ";
         }
     }
-    if (selectionValuesAsTitle.lastIndexOf(" or ") != -1 )
-        selectionValuesAsTitle = selectionValuesAsTitle.substring(0, selectionValuesAsTitle.lastIndexOf(" or "));
-    else if (selectionValuesAsTitle.lastIndexOf(" and ") != -1 )
-        selectionValuesAsTitle = selectionValuesAsTitle.substring(0, selectionValuesAsTitle.lastIndexOf(" and "));
+    if (selectionValuesAsTitle.lastIndexOf(" " + selectedApplicationLanguageTexts["id_Or"]) != -1 )
+        selectionValuesAsTitle = selectionValuesAsTitle.substring(0, selectionValuesAsTitle.lastIndexOf(" " + selectedApplicationLanguageTexts["id_Or"]));
+    else if (selectionValuesAsTitle.lastIndexOf(" " + selectedApplicationLanguageTexts["id_And"]) != -1 )
+        selectionValuesAsTitle = selectionValuesAsTitle.substring(0, selectionValuesAsTitle.lastIndexOf(" " + selectedApplicationLanguageTexts["id_And"]));
     if (combinedFlag == "id_RadioCombineNoneSearch" && !document.getElementById("id_RadioCombineReverseSearch").checked)
     {
         createATable("id_CountryListTable", headingsArray, searchedSelectFieldsFilteredCountries[(lastUsedFilter=="Income")?"GDP":lastUsedFilter],
             selectedFieldsArray, "", selectionValuesAsTitle, false, 13);
     }
-    else createATable("id_CountryListTable", headingsArray, filteredCountriesNames, selectedFieldsArray, "", selectionValuesAsTitle, false, 13);
+    else {
+        createATable("id_CountryListTable", headingsArray, filteredCountriesNames, selectedFieldsArray, "", selectionValuesAsTitle, false, 13);
+    }
     showReportPanel();
 }
 

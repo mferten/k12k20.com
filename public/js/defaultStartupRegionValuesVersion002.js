@@ -35,7 +35,13 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"id_SVGNationalFlags":"for the SVG National Flags","id_NationalAnthem":"for the National Anthems","id_LinuxServer":"for the Linux Server","id_AppLanguageToUseB":"Start with",' +
 '"id_WebServer":"for the Web Server","id_MailServer":"for the Mail Server","id_WorldFactsCia":"for the World Facts","id_WorldFactsWiki":"for the World Facts",' +
 '"id_HowItWorks":"How it works?","id_TechnologiesTitle":"Technologies","id_HowTechnologiesUsed":' +
-'"How the Technologies are Used?","id_InternationalizationI18n":"Internationalization(i18n)",' +
+'"How the Technologies are Used?","id_InternationalizationI18n":"Internationalization(i18n)","id_And":"And","id_Or":"Or",' +
+'"Flag Color":"Flag Color","Second Flag Color":"Second Flag Color","Third Flag Color":"Third Flag Color","Flag Shape":"Flag Shape","Second Flag Shape":"Second Flag Shape",' +
+'"Third Flag Shape":"Third Flag Shape","Cellular Phone":"Cellular Phone","Language":"Language","Population":"Population","Income - GDP":"Income - GDP",' +
+'"Overweight Ratio %":"Overweight Ratio %","Life Expectancy":"Life Expectancy","Internet Usage %":"Internet Usage %","R & D per GDP%":"R & D per GDP%",' +
+'"Clean Drinking Water %":"Clean Drinking Water %","Clean Toilet Facility %":"Clean Toilet Facility %","Capital Cities":"Capital Cities","Surface Area":"Surface Area",' +
+'"Oceans, Seas or Lakes":"Oceans, Seas or Lakes","Religion":"Religion","Driving Side":"Driving Side","Sex Ratio M per 100 F":"Sex Ratio M per 100 F",' +
+'"Seats Held By Women %" : "Seats Held By Women %",' +
 '"id_AboutTextOne":"- www.K12K20.com is a Web activity sand-box, a programming boot-camp and aims at being a community service while an educational web application.",' +
 '"id_AboutTextTwo":'+
 '"- It is both client and server centric. The Web Browser Local Storage is in use together with the PHP/Laravel/Eloquent and Java/Spring MVC/Hibernate web server features.",' +

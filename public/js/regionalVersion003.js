@@ -61,12 +61,12 @@ setTimeout(function () {
 
     var regionFooter = document.createElement("footer");
     regionFooter.setAttribute("class","center");
-    var regionFooterSpan = document.createElement("span");
-    regionFooterSpan.setAttribute("id","id_CopyRight");
-    var regionFooterP = document.createElement("span");
-    regionFooterP.setAttribute("id","id_LanguageImplementedBy");
-    regionFooter.appendChild(regionFooterSpan);
+    var regionFooterP = document.createElement("p");
+    regionFooterP.setAttribute("id","id_CopyRight");
+    var regionFooterP2 = document.createElement("p");
+    regionFooterP2.setAttribute("id","id_LanguageImplementedBy");
     regionFooter.appendChild(regionFooterP);
+    regionFooter.appendChild(regionFooterP2);
 
     regionBody.appendChild(regionNav);
     regionBody.appendChild(regionFooter);

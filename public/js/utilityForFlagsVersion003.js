@@ -995,13 +995,15 @@ function retrieveOneSelection(selectionId, optionValue)
         if (xhttpOneSelectionCountries.readyState == 4 && xhttpOneSelectionCountries.status == 200) {
             if (xhttpOneSelectionCountries.responseText != "no row") {
                 if (optionValue == "ListAscending" || optionValue == "ListDescending") { // return PHP string as a JSON object
-                    var header = ((optionValue == "ListAscending")?"Ascending List of ":"Descending List of ") + selectedApplicationLanguageTexts["id_"+selectionId];
+                    var header = ((optionValue == "ListAscending")?selectedApplicationLanguageTexts["id_ListAscending"]:selectedApplicationLanguageTexts["id_ListDescending"])
+                        + " " + selectedApplicationLanguageTexts["id_"+selectionId];
                     var countryIDArrayWithObjects = JSON.parse(xhttpOneSelectionCountries.responseText);
                     if (selectionId == "Color" || selectionId == "Shape" || selectionId == "Water" || selectionId == "Language" || selectionId == "Religion")
-                        createATable("id_CountryListTable", ["Count", selectionId, "Country"], countryIDArrayWithObjects, -999, "Object", header, false, 11);
+                        createATable("id_CountryListTable", ["Count", selectedApplicationLanguageTexts["id_" + selectionId],
+                            selectedApplicationLanguageTexts["id_Country"]], countryIDArrayWithObjects, -999, "Object", header, false, 11);
                     else // only one field, location is important
-                        createATable("id_CountryListTable", ["Count", "Country", selectionId], countryIDArrayWithObjects,
-                            [countrySelectableFeatureLocation[selectionId]], "", header, false, 11);
+                        createATable("id_CountryListTable", ["Count", selectedApplicationLanguageTexts["id_Country"],
+                            selectedApplicationLanguageTexts["id_" + selectionId]], countryIDArrayWithObjects,[countrySelectableFeatureLocation[selectionId]], "", header, false, 11);
                     showReportPanel();
                 }
                 else {

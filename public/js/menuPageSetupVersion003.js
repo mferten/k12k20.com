@@ -3,14 +3,15 @@
 initializationUtilityForAll(); // get the initial application values (default or saved)
 
 var startupProgram = startupValuesJSONObject.startWith;
-if (startupProgram && startupProgram == "id_Menu")
-{
+if (startupProgram && startupProgram == "id_Menu") {
     setMenuImage();
 }
-else
-{
+else {
     if (initialMenuItems[startupProgram]) initialMenuItems[startupProgram](startupProgram);
-    else console.log("a bug to fix: " + startupProgram + " doesn't exist!");
+    else {
+      setMenuImage(); // show menu if the selected application failed (shouldn't)
+      console.log("a bug to fix: " + startupProgram + " doesn't exist!");
+    }
 }
 
 function setMenuImage() {
@@ -39,12 +40,12 @@ function setMenuImage() {
         menuNav.setAttribute("class","center");
         var menuFooter = document.createElement("footer");
         menuFooter.setAttribute("class","center");
-        var menuFooterSpan = document.createElement("span");
-        menuFooterSpan.setAttribute("id","id_CopyRight");
-        var menuFooterP = document.createElement("span");
-        menuFooterP.setAttribute("id","id_LanguageImplementedBy");
-        menuFooter.appendChild(menuFooterSpan);
+        var menuFooterP = document.createElement("p");
+        menuFooterP.setAttribute("id","id_CopyRight");
+        var menuFooterP2 = document.createElement("p");
+        menuFooterP2.setAttribute("id","id_LanguageImplementedBy");
         menuFooter.appendChild(menuFooterP);
+        menuFooter.appendChild(menuFooterP2);
 
         var menuImage = document.createElement("img");
         menuImage.setAttribute("src","/images/_world.png");
