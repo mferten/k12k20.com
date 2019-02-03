@@ -134,7 +134,9 @@ setTimeout(function () {
     }
 
     rightLabelAndMainElementCodes(flagControllDivElement, mainElement, formDivElement);
-
+    // set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
+    if (typeof WorldFlags == 'undefined') setTimeout(function() { flags.innerHTML = decodeURIComponent(WorldFlags["flags"]); },200); // no ready yet
+    else flags.innerHTML = decodeURIComponent(WorldFlags["flags"]); // if defined Now  (can be done when the js/worldFlags.js external file onload!)
     // Some of the Select Option Values will be retrieved from Server (AJAX calls)
     setSelectOptionsFromServerData();
     setCombineValueCodes("was here");
@@ -143,7 +145,4 @@ setTimeout(function () {
     // only one region in World view map: 0, all countries in it
     worldMap.load();
     regionalGlobalInitialization();
-    // set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
-    if (typeof WorldFlags == 'undefined') setTimeout(function() { flags.innerHTML = decodeURIComponent(WorldFlags["flags"]); },200); // no ready yet
-    else flags.innerHTML = decodeURIComponent(WorldFlags["flags"]); // if defined Now  (can be done when the js/worldFlags.js external file onload!)
-},450);
+},550);
