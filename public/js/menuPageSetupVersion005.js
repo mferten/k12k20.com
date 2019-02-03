@@ -54,10 +54,12 @@ function setMenuImage() {
         menuImage.setAttribute("alt","World View");
         menuImage.setAttribute("id","menuWorldView");
         menuMain.appendChild(menuImage);
+
         menuBody.appendChild(menuHeader);
         menuBody.appendChild(menuMain);
         menuBody.appendChild(menuNav);
         menuBody.appendChild(menuFooter);
+
         if (document.body)
             document.getElementById("topHTML").replaceChild(menuBody, document.body);
         else document.getElementById("topHTML").appendChild(menuBody);

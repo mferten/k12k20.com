@@ -65,6 +65,8 @@ function createOneNavItem(navAId,navAClass,navTextId,navValue,navUlElement,navEl
 function startNavigationItem(event) {
     if (event.target && event.target.id && initialMenuItems[event.target.id]) {
         if (previousMenuItem != event.target.id) { // ignores the same menu selection (no extra navigation item creation: double triple...
+            if (event.target.id == "id_Searching" || event.target.id == "id_Surfing")
+                document.getElementById("menuWorldView").classList.add("moveTheMapWhileWaitingForAPage");
             initialMenuItems[event.target.id](event.target.id);
             previousMenuItem = event.target.id;
         }

@@ -84,8 +84,9 @@ var searchSelects = { "Color":"Color","Color2nd":"Color2nd","Color3rd":"Color3rd
     "Water":"Water","Religion":"Religion","Cell":"Cell","Internet":"Internet","RandD":"RandD","CleanWater":"CleanWater","CleanToilet":"CleanToilet","DrivingSide":"DrivingSide",
     "SexRatio":"SexRatio","SeatRatio":"SeatRatio"};
 
-var initialMenuItems = {"id_Menu":eWorldMenuSetup,"id_Searching":eWorldGlobalSetup,"id_Surfing":eWorldRegionalSetup,"id_Countries":eWorldCountriesSetup,"id_AboutMe":eWorldAboutSetup,
-    "id_Citations":eWorldCitationsSetup,"id_TextLanguages":eWorldTextLanguagesSetup,"id_DataLanguages":eWorldDataLanguagesSetup,"id_Register":eWorldStartupSetup,};
+var initialMenuItems = {"id_Menu":eWorldMenuSetup,"id_MenuStart":eWorldMenuSetup,"id_Searching":eWorldGlobalSetup,"id_Surfing":eWorldRegionalSetup,
+    "id_Countries":eWorldCountriesSetup,"id_AboutMe":eWorldAboutSetup,"id_Citations":eWorldCitationsSetup,"id_TextLanguages":eWorldTextLanguagesSetup,
+    "id_DataLanguages":eWorldDataLanguagesSetup,"id_Register":eWorldStartupSetup,};
 
 var combineMatrix = {"id_RadioCombineNoneSearch":"id_CombineSearchNone","id_RadioCombineAndSearch":"id_CombineSearchAnd","id_RadioCombineOrSearch":"id_CombineSearchOr"}
 
