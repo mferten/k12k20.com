@@ -74,7 +74,9 @@ setTimeout(function () {
     document.getElementById("topHTML").replaceChild(regionBody, document.body);
 
     // set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
-    setTheRegionFlags(startupValuesJSONObject.region, flags);
+    setTimeout(function() {
+        setTheRegionFlags(startupValuesJSONObject.region, flags);
+    }, 350);
 
     h2HeaderCodes();
 
@@ -103,10 +105,10 @@ setTimeout(function () {
     // process next time: otherwise start up time, the map will be loaded twice
     worldMapLoaded = false; // will stay false all the time
     regionalGlobalInitialization();
-}, 900);
+}, 500);
 
 setTimeout(function() {
     setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
         startupValuesJSONObject.language);
     document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
-},950);
+},550);

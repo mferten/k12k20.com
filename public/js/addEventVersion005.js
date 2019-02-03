@@ -205,8 +205,7 @@ function runDropDownSelection(selectionId, selectionValue)
         searchedSelectFields[selectionId] = true; // Flagged as Selected
         // Get the data
         retrieveOneSelection(selectionId, selectionValue); // in utilityForFlags
-        setTimeout(function ()
-        {
+        setTimeout(function () {
             if (combinedFlag == "id_RadioCombineNoneSearch") processOneSelection(false, selectionId); // "None"
             else if (combinedFlag == "id_RadioCombineAndSearch") processAndSelections(); // "And"
             else processOrSelections(); // "Or"

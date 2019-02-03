@@ -146,4 +146,4 @@ setTimeout(function () {
     // set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
     if (typeof WorldFlags == 'undefined') setTimeout(function() { flags.innerHTML = decodeURIComponent(WorldFlags["flags"]); },200); // no ready yet
     else flags.innerHTML = decodeURIComponent(WorldFlags["flags"]); // if defined Now  (can be done when the js/worldFlags.js external file onload!)
-},900);
+},450);

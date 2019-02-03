@@ -2,7 +2,6 @@
 
 currentEWorldPage = "AboutMe";
 var aboutBody = document.createElement("body");
-aboutBody.setAttribute("class","displayNone");
 aboutBody.setAttribute("name","about");
 
 var aboutHeader = document.createElement("header");
@@ -80,10 +79,6 @@ aboutAsideRight.appendChild(aboutAsideRihgtUl);
 aboutMain.appendChild(aboutAsideRight);
 
 createNavFooterAddIntoBodyAndReplaceBody(aboutBody, aboutHeader, aboutMain);
-setTimeout(function() {
-    aboutBody.classList.remove("displayNone");
-}, 50)
-
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
     setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));

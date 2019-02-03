@@ -209,7 +209,7 @@ setTimeout(function() { // this will activate the event listener on this page an
             document.getElementById(ii).addEventListener("click", countryCodesClickEvents, false);
         }
     }
-}, 850);
+}, 550);
 
 function setTheTableData()
 {

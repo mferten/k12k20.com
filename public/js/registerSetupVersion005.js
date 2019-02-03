@@ -157,8 +157,7 @@ setTimeout(function () {
 // Save the Startup Configuration into the Local Storage
 function saveStartupValues(startupValuesJSONObject)
 {
-    setTimeout(function()
-    {
+    setTimeout(function() {
         startupValuesJSONObject.language = document.getElementById('appLanguageToUseB').value; // Set the Application language
         startupValuesJSONObject.languageText =   document.getElementById('appLanguageToUseB').getElementsByTagName('option')
             [document.getElementById(startupValuesJSONObject.language).index].innerHTML; // Set the Application language Text
