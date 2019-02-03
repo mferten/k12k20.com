@@ -205,6 +205,7 @@ class ApplicationI18ntagsTableSeeder extends Seeder
             "id_StartWith" => 'id',
             "id_AppLanguageToUseB" => 'id',
             "id_Menu" => 'id',
+            "id_MenuStart" => 'id',
             "id_MenuUsage" => 'id',
             "id_Countries" => 'id'
         ];

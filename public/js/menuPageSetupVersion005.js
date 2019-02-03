@@ -3,11 +3,13 @@
 initializationUtilityForAll(); // get the initial application values (default or saved)
 
 var startupProgram = startupValuesJSONObject.startWith;
-if (startupProgram && startupProgram == "id_Menu") {
+if (startupProgram && startupProgram == "id_MenuStart") {
     setMenuImage();
 }
 else {
-    if (initialMenuItems[startupProgram]) initialMenuItems[startupProgram](startupProgram);
+    if (initialMenuItems[startupProgram]) {
+        initialMenuItems[startupProgram](startupProgram);
+    }
     else {
       setMenuImage(); // show menu if the selected application failed (shouldn't)
       console.log("a bug to fix: " + startupProgram + " doesn't exist!");
@@ -26,7 +28,7 @@ function setMenuImage() {
         var menuH1 = document.createElement("h1");
         menuH1.setAttribute("id","id_FirstMessage");
         menuH1.setAttribute("class","appLanguageSel");
-        menuH1.innerHTML = selectedApplicationLanguageTexts["id_Menu"];
+        menuH1.innerHTML = selectedApplicationLanguageTexts["id_MenuStart"];
         var menuH2 = document.createElement("h2");
         addApplicationLanguageSelectionDropDownBox(menuH2);
         menuHeader.appendChild(menuH1);

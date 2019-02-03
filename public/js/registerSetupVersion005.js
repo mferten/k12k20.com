@@ -6,7 +6,6 @@ currentEWorldPage = "Startup";
 dashBoardFlag = false;
 
 var registerBody =  document.createElement("body");
-registerBody.setAttribute("class","displayNone"); // don't show untit it is ready
 registerBody.setAttribute("name","register");
 var registerHeader = document.createElement("header");
 var registerH1 = document.createElement("h1");
@@ -98,7 +97,6 @@ flagOfCountriesFullName = startupValuesJSONObject.flagOfCountriesFullName; // in
 setTimeout(function() {
     setCombineValueCodes();
     registerMain.appendChild(registerForm);
-    document.getElementById("topHTML").replaceChild(registerBody, document.body);
     // Registration Button
     var saveTextSpan = getASpanElement("id_Save","appleIOSTop",selectedApplicationLanguageTexts["id_Save"]);
     var saveDiv = document.createElement("div");
@@ -131,6 +129,7 @@ setTimeout(function() {
     registerBody.appendChild(registerMain);
     registerBody.appendChild(registerNav);
     registerBody.appendChild(registerFooter);
+    document.getElementById("topHTML").replaceChild(registerBody, document.body);
     // start "js/addStartupValues.js"
     setStartupValues(startupValuesJSONObject);
     // set the Application Texts
@@ -140,7 +139,7 @@ setTimeout(function() {
     }, false);
     document.getElementById("id_RadioCombineReverseSearch").addEventListener("click", function(event) { processReverseRadioInput(event); }, false);
     setTheSelectedRegion(startupValuesJSONObject.region);
-}, 50);
+}, 150);
 
 setTimeout(function () {
     // Application Language retrieved by Ajax
@@ -155,10 +154,6 @@ setTimeout(function () {
     document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = "selected";
 }, 350);
 
-setTimeout(function () {
-    registerBody.classList.remove("displayNone");
-}, 450);
-
 // Save the Startup Configuration into the Local Storage
 function saveStartupValues(startupValuesJSONObject)
 {
@@ -172,8 +167,11 @@ function saveStartupValues(startupValuesJSONObject)
         startupValuesJSONObject.combine = document.forms[0].querySelector('input[name="combine"]:checked').value; // set Combine And Or
         startupValuesJSONObject.isReverse = document.getElementById('id_RadioCombineReverseSearch').checked; // set Reverse On/Off
         startupValuesJSONObject.startWith = startWithURL[document.getElementById('id_StartWithSelect').value]; // Set the Start With URL
-        startupValuesJSONObject.applicationLanguageText = selectedApplicationLanguageTextsB; // to startup Language as it is...
-        selectedApplicationLanguageTexts = selectedApplicationLanguageTextsB; // since Saving, start with the Selected (new) Application Language
+        if (selectedApplicationLanguageTextsB) {
+            selectedApplicationLanguageTexts = selectedApplicationLanguageTextsB; // since Saving, start with the Selected (new) Application Language
+            startupValuesJSONObject.applicationLanguageText = selectedApplicationLanguageTextsB; // to startup Language as it is...
+        }
+        // keep the default/current one
         // set the Region Values
         startupValuesJSONObject.flagOfCountries = flagOfCountries;
         startupValuesJSONObject.languageOfCountries = languageOfCountries;

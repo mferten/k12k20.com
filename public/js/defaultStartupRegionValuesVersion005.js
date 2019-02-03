@@ -26,7 +26,7 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"id_PanelTwoText":"Made a difference","id_PanelThreeText":"Music","id_PanelFourText":"People","id_PanelFiveText":"Animals","id_PanelSixText":"Shopping",' +
 '"id_PanelSevenText":"Food","id_PanelEightText":"Liveability","id_PanelTwoOneText":"Children","id_ListAscending":"List Ascending","id_ListDescending":"List Descending",' +
 '"title_CombineSearchReverse":"Reverse","id_Menu":"Nice to Meet the World","id_CountryCodes":"World Country Codes","id_CountryList":"World Countries",' +
-'"id_StartWith":"Start with","id_Searching":"World","id_CleanToiletDisplay":"Clean Restroom","id_CapitalCitiesDisplay":"Capital",' +
+'"id_StartWith":"Start with","id_Searching":"World","id_CleanToiletDisplay":"Clean Restroom","id_CapitalCitiesDisplay":"Capital","id_MenuStart":"Nice to Meet the World",' +
 '"id_Surfing":"World Regions","id_ElementarySchool":"Elementary School","id_MiddleSchool":"Middle School","id_HighSchool":"High School","id_College":"College",' +
 '"id_Please":"Please","id_SelectQuestion":"Ask a Question","id_FromCategory":"From the Categories","id_ShowAnswer":"Show the Answer","id_ShowCountry":"Show the Country",' +
 '"id_AnthemApple":"Anthem","id_GreetingApple":"Greeting","id_Countries":"World Countries","id_Save":"Save","id_DataLanguages_Ii18n":"World Languages",' +

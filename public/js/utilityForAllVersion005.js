@@ -75,8 +75,8 @@ var textB;
 var regionNumbers = {NorthAmerica:0, SouthAmerica:1, Europe:2, Africa:3, Oceania:4, Asia:5};
 var regionNames = {NorthAmerica:"North America", SouthAmerica:"South America", Europe:"Europe", Africa:"Africa", Oceania:"Australia & Oceania", Asia:"Asia"};
 
-var locationIndex = {"id_Menu": 0, "id_Searching": 1, "id_Surfing": 2, "id_Countries": 3};
-var startWithURL = {"Menu": "id_Menu", "eWorld Global": "id_Searching", "eWorld Regional": "id_Surfing", "eWorld Countries": "id_Countries"};
+var locationIndex = {"id_MenuStart": 0, "id_Searching": 1, "id_Surfing": 2, "id_Countries": 3};
+var startWithURL = {"Menu": "id_MenuStart", "eWorld Global": "id_Searching", "eWorld Regional": "id_Surfing", "eWorld Countries": "id_Countries"};
 
 // Searchable Select/Options fields
 var searchSelects = { "Color":"Color","Color2nd":"Color2nd","Color3rd":"Color3rd","Shape":"Shape","Shape2nd":"Shape2nd","Shape3rd":"Shape3rd","Language":"Language",
@@ -122,7 +122,7 @@ var noAscDesListing = {"Reports":"Reports","Country":"Country","Color2nd":"Color
     "Color3rd":"Color3rd","Shape2nd":"Shape2nd","Shape3rd":"Shape3rd"};
 
 var pageHeaderI18n = {"Text Languages":"id_TextLanguages", "Data Languages":"id_DataLanguages", "AboutMe":"id_AboutMe", "Citation":"id_Citations",
-    "eWorld Countries":"id_Countries", "Startup":"id_Register", "Menu":"id_Menu", "eWorld Global":"id_Searching", "eWorld Regional":"id_Surfing"};
+    "eWorld Countries":"id_Countries", "Startup":"id_Register", "Menu":"id_MenuStart", "eWorld Global":"id_Searching", "eWorld Regional":"id_Surfing"};
 
 // ****     2- Functions     ******
 
@@ -147,7 +147,6 @@ function initializationUtilityForAll() {
     flagOfCountries = startupValuesJSONObject.flagOfCountries;
     languageOfCountries = startupValuesJSONObject.languageOfCountries;
     flagOfCountriesFullName = startupValuesJSONObject.flagOfCountriesFullName;
-
     // Set the initial Application Language Text
     if (selectedApplicationLanguageTexts.length == 0) { // if blank retrieve otherwise keep it as selected: This is a SPA: a Single Page Application RCP.. Nice!
           selectedApplicationLanguageTexts = startupValuesJSONObject.applicationLanguageText;
@@ -219,7 +218,7 @@ function getStartupValues()
                               false,
                               "id_RadioCombineAndSearch",
                               false,
-                              "id_Menu",
+                              "id_MenuStart",
                               USAENGLISHAPPLICATIONLANGUAGETEXT,
                               NORTHAMERICANFLAGOFCOUNTRIES,
                               NORTHAMERICANLANGUAGEOFCOUNTRIES,
