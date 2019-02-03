@@ -46,7 +46,7 @@ var languageOfCountries = [];
 
 // Application Text
 var selectedApplicationLanguageTexts = [];
-var selectedApplicationLanguageTextsB = [];
+var selectedApplicationLanguageTextsB;
 
 var appleProduct = false;
 var iPhone = false;
