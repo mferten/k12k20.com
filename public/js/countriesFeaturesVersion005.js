@@ -296,7 +296,7 @@ var featuresOfAllCountries =
 						{ "value":"AI AIA 1-264", "feature":"CountryCodes", "comment":"AV"},
 						{ "value":"18.220554", "feature":"latitude", "comment":""},
 						{ "value":"-63.068615", "feature":"longitude", "comment":""},
-						{ "value":"XCD", "feature":"Currency", "comment":"East Carribbean Dollar"},
+						{ "value":"XCD", "feature":"Currency", "comment":"East Caribbean Dollar"},
 						{ "value":"82 M79 F84", "feature":"LifeExpectancyDisplay", "comment":""},
 						{ "value":"70.10", "feature":"Overweight", "comment":""},
 						{ "value":91, "feature":"LandArea", "comment":"km2"},
@@ -342,7 +342,7 @@ var featuresOfAllCountries =
 						{ "value":"AG ATG 1-268", "feature":"CountryCodes", "comment":"AC"},
 						{ "value":"17.125740", "feature":"latitude", "comment":""},
 						{ "value":"-61.829101", "feature":"longitude", "comment":""},
-						{ "value":"XCD", "feature":"Currency", "comment":"East Carribbean Dollar"},
+						{ "value":"XCD", "feature":"Currency", "comment":"East Caribbean Dollar"},
 						{ "value":"76 M73 F78", "feature":"LifeExpectancyDisplay", "comment":""},
 						{ "value":"70.10", "feature":"Overweight", "comment":""},
 						{ "value":442, "feature":"LandArea", "comment":"km2"},
@@ -808,7 +808,7 @@ var featuresOfAllCountries =
 						{ "value":"0.795 high", "feature":"HDI", "comment":""},
 						{ "value":"Bridgetown", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Bridgetown"},
 						{ "value":"English and Bajan", "feature":"LanguageDisplay", "comment":""},
-						{ "value":"Carribbean", "feature":"Water", "comment":""},
+						{ "value":"Caribbean", "feature":"Water", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"91.9", "feature":"SexRatio", "comment":""},
 						{ "value":"16.7", "feature":"SeatRatio", "comment":""},
@@ -1244,7 +1244,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"Kralendijk", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Kralendijk"},
 						{ "value":"Dutch", "feature":"Language", "comment":""},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"", "feature":"ReligionsDisplay", "comment":""},
 						{ "value":"", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -1438,7 +1438,7 @@ var featuresOfAllCountries =
 						{ "value":"0.89 high", "feature":"HDI", "comment":""},
 						{ "value":"Road Town", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Road_Town"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"97.1", "feature":"SexRatio", "comment":""},
 						{ "value":"N/A", "feature":"SeatRatio", "comment":""},
@@ -1994,7 +1994,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"George Town", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/George_Town,_Cayman_Islands"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Carribbean", "feature":"Water", "comment":""},
+						{ "value":"Caribbean", "feature":"Water", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -2199,7 +2199,7 @@ var featuresOfAllCountries =
 						{ "value":"0.727 high", "feature":"HDI", "comment":""},
 						{ "value":"Bogota", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Bogot%C3%A1"},
 						{ "value":"Spanish", "feature":"Language", "comment":""},
-						{ "value":"Pacific Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Pacific Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"96.8", "feature":"SexRatio", "comment":""},
 						{ "value":"18.7", "feature":"SeatRatio", "comment":""},
@@ -2214,7 +2214,7 @@ var featuresOfAllCountries =
 						{ "value":6056, "feature":"GDP", "comment":""},
 
 						{ "value":"Pacific", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 
 						{ "value":"Bogota", "feature":"CapitalCitiesPopulationDisplay", "comment":9764800},
 
@@ -2384,7 +2384,7 @@ var featuresOfAllCountries =
 						{ "value":"0.776 high", "feature":"HDI", "comment":""},
 						{ "value":"San Jose", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/San_Jos%C3%A9,_Costa_Rica"},
 						{ "value":"Spanish", "feature":"Language", "comment":""},
-						{ "value":"Pacific Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Pacific Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"100.1", "feature":"SexRatio", "comment":""},
 						{ "value":"35.1", "feature":"SeatRatio", "comment":""},
@@ -2399,7 +2399,7 @@ var featuresOfAllCountries =
 						{ "value":11000, "feature":"GDP", "comment":""},
 
 						{ "value":"Pacific", "feature":"WaterDisplay", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"WaterDisplay", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"WaterDisplay", "comment":"Sea"},
 
 						{ "value":"San Jose", "feature":"CapitalCitiesPopulationDisplay", "comment":1170200},
 
@@ -2555,7 +2555,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"Willemstad", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Willemstad"},
 						{ "value":"Dutch", "feature":"Language", "comment":""},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"", "feature":"ReligionsDisplay", "comment":""},
 						{ "value":"84.6", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -2823,7 +2823,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"Basse-Terre", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Basse-Terre"},
 						{ "value":"French", "feature":"Language", "comment":""},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -4298,7 +4298,7 @@ var featuresOfAllCountries =
 						{ "value":"0.754 high", "feature":"HDI", "comment":""},
 						{ "value":"Saint George's", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/St._George%27s,_Grenada"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"100.9", "feature":"SexRatio", "comment":""},
 						{ "value":"33.3", "feature":"SeatRatio", "comment":""},
@@ -4406,7 +4406,7 @@ var featuresOfAllCountries =
 						{ "value":"0.640 medium", "feature":"HDI", "comment":""},
 						{ "value":"Guatemala City", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Guatemala_City"},
 						{ "value":"Spanish and Maya (K'iche, Q'eqchi, Mam, Kaqchikel)", "feature":"LanguageDisplay", "comment":""},
-						{ "value":"Pacific Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Pacific Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"96.9", "feature":"SexRatio", "comment":""},
 						{ "value":"12.7", "feature":"SeatRatio", "comment":""},
@@ -4421,7 +4421,7 @@ var featuresOfAllCountries =
 						{ "value":3903, "feature":"GDP", "comment":""},
 
 						{ "value":"Pacific", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Spanish", "feature":"Language", "comment":""},
 						{ "value":"Maya", "feature":"Language", "comment":""},
 
@@ -7405,7 +7405,7 @@ var featuresOfAllCountries =
 						{ "value":"0.645 medium", "feature":"HDI", "comment":""},
 						{ "value":"Managua", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Managua"},
 						{ "value":"Spanish", "feature":"Language", "comment":""},
-						{ "value":"Pacific Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Pacific Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"97.2", "feature":"SexRatio", "comment":""},
 						{ "value":"45.7", "feature":"SeatRatio", "comment":""},
@@ -7420,7 +7420,7 @@ var featuresOfAllCountries =
 						{ "value":2086, "feature":"GDP", "comment":""},
 
 						{ "value":"Pacific", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 
 						{ "value":"Managua", "feature":"CapitalCitiesPopulationDisplay", "comment":956200},
 
@@ -7884,7 +7884,7 @@ var featuresOfAllCountries =
 						{ "value":"0.788 high", "feature":"HDI", "comment":""},
 						{ "value":"Panama City", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Panama_City"},
 						{ "value":"Spanish", "feature":"Language", "comment":""},
-						{ "value":"Pacific Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Pacific Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"100.4", "feature":"SexRatio", "comment":""},
 						{ "value":"18.3", "feature":"SeatRatio", "comment":""},
@@ -7899,7 +7899,7 @@ var featuresOfAllCountries =
 						{ "value":13000, "feature":"GDP", "comment":""},
 
 						{ "value":"Pacific", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 
 						{ "value":"Panama City", "feature":"CapitalCitiesPopulationDisplay", "comment":1672800},
 
@@ -8251,7 +8251,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"San Juan", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/San_Juan,_Puerto_Rico"},
 						{ "value":"Spanish and English", "feature":"LanguageDisplay", "comment":""},
-						{ "value":"Atlantic Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Atlantic Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"92.6", "feature":"SexRatio", "comment":""},
 						{ "value":"15.9", "feature":"SeatRatio", "comment":""},
@@ -8266,7 +8266,7 @@ var featuresOfAllCountries =
 						{ "value":28000, "feature":"GDP", "comment":""},
 
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Spanish", "feature":"Language", "comment":""},
 						{ "value":"English", "feature":"Language", "comment":""},
 
@@ -8720,7 +8720,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"Gustavia", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Gustavia,_Saint_Barth%C3%A9lemy"},
 						{ "value":"French", "feature":"Language", "comment":""},
-						{ "value":"Carribbean Sea and Atlantic Ocean", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Caribbean Sea and Atlantic Ocean", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -8734,7 +8734,7 @@ var featuresOfAllCountries =
 						{ "value":0, "feature":"Income", "comment":""},
 						{ "value":0, "feature":"GDP", "comment":""},
 
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
 
 						{ "value":"Gustavia", "feature":"CapitalCitiesPopulationDisplay", "comment":2300},
@@ -8818,7 +8818,7 @@ var featuresOfAllCountries =
 						{ "value":"0.765 high", "feature":"HDI", "comment":""},
 						{ "value":"Basseterre", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Basseterre"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Atlantic Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Atlantic Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"97", "feature":"SexRatio", "comment":""},
 						{ "value":"13.3", "feature":"SeatRatio", "comment":""},
@@ -8833,7 +8833,7 @@ var featuresOfAllCountries =
 						{ "value":16000, "feature":"GDP", "comment":""},
 
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 
 						{ "value":"Basseterre", "feature":"CapitalCitiesPopulationDisplay", "comment":14100},
 
@@ -8868,7 +8868,7 @@ var featuresOfAllCountries =
 						{ "value":"0.735 high", "feature":"HDI", "comment":""},
 						{ "value":"Castries", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Castries"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Atlantic Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Atlantic Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"95.9", "feature":"SexRatio", "comment":""},
 						{ "value":"16.7", "feature":"SeatRatio", "comment":""},
@@ -8883,7 +8883,7 @@ var featuresOfAllCountries =
 						{ "value":7839, "feature":"GDP", "comment":""},
 
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 
 						{ "value":"Castries", "feature":"CapitalCitiesPopulationDisplay", "comment":22200},
 
@@ -8914,7 +8914,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"Marigot", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Marigot,_Saint_Martin"},
 						{ "value":"French", "feature":"Language", "comment":""},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -9002,7 +9002,7 @@ var featuresOfAllCountries =
 						{ "value":"0.722 high", "feature":"HDI", "comment":""},
 						{ "value":"Kingstown", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Kingstown"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Atlantic Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Atlantic Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"101.7", "feature":"SexRatio", "comment":""},
 						{ "value":"13", "feature":"SeatRatio", "comment":""},
@@ -9017,7 +9017,7 @@ var featuresOfAllCountries =
 						{ "value":6739, "feature":"GDP", "comment":""},
 
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 
 						{ "value":"Kingstown", "feature":"CapitalCitiesPopulationDisplay", "comment":27300},
 
@@ -9486,7 +9486,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"Philipsburg", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Philipsburg,_Sint_Maarten"},
 						{ "value":"Dutch", "feature":"Language", "comment":""},
-						{ "value":"Carribbean Sea and Atlantic Ocean", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Caribbean Sea and Atlantic Ocean", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"95.7", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -9500,7 +9500,7 @@ var featuresOfAllCountries =
 						{ "value":1094000000, "feature":"Income", "comment":""},
 						{ "value":28241, "feature":"GDP", "comment":""},
 
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
 
 						{ "value":"Philipsburg", "feature":"CapitalCitiesPopulationDisplay", "comment":1327},
@@ -10753,7 +10753,7 @@ var featuresOfAllCountries =
 						{ "value":"0.780 high", "feature":"HDI", "comment":""},
 						{ "value":"Port of Spain", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Port_of_Spain"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Atlantic Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Atlantic Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity, Hinduism and Islam", "feature":"ReligionsDisplay", "comment":""},
 						{ "value":"97.1", "feature":"SexRatio", "comment":""},
 						{ "value":"31.0", "feature":"SeatRatio", "comment":""},
@@ -10768,7 +10768,7 @@ var featuresOfAllCountries =
 						{ "value":19000, "feature":"GDP", "comment":""},
 
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"Islam", "feature":"Religion", "comment":""},
 						{ "value":"Hinduism", "feature":"Religion", "comment":""},
@@ -10952,7 +10952,7 @@ var featuresOfAllCountries =
 						{ "value":"", "feature":"HDI", "comment":""},
 						{ "value":"Cockburn Town", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Cockburn_Town"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Carribbean Sea and Atlantic Ocean", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Caribbean Sea and Atlantic Ocean", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"104.1", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -10966,7 +10966,7 @@ var featuresOfAllCountries =
 						{ "value":863000000, "feature":"Income", "comment":""},
 						{ "value":25122, "feature":"GDP", "comment":""},
 
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
 
 						{ "value":"Cockburn Town", "feature":"CapitalCitiesPopulationDisplay", "comment":3700},
@@ -11311,7 +11311,7 @@ var featuresOfAllCountries =
 						{ "value":"0.89 high", "feature":"HDI", "comment":""},
 						{ "value":"Charlotte Amalie", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Charlotte_Amalie,_U.S._Virgin_Islands"},
 						{ "value":"English", "feature":"Language", "comment":""},
-						{ "value":"Atlantic Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Atlantic Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"91.1", "feature":"SexRatio", "comment":""},
 						{ "value":"", "feature":"SeatRatio", "comment":""},
@@ -11326,7 +11326,7 @@ var featuresOfAllCountries =
 						{ "value":36000, "feature":"GDP", "comment":""},
 
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 
 						{ "value":"Charlotte Amalie", "feature":"CapitalCitiesPopulationDisplay", "comment":51600},
 
@@ -11633,7 +11633,7 @@ var featuresOfAllCountries =
 						{ "value":"0.767 high", "feature":"HDI", "comment":""},
 						{ "value":"Caracas", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Caracas"},
 						{ "value":"Spanish", "feature":"Language", "comment":""},
-						{ "value":"Atlantic Ocean and Carribbean Sea", "feature":"WaterDisplay", "comment":""},
+						{ "value":"Atlantic Ocean and Caribbean Sea", "feature":"WaterDisplay", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 						{ "value":"99", "feature":"SexRatio", "comment":""},
 						{ "value":"22.2", "feature":"SeatRatio", "comment":""},
@@ -11648,7 +11648,7 @@ var featuresOfAllCountries =
 						{ "value":11000, "feature":"GDP", "comment":""},
 
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Carribbean", "feature":"Water", "comment":"Sea"},
+						{ "value":"Caribbean", "feature":"Water", "comment":"Sea"},
 
 						{ "value":"Caracas", "feature":"CapitalCitiesPopulationDisplay", "comment":2916200},
 

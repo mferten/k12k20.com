@@ -192,6 +192,25 @@ li a:hover {
     box-shadow: .1rem .3rem .5rem .2rem #eab358;
 }
 
+.wrapProgress {
+  width:40%;
+  margin:4em auto;
+}
+
+.fillProgress {
+  animation: chargeProgress 1s cubic-bezier(.17,.67,.54,.99), changeColProgress 1s ease-out forwards;
+}
+
+@keyframes chargeProgress {
+  0% {transform: scaleX(0.1);}
+  100% {transform: scaleX(1);}
+}
+
+@keyframes changeColProgress {
+	0%, 30% {fill: red;}
+	45%, 100% {fill:#72CC58;}
+}
+
 .marginOnSidesABit {
     margin: 0 .3rem;
 }

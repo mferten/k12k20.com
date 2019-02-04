@@ -139,7 +139,7 @@ setTimeout(function () {
     // If there is a country and a new language is selected (changed): Retrieve the data
     document.getElementById("appLanguage").addEventListener("change", changeEvents, false);
     // Save Button is selected
-    document.getElementById("id_SaveStartupValues").addEventListener("click", clickedSaveButton, false);    
+    document.getElementById("id_SaveStartupValues").addEventListener("click", clickedSaveButton, false);
 }, 250);
 
 // Application Language Drop Down (Select/Options) for Based Application Language Selection: Accent Entry...
@@ -1579,7 +1579,6 @@ var usaAppLanTexts = [ // for Gini: low/medium/high
     "Water: Bismarck",
     "Water: Black",
     "Water: Caribbean",
-    "Water: Carribbean",
     "Water: Caspian",
     "Water: Celebes",
     "Water: Celtic",

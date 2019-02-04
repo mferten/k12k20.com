@@ -65,8 +65,8 @@ function createOneNavItem(navAId,navAClass,navTextId,navValue,navUlElement,navEl
 function startNavigationItem(event) {
     if (event.target && event.target.id && initialMenuItems[event.target.id]) {
         if (previousMenuItem != event.target.id) { // ignores the same menu selection (no extra navigation item creation: double triple...
-            if (event.target.id == "id_Searching" || event.target.id == "id_Surfing")
-                document.getElementById("menuWorldView").classList.add("moveTheMapWhileWaitingForAPage");
+            if (event.target.id == "id_Searching" || event.target.id == "id_Surfing" || event.target.id == "id_Countries")
+                document.getElementById("id_LiSearching").innerHTML = '<svg width="100%" height="2.1rem" viewBox="0 0 219.5 66"><g><rect class="fillProgress" x="4.583" y="5" fill="#72CC58" width="198.879" height="56"/></g><g><path class="outline" fill="#cc496a" d="M219.5,14.25h-11.456V0H0v66h208.044V51.75H219.5V14.25z M198.879,56H9.165V10h189.714V56z"/></g></svg>';
             initialMenuItems[event.target.id](event.target.id);
             previousMenuItem = event.target.id;
         }
