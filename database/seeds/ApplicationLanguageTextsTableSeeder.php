@@ -20,15 +20,17 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
      */
      public function run()
      {
-         # Load Only USA English and TR Turkish texts: No user access
+         # These are the final text for any defined Language: For now USA English and Turkey Turkish and Slovakia Slovak
          /*
+             Turkish Alphabet:
+
              A B C Ç D E F G Ğ H I İ J K L M N O Ö P R S Ş T U Ü V Y Z
              Vowels: a, e, ı, i, o, ö, u, ü
              Consonants: b, c, ç, d, f, g, ğ, h, j, k, l, m, n, p, r, s, ş, t, v, y, z
 
          */
          $textsTR = [   'id_Required' => 'gerekli',
-                        // from here to "to here" these are for the Table Title Column Information
+                        // from here to "to here" these are for the Report Table Title Column Information
                         'Language Name' => 'Dil',
                         'Population Name' => 'Nüfus',
                         'Religion Name' => 'Din',
@@ -52,7 +54,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'Driving Side' => 'Sürüş tarafı',
                         'Sex Ratio M per 100 F' => '100 Kadına kaç Erkek',
                         'Seats Held By Women %' => 'Kadınların Mecliste Oranı',
-                        // to here these are for the Table Title Column Information
+                        // to here these are for the Report Table Title Column Information
                         'id_And' => 'Ve',
                         'id_Or' => 'Veya',
                         'id_Basics' => 'Temeller',
@@ -222,7 +224,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                     ];
 
          $textsSK = [   'id_Required' => 'požadovaný',
-                        // from here to "to here" these are for the Table Title Column Information
+                        // from here to "to here" these are for the Report Table Title Column Information
                         'Language Name' => 'Jazyk',
                         'Population Name' => 'Populácia',
                         'Religion Name' => 'Náboženstvo',
@@ -246,7 +248,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'Driving Side' => 'Vedenie vozidla',
                         'Sex Ratio M per 100 F' => 'Pomer pohlavia M na 100 Ž',
                         'Seats Held By Women %' => 'Zastúpenie žien vo vláde %',
-                        // to here these are for the Table Title Column Information
+                        // to here these are for the Report Table Title Column Information
                         'id_And' => 'A',
                         'id_Or' => 'Alebo',
                         'id_Basics' => 'Základy',
@@ -416,7 +418,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                     ];
 
         $textsUSA = [   'id_Required' => 'required',
-                        // from here to "to here" these are for the Table Title Column Information
+                        // from here to "to here" these are for the Report Table Title Column Information
                         'Language Name' => 'Language',
                         'Population Name' => 'Population',
                         'Religion Name' => 'Religion',
@@ -440,7 +442,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'Driving Side' => 'Driving Side',
                         'Sex Ratio M per 100 F' => 'Sex Ratio M per 100 F',
                         'Seats Held By Women %' => 'Seats Held By Women %',
-                         // to here these are for the Table Title Column Information
+                         // to here these are for the Report Table Title Column Information
                         'id_And' => 'And',
                         'id_Or' => 'Or',
                         'id_Basics' => 'Basics',
@@ -627,6 +629,10 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                  'text' => $text,
              ]);
          }
+
+         # Initiate a new timestamp
+         $timestamp = Carbon\Carbon::now()->toDateTimeString(); # same is OK
+
          // Insert TurkeyTurkish Texts
          $countryId = Country::getCountryIdFromName('Slovakia');
          $languageId = Language::getLanguageId('Slovak');
@@ -635,13 +641,17 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
          {
              $applicationI18ntag = ApplicationI18ntag::getApplicationI18ntagId($key);
              ApplicationLanguageText::insert([
-                 #'created_at' => $timestamp,
-                 #'updated_at' => $timestamp,
+                 'created_at' => $timestamp,
+                 'updated_at' => $timestamp,
                  'application_language_id' => $applicationLanguage,
                  'application_i18ntag_id' => $applicationI18ntag,
                  'text' => $text,
              ]);
          }
+
+         # Initiate a new timestamp
+         $timestamp = Carbon\Carbon::now()->toDateTimeString(); # same is OK
+
          // Insert USA English Texts
          $countryId = Country::getCountryIdFromName('USA');
          $languageId = Language::getLanguageId('English');
@@ -650,8 +660,8 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
          {
              $applicationI18ntag = ApplicationI18ntag::getApplicationI18ntagId($key);
              ApplicationLanguageText::insert([
-                 #'created_at' => $timestamp,
-                 #'updated_at' => $timestamp,
+                 'created_at' => $timestamp,
+                 'updated_at' => $timestamp,
                  'application_language_id' => $applicationLanguage,
                  'application_i18ntag_id' => $applicationI18ntag,
                  'text' => $text,

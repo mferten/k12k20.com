@@ -36,6 +36,7 @@ return array(
     'App\\Utility' => $baseDir . '/app/Utility.php',
     'ApplicationI18ntagsTableSeeder' => $baseDir . '/database/seeds/ApplicationI18ntagsTableSeeder.php',
     'ApplicationLanguageData' => $baseDir . '/database/migrations/2019_01_21_213756_application_language_data.php',
+    'ApplicationLanguageDataTableSeeder' => $baseDir . '/database/seeds/ApplicationLanguageDataTableSeeder.php',
     'ApplicationLanguageTextsTableSeeder' => $baseDir . '/database/seeds/ApplicationLanguageTextsTableSeeder.php',
     'ApplicationLanguages' => $baseDir . '/database/migrations/2017_05_01_133606_application_languages.php',
     'ApplicationLanguagesTableSeeder' => $baseDir . '/database/seeds/ApplicationLanguagesTableSeeder.php',

@@ -319,6 +319,7 @@ class ComposerStaticInit7a0997a7e484c7912ff9b4bb199de39b
         'App\\Utility' => __DIR__ . '/../..' . '/app/Utility.php',
         'ApplicationI18ntagsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ApplicationI18ntagsTableSeeder.php',
         'ApplicationLanguageData' => __DIR__ . '/../..' . '/database/migrations/2019_01_21_213756_application_language_data.php',
+        'ApplicationLanguageDataTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ApplicationLanguageDataTableSeeder.php',
         'ApplicationLanguageTextsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ApplicationLanguageTextsTableSeeder.php',
         'ApplicationLanguages' => __DIR__ . '/../..' . '/database/migrations/2017_05_01_133606_application_languages.php',
         'ApplicationLanguagesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ApplicationLanguagesTableSeeder.php',

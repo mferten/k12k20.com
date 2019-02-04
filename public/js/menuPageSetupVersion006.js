@@ -49,15 +49,11 @@ function setMenuImage() {
         menuFooter.appendChild(menuFooterP);
         menuFooter.appendChild(menuFooterP2);
 
-        var menuImageDiv = document.createElement("div");
-        menuImageDiv.setAttribute("id","menuWorldViewImgDiv");
-        menuImageDiv.setAttribute("class","wrapProgress");
         var menuImage = document.createElement("img");
         menuImage.setAttribute("src","/images/_world.png");
         menuImage.setAttribute("alt","World View");
         menuImage.setAttribute("id","menuWorldView");
-        menuImageDiv.appendChild(menuImage);
-        menuMain.appendChild(menuImageDiv);
+        menuMain.appendChild(menuImage);
 
         menuBody.appendChild(menuHeader);
         menuBody.appendChild(menuMain);
