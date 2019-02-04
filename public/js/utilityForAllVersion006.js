@@ -131,7 +131,7 @@ var pageHeaderI18n = {"Text Languages":"id_TextLanguages", "Data Languages":"id_
 function initializationUtilityForAll() {
     // versionNumber must match to the Local Storage, if not (for now) Delete the Storage to start a new: Version II, it will it will be upgraded
     // With Version II, the Local Storage will only have the version Number: All the files/objects will be in indexedDB: max is 50 MB not 10MB
-    versionNumber = "1.91";
+    versionNumber = "1.92";
     applicationStarted = false;
     worldMapLoaded = true;
     previousCombineOption = -1; // dashboard and register using
@@ -163,35 +163,35 @@ function eWorldMenuSetup() {
 }
 
 function eWorldGlobalSetup() {
-    importAnExternalJSFile("id_Searching", "js/globalVersion005.js", "Searching", false); // import a javascript external file
+    importAnExternalJSFile("id_Searching", "js/globalVersion006.js", "Searching", false); // import a javascript external file
 }
 
 function eWorldRegionalSetup() {
-    importAnExternalJSFile("id_Surfing", "js/regionalVersion005.js", "Surfing", false); // import a javascript external file
+    importAnExternalJSFile("id_Surfing", "js/regionalVersion006.js", "Surfing", false); // import a javascript external file
 }
 
 function eWorldCountriesSetup() {
-    importAnExternalJSFile("id_Countries", "js/countryCodesSetupVersion005.js", "CountryCodes", false); // import a javascript external file
+    importAnExternalJSFile("id_Countries", "js/countryCodesSetupVersion006.js", "CountryCodes", false); // import a javascript external file
 }
 
 function eWorldStartupSetup(  ) {
-    importAnExternalJSFile("id_Register", "js/registerSetupVersion005.js", "Register", true); // import a javascript external file
+    importAnExternalJSFile("id_Register", "js/registerSetupVersion006.js", "Register", true); // import a javascript external file
 }
 
 function eWorldCitationsSetup() {
-    importAnExternalJSFile("id_Citations", "js/citationsVersion005.js", "Citations", true); // import a javascript external file
+    importAnExternalJSFile("id_Citations", "js/citationsVersion006.js", "Citations", true); // import a javascript external file
 }
 
 function eWorldAboutSetup() {
-    importAnExternalJSFile("id_AboutMe", "js/aboutMeVersion005.js", "AboutMe", true); // import a javascript external file
+    importAnExternalJSFile("id_AboutMe", "js/aboutMeVersion006.js", "AboutMe", true); // import a javascript external file
 }
 
 function eWorldTextLanguagesSetup() {
-    importAnExternalJSFile("id_TextLanguages", "js/textLanguagesVersion005.js", "TextLanguages", true); // import a javascript external file
+    importAnExternalJSFile("id_TextLanguages", "js/textLanguagesVersion006.js", "TextLanguages", true); // import a javascript external file
 }
 
 function eWorldDataLanguagesSetup() {
-    importAnExternalJSFile("id_DataLanguages", "js/dataLanguagesVersion005.js", "DataLanguages", true); // import a javascript external file
+    importAnExternalJSFile("id_DataLanguages", "js/dataLanguagesVersion006.js", "DataLanguages", true); // import a javascript external file
 }
 
 function isAppleProduct()
