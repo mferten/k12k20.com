@@ -423,12 +423,12 @@ function getAllApplicationLanguageData()
         if (xhttploadTagsAllData.readyState == 4 && xhttploadTagsAllData.status == 200)
         {
             var allValues = JSON.parse(xhttploadTagsAllData.responseText);
-            var allValuesArray = [];
+            var allValuesInAString = ""; // a string
             for (var oneValue in allValues) {
 
-                allValuesArray.push(allValues[oneValue]["this_language_feature_value"]);
+                allValuesInAString += '"' + allValues[oneValue]["this_language_feature_value"] + '",';
             }
-            console.log(encodeURIComponent(allValuesArray.toString()));
+            console.log(allValuesInAString);
         }
     };
     xhttploadTagsAllData.open("GET", "/ajax/dataSeeder", true);
