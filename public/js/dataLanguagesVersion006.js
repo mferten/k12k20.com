@@ -428,7 +428,7 @@ function getAllApplicationLanguageData()
 
                 allValuesArray.push(allValues[oneValue]["this_language_feature_value"]);
             }
-            console.log(allValuesArray.toString());
+            console.log(encodeURIComponent(allValuesArray.toString()));
         }
     };
     xhttploadTagsAllData.open("GET", "/ajax/dataSeeder", true);
