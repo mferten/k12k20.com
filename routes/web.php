@@ -101,8 +101,11 @@ Route::get('/ajax/retrieveAnswersForAQuestion', 'Flags\FlagController@retrieveAn
 # Ajax call to retrieve the Application Language Texts (Read)
 Route::get('/ajax', 'Languages\LanguageController@texts');
 
-# Ajax call to retrieve the Application Language Texts (CRUD)
+# Ajax call to retrieve the Application Language Data (CRUD)
 Route::get('/ajax/data', 'Languages\LanguageController@crudData');
+
+# Ajax call to retrieve the Application Language Data for the Seeder (CRUD)
+Route::get('/ajax/dataSeeder', 'Languages\LanguageController@crudDataForSeeder');
 
 # Ajax call to retrieve the Application Language Texts (CRUD)
 Route::get('/ajax/texts', 'Languages\LanguageController@crudTexts');

@@ -54,12 +54,12 @@ citationMain.appendChild(citationAside);
 createNavFooterAddIntoBodyAndReplaceBody(citationBody, citationHeader, citationMain);
 setTimeout(function() {
     citationBody.classList.remove("displayNone");
-}, 50)
+}, 150)
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
     setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
-    document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;    
+    document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
 }, 450);
 
 function addCitationPBlock(imageSource, aText, pText, URL, idName)

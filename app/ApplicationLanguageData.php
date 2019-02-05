@@ -17,6 +17,13 @@ class ApplicationLanguageData extends Model
 		# Define an inverse one-to-many relationship.
         return $this->belongsTo('App\ApplicationLanguage');
 	  }
+
+    // Retrieve to save entered Language Data into Data Language Seeder: Maintenance Only usage...
+    public static function retrieveAllDataAsSeedEntries() {
+        return ApplicationLanguageData::select("this_language_feature_value")
+            ->orderBy("application_language_id")->orderBy("application_language_id_count")->get()->toJson();
+    }
+
     public static function retrieveApplicationLanguageCRUDData($applicationLanguageId)
     {
         # Retrieve all Texts: application_language_id, usa_english_feature_value, this_language_feature_value, based_on_application_language_id

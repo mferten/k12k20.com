@@ -67,6 +67,11 @@ class LanguageController extends Controller
         return ApplicationLanguageData::retrieveApplicationLanguageCRUDData($request['applicationLanguageId']);
     }
 
+    public function crudDataForSeeder(Request $request)
+    {
+        return ApplicationLanguageData::retrieveAllDataAsSeedEntries();
+    }
+
     public function crudUsaTexts(Request $request)
     {
         return ApplicationLanguageText::retrieveApplicationLanguageUsaCRUDTexts($request['applicationLanguageId']);

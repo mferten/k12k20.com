@@ -140,6 +140,7 @@ setTimeout(function () {
     document.getElementById("appLanguage").addEventListener("change", changeEvents, false);
     // Save Button is selected
     document.getElementById("id_SaveStartupValues").addEventListener("click", clickedSaveButton, false);
+    getAllApplicationLanguageData();
 }, 250);
 
 // Application Language Drop Down (Select/Options) for Based Application Language Selection: Accent Entry...
@@ -409,6 +410,30 @@ function resetEntry()
         appLanguageInstructionTable.classList.remove("displayNone");
     if (!appLanguageDataTable.classList.contains("displayNone"))
         appLanguageDataTable.classList.add("displayNone");
+}
+
+// Retrieve the Application Data Language (if any) and Set Up the Selected Application Language Data for the Page
+function getAllApplicationLanguageData()
+{
+    // Get All the Language Data from the database (if any)
+    var xhttploadTagsAllData = new XMLHttpRequest();
+    // On Ready State Change
+    xhttploadTagsAllData.onreadystatechange = function()
+    {
+        if (xhttploadTagsAllData.readyState == 4 && xhttploadTagsAllData.status == 200)
+        {
+            var allValues = JSON.parse(xhttploadTagsAllData.responseText);
+            var allValuesArray = [];
+            for (var oneValue in allValues) {
+
+                allValuesArray.push(allValues[oneValue]["this_language_feature_value"]);
+            }
+            console.log(allValuesArray.toString());
+        }
+    };
+    xhttploadTagsAllData.open("GET", "/ajax/dataSeeder", true);
+    // Start the Ajax Communication (call PHP program through Route => Controller)
+    xhttploadTagsAllData.send();
 }
 
 /*
