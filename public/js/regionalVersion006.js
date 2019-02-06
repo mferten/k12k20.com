@@ -75,7 +75,7 @@ setTimeout(function () {
 
     // set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
     setTheRegionFlags(startupValuesJSONObject.region, flags);
-    
+
     h2HeaderCodes();
 
     muteTheSoundCodes(regionNames[startupValuesJSONObject.region]);
@@ -103,10 +103,9 @@ setTimeout(function () {
     // process next time: otherwise start up time, the map will be loaded twice
     worldMapLoaded = false; // will stay false all the time
     regionalGlobalInitialization();
+    setTimeout(function() {
+        setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
+            startupValuesJSONObject.language);
+        document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
+    },150);
 }, 800);
-
-setTimeout(function() {
-    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
-        startupValuesJSONObject.language);
-    document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
-},550);
