@@ -145,4 +145,4 @@ setTimeout(function () {
     // only one region in World view map: 0, all countries in it
     worldMap.load();
     regionalGlobalInitialization();
-},550);
+},850);
