@@ -12,7 +12,6 @@
  */
 
 // ****     1- Variables     ******
-
 var versionNumber; // a string: keeping the decimals: // application version
 var applicationStarted;
 var applicationLanguageDropDownValuesStartedFlag = false; // only once to be retrieved the initial value.

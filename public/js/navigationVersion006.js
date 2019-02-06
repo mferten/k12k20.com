@@ -31,11 +31,15 @@ function createNavigationTags(navElement)
         // About Me Box
         createOneNavItem("workWithAboutMe","appLanguageSel","id_AboutMe","AboutMe",navUlElement,navElement,whereNav);
         // Blank Line
-        createOneNavItemBlank(navUlElement);
+        createOneNavItemBlank(navUlElement); console.log(window.location.hostname.toUpperCase());
         // Application Text Languages
-        createOneNavItem("workWithApplicationTextLanguage","appLanguageSel","id_TextLanguages","TextLanguages",navUlElement,navElement,whereNav);
-        // Application Data Languages
-        createOneNavItem("workWithApplicationDataLanguage","appLanguageSel","id_DataLanguages","DataLanguages",navUlElement,navElement,whereNav);
+        // only k12k20.com will show The Application Text and Data Langauge Maintenance
+        if (window.location.hostname.toUpperCase() == "K12K20.COM" || window.location.hostname.toUpperCase() == "K12K20.LOC")
+        {
+            createOneNavItem("workWithApplicationTextLanguage","appLanguageSel","id_TextLanguages","TextLanguages",navUlElement,navElement,whereNav);
+            // Application Data Languages
+            createOneNavItem("workWithApplicationDataLanguage","appLanguageSel","id_DataLanguages","DataLanguages",navUlElement,navElement,whereNav);
+        }
     }
     else createOneNavItem("menu","appLanguageSel","id_Menu","Menu",navUlElement,navElement,whereNav);
 }

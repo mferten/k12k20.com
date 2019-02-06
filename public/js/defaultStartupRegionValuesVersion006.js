@@ -32,7 +32,7 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"id_AnthemApple":"Anthem","id_GreetingApple":"Greeting","id_Countries":"World Countries","id_Save":"Save","id_DataLanguages_Ii18n":"World Languages",' +
 '"id_LanguagePlaceHolder":"- Please Select a Country and a Language -","id_AmericanEnglish":"USA English","id_AmericanEnglishInOtherLanguage":"Translated Text",' +
 '"id_EWorldMagic":"www.K12K20.com Got the Magic, Thanks to","id_InteractiveMaps":"for the Interactive Maps","id_CountryInformation":"for the Country Facts",' +
-'"id_SVGNationalFlags":"for the SVG National Flags","id_NationalAnthem":"for the National Anthems","id_LinuxServer":"for the Linux Server","id_AppLanguageToUseB":"Start with",' +
+'"id_SVGNationalFlags":"for the SVG National Flags","id_NationalAnthem":"for the National Anthems","id_LinuxServer":"for the Linux Server","id_AppLanguageToUseB":"Application Language",' +
 '"id_WebServer":"for the Web Server","id_MailServer":"for the Mail Server","id_WorldFactsCia":"for the World Facts","id_WorldFactsWiki":"for the World Facts",' +
 '"id_HowItWorks":"How it works?","id_TechnologiesTitle":"Technologies","id_HowTechnologiesUsed":' +
 '"How the Technologies are Used?","id_InternationalizationI18n":"Internationalization(i18n)","id_And":"And","id_Or":"Or",' +
