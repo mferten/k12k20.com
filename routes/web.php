@@ -44,18 +44,6 @@ Route::get('/webTechnologiesUsage', 'Flags\FlagController@webTechnologiesUsage')
 # i18n Internationalization Video
 Route::get('/i18nUsage', 'Flags\FlagController@i18nUsage');
 
-# Fix the Map (drag and drop flags)
-Route::get('/fix', 'Flags\FlagController@fix');
-
-# Fill the Map with the Flags
-Route::get('/fill', 'Flags\FlagController@fill');
-
-# Flag and Country Searching through the World View
-Route::get('/searching', 'Flags\FlagController@searching');
-
-# Flag and Country Surfing through a Region View
-Route::get('/surfing', 'Flags\FlagController@surfing');
-
 # Ajax call to retrieve the Region's all Country Information
 Route::get('/ajax/region', 'Flags\FlagController@regionInfo');
 

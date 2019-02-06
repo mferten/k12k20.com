@@ -31,7 +31,7 @@ function createNavigationTags(navElement)
         // About Me Box
         createOneNavItem("workWithAboutMe","appLanguageSel","id_AboutMe","AboutMe",navUlElement,navElement,whereNav);
         // Blank Line
-        createOneNavItemBlank(navUlElement); console.log(window.location.hostname.toUpperCase());
+        createOneNavItemBlank(navUlElement);
         // Application Text Languages
         // only k12k20.com will show The Application Text and Data Langauge Maintenance
         if (window.location.hostname.toUpperCase() == "WWW.K12K20.COM" || window.location.hostname.toUpperCase() == "K12K20.COM"

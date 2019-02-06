@@ -362,8 +362,7 @@ function countryCodesClickEvents(event)
 function countryCodesChangeEvents(event)
 {
     if (event.target.id == "appLanguageToUse") {
-        setApplicationLanguage(document.getElementById("appLanguageToUse").value.substring(22), true); // Change the Web Page Text Language
-        applicationTextLanguageSelectedIndex = (document.getElementById("appLanguageToUse").value.substring(22)-1);
+        window.open(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)], "_self");
     }
 }
 

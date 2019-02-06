@@ -124,6 +124,8 @@ var noAscDesListing = {"Reports":"Reports","Country":"Country","Color2nd":"Color
 var pageHeaderI18n = {"Text Languages":"id_TextLanguages", "Data Languages":"id_DataLanguages", "AboutMe":"id_AboutMe", "Citation":"id_Citations",
     "eWorld Countries":"id_Countries", "Startup":"id_Register", "Menu":"id_MenuStart", "eWorld Global":"id_Searching", "eWorld Regional":"id_Surfing"};
 
+var applicationHrefs = {1:"http://www.k12k20.com/",2:"http://www.k12k20tr.com/",3:"http://www.k12k20sk.com/"};
+
 // ****     2- Functions     ******
 
 // execute this method for each Page requires this external JS file (acts af if it just opened for the requested SPA page)

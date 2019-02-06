@@ -123,19 +123,7 @@ function addChangeEvents(event)
         if (selectionName == "region") {
             processRegionPlus(selectionValue, true);
         } else if (selectionId == "appLanguageToUse" && selectionValue != "ChooseOne") { /* Application Language Selection */
-            setApplicationLanguage(document.getElementById("appLanguageToUse").value.substring(22), true); // Change the Web Page Text Language
-            applicationTextLanguageSelectedIndex = (document.getElementById("appLanguageToUse").value.substring(22)-1);
-            if (dashBoardFlag) showWorldView(); // if world view and language change: show World View (if a report it will be replaced with the map)
-            // For the Language Pages: Take care of the second id_ChooseOne (double)
-            if (currentEWorldPage == "Text Languages" || currentEWorldPage == "Data Languages") {
-                setTimeout(function() {
-                    document.getElementById("appLanguage").options[0].innerHTML = selectedApplicationLanguageTexts["id_ChooseOne"];
-                    if (document.getElementById("appCountry"))
-                        document.getElementById("appCountry").options[0].innerHTML = selectedApplicationLanguageTexts["id_ChooseOne"];
-                    if (document.getElementById("appLanguageToUseB"))
-                        document.getElementById("appLanguageToUseB").options[0].innerHTML = selectedApplicationLanguageTexts["id_ChooseOne"];
-                },300);
-            }
+            window.open(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)], "_self");            
         } else if (selectionId == "id_CheckBoxPlaySounds") { // Sound Off
             playSoundsChanged();
         } else if (selectionId == "Country") { // a Country/Entity
