@@ -34,7 +34,8 @@ function createNavigationTags(navElement)
         createOneNavItemBlank(navUlElement); console.log(window.location.hostname.toUpperCase());
         // Application Text Languages
         // only k12k20.com will show The Application Text and Data Langauge Maintenance
-        if (window.location.hostname.toUpperCase() == "K12K20.COM" || window.location.hostname.toUpperCase() == "K12K20.LOC")
+        if (window.location.hostname.toUpperCase() == "WWW.K12K20.COM" || window.location.hostname.toUpperCase() == "K12K20.COM"
+            || window.location.hostname.toUpperCase() == "K12K20.LOC")
         {
             createOneNavItem("workWithApplicationTextLanguage","appLanguageSel","id_TextLanguages","TextLanguages",navUlElement,navElement,whereNav);
             // Application Data Languages
