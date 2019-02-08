@@ -66,7 +66,10 @@ function setMenuImage() {
     menuBody.appendChild(menuNav);
     menuBody.appendChild(menuFooter);
 
-    document.getElementById("topHTML").replaceChild(menuBody, document.body);
+    if (document.body)
+        document.getElementById("topHTML").replaceChild(menuBody, document.body);
+    else
+        document.getElementById("topHTML").appendChild(menuBody);
     setNavFooterTags("menu", true);
     // Application Language Drop Down (Select/Options)
     setTimeout(function () {
