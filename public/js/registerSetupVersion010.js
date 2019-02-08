@@ -141,7 +141,7 @@ setTimeout(function() {
     }, false);
     document.getElementById("id_RadioCombineReverseSearch").addEventListener("click", function(event) { processReverseRadioInput(event); }, false);
     setTheSelectedRegion(startupValuesJSONObject.region);
-}, 150);
+}, 250);
 
 setTimeout(function () {
     // Application Language retrieved by Ajax
