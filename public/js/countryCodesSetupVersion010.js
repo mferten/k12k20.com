@@ -540,4 +540,5 @@ function finalizeCountriesPage() {
             document.getElementById(ii).addEventListener("click", countryCodesClickEvents, false);
         }
     }
+    setNavFooterTags("CountryCodes");
 }

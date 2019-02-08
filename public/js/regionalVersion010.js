@@ -108,4 +108,5 @@ function finalizeRegionalPage() {
             startupValuesJSONObject.language);
         document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
     },250);
+    setNavFooterTags("Surfing");
 }

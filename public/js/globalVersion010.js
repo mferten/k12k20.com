@@ -3,11 +3,11 @@
 currentEWorldPage = "eWorld Global"; // this should be up here all the time to work again from the menu (after the first time)
 dashBoardFlag = true;
 
-removeAnExternalJSFileIfExist("Mapdata");
+removeAnExternalJSFileIfExist("Mapdata"); // only conflicting JS file with other Mapdata
 // retrieve the external js files if not open yet
 setTimeout(function () {
     importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForDashboard", "js/staticDataForDashboard.js");
-    importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/worldFlags.js");
+    // importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/worldFlags.js"); Menu Page loaded this to lessen the load
     importAnExternalJSFileIfNotYetWithNoProcessing("DashBoardmapdata", "js/dashBoardmapdata.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("Worldmap", "js/worldmap.js");
 
@@ -147,4 +147,5 @@ function finalizeGlobalPage() {
     // only one region in World view map: 0, all countries in it
     worldMap.load();
     regionalGlobalInitialization();
+    setNavFooterTags("Searching");
 }

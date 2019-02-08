@@ -3,8 +3,8 @@
 
 var currentEWorldPage = "Menu"; // this should be up here all the time to work again from the menu (after the first time)
 
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion007.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion007.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion010.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion010.js");
 importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/worldFlags.js");
 
 function finalizeMenuPage() {
@@ -82,10 +82,10 @@ function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
 {
     var ifExternalJSExist = document.getElementById("id_" + jsFileName + "Script");
     if (ifExternalJSExist) {
-        if (currentEWorldPage == "eWorld Global" && jsFileName == 'WorldFlags') { // onload: loaded but not ready: weird
+        if (currentEWorldPage == "eWorld Global" && jsFileName == 'Worldmap') { // onload: loaded but not ready: weird
             setTimeout(function() {
                 finalizeGlobalPage();
-            }, 10);
+            }, 30);
         }
         else if (currentEWorldPage == "eWorld Countries" && jsFileName == 'CountriesTableData') {
             setTimeout(function() {
@@ -95,7 +95,7 @@ function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
         else if (currentEWorldPage == "eWorld Regional" && jsFileName == 'SaFlags') {
             setTimeout(function() {
                 finalizeRegionalPage();
-            }, 10);
+            }, 30);
         }
     }
     else {
@@ -106,25 +106,25 @@ function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
         externalJavaScript.onload = function()
         {
             // Global Time: set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
-            if (currentEWorldPage == "eWorld Global" && jsFileName == 'WorldFlags') { // onload: loaded but not ready: weird
+            if (currentEWorldPage == "eWorld Global" && jsFileName == 'Worldmap') { // onload: loaded but not ready: weird
                 setTimeout(function() {
                     finalizeGlobalPage();
-                }, 10);
+                }, 50);
             }
             else if (currentEWorldPage == "eWorld Countries" && jsFileName == 'CountriesTableData') {
               setTimeout(function() {
                     finalizeCountriesPage();
-              }, 10);
+              }, 50);
             }
             else if (currentEWorldPage == "eWorld Regional" && jsFileName == 'SaFlags') {
                 setTimeout(function() {
                     finalizeRegionalPage();
-                }, 10);
+                }, 50);
             }
             else if (currentEWorldPage == "Menu" && jsFileName == 'UtilityForFlag') {
                 setTimeout(function() {
                     finalizeMenuPage();
-                }, 10);
+                }, 50);
             }
         }
         document.head.appendChild(externalJavaScript);

@@ -18,13 +18,13 @@
         <title>K12K20.com: World SVG Maps & Flags: RCP - SPA</title>
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="css/cssStyleVersion007.css">
-        <script src="js/defaultStartupRegionValuesVersion007.js"></script>
-        <script src="js/menuPageSetupVersion008.js"></script>
-        <script src="js/navigationVersion007.js"></script>
-        <script src="js/addEventVersion007.js"></script>
-        <script src="js/flagsSVGFilesVersion007.js"></script>
-        <script src="js/countriesFeaturesVersion007.js"></script>
+        <link rel="stylesheet" href="css/cssStyleVersion010.css">
+        <script src="js/defaultStartupRegionValuesVersion010.js"></script>
+        <script src="js/menuPageSetupVersion010.js"></script>
+        <script src="js/navigationVersion010.js"></script>
+        <script src="js/addEventVersion010.js"></script>
+        <script src="js/flagsSVGFilesVersion010.js"></script>
+        <script src="js/countriesFeaturesVersion010.js"></script>
     </head>
     <body>
         <p class="displayNone">Place Holder</p>

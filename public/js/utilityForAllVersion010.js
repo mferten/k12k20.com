@@ -68,6 +68,8 @@ var currentTimeString;
 var utc;
 
 var textB;
+// one blank Span element
+var oneBlankSpan;
 
 // simplemaps region numbers
 var regionNumbers = {NorthAmerica:0, SouthAmerica:1, Europe:2, Africa:3, Oceania:4, Asia:5};
@@ -137,6 +139,7 @@ function initializationUtilityForAll() {
     previousCombineOption = -1; // dashboard and register using
     previousRegion = -1; // region and register using
     lastUsedFilter = "";
+    oneBlankSpan = getASpanElement(myUndefined, myUndefined, '&nbsp;');
     startupValuesJSONObject = getStartupValues();
     if (startupValuesJSONObject.versionNumber != versionNumber) {
         localStorage.removeItem("startupValues");
@@ -162,36 +165,39 @@ function eWorldMenuSetup() {
     setMenuImage(); // re-run the menu...
 }
 
+// rename all JS files C:\xampp\htdocs\k12k20.com\public\js>rename *ersion00?.js, *ersion00?.js
+// rename one CSS file individually
+
 function eWorldGlobalSetup() {
-    importAnExternalJSFile("id_Searching", "js/globalVersion006.js", "Searching", false); // import a javascript external file
+    importAnExternalJSFile("id_Searching", "js/globalVersion010.js", "Searching"); // import a javascript external file
 }
 
 function eWorldRegionalSetup() {
-    importAnExternalJSFile("id_Surfing", "js/regionalVersion006.js", "Surfing", false); // import a javascript external file
+    importAnExternalJSFile("id_Surfing", "js/regionalVersion010.js", "Surfing"); // import a javascript external file
 }
 
 function eWorldCountriesSetup() {
-    importAnExternalJSFile("id_Countries", "js/countryCodesSetupVersion006.js", "CountryCodes", false); // import a javascript external file
+    importAnExternalJSFile("id_Countries", "js/countryCodesSetupVersion010.js", "CountryCodes"); // import a javascript external file
 }
 
 function eWorldStartupSetup(  ) {
-    importAnExternalJSFile("id_Register", "js/registerSetupVersion006.js", "Register", true); // import a javascript external file
+    importAnExternalJSFile("id_Register", "js/registerSetupVersion010.js", "Register"); // import a javascript external file
 }
 
 function eWorldCitationsSetup() {
-    importAnExternalJSFile("id_Citations", "js/citationsVersion006.js", "Citations", true); // import a javascript external file
+    importAnExternalJSFile("id_Citations", "js/citationsVersion010.js", "Citations"); // import a javascript external file
 }
 
 function eWorldAboutSetup() {
-    importAnExternalJSFile("id_AboutMe", "js/aboutMeVersion006.js", "AboutMe", true); // import a javascript external file
+    importAnExternalJSFile("id_AboutMe", "js/aboutMeVersion010.js", "AboutMe"); // import a javascript external file
 }
 
 function eWorldTextLanguagesSetup() {
-    importAnExternalJSFile("id_TextLanguages", "js/textLanguagesVersion006.js", "TextLanguages", true); // import a javascript external file
+    importAnExternalJSFile("id_TextLanguages", "js/textLanguagesVersion010.js", "TextLanguages"); // import a javascript external file
 }
 
 function eWorldDataLanguagesSetup() {
-    importAnExternalJSFile("id_DataLanguages", "js/dataLanguagesVersion006.js", "DataLanguages", true); // import a javascript external file
+    importAnExternalJSFile("id_DataLanguages", "js/dataLanguagesVersion010.js", "DataLanguages"); // import a javascript external file
 }
 
 function isAppleProduct()
@@ -1414,7 +1420,7 @@ function positionCurser(fieldName)
     document.getElementById(fieldName).focus();
 }
 
-function importAnExternalJSFile(templateTagId, externalJSFileName, navigationName, noWaitFlag)
+function importAnExternalJSFile(templateTagId, externalJSFileName, navigationName)
 {
     initializationUtilityForAll(navigationName);
     var ifExternalJSExist = document.getElementById("id_" + navigationName + "Script");
@@ -1426,20 +1432,6 @@ function importAnExternalJSFile(templateTagId, externalJSFileName, navigationNam
     externalJavaScript.setAttribute("id", "id_" + navigationName + "Script");
     externalJavaScript.type = 'text/javascript';
     externalJavaScript.src = externalJSFileName;
-    externalJavaScript.onload = function()
-    {
-        if (currentEWorldPage == "eWorld Countries" && typeof countriesTableData != 'undefined' && countriesTableData
-            ||  currentEWorldPage == "eWorld Regional") {
-                setTimeout(function() {
-                    setNavFooterTags(navigationName, noWaitFlag);
-            }, 20);
-        }
-        else {
-            setTimeout(function() {
-                setNavFooterTags(navigationName, noWaitFlag);
-            }, 150);
-        }
-    }
     document.head.appendChild(externalJavaScript);
 }
 
@@ -1451,15 +1443,13 @@ function removeAnExternalJSFileIfExist(jsFileName)
     }
 }
 
-function setNavFooterTags(navigationName, noWaitFlag) {
-    setTimeout(function () {
-        document.getElementById("id_Navigation").setAttribute("data-nav", navigationName); // must be before createNaviationTags
-        createNavigationTags(document.getElementById("id_Navigation"));
-        document.getElementById("id_CopyRight").innerHTML = "©2017-" + new Date().getFullYear() + " k12k20.com";
-    }, (noWaitFlag)?75:750);
+function setNavFooterTags(navigationName) {
+    document.getElementById("id_Navigation").setAttribute("data-nav", navigationName); // must be before createNaviationTags
+    createNavigationTags(document.getElementById("id_Navigation"));
+    document.getElementById("id_CopyRight").innerHTML = "©2017-" + new Date().getFullYear() + " k12k20.com";
 }
 
-function createNavFooterAddIntoBodyAndReplaceBody(tagBody, tagHeader, tagMain) {
+function createNavFooterAddIntoBodyAndReplaceBody(tagBody, tagHeader, tagMain, navigationName) {
     var tagNav = document.createElement("nav");
     tagNav.setAttribute("id","id_Navigation");
     tagNav.setAttribute("data-nav", "PlaceHolder");
@@ -1479,6 +1469,7 @@ function createNavFooterAddIntoBodyAndReplaceBody(tagBody, tagHeader, tagMain) {
     tagBody.appendChild(tagFooter);
     setTimeout(function() {
         document.getElementById("topHTML").replaceChild(tagBody, document.body);
+        setNavFooterTags(navigationName);
     },50);
 }
 

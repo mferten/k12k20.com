@@ -2,7 +2,6 @@
 
 currentEWorldPage = "Citation";
 var citationBody = document.createElement("body");
-citationBody.setAttribute("class","displayNone");
 citationBody.setAttribute("name","citations");
 
 var citationHeader = document.createElement("header");
@@ -51,10 +50,9 @@ addCitationPBlock("/images/Wikipedia.svg", "Wikipedia", selectedApplicationLangu
 citationAside.appendChild(citationArticle);
 citationMain.appendChild(citationAside);
 
-createNavFooterAddIntoBodyAndReplaceBody(citationBody, citationHeader, citationMain);
-setTimeout(function() {
-    citationBody.classList.remove("displayNone");
-}, 200)
+setTimeout(function () {
+    createNavFooterAddIntoBodyAndReplaceBody(citationBody, citationHeader, citationMain, "Citations");
+}, 50);
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {

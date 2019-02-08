@@ -78,7 +78,7 @@ aboutAsideRight.appendChild(aboutAsideRightH2);
 aboutAsideRight.appendChild(aboutAsideRihgtUl);
 aboutMain.appendChild(aboutAsideRight);
 
-createNavFooterAddIntoBodyAndReplaceBody(aboutBody, aboutHeader, aboutMain);
+createNavFooterAddIntoBodyAndReplaceBody(aboutBody, aboutHeader, aboutMain, "AboutMe");
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
     setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));

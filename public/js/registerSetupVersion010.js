@@ -131,6 +131,7 @@ setTimeout(function() {
     registerBody.appendChild(registerNav);
     registerBody.appendChild(registerFooter);
     document.getElementById("topHTML").replaceChild(registerBody, document.body);
+    setNavFooterTags("Register");
     // start "js/addStartupValues.js"
     setStartupValues(startupValuesJSONObject);
     // set the Application Texts

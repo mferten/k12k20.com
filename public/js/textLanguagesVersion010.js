@@ -107,7 +107,7 @@ textLanguageFieldset.appendChild(textLanguageFormDiv);
 textLanguageForm.appendChild(textLanguageFieldset);
 textLanguageMain.appendChild(textLanguageForm);
 // add navigation and footer and load the page (replace the body)
-createNavFooterAddIntoBodyAndReplaceBody(textLanguageBody, textLanguageHeader, textLanguageMain);
+createNavFooterAddIntoBodyAndReplaceBody(textLanguageBody, textLanguageHeader, textLanguageMain, "TextLanguages");
 
 // variables
 var tagsTextsArray;

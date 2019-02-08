@@ -36,9 +36,6 @@ var h1First;
 var firstDivElement;
 var allCountryNames; // for dashBoard: Whole World Country Names (for Flag creation)
 var allCountryFullNames; // for dashBoard: Whole World Country Full Names
-// one blank Span element
-var oneBlankSpan = getASpanElement(myUndefined, myUndefined, '&nbsp;');
-
 
 var ogaOrOgg = {
     "Zambia":"oga","Ukraine":"oga","Tanzania":"oga","SouthAfrica":"oga","Serbia":"oga","Paraguay":"oga",
@@ -589,8 +586,6 @@ function initializationUtilityForFlags() {
     hoveredFlag = -1;
     oneCountrySelectedFlag = false;
     selectedOneCountryLITab = "id_PanelOneText"; // "map" is the selected (default) One Country Tab Panel
-    // one blank Span element
-    oneBlankSpan = getASpanElement(myUndefined, myUndefined, '&nbsp;');
 
     countryNameBayrakIndex = []; // Array
     countryBayrakIdByName = {}; // JSON Object
