@@ -3,8 +3,8 @@
 
 var currentEWorldPage = "Menu"; // this should be up here all the time to work again from the menu (after the first time)
 
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion006.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion006.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion007.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion007.js");
 importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/worldFlags.js");
 
 function finalizeMenuPage() {
