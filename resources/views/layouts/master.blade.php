@@ -20,7 +20,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/cssStyleVersion007.css">
         <script src="js/defaultStartupRegionValuesVersion007.js"></script>
-        <script src="js/menuPageSetupVersion007.js"></script>
+        <script src="js/menuPageSetupVersion008.js"></script>
         <script src="js/navigationVersion007.js"></script>
         <script src="js/addEventVersion007.js"></script>
         <script src="js/flagsSVGFilesVersion007.js"></script>
