@@ -52,7 +52,6 @@ var iPhone = false;
 var iPad = false;
 
 var dashBoardFlag = false;
-var currentEWorldPage;
 var sortIconsObj;
 
 var h2First; // Code Sharing Functions (Shared with Region/Global/Register)
@@ -1449,54 +1448,6 @@ function removeAnExternalJSFileIfExist(jsFileName)
     var ifExternalJSExist = document.getElementById("id_" + jsFileName + "Script");
     if (ifExternalJSExist) {
         ifExternalJSExist.parentElement.removeChild(ifExternalJSExist);
-    }
-}
-
-function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
-{
-    var ifExternalJSExist = document.getElementById("id_" + jsFileName + "Script");
-    if (ifExternalJSExist) {
-        if (currentEWorldPage == "eWorld Global" && jsFileName == 'WorldFlags') { // onload: loaded but not ready: weird
-            setTimeout(function() {
-                finalizeGlobalPage();
-            }, 50);
-        }
-        else if (currentEWorldPage == "eWorld Countries" && jsFileName == 'CountriesTableData') {
-            setTimeout(function() {
-                finalizeCountriesPage();
-            }, 100);
-        }
-        else if (currentEWorldPage == "eWorld Regional" && jsFileName == 'SaFlags') {
-            setTimeout(function() {
-                finalizeRegionalPage();
-            }, 50);
-        }
-    }
-    else {
-        var externalJavaScript = document.createElement('script');
-        externalJavaScript.setAttribute("id", "id_" + jsFileName + "Script");
-        externalJavaScript.type = 'text/javascript';
-        externalJavaScript.src = jsURL;
-        externalJavaScript.onload = function()
-        {
-            // Global Time: set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
-            if (currentEWorldPage == "eWorld Global" && jsFileName == 'WorldFlags') { // onload: loaded but not ready: weird
-                setTimeout(function() {
-                    finalizeGlobalPage();
-                }, 10);
-            }
-            else if (currentEWorldPage == "eWorld Countries" && jsFileName == 'CountriesTableData') {
-              setTimeout(function() {
-                    finalizeCountriesPage();
-              }, 10);
-            }
-            else if (currentEWorldPage == "eWorld Regional" && jsFileName == 'SaFlags') {
-                setTimeout(function() {
-                    finalizeRegionalPage();
-                }, 10);
-            }
-        }
-        document.head.appendChild(externalJavaScript);
     }
 }
 

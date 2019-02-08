@@ -20,11 +20,9 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/cssStyleVersion006.css">
         <script src="js/defaultStartupRegionValuesVersion006.js"></script>
-        <script src="js/utilityForAllVersion006.js"></script>
-        <script src="js/addEventVersion006.js"></script>
         <script src="js/menuPageSetupVersion006.js"></script>
         <script src="js/navigationVersion006.js"></script>
-        <script src="js/utilityForFlagsVersion006.js"></script>
+        <script src="js/addEventVersion006.js"></script>
         <script src="js/flagsSVGFilesVersion006.js"></script>
         <script src="js/countriesFeaturesVersion006.js"></script>
     </head>

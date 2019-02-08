@@ -54,7 +54,7 @@ citationMain.appendChild(citationAside);
 createNavFooterAddIntoBodyAndReplaceBody(citationBody, citationHeader, citationMain);
 setTimeout(function() {
     citationBody.classList.remove("displayNone");
-}, 150)
+}, 200)
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
