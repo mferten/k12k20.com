@@ -1,5 +1,8 @@
 'use strict';
 
+currentEWorldPage = "eWorld Regional"; // this should be up here all the time to work again from the menu (after the first time)
+dashBoardFlag = false;
+
 removeAnExternalJSFileIfExist("DashBoardmapdata");
 // retrieve the external js files if not open yet
 setTimeout(function () {
@@ -8,71 +11,68 @@ setTimeout(function () {
     importAnExternalJSFileIfNotYetWithNoProcessing("EuropeFlags", "js/europeFlags.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("NaFlags", "js/naFlags.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("OceaniaFlags", "js/oceaniaFlags.js");
-    importAnExternalJSFileIfNotYetWithNoProcessing("SaFlags", "js/saFlags.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("Mapdata", "js/mapdata.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("Worldmap", "js/worldmap.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForRegion", "js/staticDataForRegion.js");
+    importAnExternalJSFileIfNotYetWithNoProcessing("SaFlags", "js/saFlags.js");
 
-    currentEWorldPage = "eWorld Regional";
-    dashBoardFlag = false;
     initializationUtilityForFlags();
-}, 100);
+}, 50);
 
-setTimeout(function () {
-    var regionBody =  document.createElement("body");
-    regionBody.setAttribute("name","region");
+var regionBody =  document.createElement("body");
+regionBody.setAttribute("name","region");
 
-    var regionHeader = document.createElement("header");
-    regionHeader.setAttribute("id", "id_Header");
-    regionHeader.setAttribute("class","center");
+var regionHeader = document.createElement("header");
+regionHeader.setAttribute("id", "id_Header");
+regionHeader.setAttribute("class","center");
 
-    // start <script src="js/firstPageHeader.js"></script>
-    h1TitleCodes(regionHeader);
+// start <script src="js/firstPageHeader.js"></script>
+h1TitleCodes(regionHeader);
 
-    /* Create All Regions Radio Buttons and add into the Header first Div */
-    var regionFieldSet = document.createElement("fieldset");
-    var legendFieldSet = document.createElement("legend");
-    regionFieldSet.setAttribute("class", "fieldsetForAccessibility");
-    regionFieldSet.appendChild(legendFieldSet);
-    var selectTextSpan = document.createElement("span");
-    selectTextSpan.setAttribute("id", "regionsRadioButtons");
-    createRadioButtons(selectTextSpan, ['Africa', "Asia", "Europe", "NorthAmerica", "Oceania", "SouthAmerica"],
-        "regionRadioButtonStyle marginPointPoint2Rem", "span", "region");
+/* Create All Regions Radio Buttons and add into the Header first Div */
+var regionFieldSet = document.createElement("fieldset");
+var legendFieldSet = document.createElement("legend");
+regionFieldSet.setAttribute("class", "fieldsetForAccessibility");
+regionFieldSet.appendChild(legendFieldSet);
+var selectTextSpan = document.createElement("span");
+selectTextSpan.setAttribute("id", "regionsRadioButtons");
+createRadioButtons(selectTextSpan, ['Africa', "Asia", "Europe", "NorthAmerica", "Oceania", "SouthAmerica"],
+    "regionRadioButtonStyle marginPointPoint2Rem", "span", "region");
 
-    // Retrieve the default or user Region countries
-    regionFieldSet.appendChild(selectTextSpan);
-    firstDivElement.appendChild(regionFieldSet);
-    var flags = document.createElement("div");
-    flags.setAttribute("id", "flags");
-    firstDivElement.appendChild(flags);
-    headerElement.appendChild(firstDivElement);
+// Retrieve the default or user Region countries
+regionFieldSet.appendChild(selectTextSpan);
+firstDivElement.appendChild(regionFieldSet);
+var flags = document.createElement("div");
+flags.setAttribute("id", "flags");
+firstDivElement.appendChild(flags);
+headerElement.appendChild(firstDivElement);
 
-    var regionMain = document.createElement("main");
-    regionMain.setAttribute("id", "rowID");
-    regionMain.setAttribute("class","myInfoPage");
+var regionMain = document.createElement("main");
+regionMain.setAttribute("id", "rowID");
+regionMain.setAttribute("class","myInfoPage");
 
-    regionBody.appendChild(regionHeader); // must be here for setTheRegionFlags to work...
-    regionBody.appendChild(regionMain); // must be here for simplemaps
+regionBody.appendChild(regionHeader); // must be here for setTheRegionFlags to work...
+regionBody.appendChild(regionMain); // must be here for simplemaps
 
-    var regionNav = document.createElement("nav");
-    regionNav.setAttribute("id", "id_Navigation");
-    regionNav.setAttribute("class", "center");
-    regionNav.setAttribute("data-nav", "Surfing");
+var regionNav = document.createElement("nav");
+regionNav.setAttribute("id", "id_Navigation");
+regionNav.setAttribute("class", "center");
+regionNav.setAttribute("data-nav", "Surfing");
 
-    var regionFooter = document.createElement("footer");
-    regionFooter.setAttribute("class","center");
-    var regionFooterP = document.createElement("p");
-    regionFooterP.setAttribute("id","id_CopyRight");
-    var regionFooterP2 = document.createElement("p");
-    regionFooterP2.setAttribute("id","id_LanguageImplementedBy");
-    regionFooter.appendChild(regionFooterP);
-    regionFooter.appendChild(regionFooterP2);
+var regionFooter = document.createElement("footer");
+regionFooter.setAttribute("class","center");
+var regionFooterP = document.createElement("p");
+regionFooterP.setAttribute("id","id_CopyRight");
+var regionFooterP2 = document.createElement("p");
+regionFooterP2.setAttribute("id","id_LanguageImplementedBy");
+regionFooter.appendChild(regionFooterP);
+regionFooter.appendChild(regionFooterP2);
 
-    regionBody.appendChild(regionNav);
-    regionBody.appendChild(regionFooter);
+regionBody.appendChild(regionNav);
+regionBody.appendChild(regionFooter);
 
+function finalizeRegionalPage() {
     document.getElementById("topHTML").replaceChild(regionBody, document.body);
-
     // set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
     setTheRegionFlags(startupValuesJSONObject.region, flags);
 
@@ -107,5 +107,5 @@ setTimeout(function () {
         setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues),
             startupValuesJSONObject.language);
         document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
-    },150);
-}, 800);
+    },250);
+}

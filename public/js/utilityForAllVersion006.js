@@ -1429,9 +1429,17 @@ function importAnExternalJSFile(templateTagId, externalJSFileName, navigationNam
     externalJavaScript.src = externalJSFileName;
     externalJavaScript.onload = function()
     {
-        setTimeout(function() {
-            setNavFooterTags(navigationName, noWaitFlag);
-        },150);
+        if (currentEWorldPage == "eWorld Countries" && typeof countriesTableData != 'undefined' && countriesTableData
+            ||  currentEWorldPage == "eWorld Regional") {
+                setTimeout(function() {
+                    setNavFooterTags(navigationName, noWaitFlag);
+            }, 20);
+        }
+        else {
+            setTimeout(function() {
+                setNavFooterTags(navigationName, noWaitFlag);
+            }, 150);
+        }
     }
     document.head.appendChild(externalJavaScript);
 }
@@ -1447,7 +1455,23 @@ function removeAnExternalJSFileIfExist(jsFileName)
 function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
 {
     var ifExternalJSExist = document.getElementById("id_" + jsFileName + "Script");
-    if (ifExternalJSExist) { } // do nothing
+    if (ifExternalJSExist) {
+        if (currentEWorldPage == "eWorld Global" && jsFileName == 'WorldFlags') { // onload: loaded but not ready: weird
+            setTimeout(function() {
+                finalizeGlobalPage();
+            }, 50);
+        }
+        else if (currentEWorldPage == "eWorld Countries" && jsFileName == 'CountriesTableData') {
+            setTimeout(function() {
+                finalizeCountriesPage();
+            }, 100);
+        }
+        else if (currentEWorldPage == "eWorld Regional" && jsFileName == 'SaFlags') {
+            setTimeout(function() {
+                finalizeRegionalPage();
+            }, 50);
+        }
+    }
     else {
         var externalJavaScript = document.createElement('script');
         externalJavaScript.setAttribute("id", "id_" + jsFileName + "Script");
@@ -1455,7 +1479,22 @@ function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
         externalJavaScript.src = jsURL;
         externalJavaScript.onload = function()
         {
-            // console.log(jsFileName + " successfully imported");
+            // Global Time: set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
+            if (currentEWorldPage == "eWorld Global" && jsFileName == 'WorldFlags') { // onload: loaded but not ready: weird
+                setTimeout(function() {
+                    finalizeGlobalPage();
+                }, 10);
+            }
+            else if (currentEWorldPage == "eWorld Countries" && jsFileName == 'CountriesTableData') {
+              setTimeout(function() {
+                    finalizeCountriesPage();
+              }, 10);
+            }
+            else if (currentEWorldPage == "eWorld Regional" && jsFileName == 'SaFlags') {
+                setTimeout(function() {
+                    finalizeRegionalPage();
+                }, 10);
+            }
         }
         document.head.appendChild(externalJavaScript);
     }

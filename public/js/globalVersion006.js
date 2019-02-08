@@ -1,15 +1,16 @@
 'use strict';
 
+currentEWorldPage = "eWorld Global"; // this should be up here all the time to work again from the menu (after the first time)
+dashBoardFlag = true;
+
 removeAnExternalJSFileIfExist("Mapdata");
 // retrieve the external js files if not open yet
 setTimeout(function () {
+    importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForDashboard", "js/staticDataForDashboard.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/worldFlags.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("DashBoardmapdata", "js/dashBoardmapdata.js");
-    importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForDashboard", "js/staticDataForDashboard.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("Worldmap", "js/worldmap.js");
 
-    currentEWorldPage = "eWorld Global";
-    dashBoardFlag = true;
     initializationUtilityForFlags();
 }, 50);
 
@@ -25,6 +26,53 @@ var worldWatersDropDownValues;
 var flagsColorsDropDownValues;
 // Flags Shapes Drop Down Values
 var flagsShapesDropDownValues;
+
+var globalBody =  document.createElement("body");
+globalBody.setAttribute("name","global");
+globalBody.setAttribute("id","globalBody");
+
+var globalHeader = document.createElement("header");
+globalHeader.setAttribute("id", "id_Header");
+globalHeader.setAttribute("class","center");
+
+h1TitleCodes(globalHeader);
+
+/* Create All Category Select Input Fields */
+var selectTextSpan = getASpanElement("", myUndefined, " ");
+// These will be multiple selection drop down Category Select fields:
+createSelectFields(selectTextSpan, ["Country", "Population", "LandArea", "Language", "Religion", "Reports"],
+    "selectBoxStyles marginPointPoint2Rem worldSelectSize");
+createSelectFields(selectTextSpan, ["appLanguageToUse"],"selectBoxStyles marginPointPoint2Rem worldSelectSize");
+firstDivElement.appendChild(selectTextSpan);
+
+var flags = document.createElement("div");
+flags.setAttribute("id", "flagsWorld");
+firstDivElement.appendChild(flags);
+globalHeader.appendChild(firstDivElement);
+
+var globalMain = document.createElement("main");
+globalMain.setAttribute("id", "rowID");
+globalMain.setAttribute("class","myInfoPage");
+
+globalBody.appendChild(globalHeader); // must be here for setTheRegionFlags to work...
+globalBody.appendChild(globalMain); // must be here for simplemaps
+
+var globalNav = document.createElement("nav");
+globalNav.setAttribute("id", "id_Navigation");
+globalNav.setAttribute("class", "center");
+globalNav.setAttribute("data-nav", "Searching");
+
+var globalFooter = document.createElement("footer");
+globalFooter.setAttribute("class","center");
+var globalFooterP = document.createElement("p");
+globalFooterP.setAttribute("id","id_CopyRight");
+var globalFooterP2 = document.createElement("p");
+globalFooterP2.setAttribute("id","id_LanguageImplementedBy");
+globalFooter.appendChild(globalFooterP);
+globalFooter.appendChild(globalFooterP2);
+
+globalBody.appendChild(globalNav);
+globalBody.appendChild(globalFooter);
 
 setTimeout(function () {
     if (typeof allCountryNames == 'undefined') // text or data lanageues.js may define this variable
@@ -42,54 +90,11 @@ setTimeout(function () {
     flagsColorsDropDownValues = getFlagsColorsDropDownValues();
     // Flags Shapes Drop Down Values
     flagsShapesDropDownValues = getFlagsShapesDropDownValues();
-    // <script src="js/firstPageHeaderDashBoard.js"></script>
-    var globalBody =  document.createElement("body");
-    globalBody.setAttribute("name","global");
+}, 200);
 
-    var globalHeader = document.createElement("header");
-    globalHeader.setAttribute("id", "id_Header");
-    globalHeader.setAttribute("class","center");
-
-    h1TitleCodes(globalHeader);
-
-    /* Create All Category Select Input Fields */
-    var selectTextSpan = getASpanElement("", myUndefined, " ");
-    // These will be multiple selection drop down Category Select fields:
-    createSelectFields(selectTextSpan, ["Country", "Population", "LandArea", "Language", "Religion", "Reports"],
-        "selectBoxStyles marginPointPoint2Rem worldSelectSize");
-    createSelectFields(selectTextSpan, ["appLanguageToUse"],"selectBoxStyles marginPointPoint2Rem worldSelectSize");
-    firstDivElement.appendChild(selectTextSpan);
-
-    var flags = document.createElement("div");
-    flags.setAttribute("id", "flagsWorld");
-    firstDivElement.appendChild(flags);
-    globalHeader.appendChild(firstDivElement);
-
-    var globalMain = document.createElement("main");
-    globalMain.setAttribute("id", "rowID");
-    globalMain.setAttribute("class","myInfoPage");
-
-    globalBody.appendChild(globalHeader); // must be here for setTheRegionFlags to work...
-    globalBody.appendChild(globalMain); // must be here for simplemaps
-
-    var globalNav = document.createElement("nav");
-    globalNav.setAttribute("id", "id_Navigation");
-    globalNav.setAttribute("class", "center");
-    globalNav.setAttribute("data-nav", "Searching");
-
-    var globalFooter = document.createElement("footer");
-    globalFooter.setAttribute("class","center");
-    var globalFooterP = document.createElement("p");
-    globalFooterP.setAttribute("id","id_CopyRight");
-    var globalFooterP2 = document.createElement("p");
-    globalFooterP2.setAttribute("id","id_LanguageImplementedBy");
-    globalFooter.appendChild(globalFooterP);
-    globalFooter.appendChild(globalFooterP2);
-
-    globalBody.appendChild(globalNav);
-    globalBody.appendChild(globalFooter);
+function finalizeGlobalPage() {
     document.getElementById("topHTML").replaceChild(globalBody, document.body);
-
+    document.getElementById("flagsWorld").innerHTML = decodeURIComponent(WorldFlags["flags"]);
     // flags already set but needs to set the required Arrays/Objects: Set the Flag Object Used flag ON (true)
     setTheFlags();
     h2HeaderCodes();
@@ -134,9 +139,6 @@ setTimeout(function () {
     }
 
     rightLabelAndMainElementCodes(flagControllDivElement, mainElement, formDivElement);
-    // set flags from saved Object (no loop no SVG country flag retrieval: Just one Object retreival)
-    if (typeof WorldFlags == 'undefined') setTimeout(function() { flags.innerHTML = decodeURIComponent(WorldFlags["flags"]); },200); // no ready yet
-    else flags.innerHTML = decodeURIComponent(WorldFlags["flags"]); // if defined Now  (can be done when the js/worldFlags.js external file onload!)
     // Some of the Select Option Values will be retrieved from Server (AJAX calls)
     setSelectOptionsFromServerData();
     setCombineValueCodes("was here");
@@ -145,4 +147,4 @@ setTimeout(function () {
     // only one region in World view map: 0, all countries in it
     worldMap.load();
     regionalGlobalInitialization();
-},850);
+}
