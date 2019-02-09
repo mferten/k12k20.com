@@ -136,7 +136,8 @@ function addChangeEvents(event)
                             document.getElementById("appLanguageToUseB").options[0].innerHTML = selectedApplicationLanguageTexts["id_ChooseOne"];
                     },300);
                 }
-            } else window.open(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)], "_self");
+            } else { console.log(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)]);
+               window.open(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)], "_self"); }
         } else if (selectionId == "id_CheckBoxPlaySounds") { // Sound Off
             playSoundsChanged();
         } else if (selectionId == "Country") { // a Country/Entity
