@@ -35,8 +35,10 @@ registerFieldset.appendChild(registerLegend);
 var registerLabel =  document.createElement("label");
 registerLabel.setAttribute("for", "appLanguageToUseB");
 var registerSelect =  document.createElement("select");
-registerSelect.setAttribute("id", "appLanguageToUseB");
-registerSelect.setAttribute("disabled", true);
+registerSelect.setAttribute("id", "appLanguageToUseB"); alert(window.location.hostname.toUpperCase());
+if (window.location.hostname.toUpperCase() != "K12K20.LOC") {
+    registerSelect.setAttribute("disabled", true);
+}
 registerSelect.setAttribute("class", "selectBoxStyles applicationLanguageRegister");
 registerLabel.appendChild(getASpanElement("id_AppLanguageToUseB", myUndefined,selectedApplicationLanguageTexts["id_AppLanguageToUseB"]));
 registerLabel.appendChild(registerSelect);

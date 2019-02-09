@@ -1,8 +1,8 @@
 "use strict";
 
-// These static variables and their data will be only used once at the very first startup
-
 // USA-English is an Application Start UP default, If no different in the Local Storage will be used in the initial DOM creation
+// use console.log(encodeURIComponent(JSON.stringify(selectedApplicationLanguageTexts))) save the value for USAENGLISHAPPLICATIONLANGUAGETEXT
+// it will replace the following as JSON.parse(decodeURIComponent("%7B%22Flag%20Colo 
 var USAENGLISHAPPLICATIONLANGUAGETEXT =
 JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","id_Asia":"Asia","id_Europe":"Europe","id_Income":"Income",' +
 '"id_IncomeDisplay":"Income","id_DrivingSideDisplay":"Driving Side","id_DrivingSide":"Driving Side","id_WeatherDisplay":"Weather","id_SeatRatioDisplay":"Seat Ratio",' +
