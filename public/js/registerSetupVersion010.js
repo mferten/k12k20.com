@@ -35,7 +35,7 @@ registerFieldset.appendChild(registerLegend);
 var registerLabel =  document.createElement("label");
 registerLabel.setAttribute("for", "appLanguageToUseB");
 var registerSelect =  document.createElement("select");
-registerSelect.setAttribute("id", "appLanguageToUseB"); alert(window.location.hostname.toUpperCase());
+registerSelect.setAttribute("id", "appLanguageToUseB");
 if (window.location.hostname.toUpperCase() != "K12K20.LOC") {
     registerSelect.setAttribute("disabled", true);
 }
