@@ -466,11 +466,6 @@ function clickEvents(event)
     }
 }
 
-function touchEvents(event) { alert.log(event.targetTouches[0].target);
-    var eventTargetId = event.targetTouches[0].target.id;
-    if (initialMenuItems[eventTargetId] && appleProduct) { initialMenuItems[eventTargetId](eventTargetId); } // OK when it is Startup...
-}
-
 function handleSearchDD()
 {
     if (previousFlag != -1) {
