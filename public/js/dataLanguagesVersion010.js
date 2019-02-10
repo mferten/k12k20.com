@@ -415,11 +415,6 @@ function resetEntry()
 // Retrieve the Application Data Language (if any) and Set Up the Selected Application Language Data for the Page
 function getAllApplicationLanguageData()
 {
-    var lowerToUpperCaseTurkish = {"a":"A", "b": "B", "c": "C", "ç": "Ç", "d": "D", "e": "E", "f": "F", "g": "G", "ğ": "Ğ", "h": "H", "ı": "I", "i": "İ", "j": "J",
-        "k": "K", "l": "L", "m": "M", "n": "N", "o": "O", "ö": "Ö", "p": "P", "r": "R", "s": "S", "ş": "Ş", "t": "T", "u": "U", "ü": "Ü", "v": "V", "y": "Y", "z": "Z"};
-    var upperToLowerCaseTurkish = {"A":"a", "B": "b", "C": "c", "Ç": "ç", "D": "d", "E": "e", "F": "f", "G": "g", "Ğ": "ğ", "H": "h", "I": "ı", "İ": "i", "J": "j",
-        "K": "k", "L": "l", "M": "n", "N": "n", "O": "o", "Ö": "ö", "P": "p", "R": "r", "S": "s", "Ş": "ş", "T": "t", "U": "u", "Ü": "ü", "V": "v", "Y": "y", "Z": "z"};
-
     // Get All the Language Data from the database (if any)
     var xhttploadTagsAllData = new XMLHttpRequest();
     // On Ready State Change
