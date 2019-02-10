@@ -1,9 +1,14 @@
 "use strict";
 
-// USA-English is an Application Start UP default, If no different in the Local Storage will be used in the initial DOM creation
-// use console.log(encodeURIComponent(JSON.stringify(selectedApplicationLanguageTexts))) save the value for USAENGLISHAPPLICATIONLANGUAGETEXT
-// it will replace the following as JSON.parse(decodeURIComponent("%7B%22Flag%20Colo 
-var USAENGLISHAPPLICATIONLANGUAGETEXT =
+var DEFAULTREGIONAPPLICATIONLANGUAGE = "appLanguageToUseOption1";
+var DEFAULTREGIONAPPLICATIONCOUNTRYANDLANGUAGE = "USA-English";
+var DEFAULTREGION = "NorthAmerica";
+
+// DEFAULT REGION Application Start UP Values which will be used to load into Local Storage Area
+// console.log(encodeURIComponent(JSON.stringify(selectedApplicationLanguageTexts))) and encodeURIComponent(JSON.stringify(languageOfCountries)
+// and JSON.parse(decodeURIComponent("%7B%22Flag%20Colo
+// others are Arrays: Console.log(flagOfCountries);  console.log(flagOfCountriesFullName); console.log(languageOfCountries);
+var DEFAULTREGIONAPPLICATIONLANGUAGETEXT =
 JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","id_Asia":"Asia","id_Europe":"Europe","id_Income":"Income",' +
 '"id_IncomeDisplay":"Income","id_DrivingSideDisplay":"Driving Side","id_DrivingSide":"Driving Side","id_WeatherDisplay":"Weather","id_SeatRatioDisplay":"Seat Ratio",' +
 '"id_WikiCountryDisplay":"Wiki","id_CIACountryDisplay":"CIA","id_TravelWarningDisplay":"Travel Warning","id_SexRatio":"Sex Ratio","id_SexRatioDisplay":"Sex Ratio",' +
@@ -52,12 +57,12 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"id_Country CodesThText":"Country Codes","id_AboutTextFive":"- The implementation of the Accessibility features is a gradual goal to accomplish."}');
 
 // North America Region Lists
-var NORTHAMERICANFLAGOFCOUNTRIES = ["Anguilla","AntiguaandBarbuda","Bahamas","Barbados","Belize","Bermuda","BonaireSintEustatiusandSaba","BritishVirginIslands",
+var DEFAULTREGIONFLAGOFCOUNTRIES = ["Anguilla","AntiguaandBarbuda","Bahamas","Barbados","Belize","Bermuda","BonaireSintEustatiusandSaba","BritishVirginIslands",
 "Canada","CaymanIslands","CostaRica","Cuba","Curacao","Dominica","DominicanRepublic","ElSalvador","Greenland","Grenada","Guadeloupe","Guatemala","Haiti",
 "Honduras","Jamaica","Martinique","Mexico","Montserrat","Nicaragua","Panama","PuertoRico","SaintBarthelemy","SaintKittsandNevis","SaintLucia","SaintMartin",
 "SaintPierreandMiquelon","SaintVincentandGrenadines","SintMaarten","TrinidadandTobago","TurksandCaicosIslands","UnitedStatesofAmerica","UnitedStatesVirginIslands"];
 
-var NORTHAMERICANLANGUAGEOFCOUNTRIES = JSON.parse('{"Anguilla":"English","AntiguaandBarbuda":"English","Bahamas":"English","Barbados":"English","Belize":"English","Bermuda":"English",' +
+var DEFAULTREGIONFLAGOFCOUNTRIESFULLNAME = JSON.parse('{"Anguilla":"English","AntiguaandBarbuda":"English","Bahamas":"English","Barbados":"English","Belize":"English","Bermuda":"English",' +
         '"BonaireSintEustatiusandSaba":"Dutch","BritishVirginIslands":"English","Canada":"English","CaymanIslands":"English","CostaRica":"Spanish","Cuba":"Spanish","Curacao":"Dutch",' +
         '"Dominica":"English","DominicanRepublic":"Spanish","ElSalvador":"Spanish","Greenland":"Greenlandic","Grenada":"English","Guadeloupe":"French","Guatemala":"Spanish",' +
         '"Haiti":"French","Honduras":"Spanish","Jamaica":"English","Martinique":"French","Mexico":"Spanish","Montserrat":"English","Nicaragua":"Spanish","Panama":"Spanish",' +
@@ -65,7 +70,7 @@ var NORTHAMERICANLANGUAGEOFCOUNTRIES = JSON.parse('{"Anguilla":"English","Antigu
         '"SaintVincentandGrenadines":"English","SintMaarten":"Dutch","TrinidadandTobago":"English","TurksandCaicosIslands":"English",' +
         '"UnitedStatesofAmerica":"English","UnitedStatesVirginIslands":"English"}');
 
-var NORTHAMERICANFLAGOFCOUNTRIESFULLNAME =
+var DEFAULTREGIONLANGUAGEOFCOUNTRIES =
 ["Anguilla","Antigua and Barbuda","Bahamas","Barbados","Belize","Bermuda","Bonaire Sint Eustatius and Saba","British Virgin Islands","Canada","Cayman Islands","Costa Rica",
 "Cuba","Curaçao","Dominica","Dominican Republic","El Salvador","Greenland","Grenada","Guadeloupe","Guatemala","Haiti","Honduras","Jamaica","Martinique","Mexico",
 "Montserrat","Nicaragua","Panama","Puerto Rico","Saint Barthélemy","St. Kitts & Nevis","Saint Lucia","Saint Martin","Saint Pierre and Miquelon",

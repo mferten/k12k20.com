@@ -133,7 +133,7 @@ var applicationHrefs = {1:"http://www.k12k20.com/",2:"http://www.k12k20tr.com/",
 function initializationUtilityForAll() {
     // versionNumber must match to the Local Storage, if not (for now) Delete the Storage to start a new: Version II, it will it will be upgraded
     // With Version II, the Local Storage will only have the version Number: All the files/objects will be in indexedDB: max is 50 MB not 10MB
-    versionNumber = "1.92";
+    versionNumber = "1.94";
     applicationStarted = false;
     worldMapLoaded = true;
     previousCombineOption = -1; // dashboard and register using
@@ -218,18 +218,18 @@ function getStartupValues()
     else // create JSON object to save into Browser's Local Data Area
     {
         var savedValuesJSONObject =
-            new StartupValues(versionNumber,
-                              "appLanguageToUseOption1",
-                              "USA-English",
-                              "NorthAmerica",
-                              false,
-                              "id_RadioCombineAndSearch",
-                              false,
-                              "id_MenuStart",
-                              USAENGLISHAPPLICATIONLANGUAGETEXT,
-                              NORTHAMERICANFLAGOFCOUNTRIES,
-                              NORTHAMERICANLANGUAGEOFCOUNTRIES,
-                              NORTHAMERICANFLAGOFCOUNTRIESFULLNAME);
+        new StartupValues(versionNumber,
+                          DEFAULTREGIONAPPLICATIONLANGUAGE,
+                          DEFAULTREGIONAPPLICATIONCOUNTRYANDLANGUAGE,
+                          DEFAULTREGION,
+                          false,
+                          "id_RadioCombineAndSearch",
+                          false,
+                          "id_MenuStart",
+                          DEFAULTREGIONAPPLICATIONLANGUAGETEXT,
+                          DEFAULTREGIONFLAGOFCOUNTRIES,
+                          DEFAULTREGIONLANGUAGEOFCOUNTRIES,
+                          DEFAULTREGIONFLAGOFCOUNTRIESFULLNAME);
         window.localStorage.setItem("startupValues", JSON.stringify(savedValuesJSONObject)); // Saved into LDA
     }
     return savedValuesJSONObject; // return StartupValues constructor Object
