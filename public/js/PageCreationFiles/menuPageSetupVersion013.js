@@ -26,6 +26,7 @@ function finalizeMenuPage() {
 }
 
 function setMenuImage(firstTime) {
+    if (firstTime) {} else initializationUtilityForAll();
     var menuBody = document.createElement("body");
     menuBody.setAttribute("name","menu");
     var menuHeader = document.createElement("header");
@@ -73,9 +74,11 @@ function setMenuImage(firstTime) {
     setNavFooterTags("menu", true);
     // Application Language Drop Down (Select/Options)
     setTimeout(function () {
-        setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
-        document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = true;
-    }, firstTime?650:850);
+        if (applicationLanguageDropDownValues) {
+            setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
+            document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = true;
+        }
+    }, firstTime?850:950);
 }
 
 function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)

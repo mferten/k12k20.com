@@ -5,6 +5,8 @@ importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForRegion", "js/OneCou
 currentEWorldPage = "Startup";
 dashBoardFlag = false;
 
+initializationUtilityForAll();
+
 var registerBody =  document.createElement("body");
 registerBody.setAttribute("name","register");
 var registerHeader = document.createElement("header");
@@ -133,7 +135,7 @@ setTimeout(function() {
     registerBody.appendChild(registerFooter);
     document.getElementById("topHTML").replaceChild(registerBody, document.body);
     setNavFooterTags("Register");
-    // start "js/addStartupValues.js"
+
     setStartupValues(startupValuesJSONObject);
     // set the Application Texts
     document.getElementById("id_SaveStartupValues").addEventListener("click", function(event) { // Save the Startup Values into Local Storage
@@ -146,17 +148,18 @@ setTimeout(function() {
 
 setTimeout(function () {
     // Application Language retrieved by Ajax
-    if (applicationLanguageDropDownValues)
+    if (applicationLanguageDropDownValues) {
         setApplicationLanguageDropDownBox("appLanguageToUseB", JSON.parse(applicationLanguageDropDownValues));
         document.getElementById("appLanguageToUseB").selectedIndex = (startupValuesJSONObject.language.substring(22)-1);
-}, 300);
+    }
+}, 450);
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
     setCombineValueCodes();
     setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
     document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = "selected";
-}, 350);
+}, 650);
 
 // Save the Startup Configuration into the Local Storage
 function saveStartupValues(startupValuesJSONObject)

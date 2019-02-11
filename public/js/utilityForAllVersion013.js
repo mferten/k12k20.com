@@ -753,7 +753,7 @@ function addApplicationLanguageSelectionDropDownBox(addIntoTag, idIn)
     else h2First.appendChild(appLangLabel);
 }
 
-function setCombineValueCodes(a)
+function setCombineValueCodes()
 {
     if (currentEWorldPage == "Startup" || currentEWorldPage == "eWorld Global") {
         setTimeout(function() // if user has the startup mute value
@@ -765,7 +765,8 @@ function setCombineValueCodes(a)
             }
             else if (startupValuesJSONObject.combine == "id_RadioCombineAndSearch") {
                 combineTheSearchAndRadioBox.setAttribute("checked", true);
-                document.getElementById("id_CombineSearchAnd").classList.add("selectedInputTag");
+                if (document.getElementById("id_CombineSearchAnd"))
+                    document.getElementById("id_CombineSearchAnd").classList.add("selectedInputTag");
                 previousCombineOption = "id_RadioCombineAndSearch";
             }
             else {
