@@ -75,7 +75,7 @@ function setMenuImage(firstTime) {
     setTimeout(function () {
         setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
         document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = true;
-    }, firstTime?850:650);
+    }, firstTime?650:850);
 }
 
 function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
