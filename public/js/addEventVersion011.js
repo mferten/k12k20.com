@@ -232,14 +232,13 @@ function runReports()
         selectionValuesAsTitle = "This is a Reverse Image of ";
     var combinedFlag = document.getElementById("combineSearch").querySelector('input[name="combine"]:checked').value;
     for (var x in countrySelectableFeatureLocation)
-    {   console.log(document.getElementById(x).options[0].value); console.log(document.getElementById(x).value);
+    {
         if (document.getElementById(x).options[0].value != document.getElementById(x).value) // used criteria
         {
             selectedFieldsArray.push(countrySelectableFeatureLocation[x]);
             headingsArray.push(selectedApplicationLanguageTexts["id_" + x]);
             // categoryDescription[x]);           document.getElementById(x).options[document.getElementById(x).selectedIndex].innerHTML
             // Text Language (ie: Religion)       Data language (ie: Buddism)
-            console.log(x); console.log(categoryDescription[x]); console.log(selectedApplicationLanguageTexts[categoryDescription[x]]);
             selectionValuesAsTitle += selectedApplicationLanguageTexts[categoryDescription[x]] + " " +
                 document.getElementById(x).options[document.getElementById(x).selectedIndex].innerHTML + " "; // this is the Data Language
             if (combinedFlag == "id_RadioCombineAndSearch") selectionValuesAsTitle += selectedApplicationLanguageTexts["id_And"] + " ";

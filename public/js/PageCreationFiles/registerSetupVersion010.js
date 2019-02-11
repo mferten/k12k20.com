@@ -98,7 +98,6 @@ registerForm.appendChild(personFieldset);
 flagOfCountries = startupValuesJSONObject.flagOfCountries; // incase Global was activated priorily
 flagOfCountriesFullName = startupValuesJSONObject.flagOfCountriesFullName; // incase Global was activated priorily
 setTimeout(function() {
-    setCombineValueCodes();
     registerMain.appendChild(registerForm);
     // Registration Button
     var saveTextSpan = getASpanElement("id_Save","appleIOSTop",selectedApplicationLanguageTexts["id_Save"]);
@@ -154,6 +153,7 @@ setTimeout(function () {
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {
+    setCombineValueCodes();
     setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
     document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = "selected";
 }, 350);

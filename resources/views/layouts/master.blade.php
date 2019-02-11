@@ -19,12 +19,13 @@
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/cssStyleVersion010.css">
-        <script src="js/defaultStartupRegionValuesVersion011.js"></script>
-        <script src="js/menuPageSetupVersion012.js"></script>
-        <script src="js/navigationVersion010.js"></script>
+        <script src="js/OneCountryLanguageTextJSFiles/defaultStartupRegionValuesVersion011.js"></script>
+        <script src="js/OneCountryLanguageTextJSFiles/staticDataForDashboard.js"></script>
+        <script src="js/PageCreationFiles/menuPageSetupVersion012.js"></script>
+        <script src="js/PageCreationFiles/navigationVersion010.js"></script>
         <script src="js/addEventVersion011.js"></script>
-        <script src="js/flagsSVGFilesVersion010.js"></script>
-        <script src="js/countriesFeaturesVersion010.js"></script>
+        <script src="js/OneCountryLanguageTextJSFiles/flagsSVGFilesVersion010.js"></script>
+        <script src="js/OneCountryLanguageTextJSFiles/countriesFeaturesVersion010.js"></script>
     </head>
     <body>
         <p class="displayNone">Place Holder</p>

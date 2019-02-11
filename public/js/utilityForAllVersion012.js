@@ -71,6 +71,8 @@ var textB;
 // one blank Span element
 var oneBlankSpan;
 
+var allCountryLanguages;
+
 // simplemaps region numbers
 var regionNumbers = {NorthAmerica:0, SouthAmerica:1, Europe:2, Africa:3, Oceania:4, Asia:5};
 var regionNames = {NorthAmerica:"North America", SouthAmerica:"South America", Europe:"Europe", Africa:"Africa", Oceania:"Australia & Oceania", Asia:"Asia"};
@@ -89,28 +91,6 @@ var initialMenuItems = {"id_Menu":eWorldMenuSetup,"id_MenuStart":eWorldMenuSetup
     "id_DataLanguages":eWorldDataLanguagesSetup,"id_Register":eWorldStartupSetup,};
 
 var combineMatrix = {"id_RadioCombineNoneSearch":"id_CombineSearchNone","id_RadioCombineAndSearch":"id_CombineSearchAnd","id_RadioCombineOrSearch":"id_CombineSearchOr"}
-
-var longNameFromCountry = {"AmericanSamoa":"American Samoa", "AntarcticTreatySystem":"Antarctic Treaty System", "AntiguaandBarbuda":"Antigua and Barbuda",
-"BonaireSintEustatiusandSaba":"Bonaire Sint Eustatius and Saba", "BosniaandHerzegovina":"Bosnia and Herzegovina", "BritishVirginIslands":"British Virgin Islands",
-"BritishIndianOceanTerritory":"British Indian Ocean Territory", "BurkinaFaso":"Burkina Faso", "CaboVerde":"Cabo Verde", "CanaryIslands":"Canary Islands",
-"CaymanIslands":"Cayman Islands", "CentralAfricanRepublic":"Central African Republic", "ChristmasIsland":"Christmas Island", "CocosIslands":"Cocos Islands",
-"CookIslands":"Cook Islands", "CostaRica":"Costa Rica", "DemocraticRepublicoftheCongo":"Democratic Republic of the Congo", "RepublicofCongo":"Republic of Congo",
-"CotedIvoire":"Côte d'Ivoire", "DominicanRepublic":"Dominican Republic", "ElSalvador":"El Salvador", "EquatorialGuinea":"Equatorial Guinea",
-"FalklandIslands":"Falkland Islands", "FaroeIslands":"Faroe Islands", "FrenchGuiana":"French Guiana", "FrenchPolynesia":"French Polynesia",
-"FrenchSouthernandAntarcticLands":"French Southern and Antarctic Lands", "GuineaBissau":"Guinea-Bissau", "HongKong":"Hong Kong", "IsleofMan":"Isle of Man",
-"MarshallIslands":"Marshall Islands", "NewCaledonia":"New Caledonia", "NewZealand":"New Zealand", "NorfolkIsland":"Norfolk Island",
-"NorthernMarianaIslands":"Northern Mariana Islands", "NorthKorea":"North Korea",  "PapuaNewGuinea":"Papua New Guinea", "PitcairnIslands":"Pitcairn Islands",
-"PuertoRico":"Puerto Rico", "RussianFederation":"Russian Federation", "SaintBarthelemy":"Saint Barthélemy", "SaintHelena":"Saint Helena",
-"SaintKittsandNevis":"St. Kitts & Nevis", "SaintLucia":"Saint Lucia", "SaintPierreandMiquelon":"Saint Pierre and Miquelon",
-"SaintVincentandGrenadines":"Saint Vincent and the Grenadines", "SanMarino":"San Marino", "SaoTomeandPrincipe":"São Tomé and Príncipe", "SaudiArabia":"Saudi Arabia",
-"SierraLeone":"Sierra Leone", "SintMaarten":"Sint Maarten", "SolomonIslands":"Solomon Islands", "SouthAfrica":"South Africa", "SouthKorea":"South Korea",
-"SouthSudan":"South Sudan", "SriLanka":"Sri Lanka", "StateofPalestine":"State of Palestine", "SvalbardandJanMayen":"Svalbard and Jan Mayen",
-"Taiwan":"Taiwan: Republic of China", "TimorLeste":"Timor-Leste", "TrinidadandTobago":"Trinidad and Tobago",
-"TurkishRepublicofNorthernCyprus":"Turkish Republic of Northern Cyprus", "TurksandCaicosIslands":"Turks and Caicos Islands", "UnitedKingdom":"United Kingdom",
-"UnitedStatesofAmerica":"United States", "UnitedStatesVirginIslands":"United States Virgin Islands", "UnitedArabEmirates":"United Arab Emirates",
-"WesternSahara":"Western Sahara", "VaticanCityAndHolySee":"Vatican City and Holy See", "WallisandFutuna":"Wallis and Futuna", "AlandIslands":"Åland Islands",
-"BouvetIsland":"Bouvet Island", "HeardIslandandMcDonaldIslands":"Heard Island and McDonald Islands",
-"SouthGeorgiaAndSouthSandwichIslands":"South Georgia And South Sandwich Islands", "UnitedStatesMinorOutlyingIslands":"United States Minor Outlying Islands" }
 
 var wikiUSState = {"WA":"Washington_(state)", "GA":"Georgia_(U.S._state)", "NY":"New_York_(state)"};
 var notInUNData = {"AntarcticTreatySystem":"AntarcticTreatySystem","BritishIndianOceanTerritory":"BritishIndianOceanTerritory","ChristmasIsland":"ChristmasIsland",
@@ -140,6 +120,7 @@ function initializationUtilityForAll() {
     previousRegion = -1; // region and register using
     lastUsedFilter = "";
     oneBlankSpan = getASpanElement(myUndefined, myUndefined, '&nbsp;');
+    allCountryLanguages = allLanguages; // emulate Dashboard since we see all the countries
     startupValuesJSONObject = getStartupValues();
     if (startupValuesJSONObject.versionNumber != versionNumber) {
         localStorage.removeItem("startupValues");
@@ -169,35 +150,35 @@ function eWorldMenuSetup() {
 // rename one CSS file individually
 
 function eWorldGlobalSetup() {
-    importAnExternalJSFile("id_Searching", "js/globalVersion010.js", "Searching"); // import a javascript external file
+    importAnExternalJSFile("id_Searching", "js/PageCreationFiles/globalVersion010.js", "Searching"); // import a javascript external file
 }
 
 function eWorldRegionalSetup() {
-    importAnExternalJSFile("id_Surfing", "js/regionalVersion010.js", "Surfing"); // import a javascript external file
+    importAnExternalJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion010.js", "Surfing"); // import a javascript external file
 }
 
 function eWorldCountriesSetup() {
-    importAnExternalJSFile("id_Countries", "js/countryCodesSetupVersion010.js", "CountryCodes"); // import a javascript external file
+    importAnExternalJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion010.js", "CountryCodes"); // import a javascript external file
 }
 
 function eWorldStartupSetup(  ) {
-    importAnExternalJSFile("id_Register", "js/registerSetupVersion010.js", "Register"); // import a javascript external file
+    importAnExternalJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion010.js", "Register"); // import a javascript external file
 }
 
 function eWorldCitationsSetup() {
-    importAnExternalJSFile("id_Citations", "js/citationsVersion010.js", "Citations"); // import a javascript external file
+    importAnExternalJSFile("id_Citations", "js/PageCreationFiles/citationsVersion010.js", "Citations"); // import a javascript external file
 }
 
 function eWorldAboutSetup() {
-    importAnExternalJSFile("id_AboutMe", "js/aboutMeVersion010.js", "AboutMe"); // import a javascript external file
+    importAnExternalJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion010.js", "AboutMe"); // import a javascript external file
 }
 
 function eWorldTextLanguagesSetup() {
-    importAnExternalJSFile("id_TextLanguages", "js/textLanguagesVersion010.js", "TextLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion010.js", "TextLanguages"); // import a javascript external file
 }
 
 function eWorldDataLanguagesSetup() {
-    importAnExternalJSFile("id_DataLanguages", "js/dataLanguagesVersion011.js", "DataLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion011.js", "DataLanguages"); // import a javascript external file
 }
 
 function isAppleProduct()
@@ -1470,7 +1451,7 @@ function createNavFooterAddIntoBodyAndReplaceBody(tagBody, tagHeader, tagMain, n
     setTimeout(function() {
         document.getElementById("topHTML").replaceChild(tagBody, document.body);
         setNavFooterTags(navigationName);
-    },50);
+    },75);
 }
 
 function fillLeadingZeros(text, size)

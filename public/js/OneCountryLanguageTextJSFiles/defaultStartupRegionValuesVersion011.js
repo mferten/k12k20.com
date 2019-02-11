@@ -62,16 +62,16 @@ var DEFAULTREGIONFLAGOFCOUNTRIES = ["Anguilla","AntiguaandBarbuda","Bahamas","Ba
 "Honduras","Jamaica","Martinique","Mexico","Montserrat","Nicaragua","Panama","PuertoRico","SaintBarthelemy","SaintKittsandNevis","SaintLucia","SaintMartin",
 "SaintPierreandMiquelon","SaintVincentandGrenadines","SintMaarten","TrinidadandTobago","TurksandCaicosIslands","UnitedStatesofAmerica","UnitedStatesVirginIslands"];
 
-var DEFAULTREGIONFLAGOFCOUNTRIESFULLNAME = JSON.parse('{"Anguilla":"English","AntiguaandBarbuda":"English","Bahamas":"English","Barbados":"English","Belize":"English","Bermuda":"English",' +
-        '"BonaireSintEustatiusandSaba":"Dutch","BritishVirginIslands":"English","Canada":"English","CaymanIslands":"English","CostaRica":"Spanish","Cuba":"Spanish","Curacao":"Dutch",' +
-        '"Dominica":"English","DominicanRepublic":"Spanish","ElSalvador":"Spanish","Greenland":"Greenlandic","Grenada":"English","Guadeloupe":"French","Guatemala":"Spanish",' +
-        '"Haiti":"French","Honduras":"Spanish","Jamaica":"English","Martinique":"French","Mexico":"Spanish","Montserrat":"English","Nicaragua":"Spanish","Panama":"Spanish",' +
-        '"PuertoRico":"Spanish","SaintBarthelemy":"French","SaintKittsandNevis":"English","SaintLucia":"English","SaintMartin":"French","SaintPierreandMiquelon":"French",' +
-        '"SaintVincentandGrenadines":"English","SintMaarten":"Dutch","TrinidadandTobago":"English","TurksandCaicosIslands":"English",' +
-        '"UnitedStatesofAmerica":"English","UnitedStatesVirginIslands":"English"}');
-
-var DEFAULTREGIONLANGUAGEOFCOUNTRIES =
+var DEFAULTREGIONFLAGOFCOUNTRIESFULLNAME =
 ["Anguilla","Antigua and Barbuda","Bahamas","Barbados","Belize","Bermuda","Bonaire Sint Eustatius and Saba","British Virgin Islands","Canada","Cayman Islands","Costa Rica",
 "Cuba","Curaçao","Dominica","Dominican Republic","El Salvador","Greenland","Grenada","Guadeloupe","Guatemala","Haiti","Honduras","Jamaica","Martinique","Mexico",
 "Montserrat","Nicaragua","Panama","Puerto Rico","Saint Barthélemy","St. Kitts & Nevis","Saint Lucia","Saint Martin","Saint Pierre and Miquelon",
 "Saint Vincent and the Grenadines","Sint Maarten","Trinidad and Tobago","Turks and Caicos Islands","United States","United States Virgin Islands"];
+
+var DEFAULTREGIONLANGUAGEOFCOUNTRIES = JSON.parse('{"Anguilla":"English","AntiguaandBarbuda":"English","Bahamas":"English","Barbados":"English","Belize":"English","Bermuda":"English",' +
+'"BonaireSintEustatiusandSaba":"Dutch","BritishVirginIslands":"English","Canada":"English","CaymanIslands":"English","CostaRica":"Spanish","Cuba":"Spanish","Curacao":"Dutch",' +
+'"Dominica":"English","DominicanRepublic":"Spanish","ElSalvador":"Spanish","Greenland":"Greenlandic","Grenada":"English","Guadeloupe":"French","Guatemala":"Spanish",' +
+'"Haiti":"French","Honduras":"Spanish","Jamaica":"English","Martinique":"French","Mexico":"Spanish","Montserrat":"English","Nicaragua":"Spanish","Panama":"Spanish",' +
+'"PuertoRico":"Spanish","SaintBarthelemy":"French","SaintKittsandNevis":"English","SaintLucia":"English","SaintMartin":"French","SaintPierreandMiquelon":"French",' +
+'"SaintVincentandGrenadines":"English","SintMaarten":"Dutch","TrinidadandTobago":"English","TurksandCaicosIslands":"English",' +
+'"UnitedStatesofAmerica":"English","UnitedStatesVirginIslands":"English"}');

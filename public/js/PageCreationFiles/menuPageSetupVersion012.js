@@ -5,7 +5,7 @@ var currentEWorldPage = "Menu"; // this should be up here all the time to work a
 
 importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion012.js");
 importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion010.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/worldFlags.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/OneCountryLanguageTextJSFiles/worldFlags.js");
 
 function finalizeMenuPage() {
     initializationUtilityForAll(); // get the initial application values (default or saved)
@@ -75,7 +75,7 @@ function setMenuImage() {
     setTimeout(function () {
         setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
         document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = true;
-    }, 550);
+    }, 650);
 }
 
 function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)

@@ -3,11 +3,10 @@
 currentEWorldPage = "eWorld Countries"; // this should be up here all the time to work again from the menu (after the first time)
 
 // retrieve the external js files if not open yet
-importAnExternalJSFileIfNotYetWithNoProcessing("CountriesTableData", "js/countriesTableData.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForDashboard", "js/staticDataForDashboard.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("CountriesTableData", "js/OneCountryLanguageTextJSFiles/countriesTableData.js");
 
 // add this into master.blade.php <script src="js/countryCodes.js"></script> for Table Data
-// add this into master.blade.php <script src="js/addNewCountryFlag.js"> to Create World View or Each Region Flags object.
+// add this into master.blade.php <script src="js/oneLanguageSpecificTextAndCodeGeneration.js"> to Create World View or Each Region Flags object.
 
 initializationUtilityForFlags();
 
@@ -163,8 +162,6 @@ var currentLetter = myUndefined;
 var tableRowsByCapitalCity = {};
 var currentSortIcon;
 var headerRow;
-
-var allCountryLanguages;
 
 dashBoardFlag = true; // emulate Dashboard since we see all the countries
 
@@ -503,7 +500,6 @@ function finalizeCountriesPage() {
     document.getElementById("id_CountryListMenu").innerHTML = decodeURIComponent(countriesTableData); // (1) if the Table Data is Saved, to rebuild comment this decodeURI out
     document.getElementById("id_CountryFacts").innerHTML = selectedApplicationLanguageTexts["id_Countries"]; // start place holder
     triggerAMouseEvent("id_A");
-    allCountryLanguages = allLanguages; // emulate Dashboard since we see all the countries
     document.getElementsByTagName("body")[0].classList.add("countryCodeBodyBackground");
     // setTheTableData(); // (3) if the Table Data is NOT saved
     // /* (4) if table data is SAVED
