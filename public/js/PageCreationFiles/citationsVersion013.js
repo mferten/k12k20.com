@@ -52,7 +52,7 @@ citationMain.appendChild(citationAside);
 
 setTimeout(function () {
     createNavFooterAddIntoBodyAndReplaceBody(citationBody, citationHeader, citationMain, "Citations");
-}, 50);
+}, 100);
 
 // Application Language Drop Down (Select/Options)
 setTimeout(function () {

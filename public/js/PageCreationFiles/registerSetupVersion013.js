@@ -1,6 +1,6 @@
 'use strict';
 
-importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForRegion", "js/staticDataForRegion.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForRegion", "js/OneCountryLanguageTextJSFiles/staticDataForRegion.js");
 
 currentEWorldPage = "Startup";
 dashBoardFlag = false;
