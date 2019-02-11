@@ -3,8 +3,8 @@
 
 var currentEWorldPage = "Menu"; // this should be up here all the time to work again from the menu (after the first time)
 
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion012.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion010.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion013.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion013.js");
 importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/OneCountryLanguageTextJSFiles/worldFlags.js");
 
 function finalizeMenuPage() {
@@ -12,7 +12,7 @@ function finalizeMenuPage() {
 
     var startupProgram = startupValuesJSONObject.startWith;
     if (startupProgram && startupProgram == "id_MenuStart") {
-        setMenuImage();
+        setMenuImage(true);
     }
     else {
         if (initialMenuItems[startupProgram]) {
@@ -25,7 +25,7 @@ function finalizeMenuPage() {
     }
 }
 
-function setMenuImage() {
+function setMenuImage(firstTime) {
     var menuBody = document.createElement("body");
     menuBody.setAttribute("name","menu");
     var menuHeader = document.createElement("header");
@@ -75,7 +75,7 @@ function setMenuImage() {
     setTimeout(function () {
         setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
         document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = true;
-    }, 650);
+    }, firstTime?850:650);
 }
 
 function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)

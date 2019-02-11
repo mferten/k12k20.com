@@ -18,14 +18,14 @@
         <title>K12K20.com: World SVG Maps & Flags: RCP - SPA</title>
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="css/cssStyleVersion010.css">
-        <script src="js/OneCountryLanguageTextJSFiles/defaultStartupRegionValuesVersion011.js"></script>
+        <link rel="stylesheet" href="css/cssStyleVersion013.css">
+        <script src="js/OneCountryLanguageTextJSFiles/defaultStartupRegionValuesVersion013.js"></script>
         <script src="js/OneCountryLanguageTextJSFiles/staticDataForDashboard.js"></script>
-        <script src="js/PageCreationFiles/menuPageSetupVersion012.js"></script>
-        <script src="js/PageCreationFiles/navigationVersion010.js"></script>
-        <script src="js/addEventVersion011.js"></script>
-        <script src="js/OneCountryLanguageTextJSFiles/flagsSVGFilesVersion010.js"></script>
-        <script src="js/OneCountryLanguageTextJSFiles/countriesFeaturesVersion010.js"></script>
+        <script src="js/PageCreationFiles/menuPageSetupVersion013.js"></script>
+        <script src="js/PageCreationFiles/navigationVersion013.js"></script>
+        <script src="js/addEventVersion013.js"></script>
+        <script src="js/OneCountryLanguageTextJSFiles/flagsSVGFilesVersion013.js"></script>
+        <script src="js/OneCountryLanguageTextJSFiles/countriesFeaturesVersion013.js"></script>
     </head>
     <body>
         <p class="displayNone">Place Holder</p>
