@@ -197,7 +197,7 @@ function eWorldTextLanguagesSetup() {
 }
 
 function eWorldDataLanguagesSetup() {
-    importAnExternalJSFile("id_DataLanguages", "js/dataLanguagesVersion010.js", "DataLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_DataLanguages", "js/dataLanguagesVersion011.js", "DataLanguages"); // import a javascript external file
 }
 
 function isAppleProduct()
