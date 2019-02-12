@@ -15,7 +15,6 @@
 var versionNumber; // a string: keeping the decimals: // application version
 var applicationStarted;
 var applicationLanguageDropDownValuesStartedFlag = false; // only once to be retrieved the initial value.
-var applicationTextLanguageSelectedIndex = -1;
 
 // Startup values in StartupValues Constructor Object
 var startupValuesJSONObject;
@@ -112,7 +111,7 @@ var applicationHrefs = {1:"http://www.k12k20.com/",2:"http://www.k12k20tr.com/",
 function initializationUtilityForAll() {
     // versionNumber must match to the Local Storage, if not (for now) Delete the Storage to start a new: Version II, it will it will be upgraded
     // With Version II, the Local Storage will only have the version Number: All the files/objects will be in indexedDB: max is 50 MB not 10MB
-    versionNumber = "1.94";
+    versionNumber = "1.95";
     applicationStarted = false;
     worldMapLoaded = true;
     previousCombineOption = -1; // dashboard and register using
@@ -134,9 +133,6 @@ function initializationUtilityForAll() {
     // Set the initial Application Language Text
     if (selectedApplicationLanguageTexts.length == 0) { // if blank retrieve otherwise keep it as selected: This is a SPA: a Single Page Application RCP.. Nice!
           selectedApplicationLanguageTexts = startupValuesJSONObject.applicationLanguageText;
-    }
-    if (applicationTextLanguageSelectedIndex == -1) {
-        applicationTextLanguageSelectedIndex = (startupValuesJSONObject.language.substring(22)-1);
     }
     isAppleProduct();
 }
@@ -178,11 +174,6 @@ function eWorldTextLanguagesSetup() {
 
 function eWorldDataLanguagesSetup() {
     importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion14.js", "DataLanguages"); // import a javascript external file
-}
-
-function openWithSelectedlanguage(hrefValue) {
-    document.getElementById("id_SelectedLanguageHref").href = hrefValue;
-    triggerAMouseEvent("id_SelectedLanguageHref");
 }
 
 function isAppleProduct()
@@ -733,7 +724,7 @@ function addApplicationLanguageSelectionDropDownBox(addIntoTag) // See Global on
     var dropDownButton = document.createElement("button");
     dropDownButton.setAttribute("class", "dropbtn");
     createAnImageInA(dropDownButton, selectedApplicationLanguageName["English (US)"][0],
-        selectedApplicationLanguageName["English (US)"][1], selectedApplicationLanguageName["English (US)"][2], "dropDownFlagText");
+        selectedApplicationLanguageName["English (US)"][1], selectedApplicationLanguageName["English (US)"][2], "dropDownFlagText", true);
     dropDownTopDiv.appendChild(dropDownButton);
     var dropDownInnerDiv = document.createElement("div");
     dropDownInnerDiv.setAttribute("class", "dropdown-content");
@@ -747,11 +738,14 @@ function addApplicationLanguageSelectionDropDownBox(addIntoTag) // See Global on
     else h2First.appendChild(dropDownTopDiv);
 }
 
-function createAnImageInA(addInTag, languageName, countryName, hrefURL, spanTextClass) {
+function createAnImageInA(addInTag, languageName, countryName, hrefURL, spanTextClass, noHrefFlag) {
     var dropDownA = document.createElement("a");
-    dropDownA.setAttribute("href", hrefURL);
-    dropDownA.setAttribute("target", "_self");
-    dropDownA.setAttribute("alt", countryName);
+    if (noHrefFlag) { } // no href/target/alt: The Drop Down Menu Text and Flag
+    else {
+        dropDownA.setAttribute("href", hrefURL);
+        dropDownA.setAttribute("target", "_self");
+        dropDownA.setAttribute("alt", countryName);
+    }
     var dropDownAImg = document.createElement("img");
     dropDownAImg.setAttribute("class", "dropdownFlag");
     dropDownAImg.setAttribute("src", "data:image/svg+xml," + flagsSVGFiles[countryName].svg);
