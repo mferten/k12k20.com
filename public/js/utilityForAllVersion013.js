@@ -182,7 +182,7 @@ function eWorldDataLanguagesSetup() {
 }
 
 function openWithSelectedlanguage(hrefValue) {
-    document.getElementById("id_SelectedLanguageHref").href = hrefValue; console.log(document.getElementById("id_SelectedLanguageHref").href);
+    // document.getElementById("id_SelectedLanguageHref").href = hrefValue; console.log(document.getElementById("id_SelectedLanguageHref").href);
     triggerAMouseEvent("id_SelectedLanguageHref");
 }
 

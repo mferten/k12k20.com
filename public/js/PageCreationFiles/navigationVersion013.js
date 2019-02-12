@@ -53,10 +53,10 @@ function createOneNavItem(navAId,navAClass,navTextId,navValue,navUlElement,navEl
     else
     {
         var worldFlags = document.createElement("a");
-        worldFlags.setAttribute("class", navAClass + " menuItem");
+        worldFlags.setAttribute("class", navAClass);
         if (navAId == "placeholder") {
             worldFlags.setAttribute("id", "id_SelectedLanguageHref");
-            worldFlags.setAttribute("href", "#");
+            worldFlags.setAttribute("href", "javascript:window.open('http://www.k12k20tr.com');return false;");
             worldFlags.setAttribute("target", "_blank");
         }
         var worldFlagsTextElement = getASpanElement(navTextId, myUndefined,
