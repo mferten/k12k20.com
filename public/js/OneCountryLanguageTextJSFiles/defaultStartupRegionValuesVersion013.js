@@ -4,6 +4,12 @@ var DEFAULTREGIONAPPLICATIONLANGUAGE = "appLanguageToUseOption1";
 var DEFAULTREGIONAPPLICATIONCOUNTRYANDLANGUAGE = "USA-English";
 var DEFAULTREGION = "NorthAmerica";
 
+// this will be DEFAULTREGIONAPPLICATIONLANGUAGEDATA
+var selectedApplicationLanguageName = {"English (US)":["English", "UnitedStatesofAmerica", "http://www.k12k20.com"],
+    "Turkish":["Turkish", "Turkey", "http://www.k12k20tr.com"], "Slovak":["Slovak", "Slovakia", "http://www.k12k20sk.com"]};
+// var selectedApplicationLanguageData = {"English":"İngilizce", "Turkish":"Türkçe", "Slovak":"Slovakça", ....};
+// var selectedApplicationLanguageData = {"English":"Anglický", "Turkish":"Turecký", "Slovak":"Slovenský, ...."};
+
 // DEFAULT REGION Application Start UP Values which will be used to load into Local Storage Area
 // console.log(encodeURIComponent(JSON.stringify(selectedApplicationLanguageTexts))) and encodeURIComponent(JSON.stringify(languageOfCountries)
 // and JSON.parse(decodeURIComponent("%7B%22Flag%20Colo

@@ -72,13 +72,6 @@ function setMenuImage(firstTime) {
     else
         document.getElementById("topHTML").appendChild(menuBody);
     setNavFooterTags("menu", true);
-    // Application Language Drop Down (Select/Options)
-    setTimeout(function () {
-        if (applicationLanguageDropDownValues) {
-            setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
-            document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = true;
-        }
-    }, firstTime?850:950);
 }
 
 function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)

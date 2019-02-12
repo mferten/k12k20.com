@@ -660,10 +660,6 @@ function setSelectOptionsFromServerData()
 {
     // Application Language Drop Down (Select/Options)
     setTimeout(function () {
-        setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
-        document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
-    }, 1100);
-    setTimeout(function () {
         setOptionsFromSavedData(document.getElementById("Language"),worldLanguagesDropDownValues);
     }, 700);
     if (appleProduct == false) {
@@ -738,24 +734,33 @@ function muteTheSoundCodes(h2Title, parentElement, registerFlag)
     }
 }
 
-function addApplicationLanguageSelectionDropDownBox(addIntoTag, idIn)
+function addApplicationLanguageSelectionDropDownBox(addIntoTag) // See Global only it is not using this function...
 {
-    // Application language Selection Drop Down Box
-    var idName;
-    if (idIn) idName = idIn;
-    else idName = "appLanguageToUse";
-    var selectElement = createReturnASelectElement(idName, myUndefined, false, "selectBoxStyles marginPointPoint2Rem appLanguageToUse");
-    var appLangLabel = document.createElement("label");
-    appLangLabel.setAttribute("for", idName);
-    appLangLabel.setAttribute("class", "applicationLanguageRegional");
+    // Application language Selection Drop Down Menu (no more a Box: a Select/Option)
+    var dropDownTopDiv = document.createElement("div");
+    dropDownTopDiv.setAttribute("class", "dropdown");
+    var dropDownButton = document.createElement("button");
+    dropDownButton.setAttribute("class", "dropbtn");
+    dropDownButton.innerHTML = selectedApplicationLanguageTexts["id_DataLanguages_Ii18n"]; // more dynamically changes
+    dropDownTopDiv.appendChild(dropDownButton);
+    var dropDownInnerDiv = document.createElement("div");
+    dropDownInnerDiv.setAttribute("class", "dropdown-content");
 
-    var appLangLabelTextSpan = getASpanElement("", myUndefined, " ");
-    if (addIntoTag && idIn) selectElement.appendChild(setFirstOption(selectedApplicationLanguageTexts["id_ChooseOne"], "ChooseOne", selectElement), true);
-    else if (!addIntoTag) appLangLabelTextSpan.setAttribute("class", "dashBoardCombine");
-    appLangLabelTextSpan.appendChild(selectElement);
-    appLangLabel.appendChild(appLangLabelTextSpan);
-    if (addIntoTag) addIntoTag.appendChild(appLangLabel);
-    else h2First.appendChild(appLangLabel);
+    for (var langName in selectedApplicationLanguageName) {
+        var dropDownA = document.createElement("a");
+        dropDownA.setAttribute("href", selectedApplicationLanguageName[langName][2]);
+        dropDownA.setAttribute("target", "_blank");
+        dropDownA.setAttribute("alt", selectedApplicationLanguageName[langName][1]);
+        var dropDownAImg = document.createElement("img");
+        dropDownAImg.setAttribute("class", "dropdownFlag");
+        dropDownAImg.setAttribute("src", "data:image/svg+xml," + flagsSVGFiles[selectedApplicationLanguageName[langName][1]].svg);
+        dropDownA.appendChild(dropDownAImg);
+        dropDownA.appendChild(getASpanElement(myUndefined, myUndefined,selectedApplicationLanguageName[langName][0]));
+        dropDownInnerDiv.appendChild(dropDownA);
+    }
+    dropDownTopDiv.appendChild(dropDownInnerDiv);
+    if (addIntoTag) addIntoTag.appendChild(dropDownTopDiv);
+    else h2First.appendChild(dropDownTopDiv);
 }
 
 function setCombineValueCodes()

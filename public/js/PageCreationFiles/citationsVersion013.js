@@ -54,12 +54,6 @@ setTimeout(function () {
     createNavFooterAddIntoBodyAndReplaceBody(citationBody, citationHeader, citationMain, "Citations");
 }, 100);
 
-// Application Language Drop Down (Select/Options)
-setTimeout(function () {
-    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
-    document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
-}, 450);
-
 function addCitationPBlock(imageSource, aText, pText, URL, idName)
 {
     var citationAsideP = document.createElement("p");

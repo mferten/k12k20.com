@@ -77,7 +77,6 @@ textLanguageI.innerHTML = "save"; // this must be lowercase to work
 textLanguagePTop.appendChild(textLanguageSpanInnerTwo);
 textLanguageLabelTwo.appendChild(textLanguageSelectTwo);
 textLanguagePTop.appendChild(textLanguageLabelTwo);
-addApplicationLanguageSelectionDropDownBox(textLanguagePTop, "appLanguageToUseB");
 textLanguagePTop.appendChild(textLanguageI);
 textLanguageMain.appendChild(textLanguagePTop);
 
@@ -142,18 +141,6 @@ setTimeout(function () {
     document.getElementById("id_SaveStartupValues").addEventListener("click", clickedSaveButton, false);
     getAllApplicationLanguageData();
 }, 250);
-
-// Application Language Drop Down (Select/Options) for Based Application Language Selection: Accent Entry...
-setTimeout(function () {
-    setApplicationLanguageDropDownBox("appLanguageToUseB", JSON.parse(applicationLanguageDropDownValues));
-    document.getElementById("appLanguageToUseB").selectedIndex = 0;
-}, 350);
-
-// Application Language Drop Down (Select/Options) for Based Application Language Selection: Accent Entry...
-setTimeout(function () {
-    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
-    document.getElementById("appLanguageToUse").selectedIndex = applicationTextLanguageSelectedIndex;
-}, 350);
 
 function clickedSaveButton(event)
 {

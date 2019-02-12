@@ -146,21 +146,6 @@ setTimeout(function() {
     setTheSelectedRegion(startupValuesJSONObject.region);
 }, 250);
 
-setTimeout(function () {
-    // Application Language retrieved by Ajax
-    if (applicationLanguageDropDownValues) {
-        setApplicationLanguageDropDownBox("appLanguageToUseB", JSON.parse(applicationLanguageDropDownValues));
-        document.getElementById("appLanguageToUseB").selectedIndex = (startupValuesJSONObject.language.substring(22)-1);
-    }
-}, 450);
-
-// Application Language Drop Down (Select/Options)
-setTimeout(function () {
-    setCombineValueCodes();
-    setApplicationLanguageDropDownBox("appLanguageToUse", JSON.parse(applicationLanguageDropDownValues));
-    document.getElementById("appLanguageToUse").options[applicationTextLanguageSelectedIndex].selected = "selected";
-}, 650);
-
 // Save the Startup Configuration into the Local Storage
 function saveStartupValues(startupValuesJSONObject)
 {
@@ -238,20 +223,6 @@ function changeStartupEvents(event)
     {
         processRegion(eventId, false); // id not value
         setTheSelectedRegion(eventId); // mark it selected
-    }
-    // a language selected retrieve and save the Applicaiton Texts
-    else if (eventId == 'appLanguageToUse' || eventId == 'appLanguageToUseB')
-    {
-        if (eventId == 'appLanguageToUse') {
-            var languageId = document.getElementById("appLanguageToUse").value.substring(22); // 1, 2, 3 but starts with 0..
-            // utilityForAll has selectedApplicationLanguageTexts as global value
-            openWithSelectedlanguage(applicationHrefs[languageId]);
-        }
-        else {
-            var languageId = document.getElementById("appLanguageToUseB").value.substring(22); // 1, 2, 3 but starts with 0..
-            setApplicationLanguage(languageId, false);
-        }
-        event.preventDefault(); // do not attempt to submit the form
     }
     // If Pause/Play Icon clicked:
     else if (eventId == 'id_CheckBoxPlaySounds')

@@ -411,7 +411,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Menu' => 'Krajiny sveta',
                         'id_MenuStart' => 'Krajiny sveta',
                         "id_MenuUsage" => 'Menu',
-                        'id_Countries' => 'Krajín sveta',
+                        'id_Countries' => 'Krajiny sveta',
                         'id_Right' => 'Vpravo',
                         'id_Left' => 'Vľavo',
                         'id_Women' => 'Ženy'

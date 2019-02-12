@@ -39,7 +39,7 @@ var selectTextSpan = getASpanElement("", myUndefined, " ");
 // These will be multiple selection drop down Category Select fields:
 createSelectFields(selectTextSpan, ["Country", "Population", "LandArea", "Language", "Religion", "Reports"],
     "selectBoxStyles marginPointPoint2Rem worldSelectSize");
-createSelectFields(selectTextSpan, ["appLanguageToUse"],"selectBoxStyles marginPointPoint2Rem worldSelectSize");
+addApplicationLanguageSelectionDropDownBox(selectTextSpan);
 firstDivElement.appendChild(selectTextSpan);
 
 var flags = document.createElement("div");

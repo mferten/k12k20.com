@@ -93,7 +93,7 @@ class ApplicationLanguageDataTableSeeder extends Seeder
         "Varşova","Vaşington","Wellington","West Island","Willemstad","Windhoek","Yamusukro","Yaunde","Yaren","Erivan","Zagreb","Kara","Mavi","Kahverengi",
         "Giri","Yeşil","Bordo","Portakal","Pembe","Mor","Kırmızı","Safran","Beyaz","Sarı","Dolar $","ABD $","Avro €","Afghani AFN ؋",
         "Arnavut Leki LEK","Hollanda Antiller Florini ANG","Madagaskar Doları MGA","Avusturalya Doları AUD $","AUD $","Avusturalya Doları AUD $",
-        "Tayland Bahtı THB ฿","Panama Balboası PAB","Etiyopya Biri ETB","Venezuela Bolivarı VEF","Bolivya Bolivyanosu BOB $b","Gana Cedisi GHS ¢",
+        "Tayland Bahtı THB ฿","Panama Balboası PAB","Etiyopya Biri ETB","Venezuela Bolivarı VEF",'Bolivya Bolivyanosu BOB $b',"Gana Cedisi GHS ¢",
         "Kosta Rika Kolonu CRC ₡","El Salvador Kolonu SVC $","Gambiya Dalasisi GMD","Makedonya Dinarı MKD ден","Bahreyn Dinarı BHD د.ب",
         "Cezayir Dinarı DZD","Irak Dinarı IQD","Ürdün Dinarı JOD","Kuveyt Dinarı KWD د.ك","Libya Dinarı LYD","Sırp Dinarı RSD Дин",
         "Tunus Dinarı TND","B.A.E. Dirhemi AED د.إ","Fas Dirhemi MAD","Danimarka Kronu DKK","Avustralya Doları AUD $","Barbados Doları BBD $",
