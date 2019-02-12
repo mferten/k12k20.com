@@ -194,10 +194,9 @@ li a:hover {
 
 /* drop down menu starts */
 .dropbtn {
-  background-color: #4CAF50;
+  background-color: #190623;
   min-width: 10rem;
-  color: white;
-  padding: .5rem;
+  color: #eab358;
   font-size: 1rem;
   border: none;
 }
@@ -236,6 +235,13 @@ li a:hover {
     height: 1rem;
     border-width: .1rem;
     border: .1em solid lightgray;
+    margin: .5rem;
+    vertical-align: middle;
+}
+
+.dropDownFlagText {
+    font-size: 1.05rem;
+    color: #eab358;
 }
 /* drop down menu ends */
 

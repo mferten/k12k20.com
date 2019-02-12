@@ -741,26 +741,33 @@ function addApplicationLanguageSelectionDropDownBox(addIntoTag) // See Global on
     dropDownTopDiv.setAttribute("class", "dropdown");
     var dropDownButton = document.createElement("button");
     dropDownButton.setAttribute("class", "dropbtn");
-    dropDownButton.innerHTML = selectedApplicationLanguageTexts["id_DataLanguages_Ii18n"]; // more dynamically changes
+    createAnImageInA(dropDownButton, selectedApplicationLanguageName["English (US)"][0],
+        selectedApplicationLanguageName["English (US)"][1], selectedApplicationLanguageName["English (US)"][2], "dropDownFlagText");
     dropDownTopDiv.appendChild(dropDownButton);
     var dropDownInnerDiv = document.createElement("div");
     dropDownInnerDiv.setAttribute("class", "dropdown-content");
 
     for (var langName in selectedApplicationLanguageName) {
-        var dropDownA = document.createElement("a");
-        dropDownA.setAttribute("href", selectedApplicationLanguageName[langName][2]);
-        dropDownA.setAttribute("target", "_blank");
-        dropDownA.setAttribute("alt", selectedApplicationLanguageName[langName][1]);
-        var dropDownAImg = document.createElement("img");
-        dropDownAImg.setAttribute("class", "dropdownFlag");
-        dropDownAImg.setAttribute("src", "data:image/svg+xml," + flagsSVGFiles[selectedApplicationLanguageName[langName][1]].svg);
-        dropDownA.appendChild(dropDownAImg);
-        dropDownA.appendChild(getASpanElement(myUndefined, myUndefined,selectedApplicationLanguageName[langName][0]));
-        dropDownInnerDiv.appendChild(dropDownA);
+        createAnImageInA(dropDownInnerDiv, selectedApplicationLanguageName[langName][0],
+            selectedApplicationLanguageName[langName][1], selectedApplicationLanguageName[langName][2]);
     }
     dropDownTopDiv.appendChild(dropDownInnerDiv);
     if (addIntoTag) addIntoTag.appendChild(dropDownTopDiv);
     else h2First.appendChild(dropDownTopDiv);
+}
+
+function createAnImageInA(addInTag, languageName, countryName, hrefURL, spanTextClass) {
+    var dropDownA = document.createElement("a");
+    dropDownA.setAttribute("href", hrefURL);
+    dropDownA.setAttribute("target", "_blank");
+    dropDownA.setAttribute("alt", countryName);
+    var dropDownAImg = document.createElement("img");
+    dropDownAImg.setAttribute("class", "dropdownFlag");
+    dropDownAImg.setAttribute("src", "data:image/svg+xml," + flagsSVGFiles[countryName].svg);
+    dropDownA.appendChild(dropDownAImg);
+    if (spanTextClass) dropDownA.appendChild(getASpanElement(myUndefined, spanTextClass, languageName));
+    else dropDownA.appendChild(getASpanElement(myUndefined, myUndefined, languageName));
+    addInTag.appendChild(dropDownA);
 }
 
 function setCombineValueCodes()
