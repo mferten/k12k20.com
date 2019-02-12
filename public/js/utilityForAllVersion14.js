@@ -45,7 +45,6 @@ var languageOfCountries = [];
 
 // Application Text
 var selectedApplicationLanguageTexts = [];
-var selectedApplicationLanguageTextsB;
 
 var appleProduct = false;
 var iPhone = false;
@@ -240,7 +239,7 @@ function StartupValues(versionNumber, language, languageText , region, isSoundOf
 }
 
 // Should be here Register is using it, too.
-function setApplicationLanguage(languageId, apply) // Dynamic data: a user can add and use instantly
+function setApplicationLanguage(languageId) // Dynamic data: a user can add and use instantly
 {
     var xhttploadTagsTexts = new XMLHttpRequest(); // Get the Application Language Texts from the database
     xhttploadTagsTexts.onreadystatechange = function() // On Ready State Change
@@ -249,15 +248,7 @@ function setApplicationLanguage(languageId, apply) // Dynamic data: a user can a
         {
             if (xhttploadTagsTexts.responseText != "no row")
             {
-                if (apply) // Apply new Application Text into the Page (not on Registration Startup Values time)
-                {
-                    selectedApplicationLanguageTexts = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts
-                    applyTheLanguageTexts();
-                }
-                else {
-                      // only Register: Startup has two Application Language Selection: One like others to apply the other to save for later Startup use.
-                     selectedApplicationLanguageTextsB = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts to be used when the application starts
-                }
+                selectedApplicationLanguageTexts = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts
             }
         }
     }
