@@ -1397,7 +1397,7 @@ function getDateOnly()
 // Trigger a Mouse Event
 function triggerAMouseEvent(idName)
 {
-    var event = new MouseEvent('click', { 'view': window,'bubbles': true,'cancelable': true });
+    var event = new MouseEvent('click', { 'view': window,'bubbles': false,'cancelable': false });
     document.getElementById(idName).dispatchEvent(event);
 }
 
