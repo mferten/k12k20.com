@@ -245,7 +245,7 @@ function changeStartupEvents(event)
         if (eventId == 'appLanguageToUse') {
             var languageId = document.getElementById("appLanguageToUse").value.substring(22); // 1, 2, 3 but starts with 0..
             // utilityForAll has selectedApplicationLanguageTexts as global value
-            window.open(applicationHrefs[languageId], "_blank");
+            openWithSelectedlanguage(applicationHrefs[languageId]);
         }
         else {
             var languageId = document.getElementById("appLanguageToUseB").value.substring(22); // 1, 2, 3 but starts with 0..

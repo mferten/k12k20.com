@@ -123,7 +123,7 @@ function addChangeEvents(event)
         if (selectionName == "region") {
             processRegionPlus(selectionValue, true);
         } else if (selectionId == "appLanguageToUse" && selectionValue != "ChooseOne") { /* Application Language Selection */
-            if (window.location.hostname.toUpperCase() == "K12K20.LOC") {
+            if (window.location.hostname.toUpperCase() == "K12K20.xLOC") {
                 setApplicationLanguage(document.getElementById("appLanguageToUse").value.substring(22), true); // Change the Web Page Text Language
                 applicationTextLanguageSelectedIndex = (document.getElementById("appLanguageToUse").value.substring(22)-1);
                 // For the Language Pages: Take care of the second id_ChooseOne (double)
@@ -136,7 +136,7 @@ function addChangeEvents(event)
                             document.getElementById("appLanguageToUseB").options[0].innerHTML = selectedApplicationLanguageTexts["id_ChooseOne"];
                     },300);
                 }
-            } else window.open(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)], "_blank");
+            } else openWithSelectedlanguage(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)]);
         } else if (selectionId == "id_CheckBoxPlaySounds") { // Sound Off
             playSoundsChanged();
         } else if (selectionId == "Country") { // a Country/Entity

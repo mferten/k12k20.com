@@ -316,7 +316,7 @@ function countryCodesClickEvents(event)
 function countryCodesChangeEvents(event)
 {
     if (event.target.id == "appLanguageToUse") {
-        window.open(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)], "_blank");
+        openWithSelectedlanguage(applicationHrefs[document.getElementById("appLanguageToUse").value.substring(22)]);
     }
 }
 

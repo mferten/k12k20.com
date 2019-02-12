@@ -181,6 +181,11 @@ function eWorldDataLanguagesSetup() {
     importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion013.js", "DataLanguages"); // import a javascript external file
 }
 
+function openWithSelectedlanguage(hrefValue) {
+    document.getElementById("id_SelectedLanguageHref").href = hrefValue; console.log(document.getElementById("id_SelectedLanguageHref").href);
+    triggerAMouseEvent("id_SelectedLanguageHref");
+}
+
 function isAppleProduct()
 {
     if (navigator.userAgent.toUpperCase().indexOf("IPAD") > 0 || navigator.userAgent.toUpperCase().indexOf("IPHONE") > 0
