@@ -43,8 +43,6 @@ function createNavigationTags(navElement)
         }
     }
     else createOneNavItem("menu","appLanguageSel","id_Menu","Menu",navUlElement,navElement,whereNav);
-    // add one hidden <a id="" class="" href="placeholder" target="_blank" to be triggered by Application Language Selection...
-    createOneNavItem("placeholder","displayNone","id_PlaceHolder","hidden",navUlElement,navElement,whereNav);
 }
 
 function createOneNavItem(navAId,navAClass,navTextId,navValue,navUlElement,navElement,whereNav)
@@ -54,11 +52,6 @@ function createOneNavItem(navAId,navAClass,navTextId,navValue,navUlElement,navEl
     {
         var worldFlags = document.createElement("a");
         worldFlags.setAttribute("class", navAClass);
-        if (navAId == "placeholder") {
-            worldFlags.setAttribute("id", "id_SelectedLanguageHref");
-            worldFlags.setAttribute("href", "#");
-            worldFlags.setAttribute("target", "_blank");
-        }
         var worldFlagsTextElement = getASpanElement(navTextId, myUndefined,
             selectedApplicationLanguageTexts[navTextId]);
         worldFlags.name = navValue;

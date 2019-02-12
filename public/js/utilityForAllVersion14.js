@@ -759,7 +759,7 @@ function addApplicationLanguageSelectionDropDownBox(addIntoTag) // See Global on
 function createAnImageInA(addInTag, languageName, countryName, hrefURL, spanTextClass) {
     var dropDownA = document.createElement("a");
     dropDownA.setAttribute("href", hrefURL);
-    dropDownA.setAttribute("target", "_blank");
+    dropDownA.setAttribute("target", "_self");
     dropDownA.setAttribute("alt", countryName);
     var dropDownAImg = document.createElement("img");
     dropDownAImg.setAttribute("class", "dropdownFlag");
