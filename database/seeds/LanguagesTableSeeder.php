@@ -22,7 +22,7 @@ class LanguagesTableSeeder extends Seeder
             "Maltese","Mambai","Mandarin","Mandinka","Marathi","Marshallese","Maya","Melanesian pidgin","Mende","Moldovan","Mongolian","Monokutuba","Montenegrin",
             "Nauruan","Nawat","Ndebele","Nepali","Niuean","Norwegian","Nyanja","Oriya","Oromo","Palauan","Papiamento","Pashto","Persian","Polish","Portuguese","Punjabi",
             "Quechua","Rarotongan","Romanian","Romansch","Russian","Samoan","Sango","Sanskrit","Saraiki","Scots","Sekalanga","Sepedi","Serbian","Sesotho","Setswana",
-            "Seychellois Creole","Sharchhopka","Shimaore","Shona","Sindhi","Sinhala","siSwati","Slovak","Slovenian","Somali","Spanish","Swahili","Swedish","Tajik",
+            "Seychellois Creole","Sharchhopka","Shona","Sindhi","Sinhala","siSwati","Slovak","Slovenian","Somali","Spanish","Swahili","Swedish","Tajik",
             "Tamil","Tatar","Telugu","Temne","Tetum","Thai","Tigrinya","Tok Pisin","Tokelauan","Tonga","Tongan","Turkish","Turkmen","Tuvaluan","Ukrainian","Umbundu",
             "Urdu","Uzbek","Vietnamese","Welsh","Wolof","Xichangana"];
         # Initiate a new timestamp we can use for created_at/updated_at fields

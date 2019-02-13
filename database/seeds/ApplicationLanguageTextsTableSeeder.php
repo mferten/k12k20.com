@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 use Illuminate\Database\Seeder;
 use App\ApplicationLanguageText;
@@ -653,7 +653,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
          $timestamp = Carbon\Carbon::now()->toDateTimeString(); # same is OK
 
          // Insert USA English Texts
-         $countryId = Country::getCountryIdFromName('USA');
+         $countryId = Country::getCountryIdFromName('UnitedStatesofAmerica');
          $languageId = Language::getLanguageId('English');
          $applicationLanguage = ApplicationLanguage::getApplicationLanguageId($countryId, $languageId);
          foreach($textsUSA as $key => $text)
