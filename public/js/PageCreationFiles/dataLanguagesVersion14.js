@@ -266,11 +266,7 @@ function setTheTable(htmlTableWithTexts)
 // saving this Application Language
 function saveApplicationLanguageData()
 {
-    var applicationLanguageBasedId;
-    if (document.getElementById("appLanguageToUseB").value.lastIndexOf("appLanguageToUseOption") != -1) {
-        applicationLanguageBasedId = document.getElementById("appLanguageToUseB").value.substring(22);
-    }
-    else applicationLanguageBasedId = 999;
+    var applicationLanguageBasedId = 999;
     var xhttpsaveTagsData = new XMLHttpRequest();
     var dataWorlds = new FormData();
     getTagIdTextsArray();
