@@ -3,6 +3,9 @@
 var DEFAULTREGIONAPPLICATIONLANGUAGE = "appLanguageToUseOption1";
 var DEFAULTREGIONAPPLICATIONCOUNTRYANDLANGUAGE = "USA-English";
 var DEFAULTREGION = "NorthAmerica";
+var DEFAULTCOUNTRY = "UnitedStatesofAmerica";
+var DEFAULTLANGUAGE = "English";
+var DEFAULTURL = "http://www.k12k20.com";
 
 //  Keep Adding new Application Languages (both Text and Data)
 var selectedApplicationLanguageName = {"Turkish":["Turkish", "Turkey", "http://www.k12k20tr.com"],
