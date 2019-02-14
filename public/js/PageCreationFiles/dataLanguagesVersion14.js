@@ -139,7 +139,6 @@ setTimeout(function () {
     document.getElementById("appLanguage").addEventListener("change", changeEvents, false);
     // Save Button is selected
     document.getElementById("id_SaveStartupValues").addEventListener("click", clickedSaveButton, false);
-    getAllApplicationLanguageData();
 }, 250);
 
 function clickedSaveButton(event)
@@ -326,6 +325,7 @@ function getThisApplicationLanguageData()
     var xhttploadTagsData = new XMLHttpRequest();
     // into an Array of "tag" => "text"
     tagsTextsArray = [];
+    var englishToSelectedLanguageJSONObject = {};
     // On Ready State Change
     xhttploadTagsData.onreadystatechange = function()
     {
@@ -338,10 +338,21 @@ function getThisApplicationLanguageData()
             else {
                 tagsTextsArray = JSON.parse(tagsTextsArray);
                 var basedOnId = tagsTextsArray[0].based_on_application_language_id;
-                if (basedOnId != 999) {
-                    document.getElementById("appLanguageToUseB").selectedIndex = basedOnId;
+                for (var x in tagsTextsArray) {
+                    if (englishToSelectedLanguageJSONObject[usaAppLanTexts[x]]) { } // skip in already
+                    else englishToSelectedLanguageJSONObject[usaAppLanTexts[x]] = tagsTextsArray[x]["this_language_feature_value"];
                 }
             }
+            console.log(JSON.stringify(englishToSelectedLanguageJSONObject));
+            /* use englishToSelectedLanguageJSONObject: English Word vs This Language World JSON Object
+                read featuresOfAllCountries's each Country and convert value of all feature line by line
+                JSON.stringify(featuresOfAllCountries): new one for the selected language: replace featuresOfAllCountries in it
+             */
+             for (var oneCountry in featuresOfAllCountries) {
+                for (var oneFeature in featuresOfAllCountries[oneCountry]) {
+                    console.log(englishToSelectedLanguageJSONObject[featuresOfAllCountries[oneCountry][oneFeature]["value"]]);
+                }
+             }
         }
     };
     xhttploadTagsData.open("GET", "/ajax/data?applicationLanguageId="+applicationLanguageId, true);
@@ -391,31 +402,6 @@ function resetEntry()
         appLanguageInstructionTable.classList.remove("displayNone");
     if (!appLanguageDataTable.classList.contains("displayNone"))
         appLanguageDataTable.classList.add("displayNone");
-}
-
-// Retrieve the Application Data Language (if any) and Set Up the Selected Application Language Data for the Page
-function getAllApplicationLanguageData()
-{
-    // Get All the Language Data from the database (if any)
-    var xhttploadTagsAllData = new XMLHttpRequest();
-    // On Ready State Change
-    xhttploadTagsAllData.onreadystatechange = function()
-    {
-        if (xhttploadTagsAllData.readyState == 4 && xhttploadTagsAllData.status == 200)
-        {
-            var allValues = JSON.parse(xhttploadTagsAllData.responseText);
-            var allValuesInAString = ""; // a string
-            for (var oneValue in allValues) {
-                // here Each world will be lowercase except the first letter will be uppercase...
-
-                allValuesInAString += '"' + allValues[oneValue]["this_language_feature_value"] + '",';
-            }
-            console.log(allValuesInAString);
-        }
-    };
-    xhttploadTagsAllData.open("GET", "/ajax/dataSeeder", true);
-    // Start the Ajax Communication (call PHP program through Route => Controller)
-    xhttploadTagsAllData.send();
 }
 
 /*
