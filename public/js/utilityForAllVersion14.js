@@ -644,10 +644,10 @@ function setSelectOptionsFromServerData()
     setTimeout(function () {
         setOptionsFromSavedData(document.getElementById("Language"),worldLanguagesDropDownValues);
     }, 700);
+    setTimeout(function () {
+        setOptionsFromSavedData(document.getElementById("Religion"),worldReligionsDropDownValues);
+    }, 750);
     if (appleProduct == false) {
-        setTimeout(function () {
-            setOptionsFromSavedData(document.getElementById("Religion"),worldReligionsDropDownValues);
-        }, 750);
         setTimeout(function () {
             setOptionsFromSavedData(document.getElementById("Water"),worldWatersDropDownValues);
         }, 800);
