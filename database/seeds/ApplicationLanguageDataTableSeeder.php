@@ -20,15 +20,20 @@ class ApplicationLanguageDataTableSeeder extends Seeder
             Vowels: a, e, ı, i, o, ö, u, ü
             Consonants: b, c, ç, d, f, g, ğ, h, j, k, l, m, n, p, r, s, ş, t, v, y, z
 
-            var lowerToUpperCaseTurkish = {"a":"A", "b": "B", "c": "C", "ç": "Ç", "d": "D", "e": "E", "f": "F", "g": "G", "ğ": "Ğ", "h": "H", "ı": "I", "i": "İ", "j": "J",
-                "k": "K", "l": "L", "m": "M", "n": "N", "o": "O", "ö": "Ö", "p": "P", "r": "R", "s": "S", "ş": "Ş", "t": "T", "u": "U", "ü": "Ü", "v": "V", "y": "Y", "z": "Z"};
-            var upperToLowerCaseTurkish = {"A":"a", "B": "b", "C": "c", "Ç": "ç", "D": "d", "E": "e", "F": "f", "G": "g", "Ğ": "ğ", "H": "h", "I": "ı", "İ": "i", "J": "j",
-                "K": "k", "L": "l", "M": "n", "N": "n", "O": "o", "Ö": "ö", "P": "p", "R": "r", "S": "s", "Ş": "ş", "T": "t", "U": "u", "Ü": "ü", "V": "v", "Y": "y", "Z": "z"};
+            var lowerToUpperCaseTurkish = {"a":"A", "b": "B", "c": "C", "ç": "Ç", "d": "D", "e": "E", "f": "F", "g": "G", "ğ": "Ğ", "h":
+            "H", "ı": "I", "i": "İ", "j": "J",
+                "k": "K", "l": "L", "m": "M", "n": "N", "o": "O", "ö": "Ö", "p": "P", "r": "R", "s": "S", "ş": "Ş", "t":
+                "T", "u": "U", "ü": "Ü", "v": "V", "y": "Y", "z": "Z"};
+            var upperToLowerCaseTurkish = {"A":"a", "B": "b", "C": "c", "Ç": "ç", "D": "d", "E": "e", "F": "f", "G": "g",
+            "Ğ": "ğ", "H": "h", "I": "ı", "İ": "i", "J": "j",
+                "K": "k", "L": "l", "M": "n", "N": "n", "O": "o", "Ö": "ö", "P": "p", "R": "r", "S": "s", "Ş": "ş", "T":
+                "t", "U": "u", "Ü": "ü", "V": "v", "Y": "y", "Z": "z"};
 
         */
         // javascript stringVariable.split("?"); ?=whatever is the character value
         // php $newArrayVariable = explode("?", $stringWithArrayValues); ?=whatever is the character value
-        $dataTR = ["Düşük","Orta","Yüksek","Afganistan","Afganistan","Aland","Aland Adası","Arnavutluk","Arnavutluk","Cezayir","Cezayir","ABD Samoa",
+        $dataTR = ["Düşük","Orta","Yüksek","ve","Göl","Okyanus","Deniz","Denizleri","Afganistan","Afganistan","Aland","Aland Adası",
+        "Arnavutluk","Arnavutluk","Cezayir","Cezayir","ABD Samoa",
         "Amerikan Samao","Andorra","Andorra","Angola","Angola","Anguilla","Anguilla","Antartika","Antarktika Antlaşması Sistemi","Antigua",
         "Antigua ve Barbuda","Arjantin","Arjantin","Ermenistan","Ermenistan","Aruba","Aruba","Avustralya","Avustralya","Avusturya","Avusturya",
         "Azerbaycan","Azerbaycan","Bahamalar","Bahamalar","Bahreyn","Bahreyn","Bangaldeş","Bangaldeş","Barbados","Barbados","Belarus","Belarus",
@@ -42,7 +47,7 @@ class ApplicationLanguageDataTableSeeder extends Seeder
         "Danimarka","Danimarka","Cibuti","Cibuti","Dominika","Dominika","Dominikan","Dominik Cumhuriyeti","Ekvator","Ekvator","Mısır","Mısır",
         "El Salvador","El Salvador","E Ginesi","Ekvator Ginesi","Eritre","Eritre","Estonya","Estonya","Esvatini","Esvatini","Etiyopya","Etiyopya",
         "Falkland","Falkland Adaları","Faroye","Faroye Adaları","Fiji","Fiji","Finlandiya","Finlandiya","Fransa","Fransa","Guyana",
-        "French Guyana","Polenezya","Fransız Polenezya","Fr Antartik","Fransız GÜney ve Antartik Alanı","Gabon","Gabon","Gambiya","Gambiya",
+        "French Guyana","Polenezya","Fransız Polenezya","Fr Antartik","Fransız Güney ve Antartik Alanı","Gabon","Gabon","Gambiya","Gambiya",
         "Gürcistan","Gürcistan","Almanya","Almanya","Gana","Gana","Cebelitarık","Cebelitarık","Yunanistan","Yunanistan","Grönland","Grönland",
         "Grenada","Grenada","Guadelup","Guadelup","Guyam","Guyam","Guatemala","Guatemala","Görnse","Görnse","Gine","Gine","Gine Bissau",
         "Gine-Bissau","Guyana","Guyana","Haiti","Haiti","H MekDonald","Hörd ve MekDonal Adaları","Honduras","Honduras","Hong Kong",
@@ -113,8 +118,16 @@ class ApplicationLanguageDataTableSeeder extends Seeder
         "Laos Kipi LAK ₭","Çek Korunası CZK č","İzlanda Kronu ISK","İsveç Kronu","Danimarka Kronu DKK","Norveç Kronu NOK","Hırvat Kunası HRK",
         "Malavi Kvakası MWK","Zambian Kwacha ZMW","Angola Kvanzası AOA","Myanmar Kyatı MMK","Keyman Adaları Doları KYD $","Gürcistan Larisi GEL",
         "Honduras Lempirası HNL","Sierra Leone Leonu SLL","Moldova Leyi MDL","Romen Leyi RON","Svaziland Lilangenisi SZL","Lesotho Lotisi LSL",
-        "Azerbaycan Manatı AZN","Türkmenistan Y. Manatı TMT","Bosna Konvertibl Mark BAM","Makau Patacası MOP","Nijerya Nairası NGN ₦","Eritre Nakfası ERN","Bhutan Ngultrumu BTN","Norveç Kronu","Tayvan Yeni Doları NT$ TWD $","Yeni Zelanda Doları NZD $","Umman Riyali OMR ﷼","Nikaragua Kordoba Orosu NIO $","Moritanya Ouguiyası MRO","Tonga Paangası TOP","Arjantin Pezosu ARS $","Şili Pezosu CLP $","Kolombiya Pezosu COP $","Küba Pezosu CUP ₱","Meksika Pezosu MXN $","Filipinler Pesosu PHP ₱","Uruguay Pezosu UYU $","Mısır Lirası EGP £","Lübnan Paundu LBP £","Sudan Dinarı SDG","Güney Sudan Pound SSP",
-        "Pound Sterlin GBP £","Suriye Lirası SYP £","Botsvana Pulası BWP","Guatemala Kuetzalı GTQ","Güney Afrika Randı ZAR","Brazilya Reali BRL $","İran Riyali IRR ﷼","Katar Riyali QAR ﷼","Yemen Riyali YER ﷼","Malezya Ringiti MYR","Suudi A. Riyali SAR ﷼","Belarus Rublesi BYR","Rus Rublesi RUB б","Maldiv Rufiyası MVR","Hindistan Rupisi INR ₹","Sri Lanka Rupisi LKR","Mauritus Rupisi MUR","Nepal Rupisi NPR","Pakistani Rupee PKR","Seyşeller Rupisi","Endonezya Rupisi","Solomon Adaları Doları SBD $","İsrail Yeni Şekeli ILS ₪","Kenya Şilini KES","Somali Şilini SOS $",
+        "Azerbaycan Manatı AZN","Türkmenistan Y. Manatı TMT","Bosna Konvertibl Mark BAM","Makau Patacası MOP","Nijerya Nairası NGN ₦",
+        "Eritre Nakfası ERN","Bhutan Ngultrumu BTN","Norveç Kronu","Tayvan Yeni Doları NT$ TWD $","Yeni Zelanda Doları NZD $",
+        "Umman Riyali OMR ﷼","Nikaragua Kordoba Orosu NIO $","Moritanya Ouguiyası MRO","Tonga Paangası TOP","Arjantin Pezosu ARS $",
+        "Şili Pezosu CLP $","Kolombiya Pezosu COP $","Küba Pezosu CUP ₱","Meksika Pezosu MXN $","Filipinler Pesosu PHP ₱",
+        "Uruguay Pezosu UYU $","Mısır Lirası EGP £","Lübnan Paundu LBP £","Sudan Dinarı SDG","Güney Sudan Pound SSP",
+        "Pound Sterlin GBP £","Suriye Lirası SYP £","Botsvana Pulası BWP","Guatemala Kuetzalı GTQ","Güney Afrika Randı ZAR",
+        "Brazilya Reali BRL $","İran Riyali IRR ﷼","Katar Riyali QAR ﷼","Yemen Riyali YER ﷼",
+        "Malezya Ringiti MYR","Suudi A. Riyali SAR ﷼","Belarus Rublesi BYR","Rus Rublesi RUB б","Maldiv Rufiyası MVR","Hindistan Rupisi INR ₹",
+        "Sri Lanka Rupisi LKR","Mauritus Rupisi MUR","Nepal Rupisi NPR","Pakistani Rupee PKR","Seyşeller Rupisi","Endonezya Rupisi",
+        "Solomon Adaları Doları SBD $","İsrail Yeni Şekeli ILS ₪","Kenya Şilini KES","Somali Şilini SOS $",
         "Tanzanya Şilini TZS","Uganda Şilini","Saint Helena Paundu SHP £","Peru Yeni Solu PEN","Kırgızistan Somu KGS 	лв","Tacikistan Somonisi TJS",
         "Sao Tome ve P. Dobrası","Özbekistan Sumu	UZS лв","İsviçre Frangı CHF","Bangladeş Takası BDT ৳","Samoa Talası WST","Kazakhstani Tenge KZT лв",
         "Moğolistan Tugriki MNT ₮","Vanuatu Vatusu VUV","Kuzey Kore Vonu	KPW ₩","Güney Kore Wonu	KRW ₩","Doğu Karayip Doları XCD $",
@@ -167,7 +180,8 @@ class ApplicationLanguageDataTableSeeder extends Seeder
         "Akdeniz","Molacca","Natuna","Kuzey","Norveççe","Pasifik (Büyük)","İran Körfezi","Filipin","Kızıl","Savu","Azov denizi",
         "Japon Denizi","Okhotsk Denizi","Solomon","Güney Çin","Güney","Sulu","Tasman","Timor","Sarı","Sarı Deniz (Yellow)"];
 
-        $dataSK = ["Nízky","Stredný","Vysoký","Afganistan","Afganistan","Alandy","Alandské ostrovy","Albánsko","Albánsko","Alžírsko","Alžírsko",
+        $dataSK = ["Nízky","Stredný","Vysoký","a","Jazero","Oceán","More","Moria","Afganistan","Afganistan","Alandy",                  
+        "Alandské ostrovy","Albánsko","Albánsko","Alžírsko","Alžírsko",
         "Americká Samoa","Americká Samoa","Andorra","Andorra","Angola","Angola","Anguilla","Anguilla","Antarktída",
         "Antarktický zmluvný systém","Antigua","Antigua a Barbuda","Argentína","Argentína","Arménsko","Arménsko","Aruba",
         "Aruba","Australia","Australia","Rakúsko","Rakúsko","Azerbajdžan","Azerbajdžan","Bahamy","Bahamy","Bahrajn",

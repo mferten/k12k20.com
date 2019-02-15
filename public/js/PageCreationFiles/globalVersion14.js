@@ -10,7 +10,7 @@ setTimeout(function () {
     importAnExternalJSFileIfNotYetWithNoProcessing("Worldmap", "js/worldmap.js");
 
     initializationUtilityForFlags();
-    
+
     if (typeof allCountryNames == 'undefined') // text or data lanageues.js may define this variable
         allCountryNames = getAllCountriesNames();
     if (typeof allCountryFullNames == 'undefined') // text or data lanageues.js may define this variable
@@ -142,8 +142,8 @@ function finalizeGlobalPage() {
     setCombineValueCodes("was here");
     // create SimpleMaps World Map
     worldMap = simplemaps_worldmap.create();
+    regionalGlobalInitialization();
     // only one region in World view map: 0, all countries in it
     worldMap.load();
-    regionalGlobalInitialization();
     setNavFooterTags("Searching");
 }
