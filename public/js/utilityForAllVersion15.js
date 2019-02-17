@@ -1122,19 +1122,18 @@ function hideWithTitle(element)
     var text = element.innerHTML;
     var dropDownDescription = document.getElementById("id_DisplayDDD" + element.getAttribute("id").substring(10));
     if (dropDownDescription) {
-        if (text.indexOf(selectedApplicationLanguageTexts["id_And"].toLowerCase()) > 0)
-        {
-            element.innerHTML = text.substring(0, text.indexOf(selectedApplicationLanguageTexts["id_And"].toLowerCase())) + "...";
-            addShowDescription (dropDownDescription);
-            dropDownDescription.innerHTML = text;
-        }
-        // " and " or "," display All in Drop Down
-        else if (text.indexOf(",") > 0)
+        if (text.indexOf(",") > 0)
         {
             element.innerHTML = text.substring(0, text.indexOf(",")) + "...";
             addShowDescription (dropDownDescription);
             dropDownDescription.innerHTML = text;
         }
+        else if (text.indexOf(selectedApplicationLanguageTexts["id_And"].toLowerCase()) > 0)
+        {
+            element.innerHTML = text.substring(0, text.indexOf(selectedApplicationLanguageTexts["id_And"].toLowerCase())) + "...";
+            addShowDescription (dropDownDescription);
+            dropDownDescription.innerHTML = text;
+        }          
         else {
             removeShowDescription (dropDownDescription);
         }
