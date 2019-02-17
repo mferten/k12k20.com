@@ -152,35 +152,35 @@ function eWorldMenuSetup() {
 // rename one CSS file individually
 
 function eWorldGlobalSetup() {
-    importAnExternalJSFile("id_Searching", "js/PageCreationFiles/globalVersion14.js", "Searching"); // import a javascript external file
+    importAnExternalJSFile("id_Searching", "js/PageCreationFiles/globalVersion15.js", "Searching"); // import a javascript external file
 }
 
 function eWorldRegionalSetup() {
-    importAnExternalJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion14.js", "Surfing"); // import a javascript external file
+    importAnExternalJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion15.js", "Surfing"); // import a javascript external file
 }
 
 function eWorldCountriesSetup() {
-    importAnExternalJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion14.js", "CountryCodes"); // import a javascript external file
+    importAnExternalJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion15.js", "CountryCodes"); // import a javascript external file
 }
 
 function eWorldStartupSetup(  ) {
-    importAnExternalJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion14.js", "Register"); // import a javascript external file
+    importAnExternalJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion15.js", "Register"); // import a javascript external file
 }
 
 function eWorldCitationsSetup() {
-    importAnExternalJSFile("id_Citations", "js/PageCreationFiles/citationsVersion14.js", "Citations"); // import a javascript external file
+    importAnExternalJSFile("id_Citations", "js/PageCreationFiles/citationsVersion15.js", "Citations"); // import a javascript external file
 }
 
 function eWorldAboutSetup() {
-    importAnExternalJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion14.js", "AboutMe"); // import a javascript external file
+    importAnExternalJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion15.js", "AboutMe"); // import a javascript external file
 }
 
 function eWorldTextLanguagesSetup() {
-    importAnExternalJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion14.js", "TextLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion15.js", "TextLanguages"); // import a javascript external file
 }
 
 function eWorldDataLanguagesSetup() {
-    importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion14.js", "DataLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion15.js", "DataLanguages"); // import a javascript external file
 }
 
 function isAppleProduct()
