@@ -466,14 +466,14 @@ function createCountryInformationLabels (elementTag, infoIds, classes, leftFlag)
         oneInfoSpan.appendChild(oneInfoSpanTextSpan);
         oneInfoAnchor.appendChild(oneInfoSpan);
         // add the Dropdown Description
-        if (boldLinkCategories[oneInfoValue]) {} // no Drop Down only a Href Link
+        if (boldLinkCategories[oneInfoValue]) {} // no Show Description only a Href Link
         else {
-            if (noDropDownDescription[oneInfoValue]) {} // skip these: no need to have a Drop Down Description
+            if (noDropDownDescription[oneInfoValue] || iPhone) {} // skip these or iPhone: no need to have a Show Description
             else {
                 var oneInfoSpanDDDescription;
                 if (leftFlag) oneInfoSpanDDDescription =
-                    getASpanElement("id_DisplayDDD" + oneInfoValue, "dropdown-content-left-description pBorder", myUndefined);
-                else oneInfoSpanDDDescription = getASpanElement("id_DisplayDDD" + oneInfoValue, "dropdown-content-right-description pBorder", myUndefined);
+                    getASpanElement("id_DisplayDDD" + oneInfoValue, "dropdown-content-left-description dropDownPBorder", myUndefined);
+                else oneInfoSpanDDDescription = getASpanElement("id_DisplayDDD" + oneInfoValue, "dropdown-content-right-description dropDownPBorder", myUndefined);
                 var oneCriteriaDDDLines = selectedApplicationLanguageTexts["id_" + oneInfoValue + "DM"];
                 if (oneCriteriaDDDLines) {
                     oneCriteriaDDDLines = oneCriteriaDDDLines.split("<p>");
@@ -1133,7 +1133,7 @@ function hideWithTitle(element)
             element.innerHTML = text.substring(0, text.indexOf(selectedApplicationLanguageTexts["id_And"].toLowerCase())) + "...";
             addShowDescription (dropDownDescription);
             dropDownDescription.innerHTML = text;
-        }          
+        }
         else {
             removeShowDescription (dropDownDescription);
         }
@@ -1142,7 +1142,7 @@ function hideWithTitle(element)
 
 function addShowDescription (dropDownDescription) {
     if (!dropDownDescription.getAttribute("class"))
-        dropDownDescription.setAttribute("class", "dropdown-content-left-description pBorder");
+        dropDownDescription.setAttribute("class", "dropdown-content-left-description dropDownPBorder");
 }
 
 function removeShowDescription (dropDownDescription) {

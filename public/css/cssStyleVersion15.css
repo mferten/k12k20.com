@@ -214,15 +214,13 @@ li a:hover {
 .dropdown-content, .dropdown-content-left-description, .dropdown-content-right-description {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: papayaWhip;
     min-width: 10rem;
     box-shadow: 0 .5rem 1rem 0 rgba(0,0,0,0.2);
     z-index: 3; /* table headings using 2 */
     color: #190623;
+    min-width: 10rem;
 }
-
-.dropdown-content { min-width: 10rem; }
-.dropdown-content-left-description, .dropdown-content-right-description { min-width: 18rem; }
 
 .dropdown-content a {
     color: black;
@@ -246,7 +244,7 @@ li a:hover {
 
 .dropdown:hover .dropdown-content-left-description {display: inline-block; transform: translateX(5rem);}
 
-.dropdown:hover .dropdown-content-right-description {display: inline-block; transform: translateX(-25rem);}
+.dropdown:hover .dropdown-content-right-description {display: inline-block; transform: translateX(-18rem);}
 
 .dropdown:hover .dropbtn {background-color: #190623;}
 
@@ -264,6 +262,17 @@ li a:hover {
     font-size: 1.05rem;
     color: #eab358;
 }
+
+.dropDownPBorder {
+    font-size: 1rem;
+    text-align: center;
+    padding-top: .4rem;
+    border-width: .4rem;
+    background-color: papayaWhip;
+    color: #190623;
+    margin: .4rem;
+}
+
 /* drop down menu and show right/left description end */
 
 .marginOnSidesABit {
