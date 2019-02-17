@@ -40,12 +40,12 @@ setTimeout(function () {
     eWorldCountriesMainDivOne.setAttribute("id", "worldFlagsForm");
     if (appleProduct) {
       createCountryInformationLabels(eWorldCountriesMainDivOne, // Left Labels
-          ["Language", "Population", "Overweight", "LifeExpectancy", "CapitalCities"],"marginPointPoint2Rem displayNone sharedLinkState");
+          ["Language", "Population", "Overweight", "LifeExpectancy", "CapitalCities"],"marginPointPoint2Rem displayNone sharedLinkState", true);
     }
     else {
           createCountryInformationLabels(eWorldCountriesMainDivOne, // Left Labels
               ["Language", "Population", "Religion", "LandArea", "Income", "Overweight", "LifeExpectancy", "CapitalCities", "CountryCodes", "Currency", "Water",
-              "SexRatio", "SeatRatio","HDI", "Gini"],"marginPointPoint2Rem displayNone sharedLinkState");
+              "SexRatio", "SeatRatio","HDI", "Gini"],"marginPointPoint2Rem displayNone sharedLinkState", true);
     }
     var eWorldCountriesMainDivTwo = document.createElement("div");
     eWorldCountriesMainDivTwo.setAttribute("id", "myInfoPageCountryList");
@@ -69,12 +69,12 @@ setTimeout(function () {
     eWorldCountriesMainDivThree.setAttribute("id", "selectedFlagForm");
     if (appleProduct) {
         createCountryInformationLabels(eWorldCountriesMainDivThree, // Right Labels
-            ["TravelWarning", "TimeAndDate", "GoogleMap", "Tourism", "UNCountry"],"marginPointPoint2Rem displayNone sharedLinkState");
+            ["TravelWarning", "TimeAndDate", "GoogleMap", "Tourism", "UNCountry"],"marginPointPoint2Rem displayNone sharedLinkState", false);
     }
     else {
         createCountryInformationLabels(eWorldCountriesMainDivThree, // Right Labels
             ["DrivingSide", "CleanWater", "CleanToilet", "Cell", "RandD", "Internet", "TravelWarning", "TimeAndDate", "GoogleMap", "Government", "Tourism", "Weather",
-            "WikiCountry", "CIACountry", "UNCountry"],"marginPointPoint2Rem displayNone sharedLinkState");
+            "WikiCountry", "CIACountry", "UNCountry"],"marginPointPoint2Rem displayNone sharedLinkState", false);
     }
 
     eWorldCountriesMain.appendChild(eWorldCountriesMainDivOne);
