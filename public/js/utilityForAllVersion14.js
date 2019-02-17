@@ -1142,13 +1142,13 @@ function hideWithTitle(element)
 }
 
 function addShowDescription (dropDownDescription) {
-    if (!dropDownDescription.classList.contains("dropdown-content-left-description"))
-        dropDownDescription.classList.add("dropdown-content-left-description")
+    if (!dropDownDescription.getAttribute("class"))
+        dropDownDescription.setAttribute("class", "dropdown-content-left-description pBorder");
 }
 
 function removeShowDescription (dropDownDescription) {
-    if (dropDownDescription.classList.contains("dropdown-content-left-description"))
-        dropDownDescription.classList.remove("dropdown-content-left-description")
+    if (dropDownDescription.getAttribute("class"))
+        dropDownDescription.removeAttribute("class");
 }
 
 function showUNReportedExtraFields(featuresOfEachCountry)

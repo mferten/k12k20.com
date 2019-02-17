@@ -232,9 +232,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_GiniDM' => 'Aile gelirinin dağılımı...<p>Sıfır: En iyi, Yüz: En kötü',
                         'id_CountryCodesDM' => 'ISO 2 and 3<p>Telefon ülke sayısı and GEO'
                     ];
-                    A B C Ç D E F G Ğ H I İ J K L M N O Ö P R S Ş T U Ü V Y Z
-                    Vowels: a, e, ı, i, o, ö, u, ü
-                    Consonants: b, c, ç, d, f, g, ğ, h, j, k, l, m, n, p, r, s, ş, t, v, y, z
+                    
          $textsSK = [   'id_Required' => 'požadovaný',
                         // from here to "to here" these are for the Report Table Title Column Information
                         'Language Name' => 'Jazyk',
