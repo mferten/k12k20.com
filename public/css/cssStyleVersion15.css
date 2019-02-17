@@ -519,7 +519,7 @@ li a:hover {
     font-size: 1.1rem;
 }
 
-.countryInformationLabelState {
+.countryInformationLabelState, .countryPanel {
     color: #eab358;
 }
 
@@ -721,7 +721,6 @@ li a:hover {
 }
 
 .countryPanel {
-    color: #bcbb6d;
     padding: .3rem;
     border-bottom: solid #190623 .1rem;
     box-shadow: .1rem .12rem #888888;
