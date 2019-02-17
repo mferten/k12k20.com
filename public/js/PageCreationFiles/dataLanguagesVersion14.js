@@ -349,67 +349,76 @@ function getThisApplicationLanguageData()
                 read featuresOfAllCountries's each Country and convert value of all feature line by line
                 JSON.stringify(featuresOfAllCountries): new one for the selected language: replace featuresOfAllCountries in it
              */
-             for (var oneCountry in featuresOfAllCountries) {
+            for (var oneCountry in featuresOfAllCountries) {
                 for (var oneFeature in featuresOfAllCountries[oneCountry]) {
                     if (englishToSelectedLanguageJSONObject[featuresOfAllCountries[oneCountry][oneFeature]["value"]]) {
                         featuresOfAllCountries[oneCountry][oneFeature]["value"] = // changing Features (no Display)
                             englishToSelectedLanguageJSONObject[featuresOfAllCountries[oneCountry][oneFeature]["value"]];
                     }
                 }
-             }
-             var processTheseFourDisplays = {"CapitalCitiesDisplay":"CapitalCitiesDisplay", "WaterDisplay":"WaterDisplay",
-                "ReligionsDisplay":"ReligionsDisplay", "LanguageDisplay":"LanguageDisplay"};
-             var slovakCharacters = {
+            }
+            var processTheseFourDisplays = {"CapitalCitiesDisplay":"CapitalCitiesDisplay", "WaterDisplay":"WaterDisplay",
+                "ReligionsDisplay":"ReligionsDisplay", "LanguageDisplay":"LanguageDisplay", "Gini":"Gini", "HDI":"HDI"};
+            var slovakCharacters = {
                 "a":"A","á":"Á","ä":"Ä","b":"B","c":"C","č":"Č","d":"D","ď":"Ď","dz":"Dz","dž":"Dž","e":"E","é":"É","f":"F",
                 "g":"G","h":"H","ch":"Ch","i":"I","í":"Í","j":"J","k":"K","l":"L","ĺ":"Ĺ","ľ":"Ľ","m":"M","n":"N","ň":"Ň",
                 "o":"O","ó":"Ó","ô":"Ô","p":"P","q":"Q","r":"R","ŕ":"Ŕ","s":"S","š":"Š","t":"T","ť":" Ť","u":"U","ú":"Ú",
                 "v":"V","w":"W","x":"X","y":"Y","ý":"Ý","z":"Z","ž":"Ž"};
-             var oneFeatureValue;
-             for (var oneCountry in featuresOfAllCountries) {
+            var oneFeatureValue;
+            for (var oneCountry in featuresOfAllCountries) {
                 for (var oneFeature in featuresOfAllCountries[oneCountry]) {
                     if (processTheseFourDisplays[featuresOfAllCountries[oneCountry][oneFeature]["feature"]]) {
                         oneFeatureValue = featuresOfAllCountries[oneCountry][oneFeature]["value"];
-                        console.log(oneFeatureValue);
-                        // replace "and" with this language "id_And"
+                        // replace "and" with "," later "and" will be added before the last word
                         if (oneFeatureValue && oneFeatureValue.indexOf("and") != -1) {
                             oneFeatureValue = oneFeatureValue.substring(0, oneFeatureValue.indexOf("and")) +
-                                englishToSelectedLanguageJSONObject["and"] + oneFeatureValue.substring(oneFeatureValue.indexOf("and")+3);
+                                "," + oneFeatureValue.substring(oneFeatureValue.indexOf("and")+3);
                         }
                         var newLine = "";
-                        if (oneFeatureValue.indexOf(" ") != -1) {
-                            // "normalize" the Bay and Gulf and Sea Names
-                            oneFeatureValue = oneFeatureValue.split(",");
-                            var bayGulfNameReplaced = "";
-                            for (var oneBayOrGulf in oneFeatureValue) {
-                                if (bayAndGulfNames[oneFeatureValue[oneBayOrGulf]]) bayGulfNameReplaced += " " +
-                                    bayAndGulfNames[oneFeatureValue[oneBayOrGulf]] + ",";
-                                else bayGulfNameReplaced += oneFeatureValue[oneBayOrGulf] + ",";
+                        // "normalize" the Bay and Gulf and Sea Names
+                        oneFeatureValue = oneFeatureValue.split(","); // can not be only one word: Fix it if it is: Erase "Display" excluding US States
+                        var bayGulfNameReplaced = "";
+                        for (var oneBayOrGulf in oneFeatureValue) {
+                            if (bayAndGulfNamesFromJSON[oneFeatureValue[oneBayOrGulf]])
+                                bayGulfNameReplaced += " " + bayAndGulfNamesFromJSON[oneFeatureValue[oneBayOrGulf]] + " ,";
+                            else bayGulfNameReplaced += oneFeatureValue[oneBayOrGulf] + ",";
+                        }
+                        bayGulfNameReplaced = bayGulfNameReplaced.substring(0, bayGulfNameReplaced.lastIndexOf(","));
+                        oneFeatureValue = bayGulfNameReplaced.trim();
+                        oneFeatureValue = oneFeatureValue.split(" ");
+                        var oneWordText = "";
+                        for (var oneWord in oneFeatureValue) {
+                            oneWordText = oneFeatureValue[oneWord];
+                            var thereIsComma = false;
+                            if (oneWordText.lastIndexOf(",") != -1) { // remove the Comma
+                                oneWordText = oneWordText.substring(0, oneWordText.lastIndexOf(","));
+                                thereIsComma = true;
                             }
-                            bayGulfNameReplaced = bayGulfNameReplaced.substring(0, bayGulfNameReplaced.lastIndexOf(","));
-                            oneFeatureValue = bayGulfNameReplaced.trim();
-                            oneFeatureValue = oneFeatureValue.split(" ");
-                            var oneWordText = "";
-                            for (var oneWord in oneFeatureValue) {
-                                oneWordText = oneFeatureValue[oneWord];
-                                var thereIsComma = false;
-                                if (oneWordText.lastIndexOf(",") != -1) { // remove the Comma
-                                    oneWordText = oneWordText.substring(0, oneWordText.lastIndexOf(","));
-                                    thereIsComma = true;
-                                }
-                                if (englishToSelectedLanguageJSONObject[oneWordText]) {
-                                    newLine += englishToSelectedLanguageJSONObject[oneWordText] + (thereIsComma?", ":" ");
-                                }
-                                else {
-                                    newLine += oneFeatureValue[oneWord] + " "; // no other language word, use the original
-                                }
+                            if (englishToSelectedLanguageJSONObject[oneWordText]) {
+                                newLine += englishToSelectedLanguageJSONObject[oneWordText] + (thereIsComma?", ":" ");
+                            }
+                            else {
+                                newLine += oneFeatureValue[oneWord] + " "; // no other language word, use the original
                             }
                         }
-                        else newLine = oneFeatureValue;
-                        console.log(newLine);
+                        oneFeatureValue = newLine.replace(" , ", " " + englishToSelectedLanguageJSONObject["and"] + " ");
+                        featuresOfAllCountries[oneCountry][oneFeature]["value"] = oneFeatureValue;
                     }
                 }
-             }
-             // console.log(JSON.stringify(featuresOfAllCountries));
+            }
+            // convert Comment words; if applicationLanguageId = 2 (Turkey) Exception 1: if Mediterranean blank Sea out...
+            for (var oneCountry in featuresOfAllCountries) {
+                for (var oneFeature in featuresOfAllCountries[oneCountry]) {
+                    if (englishToSelectedLanguageJSONObject[featuresOfAllCountries[oneCountry][oneFeature]["comment"]]) {
+                        if (applicationLanguageId == 2 && featuresOfAllCountries[oneCountry][oneFeature]["value"] == "Mediterranean") {
+                            featuresOfAllCountries[oneCountry][oneFeature]["comment"] = "";
+                        }
+                        else featuresOfAllCountries[oneCountry][oneFeature]["comment"] =
+                            englishToSelectedLanguageJSONObject[featuresOfAllCountries[oneCountry][oneFeature]["comment"]];
+                    }
+                }
+            }
+            console.log(JSON.stringify(featuresOfAllCountries));
         }
     };
     xhttploadTagsData.open("GET", "/ajax/data?applicationLanguageId="+applicationLanguageId, true);
@@ -461,12 +470,12 @@ function resetEntry()
         appLanguageDataTable.classList.add("displayNone");
 }
 
-var bayAndGulfNames = { "Bay_of_Bengal":"Bay of Bengal", "Bay_of_Biscay":"Bay of Biscay", "Bering_Seas":"Bering Seas",
-    "East_China":"East China", "East_Siberian":"East Siberian", "English_Channel":"English Channel",
-    "Gulf_of_Aden":"Gulf of Aden", "Gulf_of_Aqaba":"Gulf of Aqaba", "Gulf_of_California":"Gulf of California",
-    "Gulf_of_Guinea":"Gulf of Guinea", "Gulf_of_Mexico":"Gulf of Mexico", "Gulf_of_Oman":"Gulf of Oman", "Gulf_of_Thailand":"Gulf of Thailand",
-    "Gulf_of_Thailand and Pacific Ocean":"Gulf of Thailand and Pacific Ocean", "Persian_Gulf":"Persian Gulf", "Sea_of_Azov":"Sea of Azov",
-    "Sea_of_Japan":"Sea of Japan", "Sea_of_Okhotsk":"Sea of Okhotsk", "South_China":"South China", "Yellow_Sea":"Yellow Sea" };
+var bayAndGulfNamesFromJSON = { "Bay of Bengal":"Bay_of_Bengal", "Bay of Biscay":"Bay_of_Biscay", "Bering Seas":"Bering_Seas",
+    "East China":"East_China", "East Siberian":"East_Siberian", "English Channel":"English_Channel","Gulf of Aden":"Gulf_of_Aden",
+    "Gulf of Aqaba":"Gulf_of_Aqaba", "Gulf of California":"Gulf_of_California","Gulf of Guinea":"Gulf_of_Guinea", "Gulf of Mexico":"Gulf_of_Mexico",
+    "Gulf of Oman":"Gulf_of_Oman", "Gulf of Thailand":"Gulf_of_Thailand","Gulf_of_Thailand and Pacific Ocean":"Gulf of Thailand and Pacific Ocean",
+    "Persian Gulf":"Persian_Gulf", "Sea of Azov":"Sea_of_Azov","Sea of Japan":"Sea_of_Japan", "Sea of Okhotsk":"Sea_of_Okhotsk",
+    "South China":"South_China", "Yellow Sea":"Yellow_Sea" };
 
 /*
     (1) from Feature table all unique words

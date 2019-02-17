@@ -139,11 +139,12 @@ function finalizeGlobalPage() {
     rightLabelAndMainElementCodes(flagControllDivElement, mainElement, formDivElement);
     // Some of the Select Option Values will be retrieved from Server (AJAX calls)
     setSelectOptionsFromServerData();
-    setCombineValueCodes("was here");
+    setCombineValueCodes();
     // create SimpleMaps World Map
     worldMap = simplemaps_worldmap.create();
     regionalGlobalInitialization();
     // only one region in World view map: 0, all countries in it
     worldMap.load();
     setNavFooterTags("Searching");
+    countrySelectableFeatureLocation = countrySelectableFeatureLocationApple; // Apple IOS less criteria
 }

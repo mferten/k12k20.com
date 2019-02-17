@@ -24,7 +24,7 @@ class CreateApplicationLanguageTextsTable extends Migration
              # The rest of the fields...
              $table->integer('application_language_id')->unsigned();
              $table->integer('application_i18ntag_id')->unsigned();
-             $table->string('text');
+             $table->text('text');
 
              # Make foreign keys
              $table->foreign('application_language_id')->references('id')->on('application_languages');

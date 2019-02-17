@@ -149,7 +149,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_TravelWarningDisplay' => 'Yolculuk İkazı',
                         'id_WikiCountryDisplay' => "Wiki",
                         'id_CIACountryDisplay' => "CIA",
-                        'id_UNCountryDisplay' => "BM",
+                        'id_UNCountryDisplay' => "Birleşmiş Milletler",
                         'id_TimeAndDateDisplay' => "Tarih ve Saat",
                         'id_CountryCodesDisplay' => "Simgeler",
                         'id_CountryCodes' => "Dünya Ülke Simgeleri",
@@ -220,9 +220,21 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Countries' => 'Dünya Ülkeleri',
                         'id_Right' => 'Sağ',
                         'id_Left' => 'Sol',
-                        'id_Women' => 'Kadın'
+                        'id_Women' => 'Kadın',
+                        'id_CleanWaterDM'  => 'Birleşmis Milletler (BM) (sağ en alt baglantı)<p>Temiz su içebilen nüfusun oranı<p>-- şehir/kır, %<p>Environment (çevre) ve infrastructure (altyapı) göstergeleri bölumü',
+                        'id_CleanToiletDM'  => 'Birleşmis Milletler (sağ en alt baglantı)<p>Temiz Tuvalet kullabilen nüfusun oranı<p>-- şehir/kır, %<p>Environment (çevre) ve infrastructure (altyapı) göstergeleri bölumü',
+                        'id_CellDM'  => 'Birleşmis Milletler (sağ en alt bağlantı)<p>Her yüz kiside olan Cep telefon sayısı<p>Environment (çevre) ve infrastructure (altyapı) göstergeleri bölumü',
+                        'id_RandDDM'  => 'Birleşmis Milletler (sağ en alt bağlantı)<p>Research (Araştırma) & Development (Geliştirme) expenditure (harcaması)<p>-- % of GDP (Yıllık Toplam Gelir)<p>Environment (çevre) ve infrastructure (altyapı) göstergeleri bölumü',
+                        'id_InternetDM'  => 'Birleşmis Milletler (sağ en alt bağlantı)<p>Individuals using the Internets<p>-- per 100 inhabitants<p>nEnvironment (çevre) ve infrastructure (altyapı) göstergeleri bölumü',
+                        'id_SexRatioDM'  => 'Birleşmis Milletler (sağ en alt bağlantı)<p>Kadın oranı<p>-- her yüz kadına kaç erkek var, 2017<p>General Information (Genel Bilgi bölumü)',
+                        'id_SeatRatioDM'  => 'Birleşmis Milletler (sağ en alt bağlantı)<p>Millet Meclisinde Kadın Vekillerin yüzde oranı<p>-- %<p>Social (Toplumsal) göstergeler bölumü',
+                        'id_HDIDM' => 'İnsani Gelişmişlik Olcüsü: Human Development Index (HDI)<p>Uzun ve sağlıklı bir yaşam, zihinsel aydınlanmış ve<p>saygın bir yaşam biçimi.',
+                        'id_GiniDM' => 'Aile gelirinin dağılımı...<p>Sıfır: En iyi, Yüz: En kötü',
+                        'id_CountryCodesDM' => 'ISO 2 and 3<p>Telefon ülke sayısı and GEO'
                     ];
-
+                    A B C Ç D E F G Ğ H I İ J K L M N O Ö P R S Ş T U Ü V Y Z
+                    Vowels: a, e, ı, i, o, ö, u, ü
+                    Consonants: b, c, ç, d, f, g, ğ, h, j, k, l, m, n, p, r, s, ş, t, v, y, z
          $textsSK = [   'id_Required' => 'požadovaný',
                         // from here to "to here" these are for the Report Table Title Column Information
                         'Language Name' => 'Jazyk',
@@ -342,7 +354,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_TravelWarningDisplay' => 'Upozornenie na cestovanie',
                         'id_WikiCountryDisplay' => "Wiki",
                         'id_CIACountryDisplay' => "CIA",
-                        'id_UNCountryDisplay' => "UN",
+                        'id_UNCountryDisplay' => "Spojené národy",
                         'id_CountryCodesDisplay' => "Kódy krajín",
                         'id_CountryCodes' => "Kódy svetových krajín",
                         'id_CurrencyDisplay' => "Mena",
@@ -414,7 +426,17 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Countries' => 'Krajiny sveta',
                         'id_Right' => 'Vpravo',
                         'id_Left' => 'Vľavo',
-                        'id_Women' => 'Ženy'
+                        'id_Women' => 'Ženy',
+                        'id_CleanWaterDM'  => 'From UN <p>Population using improved drinking water<p>-- urban/rural, %<p>Environment and infrastructure indicators',
+                        'id_CleanToiletDM'  => 'From UN <p>Population using improved sanitation facilities<p>-- urban/rural, %<p>Environment and infrastructure indicators',
+                        'id_CellDM'  => 'From UN <p>Mobile-cellular subscriptions<p>-- per 100 inhabitants<p>Environment and infrastructure indicators',
+                        'id_RandDDM'  => 'From UN <p>Research & Development expenditure<p>-- % of GDP<p>Environment and infrastructure indicators',
+                        'id_InternetDM'  => 'From UN <p>Individuals using the Internets<p>-- per 100 inhabitants<p>Environment and infrastructure indicators',
+                        'id_SexRatioDM'  => 'From UN <p>Sex ratio<p>-- male per 100 female, 2017<p>General Information',
+                        'id_SeatRatioDM'  => 'From UN <p>Seats held by women in national parliaments<p>-- %<p>Social indicators',
+                        'id_HDIDM' => 'Human Development Index (HDI)<p>A long and healthy life, being knowledgeable and<p>have a decent standard of living.',
+                        'id_GiniDM' => 'Distribution of family income...<p>Zero: The best, 100: The worst',
+                        'id_CountryCodesDM' => 'ISO 2 and 3<p>Calling# and GEO'
                     ];
 
         $textsUSA = [   'id_Required' => 'required',
@@ -536,7 +558,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_TravelWarningDisplay' => 'Travel Warning',
                         'id_WikiCountryDisplay' => "Wiki",
                         'id_CIACountryDisplay' => "CIA",
-                        'id_UNCountryDisplay' => "UN",
+                        'id_UNCountryDisplay' => "United Nations",
                         'id_CountryCodesDisplay' => "Country Codes",
                         'id_CountryCodes' => "World Country Codes",
                         'id_CurrencyDisplay' => "Currency",
@@ -608,7 +630,17 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Countries' => 'World Countries',
                         'id_Right' => 'Right',
                         'id_Left' => 'Left',
-                        'id_Women' => 'Women'
+                        'id_Women' => 'Women',
+                        'id_CleanWaterDM'  => 'From UN <p>Population using improved drinking water<p>-- urban/rural, %<p>Environment and infrastructure indicators',
+                        'id_CleanToiletDM'  => 'From UN <p>Population using improved sanitation facilities<p>-- urban/rural, %<p>Environment and infrastructure indicators',
+                        'id_CellDM'  => 'From UN <p>Mobile-cellular subscriptions<p>-- per 100 inhabitants<p>Environment and infrastructure indicators',
+                        'id_RandDDM'  => 'From UN <p>Research & Development expenditure<p>-- % of GDP<p>Environment and infrastructure indicators',
+                        'id_InternetDM'  => 'From UN <p>Individuals using the Internets<p>-- per 100 inhabitants<p>Environment and infrastructure indicators',
+                        'id_SexRatioDM'  => 'From UN <p>Sex ratio<p>-- male per 100 female, 2017<p>General Information',
+                        'id_SeatRatioDM'  => 'From UN <p>	Seats held by women in national parliaments<p>-- %<p>Social indicators',
+                        'id_HDIDM' => 'Human Development Index (HDI)<p>A long and healthy life, being knowledgeable and<p>have a decent standard of living.',
+                        'id_GiniDM' => 'Distribution of family income...<p>Zero: The best, 100: The worst',
+                        'id_CountryCodesDM' => 'ISO 2 and 3<p>Calling# and GEO'
                     ];
 
          # Initiate a new timestamp

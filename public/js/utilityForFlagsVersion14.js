@@ -910,12 +910,12 @@ function simpleMapOneCountryMap(formDivElement)
 {
     if (appleProduct) {
         createCountryInformationLabels(formDivElement, // Left Labels
-            ["Language", "Population", "Overweight", "LifeExpectancy", "CapitalCities"],"marginPointPoint2Rem displayNone sharedLinkState");
+            ["Language", "Population", "Overweight", "LifeExpectancy", "CapitalCities"],"marginPointPoint2Rem displayNone sharedLinkState", true);
     }
     else {
         createCountryInformationLabels(formDivElement, // Left Labels
             ["Language", "Population", "Religion", "LandArea", "Income", "Overweight", "LifeExpectancy", "CapitalCities", "CountryCodes", "Currency", "Water",
-            "SexRatio", "SeatRatio","HDI", "Gini"],"marginPointPoint2Rem displayNone sharedLinkState");
+            "SexRatio", "SeatRatio","HDI", "Gini"],"marginPointPoint2Rem displayNone sharedLinkState", true);
     }
 
     regionMapDivElement = document.createElement("div"); // the Region Map: 2 of 3 <div> of mainWrapper <div>
@@ -997,12 +997,12 @@ function rightLabelAndMainElementCodes(flagControllDivElement, mainElement, form
     // Right Labels
     if (appleProduct) {
         createCountryInformationLabels(flagControllDivElement,
-            ["TravelWarning", "TimeAndDate", "GoogleMap", "Tourism", "UNCountry"],"marginPointPoint2Rem displayNone sharedLinkState");
+            ["TravelWarning", "TimeAndDate", "GoogleMap", "Tourism", "UNCountry"],"marginPointPoint2Rem displayNone sharedLinkState", false);
     }
     else {
         createCountryInformationLabels(flagControllDivElement,
             ["DrivingSide", "CleanWater", "CleanToilet", "Cell", "RandD", "Internet", "TravelWarning", "TimeAndDate", "GoogleMap", "Government", "Tourism", "Weather",
-              "WikiCountry", "CIACountry", "UNCountry"],"marginPointPoint2Rem displayNone sharedLinkState");
+              "WikiCountry", "CIACountry", "UNCountry"],"marginPointPoint2Rem displayNone sharedLinkState", false);
     }
 
     mainElement.appendChild(formDivElement);

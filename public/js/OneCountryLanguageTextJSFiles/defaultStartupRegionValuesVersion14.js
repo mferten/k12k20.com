@@ -36,7 +36,7 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"id_Cell":"Cell Phone","id_Internet":"Internet","id_RandD":"R&D","id_CleanWater":"Potable Water","id_CleanToilet":"Clean Restroom","title_CombineSearchNone":"None",' +
 '"id_InternetDisplay":"Internet","id_CleanWaterDisplay":"Potable Water","title_CombineSearchAnd":"And","id_RandDDisplay":"R&D",' +
 '"id_SmallEntityText":"Please Use the Google Map (right bottom button) for the Small Entities!","id_Country":"Country","id_CombineSearchReverse":"Reverse",' +
-'"id_ReligionDisplay":"Religion","id_Religion":"Religion","id_Shape3rd":"Shape 3","id_UNCountryDisplay":"UN","id_PanelOneText":"Map","id_Regions":"Regions",' +
+'"id_ReligionDisplay":"Religion","id_Religion":"Religion","id_Shape3rd":"Shape 3","id_UNCountryDisplay":"United Nations","id_PanelOneText":"Map","id_Regions":"Regions",' +
 '"id_PanelTwoText":"Made a difference","id_PanelThreeText":"Music","id_PanelFourText":"People","id_PanelFiveText":"Animals","id_PanelSixText":"Shopping",' +
 '"id_PanelSevenText":"Food","id_PanelEightText":"Liveability","id_PanelTwoOneText":"Children","id_ListAscending":"List Ascending","id_ListDescending":"List Descending",' +
 '"title_CombineSearchReverse":"Reverse","id_Menu":"Nice to Meet the World","id_CountryCodes":"World Country Codes","id_CountryList":"World Countries",' +
@@ -48,8 +48,20 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"id_EWorldMagic":"www.K12K20.com Got the Magic, Thanks to","id_InteractiveMaps":"for the Interactive Maps","id_CountryInformation":"for the Country Facts",' +
 '"id_SVGNationalFlags":"for the SVG National Flags","id_NationalAnthem":"for the National Anthems","id_LinuxServer":"for the Linux Server","id_AppLanguageToUseB":"Application Language",' +
 '"id_WebServer":"for the Web Server","id_MailServer":"for the Mail Server","id_WorldFactsCia":"for the World Facts","id_WorldFactsWiki":"for the World Facts",' +
-'"id_HowItWorks":"How it works?","id_TechnologiesTitle":"Technologies","id_HowTechnologiesUsed":' +
-'"How the Technologies are Used?","id_InternationalizationI18n":"Internationalization(i18n)","id_And":"And","id_Or":"Or",' +
+'"id_HowItWorks":"How it works?","id_TechnologiesTitle":"Technologies","id_HowTechnologiesUsed":"How the Technologies are Used?",' +
+
+'"id_CleanWaterDM":"From UN <p>Population using improved drinking water<p>-- urban/rural, %<p>Environment and infrastructure indicators",' +
+'"id_CleanToiletDM":"From UN <p>Population using improved sanitation facilities<p>-- urban/rural, %<p>Environment and infrastructure indicators",' +
+'"id_CellDM":"From UN <p>Mobile-cellular subscriptions<p>-- per 100 inhabitants<p>Environment and infrastructure indicators",' +
+'"id_RandDDM":"From UN <p>Research & Development expenditure<p>-- % of GDP<p>Environment and infrastructure indicators",' +
+'"id_InternetDM":"From UN <p>Individuals using the Internets<p>-- per 100 inhabitants<p>Environment and infrastructure indicators",' +
+'"id_SexRatioDM":"From UN <p>Sex ratio<p>-- male per 100 female, 2017<p>General Information",' +
+'"id_SeatRatioDM":"From UN <p>Seats held by women in national parliaments<p>-- %<p>Social indicators",' +
+'"id_HDIDM":"Human Development Index (HDI)<p>A long and healthy life, being knowledgeable and<p>have a decent standard of living.",' +
+'"id_GiniDM":"Distribution of family income...<p>Zero: The best, 100: The worst",' +
+'"id_CountryCodesDM":"ISO 2 and 3<p>Calling# and GEO",' +
+
+'"id_InternationalizationI18n":"Internationalization(i18n)","id_And":"And","id_Or":"Or",' +
 '"Flag Color":"Flag Color","Second Flag Color":"Second Flag Color","Third Flag Color":"Third Flag Color","Flag Shape":"Flag Shape","Second Flag Shape":"Second Flag Shape",' +
 '"Third Flag Shape":"Third Flag Shape","Cellular Phone":"Cellular Phone","Language Name":"Language","Population Name":"Population","Income - GDP":"Income - GDP",' +
 '"Overweight Ratio %":"Overweight Ratio %","Life Expectancy":"Life Expectancy","Internet Usage %":"Internet Usage %","R & D per GDP%":"R & D per GDP%",' +

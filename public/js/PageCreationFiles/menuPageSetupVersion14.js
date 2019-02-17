@@ -120,7 +120,7 @@ function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
             else if (currentEWorldPage == "Menu" && jsFileName == 'WorldFlags') {
                 setTimeout(function() {
                     finalizeMenuPage();
-                }, 50);
+                }, 150);
             }
         }
         document.head.appendChild(externalJavaScript);
