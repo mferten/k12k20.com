@@ -119,6 +119,9 @@ var enteredWordValues;
 var texts;
 var usaTexts;
 
+var processTheseDisplays = {"CapitalCitiesDisplay":"CapitalCitiesDisplay", "WaterDisplay":"WaterDisplay",
+    "ReligionsDisplay":"ReligionsDisplay", "LanguageDisplay":"LanguageDisplay", "Gini":"Gini", "HDI":"HDI"};
+
 // including the initial immediate run the Functions.
 setTimeout(function () {
     tagsTextsArray = "";
@@ -321,6 +324,8 @@ function getThisApplicationLanguageTexts()
 // Retrieve the Application Data Language (if any) and Set Up the Selected Application Language Data for the Page
 function getThisApplicationLanguageData()
 {
+    // print Turkish
+    setApplicationLanguage(2);
     // Get the Selected Language Data from the database if any
     var xhttploadTagsData = new XMLHttpRequest();
     // into an Array of "tag" => "text"
@@ -357,17 +362,11 @@ function getThisApplicationLanguageData()
                     }
                 }
             }
-            var processTheseFourDisplays = {"CapitalCitiesDisplay":"CapitalCitiesDisplay", "WaterDisplay":"WaterDisplay",
-                "ReligionsDisplay":"ReligionsDisplay", "LanguageDisplay":"LanguageDisplay", "Gini":"Gini", "HDI":"HDI"};
-            var slovakCharacters = {
-                "a":"A","á":"Á","ä":"Ä","b":"B","c":"C","č":"Č","d":"D","ď":"Ď","dz":"Dz","dž":"Dž","e":"E","é":"É","f":"F",
-                "g":"G","h":"H","ch":"Ch","i":"I","í":"Í","j":"J","k":"K","l":"L","ĺ":"Ĺ","ľ":"Ľ","m":"M","n":"N","ň":"Ň",
-                "o":"O","ó":"Ó","ô":"Ô","p":"P","q":"Q","r":"R","ŕ":"Ŕ","s":"S","š":"Š","t":"T","ť":" Ť","u":"U","ú":"Ú",
-                "v":"V","w":"W","x":"X","y":"Y","ý":"Ý","z":"Z","ž":"Ž"};
+
             var oneFeatureValue;
             for (var oneCountry in featuresOfAllCountries) {
                 for (var oneFeature in featuresOfAllCountries[oneCountry]) {
-                    if (processTheseFourDisplays[featuresOfAllCountries[oneCountry][oneFeature]["feature"]]) {
+                    if (processTheseDisplays[featuresOfAllCountries[oneCountry][oneFeature]["feature"]]) {
                         oneFeatureValue = featuresOfAllCountries[oneCountry][oneFeature]["value"];
                         // replace "and" with "," later "and" will be added before the last word
                         if (oneFeatureValue && oneFeatureValue.indexOf("and") != -1) {

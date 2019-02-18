@@ -246,7 +246,8 @@ function setApplicationLanguage(languageId) // Dynamic data: a user can add and 
         {
             if (xhttploadTagsTexts.responseText != "no row")
             {
-                selectedApplicationLanguageTexts = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts
+                console.log(encodeURIComponent(JSON.stringify(xhttploadTagsTexts.responseText)));
+                selectedApplicationLanguageTexts = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts   dfg
             }
         }
     }
@@ -735,7 +736,7 @@ function addApplicationLanguageSelectionDropDownBox(addIntoTag) // See Global on
     var dropDownButton = document.createElement("button");
     dropDownButton.setAttribute("class", "dropbtn");
     dropDownButton.setAttribute("type", "button");
-    setTimeout(function() { 
+    setTimeout(function() {
         createAnImageInA(dropDownButton, DEFAULTLANGUAGE,
             DEFAULTCOUNTRY, DEFAULTURL, "dropDownFlagText", true);
     }, 100);

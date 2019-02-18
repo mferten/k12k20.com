@@ -28,6 +28,12 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
              Vowels: a, e, ı, i, o, ö, u, ü
              Consonants: b, c, ç, d, f, g, ğ, h, j, k, l, m, n, p, r, s, ş, t, v, y, z
 
+             var slovakCharacters = {
+                 "a":"A","á":"Á","ä":"Ä","b":"B","c":"C","č":"Č","d":"D","ď":"Ď","dz":"Dz","dž":"Dž","e":"E","é":"É","f":"F",
+                 "g":"G","h":"H","ch":"Ch","i":"I","í":"Í","j":"J","k":"K","l":"L","ĺ":"Ĺ","ľ":"Ľ","m":"M","n":"N","ň":"Ň",
+                 "o":"O","ó":"Ó","ô":"Ô","p":"P","q":"Q","r":"R","ŕ":"Ŕ","s":"S","š":"Š","t":"T","ť":" Ť","u":"U","ú":"Ú",
+                 "v":"V","w":"W","x":"X","y":"Y","ý":"Ý","z":"Z","ž":"Ž"};
+
          */
          $textsTR = [   'id_Required' => 'gerekli',
                         // from here to "to here" these are for the Report Table Title Column Information
@@ -179,7 +185,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Reset' => 'Tekrarla',
                         'id_Return' => 'Dön',
                         'id_FirstMessage' => 'Dünya',
-                        'id_Surfing' => "Dünya Bölgeleri",
+                        'id_Surfing' => "Bölgeler",
                         'id_Searching' => "Dünya",
                         'id_Register' => 'Başlangıç',
                         'id_RegisterUser' => 'Beni Kayıtla',
@@ -217,7 +223,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Menu' => 'Dünyamız ile Tanışalım',
                         'id_MenuStart' => 'Dünyamız ile Tanışalım',
                         "id_MenuUsage" => 'Menü',
-                        'id_Countries' => 'Dünya Ülkeleri',
+                        'id_Countries' => 'Ülkeler',
                         'id_Right' => 'Sağ',
                         'id_Left' => 'Sol',
                         'id_Women' => 'Kadın',
@@ -383,7 +389,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Reset' => 'Vymazať',
                         'id_Return' => 'Naspäť',
                         'id_FirstMessage' => 'Svet informačný panel',
-                        'id_Surfing' => 'Regióny sveta',
+                        'id_Surfing' => 'Regióny',
                         'id_Searching' => 'Svet',
                         'id_Register' => 'Startup',
                         'id_RegisterUser' => 'Zaregistrovať ma',
@@ -421,7 +427,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Menu' => 'Krajiny sveta',
                         'id_MenuStart' => 'Krajiny sveta',
                         "id_MenuUsage" => 'Menu',
-                        'id_Countries' => 'Krajiny sveta',
+                        'id_Countries' => 'Krajiny',
                         'id_Right' => 'Vpravo',
                         'id_Left' => 'Vľavo',
                         'id_Women' => 'Ženy',
@@ -587,7 +593,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Reset' => 'Reset',
                         'id_Return' => 'Return',
                         'id_FirstMessage' => 'World',
-                        'id_Surfing' => 'World Regions',
+                        'id_Surfing' => 'Regions',
                         'id_Searching' => 'World',
                         'id_Register' => 'Startup',
                         'id_RegisterUser' => 'Register Me',
@@ -625,7 +631,7 @@ class ApplicationLanguageTextsTableSeeder extends Seeder
                         'id_Menu' => 'Nice to Meet the World',
                         'id_MenuStart' => 'Nice to Meet the World',
                         "id_MenuUsage" => 'Menu',
-                        'id_Countries' => 'World Countries',
+                        'id_Countries' => 'Countries',
                         'id_Right' => 'Right',
                         'id_Left' => 'Left',
                         'id_Women' => 'Women',

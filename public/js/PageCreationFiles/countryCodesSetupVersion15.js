@@ -38,7 +38,7 @@ setTimeout(function () {
 
     var eWorldCountriesMainDivOne = document.createElement("div");
     eWorldCountriesMainDivOne.setAttribute("id", "worldFlagsForm");
-    if (appleProduct) {
+    if (iPhone) {
       createCountryInformationLabels(eWorldCountriesMainDivOne, // Left Labels
           ["Language", "Population", "Overweight", "LifeExpectancy", "CapitalCities"],"marginPointPoint2Rem displayNone sharedLinkState", true);
     }

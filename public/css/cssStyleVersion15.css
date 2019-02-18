@@ -1024,11 +1024,6 @@ li a:hover {
         margin: auto 1%;
     }
 
-    .myInfoPageCountryList {
-        grid-template-columns: 20% calc(60% - .4rem) 20%;
-        margin: auto 1%;
-    }
-
     .nestedFlexCitation {
         margin: 1rem 15rem;
     }

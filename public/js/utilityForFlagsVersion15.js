@@ -908,7 +908,7 @@ function h1TitleCodes(headerTag)
 
 function simpleMapOneCountryMap(formDivElement)
 {
-    if (appleProduct) {
+    if (iPhone) {
         createCountryInformationLabels(formDivElement, // Left Labels
             ["Language", "Population", "Overweight", "LifeExpectancy", "CapitalCities"],"marginPointPoint2Rem displayNone sharedLinkState", true);
     }
