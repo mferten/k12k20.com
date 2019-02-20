@@ -13,7 +13,6 @@ setTimeout(function () {
     importAnExternalJSFileIfNotYetWithNoProcessing("OceaniaFlags", "js/OneCountryLanguageTextJSFiles/oceaniaFlags.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("Mapdata", "js/mapdata.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("Worldmap", "js/worldmap.js");
-    importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForRegion", "js/OneCountryLanguageTextJSFiles/staticDataForRegion.js");
     importAnExternalJSFileIfNotYetWithNoProcessing("SaFlags", "js/OneCountryLanguageTextJSFiles/saFlags.js");
 
     initializationUtilityForFlags();
@@ -102,6 +101,6 @@ function finalizeRegionalPage() {
     regionalGlobalInitialization();
     worldMap.load();
     // process next time: otherwise start up time, the map will be loaded twice
-    worldMapLoaded = false; // will stay false all the time    
+    worldMapLoaded = false; // will stay false all the time
     setNavFooterTags("Surfing");
 }

@@ -18,13 +18,12 @@
         <title>K12K20.com: World SVG Maps & Flags: RCP - SPA</title>
         <link rel="icon" href="images/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="css/cssStyleVersion15.css">
-        <script src="js/OneCountryLanguageTextJSFiles/defaultStartupRegionValuesVersion15.js"></script>
+        <link rel="stylesheet" href="css/cssStyleVersion16.css">
+        <script src="js/OneCountryLanguageTextJSFiles/defaultStartupRegionValuesVersion16.js"></script>
         <script src="js/OneCountryLanguageTextJSFiles/staticDataForDashboard.js"></script>
-        <script src="js/PageCreationFiles/menuPageSetupVersion15.js"></script>
-        <script src="js/PageCreationFiles/navigationVersion15.js"></script>
-        <script src="js/addEventVersion15.js"></script>
-        <script src="js/OneCountryLanguageTextJSFiles/flagsSVGFilesVersion15.js"></script>
-        <script src="js/OneCountryLanguageTextJSFiles/countriesFeaturesVersion15.js"></script>
+        <script src="js/PageCreationFiles/menuPageSetupVersion16.js"></script>
+        <script src="js/PageCreationFiles/navigationVersion16.js"></script>
+        <script src="js/addEventVersion16.js"></script>
+        <script src="js/OneCountryLanguageTextJSFiles/countriesFeaturesVersion16.js"></script>
     </head>
 </html>

@@ -18,10 +18,6 @@ var hoveredFlag;
 var oneCountrySelectedFlag;
 var selectedOneCountryLITab; // "map" is the selected (default) One Country Tab Panel
 
-var countryNameBayrakIndex; // Array
-var countryBayrakIdByName; // JSON Object
-
-var countryNameVsFullNameObject;
 var stateIsShowing;
 var countryIsShowing;
 
@@ -34,8 +30,6 @@ var oneCountryPanelOne; // to be used in addEvents.js
 var headerElement;
 var h1First;
 var firstDivElement;
-var allCountryNames; // for dashBoard: Whole World Country Names (for Flag creation)
-var allCountryFullNames; // for dashBoard: Whole World Country Full Names
 
 var ogaOrOgg = {
     "Zambia":"oga","Ukraine":"oga","Tanzania":"oga","SouthAfrica":"oga","Serbia":"oga","Paraguay":"oga",
@@ -587,10 +581,6 @@ function initializationUtilityForFlags() {
     oneCountrySelectedFlag = false;
     selectedOneCountryLITab = "id_PanelOneText"; // "map" is the selected (default) One Country Tab Panel
 
-    countryNameBayrakIndex = []; // Array
-    countryBayrakIdByName = {}; // JSON Object
-
-    countryNameVsFullNameObject = {};
     stateIsShowing = false;
     countryIsShowing = false;
 
@@ -699,29 +689,13 @@ function showReportPanel()
 function setTheFlags(region)
 {
     var oneImgElement;
-    countryNameBayrakIndex = [];
-    countryBayrakIdByName = {};
-    //var flags;
     if (dashBoardFlag)
     {
-        //flags = document.getElementById("flagsWorld");
         flagOfCountries = allCountryNames; // use all the country name for World
-        flagOfCountriesFullName = allCountryFullNames; // use all the country name for World
-        // Country(name) : Full Name JSON Object
-        for (var key in flagOfCountries)
-        {
-            countryNameVsFullNameObject[flagOfCountries[key]] = flagOfCountriesFullName[key];
-        }
     }
     else // Selected Region Background Color
     {
         setTheSelectedRegion(region); // used by Region and Register
-    }
-
-    for (var key in flagOfCountries)
-    {
-        countryNameBayrakIndex[key] = flagOfCountries[key];
-        countryBayrakIdByName[flagOfCountries[key]] = "bayrak" + key;
     }
 }
 
@@ -791,13 +765,7 @@ function mapFlagSelected(country)
     // From the Map Country click to the Flag click
     if (country)
     {
-        for (var key in countryNameBayrakIndex)
-        {
-            if (countryNameBayrakIndex[key] == country)
-            {
-                triggerAMouseEvent("bayrak"+key);
-            }
-        }
+        triggerAMouseEvent("bayrak"+countryArrayKeyValue[country]);
     }
 }
 

@@ -42,10 +42,6 @@ var textLanguageSelect = document.createElement("select");
 textLanguageSelect.setAttribute("id","appCountry");
 textLanguageSelect.setAttribute("class","selectBoxStyles applicationLanguage resetAnchor appLanguageSel");
 textLanguageSelect.appendChild(setFirstOption(selectedApplicationLanguageTexts["id_ChooseOne"], "ChooseOne", textLanguageSelect), true);
-if (typeof allCountryNames == 'undefined') // global.js may define this variable
-    var allCountryNames = allCountryNames = getAllCountriesNames();
-if (typeof allCountryFullNames == 'undefined') // global.js may define this variable
-    var allCountryFullNames = getAllCountriesFullNames();
 for (var key in allCountryNames) {
     createOneOption(textLanguageSelect, allCountryFullNames[key], allCountryNames[key]);
 }
@@ -107,8 +103,9 @@ textLanguageFieldset.appendChild(textLanguageFormDiv);
 textLanguageForm.appendChild(textLanguageFieldset);
 textLanguageMain.appendChild(textLanguageForm);
 // add navigation and footer and load the page (replace the body)
-createNavFooterAddIntoBodyAndReplaceBody(textLanguageBody, textLanguageHeader, textLanguageMain, "TextLanguages");
-
+setTimeout(function() {
+    createNavFooterAddIntoBodyAndReplaceBody(textLanguageBody, textLanguageHeader, textLanguageMain, "TextLanguages");
+}, 75);
 // variables
 var tagsTextsArray;
 var usaAppLanTexts;
@@ -293,7 +290,7 @@ function saveApplicationLanguageTexts()
 
 // Retrieve (if any) and Set Up the Selected Application Language Texts for the Page
 function getThisApplicationLanguageTexts()
-{ 
+{
     // Get the New Language Texts from the database
     var xhttploadTagsTexts = new XMLHttpRequest();
     // into an Array of "tag" => "text"

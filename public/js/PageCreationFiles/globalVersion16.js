@@ -10,11 +10,6 @@ setTimeout(function () {
     importAnExternalJSFileIfNotYetWithNoProcessing("Worldmap", "js/worldmap.js");
 
     initializationUtilityForFlags();
-
-    if (typeof allCountryNames == 'undefined') // text or data lanageues.js may define this variable
-        allCountryNames = getAllCountriesNames();
-    if (typeof allCountryFullNames == 'undefined') // text or data lanageues.js may define this variable
-        allCountryFullNames = getAllCountriesFullNames();
 }, 50);
 
 if (typeof worldLanguagesDropDownValues == 'undefined') // text or data lanageues.js may define this variable

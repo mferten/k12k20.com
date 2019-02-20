@@ -39,8 +39,6 @@ var pElement;
 
 // Region informations
 var flagOfCountries;
-var flagOfCountriesFullName = [];
-var languageOfCountries = [];
 
 // Application Text
 var selectedApplicationLanguageTexts = [];
@@ -111,6 +109,52 @@ var boldLinkCategories = {"TravelWarning":"TravelWarning","TimeAndDate":"TimeAnd
 var noDropDownDescription = {"LifeExpectancy":"LifeExpectancy","UNCountry":"UNCountry","Income":"Income","LandArea":"LandArea",
     "Population":"Population","Overweight":"Overweight","Currency":"Currency","DrivingSide":"DrivingSide"}
 
+// used to retrieve the Greeting: hard KEY keep it in utilityForAll... (See: oneLanguageSpecificTextAndCodeGeneration.js)
+var allCountryLanguages =  {"Afghanistan":"Pashto","AlandIslands":"Swedish","Albania":"Albanian","Algeria":"Arabic","AmericanSamoa":"English","Andorra":"Catalan","Angola":"Portuguese",
+    "Anguilla":"English","AntarcticTreatySystem":"Russian","AntiguaandBarbuda":"English","Argentina":"Spanish","Armenia":"Armenian","Aruba":"Dutch","Australia":"English","Austria":"German",
+    "Azerbaijan":"Azerbaijani","Bahamas":"English","Bahrain":"Arabic","Bangladesh":"Bangla","Barbados":"English","Belarus":"Belarusian","Belgium":"Dutch","Belize":"English","Benin":"French",
+    "Bermuda":"English","Bhutan":"Dzongkha","Bolivia":"Spanish","BonaireSintEustatiusandSaba":"Dutch","BosniaandHerzegovina":"Bosnian","Botswana":"Setswana","BouvetIsland":"Norwegian",
+    "Brazil":"Portuguese","BritishIndianOceanTerritory":"English","BritishVirginIslands":"English","Brunei":"Malay","Bulgaria":"Bulgarian","BurkinaFaso":"French","Burundi":"Kirundi",
+    "Cambodia":"Khmer","Cameroon":"English","Canada":"English","CanaryIslands":"Spanish","CaboVerde":"Portuguese","CaymanIslands":"English","CentralAfricanRepublic":"French","Chad":"French",
+    "Chile":"Spanish","China":"Mandarin","ChristmasIsland":"English","CocosIslands":"English","Colombia":"Spanish","Comoros":"Arabic","CookIslands":"English","CostaRica":"Spanish",
+    "CotedIvoire":"French","Croatia":"Croatian","Cuba":"Spanish","Curacao":"Dutch","Cyprus":"Greek","Czechia":"Czech","DemocraticRepublicoftheCongo":"French","Denmark":"Danish",
+    "Djibouti":"French","Dominica":"English","DominicanRepublic":"Spanish","Ecuador":"Spanish","Egypt":"Arabic","ElSalvador":"Spanish","EquatorialGuinea":"Spanish","Eritrea":"Tigrinya",
+    "Estonia":"Estonian","Eswatini":"English","Ethiopia":"Amharic","FalklandIslands":"English","FaroeIslands":"Danish","Fiji":"English","Finland":"Finnish","France":"French",
+    "FrenchGuiana":"French","FrenchPolynesia":"French","FrenchSouthernandAntarcticLands":"French","Gabon":"French","Gambia":"English","Georgia":"Georgian","Germany":"German",
+    "Ghana":"English","Gibraltar":"English","Greece":"Greek","Greenland":"Greenlandic","Grenada":"English","Guadeloupe":"French","Guam":"English","Guatemala":"Spanish","Guernsey":"English",
+    "Guinea":"French","GuineaBissau":"Portuguese","Guyana":"English","Haiti":"French","HeardIslandandMcDonaldIslands":"English","Honduras":"Spanish","HongKong":"Mandarin","Hungary":"Hungarian",
+    "Iceland":"Icelandic","India":"English","Indonesia":"Indonesian","Iran":"Persian","Iraq":"Arabic","Ireland":"English","IsleofMan":"English","Israel":"Hebrew","Italy":"Italian",
+    "Jamaica":"English","Japan":"Japanese","Jersey":"English","Jordan":"Arabic","Kazakhstan":"Kazakh","Kenya":"English","Kiribati":"English","Kosovo":"Albanian","Kuwait":"Arabic",
+    "Kyrgyzstan":"Kyrgyz","Laos":"Lao","Latvia":"Latvian","Lebanon":"Arabic","Lesotho":"Sesotho","Liberia":"English","Libya":"Arabic","Liechtenstein":"German","Lithuania":"Lithuanian",
+    "Luxembourg":"Luxembourgish","Macau":"Mandarin","Macedonia":"Macedonian","Madagascar":"French","Malawi":"English","Malaysia":"Bahasa","Maldives":"Maldivian","Mali":"French",
+    "Malta":"Maltese","MarshallIslands":"Marshallese","Martinique":"French","Mauritania":"Arabic","Mauritius":"French","Mayotte":"French","Mexico":"Spanish","Micronesia":"English",
+    "Moldova":"Moldovan","Monaco":"French","Mongolia":"Mongolian","Montenegro":"Montenegrin","Montserrat":"English","Morocco":"Arabic","Mozambique":"Portuguese","Myanmar":"Burmese",
+    "Namibia":"English","Nauru":"English","Nepal":"Nepali","Netherlands":"Dutch","NewCaledonia":"French","NewZealand":"English","Nicaragua":"Spanish","Niger":"French","Nigeria":"English",
+    "Niue":"English","NorfolkIsland":"English","NorthernMarianaIslands":"English","NorthKorea":"Korean","Norway":"Norwegian","Oman":"Arabic","Pakistan":"Punjabi","Palau":"English",
+    "Panama":"Spanish","PapuaNewGuinea":"English","Paraguay":"Spanish","Peru":"Spanish","Philippines":"Filipino","PitcairnIslands":"English","Poland":"Polish","Portugal":"Portuguese",
+    "PuertoRico":"Spanish","Qatar":"Arabic","RepublicofCongo":"French","Reunion":"French","Romania":"Romanian","RussianFederation":"Russian","Rwanda":"Kinyarwanda","SaintBarthelemy":"French",
+    "SaintHelena":"English","SaintKittsandNevis":"English","SaintLucia":"English","SaintMartin":"French","SaintPierreandMiquelon":"French","SaintVincentandGrenadines":"English",
+    "Samoa":"Samoan","SanMarino":"Italian","SaoTomeandPrincipe":"Portuguese","SaudiArabia":"Arabic","Senegal":"French","Serbia":"Serbian","Seychelles":"French","SierraLeone":"English",
+    "Singapore":"Mandarin","SintMaarten":"Dutch","Slovakia":"Slovak","Slovenia":"Slovenian","SolomonIslands":"English","Somalia":"Somali","SouthAfrica":"IsiZulu",
+    "SouthGeorgiaAndSouthSandwichIslands":"English","SouthKorea":"Korean","SouthSudan":"English","Spain":"Spanish","SriLanka":"Sinhala","StateofPalestine":"Arabic","Sudan":"Arabic",
+    "Suriname":"Dutch","SvalbardandJanMayen":"Norwegian","Sweden":"Swedish","Switzerland":"German","Syria":"Arabic","Taiwan":"Mandarin","Tajikistan":"Tajik","Tanzania":"Swahili",
+    "Thailand":"Thai","TimorLeste":"Tetum","Togo":"French","Tokelau":"Tokelau","Tonga":"Tongan","TrinidadandTobago":"English","Tunisia":"Arabic","Turkey":"Turkish",
+    "TurkishRepublicofNorthernCyprus":"Turkish","Turkmenistan":"Turkmen","TurksandCaicosIslands":"English","Tuvalu":"English","Uganda":"English","Ukraine":"Ukrainian",
+    "UnitedArabEmirates":"Arabic","UnitedKingdom":"English","UnitedStatesMinorOutlyingIslands":"English","UnitedStatesofAmerica":"English","UnitedStatesVirginIslands":"English",
+    "Uruguay":"Spanish","Uzbekistan":"Uzbek","Vanuatu":"Bislama","VaticanCityAndHolySee":"Italian","Venezuela":"Spanish","Vietnam":"Vietnamese","WallisandFutuna":"French",
+    "WesternSahara":"Arabic","Yemen":"Arabic","Zambia":"English","Zimbabwe":"English"}
+
+var allCountryNames = getAllCountriesNames();
+var allCountryFullNames = getAllCountriesFullNames();
+
+var countryBayrakIdByName = {};
+var countryArrayKeyValue = {};
+
+// set the country names with the sequence number and vice versa: country (252) key (0 to 251)
+for (var arrayKeyValue in allCountryNames) {
+    countryArrayKeyValue[allCountryNames[arrayKeyValue]] = arrayKeyValue;
+    countryBayrakIdByName[allCountryNames[arrayKeyValue]] = "bayrak" + arrayKeyValue; // if map is clicked, this will be used...
+}
 
 // ****     2- Functions     ******
 
@@ -125,7 +169,6 @@ function initializationUtilityForAll() {
     previousRegion = -1; // region and register using
     lastUsedFilter = "";
     oneBlankSpan = getASpanElement(myUndefined, myUndefined, '&nbsp;');
-    allCountryLanguages = allLanguages; // emulate Dashboard since we see all the countries
     startupValuesJSONObject = getStartupValues();
     if (startupValuesJSONObject.versionNumber != versionNumber) {
         localStorage.removeItem("startupValues");
@@ -135,8 +178,6 @@ function initializationUtilityForAll() {
     // applicationLanguageDropDownValues = getApplicationLanguageDropDownValues();
 
     flagOfCountries = startupValuesJSONObject.flagOfCountries;
-    languageOfCountries = startupValuesJSONObject.languageOfCountries;
-    flagOfCountriesFullName = startupValuesJSONObject.flagOfCountriesFullName;
     // Set the initial Application Language Text
     if (selectedApplicationLanguageTexts.length == 0) { // if blank retrieve otherwise keep it as selected: This is a SPA: a Single Page Application RCP.. Nice!
           selectedApplicationLanguageTexts = startupValuesJSONObject.applicationLanguageText;
@@ -152,35 +193,35 @@ function eWorldMenuSetup() {
 // rename one CSS file individually
 
 function eWorldGlobalSetup() {
-    importAnExternalJSFile("id_Searching", "js/PageCreationFiles/globalVersion15.js", "Searching"); // import a javascript external file
+    importAnExternalJSFile("id_Searching", "js/PageCreationFiles/globalVersion16.js", "Searching"); // import a javascript external file
 }
 
 function eWorldRegionalSetup() {
-    importAnExternalJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion15.js", "Surfing"); // import a javascript external file
+    importAnExternalJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion16.js", "Surfing"); // import a javascript external file
 }
 
 function eWorldCountriesSetup() {
-    importAnExternalJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion15.js", "CountryCodes"); // import a javascript external file
+    importAnExternalJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion16.js", "CountryCodes"); // import a javascript external file
 }
 
 function eWorldStartupSetup(  ) {
-    importAnExternalJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion15.js", "Register"); // import a javascript external file
+    importAnExternalJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion16.js", "Register"); // import a javascript external file
 }
 
 function eWorldCitationsSetup() {
-    importAnExternalJSFile("id_Citations", "js/PageCreationFiles/citationsVersion15.js", "Citations"); // import a javascript external file
+    importAnExternalJSFile("id_Citations", "js/PageCreationFiles/citationsVersion16.js", "Citations"); // import a javascript external file
 }
 
 function eWorldAboutSetup() {
-    importAnExternalJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion15.js", "AboutMe"); // import a javascript external file
+    importAnExternalJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion16.js", "AboutMe"); // import a javascript external file
 }
 
 function eWorldTextLanguagesSetup() {
-    importAnExternalJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion15.js", "TextLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion16.js", "TextLanguages"); // import a javascript external file
 }
 
 function eWorldDataLanguagesSetup() {
-    importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion15.js", "DataLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion16.js", "DataLanguages"); // import a javascript external file
 }
 
 function isAppleProduct()
@@ -210,9 +251,7 @@ function getStartupValues()
                           false,
                           "id_MenuStart",
                           DEFAULTREGIONAPPLICATIONLANGUAGETEXT,
-                          DEFAULTREGIONFLAGOFCOUNTRIES,
-                          DEFAULTREGIONLANGUAGEOFCOUNTRIES,
-                          DEFAULTREGIONFLAGOFCOUNTRIESFULLNAME);
+                          DEFAULTREGIONFLAGOFCOUNTRIES);
         window.localStorage.setItem("startupValues", JSON.stringify(savedValuesJSONObject)); // Saved into LDA
     }
     return savedValuesJSONObject; // return StartupValues constructor Object
@@ -220,7 +259,7 @@ function getStartupValues()
 
 // World Flags by the Regions Application Startup Values Constructor
 function StartupValues(versionNumber, language, languageText , region, isSoundOff, isCombineSearch, isReverse,
-    startWith, applicationLanguageText, flagOfCountries, languageOfCountries, flagOfCountriesFullName)
+    startWith, applicationLanguageText, flagOfCountries)
 {
     this.versionNumber = versionNumber;
     this.language = language;
@@ -232,8 +271,6 @@ function StartupValues(versionNumber, language, languageText , region, isSoundOf
     this.startWith = startWith;
     this.applicationLanguageText = applicationLanguageText;
     this.flagOfCountries = flagOfCountries;
-    this.languageOfCountries = languageOfCountries;
-    this.flagOfCountriesFullName = flagOfCountriesFullName;
 }
 
 // Should be here Register is using it, too.
@@ -246,7 +283,7 @@ function setApplicationLanguage(languageId) // Dynamic data: a user can add and 
         {
             if (xhttploadTagsTexts.responseText != "no row")
             {
-                console.log(encodeURIComponent(JSON.stringify(xhttploadTagsTexts.responseText)));
+                console.log(encodeURIComponent(xhttploadTagsTexts.responseText));
                 selectedApplicationLanguageTexts = JSON.parse(xhttploadTagsTexts.responseText); // Application Language Texts   dfg
             }
         }
@@ -341,10 +378,7 @@ function listDescendingAscendingText(key, id)
 function setRegionFlagsPlus(regionName, runThroughFlag)
 {
     // Retrieve this Region Country informations from JS Array
-    var threeInOne = sixRegionsValues[regionNumbers[regionName]];
-    flagOfCountries = threeInOne[0];
-    languageOfCountries = threeInOne[1];
-    flagOfCountriesFullName = threeInOne[2];
+    flagOfCountries = sixRegionsValues[regionNumbers[regionName]];
     if (runThroughFlag)
     {
         setTheRegionFlags(regionName);
@@ -1130,8 +1164,8 @@ function hideWithTitle(element)
             element.innerHTML = text.substring(0, text.indexOf(",")) + "...";
             addShowDescription (dropDownDescription);
             dropDownDescription.innerHTML = text;
-        }
-        else if (text.indexOf(selectedApplicationLanguageTexts["id_And"].toLowerCase()) > 0)
+        } // "not any a=and in Slovak but " a " not any "and" but " and "
+        else if (text.indexOf(" " + selectedApplicationLanguageTexts["id_And"].toLowerCase() + " ") > 0)
         {
             element.innerHTML = text.substring(0, text.indexOf(selectedApplicationLanguageTexts["id_And"].toLowerCase())) + "...";
             addShowDescription (dropDownDescription);
@@ -1141,6 +1175,7 @@ function hideWithTitle(element)
             removeShowDescription (dropDownDescription);
         }
     }
+    else removeShowDescription (dropDownDescription);
 }
 
 function addShowDescription (dropDownDescription) {
@@ -1150,7 +1185,8 @@ function addShowDescription (dropDownDescription) {
 
 function removeShowDescription (dropDownDescription) {
     if (dropDownDescription.getAttribute("class"))
-        dropDownDescription.removeAttribute("class");
+        if (dropDownDescription.classList.contains("displayNone") == false)
+            dropDownDescription.classList.add("displayNone");
 }
 
 function showUNReportedExtraFields(featuresOfEachCountry)
@@ -1243,9 +1279,9 @@ function setCountryWikiValues(countryName)
     else if (countryName == "VaticanCityAndHolySee") document.getElementById("info_WikiCountry").href = "https://en.wikipedia.org/wiki/Vatican_City";
     else
     {
-        if (previousFlag != -1 && flagOfCountriesFullName[previousFlag.substring(6)])
+        if (previousFlag != -1 && allCountryFullNames[previousFlag.substring(6)])
             document.getElementById("info_WikiCountry").href = "https://en.wikipedia.org/wiki/" +
-                flagOfCountriesFullName[previousFlag.substring(6)];
+                allCountryFullNames[previousFlag.substring(6)];
         else document.getElementById("info_WikiCountry").href = "https://en.wikipedia.org/wiki/" + countryName;
     }
 }
@@ -1339,8 +1375,7 @@ function startPlaying(countryName)
 {
     stopAllPlaying();
     // load the greeting regardless "mute"/"pause"
-    if (dashBoardFlag) document.getElementById("id_Greeting").src = "/greetings/" + allCountryLanguages[countryName] + ".m4a";
-    else document.getElementById("id_Greeting").src =  "/greetings/" + languageOfCountries[countryName] + ".m4a";
+    document.getElementById("id_Greeting").src = "/greetings/" + allCountryLanguages[countryName] + ".m4a";
     playGreeting.load();
     // play Greeting the fist (stop incase the anthem is currently playing)
     if (document.getElementById("id_CheckBoxPlaySounds") && document.getElementById("id_CheckBoxPlaySounds").checked == false) // use false not !: visible

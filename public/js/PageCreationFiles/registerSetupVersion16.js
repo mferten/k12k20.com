@@ -1,7 +1,5 @@
 'use strict';
 
-importAnExternalJSFileIfNotYetWithNoProcessing("StaticDataForRegion", "js/OneCountryLanguageTextJSFiles/staticDataForRegion.js");
-
 currentEWorldPage = "Startup";
 dashBoardFlag = false;
 
@@ -76,7 +74,6 @@ startWithDiv.appendChild(startWithLabel);
 personFieldset.appendChild(startWithDiv);
 registerForm.appendChild(personFieldset);
 flagOfCountries = startupValuesJSONObject.flagOfCountries; // incase Global was activated priorily
-flagOfCountriesFullName = startupValuesJSONObject.flagOfCountriesFullName; // incase Global was activated priorily
 setTimeout(function() {
     registerMain.appendChild(registerForm);
     // Registration Button
@@ -135,8 +132,6 @@ function saveStartupValues(startupValuesJSONObject)
         startupValuesJSONObject.startWith = startWithURL[document.getElementById('id_StartWithSelect').value]; // Set the Start With URL
         // set the Region Values
         startupValuesJSONObject.flagOfCountries = flagOfCountries;
-        startupValuesJSONObject.languageOfCountries = languageOfCountries;
-        startupValuesJSONObject.flagOfCountriesFullName = flagOfCountriesFullName;
         // Save JSON Object into Local Storage
         window.localStorage.setItem("startupValues", JSON.stringify(startupValuesJSONObject));
         if (initialMenuItems[startupValuesJSONObject.startWith]) {

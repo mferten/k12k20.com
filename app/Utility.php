@@ -24,36 +24,6 @@ class Utility
     }
 
     /**
-	   * Getter for all Regions (all countries) Whole World Countries Information
-	   */
-    public static function getAllLanguagesInfo()
-    {
-        require('phpfile/getAllLanguagesInfo.php');
-        return [json_encode($allCountryLanguages)];
-
-    }
-
-    /**
-	   * Getter for Whole World Countries Names
-	   */
-    public static function getAllRegionsInfo()
-    {
-        require('phpfile/getALLCountryNames.php');
-        return [json_encode($allCountryNames)];
-
-    }
-
-    /**
-	   * Getter for Whole World Countries Full Names
-	   */
-    public static function getAllRegionsFullNameInfo()
-    {
-        require('phpfile/getALLCountryFullNames.php');
-        return [json_encode($allCountryFullNames)];
-
-    }
-
-    /**
 	   * Getter for USA English Application Language All Data Texts
 	   */
     public static function getUsaEnglishDataTextsInfo()

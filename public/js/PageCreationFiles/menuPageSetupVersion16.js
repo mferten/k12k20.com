@@ -1,11 +1,11 @@
 "use strict";
 
-
 var currentEWorldPage = "Menu"; // this should be up here all the time to work again from the menu (after the first time)
 
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion15.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion15.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion16.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion16.js");
 importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/OneCountryLanguageTextJSFiles/worldFlags.js");
+importAnExternalJSFileIfNotYetWithNoProcessing("SVGFiles", "js/OneCountryLanguageTextJSFiles/flagsSVGFilesVersion16.js");
 
 function finalizeMenuPage() {
     initializationUtilityForAll(); // get the initial application values (default or saved)
@@ -67,11 +67,13 @@ function setMenuImage(firstTime) {
     menuBody.appendChild(menuNav);
     menuBody.appendChild(menuFooter);
 
-    if (document.body)
-        document.getElementById("topHTML").replaceChild(menuBody, document.body);
-    else
-        document.getElementById("topHTML").appendChild(menuBody);
-    setNavFooterTags("menu", true);
+    setTimeout(function() {
+        if (document.body)
+            document.getElementById("topHTML").replaceChild(menuBody, document.body);
+        else
+            document.getElementById("topHTML").appendChild(menuBody);
+        setNavFooterTags("menu", true);
+  }, 100);
 }
 
 function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
@@ -86,7 +88,7 @@ function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
         else if (currentEWorldPage == "eWorld Countries" && jsFileName == 'CountriesTableData') {
             setTimeout(function() {
                 finalizeCountriesPage();
-            }, 100);
+            }, 150);
         }
         else if (currentEWorldPage == "eWorld Regional" && jsFileName == 'SaFlags') {
             setTimeout(function() {
@@ -110,17 +112,17 @@ function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
             else if (currentEWorldPage == "eWorld Countries" && jsFileName == 'CountriesTableData') {
               setTimeout(function() {
                     finalizeCountriesPage();
-              }, 50);
+              }, 150);
             }
             else if (currentEWorldPage == "eWorld Regional" && jsFileName == 'SaFlags') {
                 setTimeout(function() {
                     finalizeRegionalPage();
                 }, 50);
             }
-            else if (currentEWorldPage == "Menu" && jsFileName == 'WorldFlags') {
+            else if (currentEWorldPage == "Menu" && jsFileName == 'SVGFiles') {
                 setTimeout(function() {
                     finalizeMenuPage();
-                }, 150);
+                }, 100);
             }
         }
         document.head.appendChild(externalJavaScript);

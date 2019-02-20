@@ -42,10 +42,6 @@ var textLanguageSelect = document.createElement("select");
 textLanguageSelect.setAttribute("id","appCountry");
 textLanguageSelect.setAttribute("class","selectBoxStyles applicationLanguage resetAnchor appLanguageSel");
 textLanguageSelect.appendChild(setFirstOption(selectedApplicationLanguageTexts["id_ChooseOne"], "ChooseOne", textLanguageSelect), true);
-if (typeof allCountryNames == 'undefined')
-    var allCountryNames = allCountryNames = getAllCountriesNames();
-if (typeof allCountryFullNames == 'undefined')
-    var allCountryFullNames = getAllCountriesFullNames();
 for (var key in allCountryNames) {
     createOneOption(textLanguageSelect, allCountryFullNames[key], allCountryNames[key]);
 }
@@ -107,8 +103,9 @@ textLanguageFieldset.appendChild(textLanguageFormDiv);
 textLanguageForm.appendChild(textLanguageFieldset);
 textLanguageMain.appendChild(textLanguageForm);
 // add navigation and footer and load the page (replace the body)
-createNavFooterAddIntoBodyAndReplaceBody(textLanguageBody, textLanguageHeader, textLanguageMain, "DataLanguages");
-
+setTimeout(function() {
+    createNavFooterAddIntoBodyAndReplaceBody(textLanguageBody, textLanguageHeader, textLanguageMain, "DataLanguages");
+}, 100);
 // variables
 var tagsTextsArray;
 var numberOfObjects;
@@ -321,11 +318,15 @@ function getThisApplicationLanguageTexts()
     xhttploadTagsTexts.send();
 }
 
-// Retrieve the Application Data Language (if any) and Set Up the Selected Application Language Data for the Page
+/* This Is Used As The NEW Application LANGUAGE CONFIGURATION MAINTENANCE */
 function getThisApplicationLanguageData()
 {
-    // print Turkish
-    setApplicationLanguage(2);
+    // create World View Flags
+    recreateTheFlagsWithNewCountry(false);
+
+    // setApplicationLanguage(3); // get a language Application Text: 1=USA(English) 2=Turkey(Turkish) 3=Slovakia(Slovak) ...
+    // console.log(encodeURIComponent(DEFAULTREGIONAPPLICATIONLANGUAGETEXT);
+
     // Get the Selected Language Data from the database if any
     var xhttploadTagsData = new XMLHttpRequest();
     // into an Array of "tag" => "text"
@@ -349,11 +350,9 @@ function getThisApplicationLanguageData()
                         tagsTextsArray[x]["this_language_feature_value"];
                 }
             }
-            // console.log(JSON.stringify(englishToSelectedLanguageJSONObject));
-            /* use englishToSelectedLanguageJSONObject: English Word vs This Language World JSON Object
-                read featuresOfAllCountries's each Country and convert value of all feature line by line
-                JSON.stringify(featuresOfAllCountries): new one for the selected language: replace featuresOfAllCountries in it
-             */
+            // console.log(JSON.stringify(englishToSelectedLanguageJSONObject)); // if needed to add Data Seeder...
+
+            // "feature" "value" conversion
             for (var oneCountry in featuresOfAllCountries) {
                 for (var oneFeature in featuresOfAllCountries[oneCountry]) {
                     if (englishToSelectedLanguageJSONObject[featuresOfAllCountries[oneCountry][oneFeature]["value"]]) {
@@ -363,6 +362,7 @@ function getThisApplicationLanguageData()
                 }
             }
 
+            // more than value (language, religion, water, capital city): Display values conversion (if " and ", " , ")
             var oneFeatureValue;
             for (var oneCountry in featuresOfAllCountries) {
                 for (var oneFeature in featuresOfAllCountries[oneCountry]) {
@@ -405,7 +405,7 @@ function getThisApplicationLanguageData()
                     }
                 }
             }
-            // convert Comment words; if applicationLanguageId = 2 (Turkey) Exception 1: if Mediterranean blank Sea out...
+            // convert the Comment words; if applicationLanguageId = 2 (Turkey) Exception 1: if Mediterranean blank Sea out...
             for (var oneCountry in featuresOfAllCountries) {
                 for (var oneFeature in featuresOfAllCountries[oneCountry]) {
                     if (englishToSelectedLanguageJSONObject[featuresOfAllCountries[oneCountry][oneFeature]["comment"]]) {
@@ -417,7 +417,7 @@ function getThisApplicationLanguageData()
                     }
                 }
             }
-            console.log(JSON.stringify(featuresOfAllCountries));
+            // console.log(JSON.stringify(featuresOfAllCountries));
         }
     };
     xhttploadTagsData.open("GET", "/ajax/data?applicationLanguageId="+applicationLanguageId, true);
@@ -1702,3 +1702,334 @@ var usaAppLanTexts = [ // for Gini: low/medium/high
     "Water: Timor",
     "Water: Yellow",
     "Water: Yellow_Sea"];
+
+    function recreateTheFlagsWithNewCountry(worldViewFlag) { // True: World, False: Region:
+        // flagOfCountries, allCountryNames and flagOfCountriesShortNames must be in the New  Language...
+        var oneFlagImageElement;
+        var oneFlagSpanElement;
+        var oneFlagFigCaptionElement;
+
+        var newflags = document.createElement("div");
+        newflags.setAttribute("id","newFlags");
+
+        if (worldViewFlag) // be sure these are filled with the world countries..
+        {
+            flagOfCountries = allCountryNames; // allCountryNames comes from utilityForFlags.js run a SQL statement to get the new list
+        }
+        else flagOfCountries = sixRegionsValues[5]; // 0: North America 1: South America 2: Europe 3: Africa 4: Oceania 5: Asia 
+        for (var key in flagOfCountries) // delete local storage to read the new Region Country List from the static file
+        {
+            if (worldViewFlag == false) { // !worldViewFlag
+                oneFlagSpanElement = document.createElement("span");
+                oneFlagSpanElement.setAttribute("class", "inlineBlock");
+                oneFlagFigCaptionElement = document.createElement("figcaption");
+                oneFlagFigCaptionElement.innerHTML = flagOfCountriesShortNames[flagOfCountries[key]]; // must be with the NEW Language: see below
+            }
+            var oneCountryNameFromArray = flagOfCountries[key];
+            oneFlagImageElement = document.createElement("img");
+            if (worldViewFlag)
+                oneFlagImageElement.setAttribute("class", "plainFlagsWorld vertialAlignMiddle");
+            else oneFlagImageElement.setAttribute("class", "plainFlags vertialAlignMiddle");
+            oneFlagImageElement.setAttribute("id", "bayrak" + countryArrayKeyValue[oneCountryNameFromArray]); // Flag's id text should be unique for CSS/selection
+            oneFlagImageElement.setAttribute("tabindex", "0"); // for the Keyboard accessiblity
+            if (oneCountryNameFromArray == "UnitedStatesMinorOutlyingIslands")
+            {
+                oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles["UnitedStatesofAmerica"].svg;
+            }
+            else if (oneCountryNameFromArray == "HeardIslandandMcDonaldIslands")
+            {
+                oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles["Australia"].svg;
+            }
+            else if (oneCountryNameFromArray == "BouvetIsland")
+            {
+                oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles["Norway"].svg;
+            }
+            else if (flagsSVGFiles[oneCountryNameFromArray])
+            {
+                oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles[oneCountryNameFromArray].svg;
+            }
+            else
+            {
+                console.log("missing one: " + oneCountryNameFromArray);
+                oneFlagImageElement.src = "images/SVGCountryFlags/Flag_of_" + oneCountryNameFromArray + ".svg";
+            }
+            oneFlagImageElement.alt = "Entity: " + oneCountryNameFromArray;
+            oneFlagImageElement.setAttribute("title", allCountryFullNames[countryArrayKeyValue[oneCountryNameFromArray]]); // from country name find the key of 252 full names...
+            if (worldViewFlag == false) { // !worldViewFlag
+                oneFlagSpanElement.appendChild(oneFlagImageElement);
+                oneFlagSpanElement.appendChild(oneFlagFigCaptionElement);
+                newflags.appendChild(oneFlagSpanElement);
+            }
+            else newflags.appendChild(oneFlagImageElement);
+        }
+        console.log(encodeURIComponent(newflags.innerHTML));
+        /*
+
+        All the Countries Languages (if needed):
+
+        SELECT concat('"',country,'":"',value,'",') FROM worldflags.countries, features
+            where country_id=countries.id and feature = "Language" order by long_name;
+
+        can have multiple lines for one country: Afghanistan, Turkey... the first one will be accessed for the country...
+            "Afghanistan":"Dari",
+            "Afghanistan":"Pashto",
+            "Afghanistan":"Uzbek",
+
+        */
+    }
+
+    // SELECT concat('"',country,'":"',short_name,'",') FROM worldflags.countries order by long_name;
+    var flagOfCountriesShortNames = {
+        "Afghanistan":"Afghanistan",
+        "AlandIslands":"Åland",
+        "Albania":"Albania",
+        "Algeria":"Algeria",
+        "AmericanSamoa":"US Samoa",
+        "Andorra":"Andorra",
+        "Angola":"Angola",
+        "Anguilla":"Anguilla",
+        "AntarcticTreatySystem":"Antarctic",
+        "AntiguaandBarbuda":"Antigua",
+        "Argentina":"Argentina",
+        "Armenia":"Armenia",
+        "Aruba":"Aruba",
+        "Australia":"Australia",
+        "Austria":"Austria",
+        "Azerbaijan":"Azerbaijan",
+        "Bahamas":"Bahamas",
+        "Bahrain":"Bahrain",
+        "Bangladesh":"Bangladesh",
+        "Barbados":"Barbados",
+        "Belarus":"Belarus",
+        "Belgium":"Belgium",
+        "Belize":"Belize",
+        "Benin":"Benin",
+        "Bermuda":"Bermuda",
+        "Bhutan":"Bhutan",
+        "Bolivia":"Bolivia",
+        "BonaireSintEustatiusandSaba":"Bonaire",
+        "BosniaandHerzegovina":"Bosnia",
+        "Botswana":"Botswana",
+        "BouvetIsland":"Bouvet",
+        "Brazil":"Brazil",
+        "BritishIndianOceanTerritory":"UK Indian",
+        "BritishVirginIslands":"BVI",
+        "Brunei":"Brunei",
+        "Bulgaria":"Bulgaria",
+        "BurkinaFaso":"Burkina Faso",
+        "Burundi":"Burundi",
+        "CaboVerde":"Cabo Verde",
+        "Cambodia":"Cambodia",
+        "Cameroon":"Cameroon",
+        "Canada":"Canada",
+        "CanaryIslands":"Canary",
+        "CaymanIslands":"Cayman",
+        "CentralAfricanRepublic":"CAR",
+        "Chad":"Chad",
+        "Chile":"Chile",
+        "China":"China",
+        "ChristmasIsland":"Christmas",
+        "CocosIslands":"Cocos",
+        "Colombia":"Colombia",
+        "Comoros":"Comoros",
+        "CookIslands":"Cook",
+        "CostaRica":"Costa Rica",
+        "CotedIvoire":"Côte d'Ivoire",
+        "Croatia":"Croatia",
+        "Cuba":"Cuba",
+        "Curacao":"Curaçao",
+        "Cyprus":"Cyprus",
+        "Czechia":"Czechia",
+        "DemocraticRepublicoftheCongo":"DR Congo",
+        "Denmark":"Denmark",
+        "Djibouti":"Djibouti",
+        "Dominica":"Dominica",
+        "DominicanRepublic":"Dominican",
+        "Ecuador":"Ecuador",
+        "Egypt":"Egypt",
+        "ElSalvador":"El Salvador",
+        "EquatorialGuinea":"E Guinea",
+        "Eritrea":"Eritrea",
+        "Estonia":"Estonia",
+        "Eswatini":"Eswatini",
+        "Ethiopia":"Ethiopia",
+        "FalklandIslands":"Falkland",
+        "FaroeIslands":"Faroe",
+        "Fiji":"Fiji",
+        "Finland":"Finland",
+        "France":"France",
+        "FrenchGuiana":"Guiana",
+        "FrenchPolynesia":"Polynesia",
+        "FrenchSouthernandAntarcticLands":"Fr Antarctic",
+        "Gabon":"Gabon",
+        "Gambia":"Gambia",
+        "Georgia":"Georgia",
+        "Germany":"Germany",
+        "Ghana":"Ghana",
+        "Gibraltar":"Gibraltar",
+        "Greece":"Greece",
+        "Greenland":"Greenland",
+        "Grenada":"Grenada",
+        "Guadeloupe":"Guadeloupe",
+        "Guam":"Guam",
+        "Guatemala":"Guatemala",
+        "Guernsey":"Guernsey",
+        "Guinea":"Guinea",
+        "GuineaBissau":"Guinea Bissau",
+        "Guyana":"Guyana",
+        "Haiti":"Haiti",
+        "HeardIslandandMcDonaldIslands":"H McDonald",
+        "Honduras":"Honduras",
+        "HongKong":"Hong Kong",
+        "Hungary":"Hungary",
+        "Iceland":"Iceland",
+        "India":"India",
+        "Indonesia":"Indonesia",
+        "Iran":"Iran",
+        "Iraq":"Iraq",
+        "Ireland":"Ireland",
+        "IsleofMan":"Isle of Man",
+        "Israel":"Israel",
+        "Italy":"Italy",
+        "Jamaica":"Jamaica",
+        "Japan":"Japan",
+        "Jersey":"Jersey",
+        "Jordan":"Jordan",
+        "Kazakhstan":"Kazakhstan",
+        "Kenya":"Kenya",
+        "Kiribati":"Kiribati",
+        "Kosovo":"Kosovo",
+        "Kuwait":"Kuwait",
+        "Kyrgyzstan":"Kyrgyzstan",
+        "Laos":"Laos",
+        "Latvia":"Latvia",
+        "Lebanon":"Lebanon",
+        "Lesotho":"Lesotho",
+        "Liberia":"Liberia",
+        "Libya":"Libya",
+        "Liechtenstein":"Liechtenstein",
+        "Lithuania":"Lithuania",
+        "Luxembourg":"Luxembourg",
+        "Macau":"Macau",
+        "Macedonia":"Macedonia",
+        "Madagascar":"Madagascar",
+        "Malawi":"Malawi",
+        "Malaysia":"Malaysia",
+        "Maldives":"Maldives",
+        "Mali":"Mali",
+        "Malta":"Malta",
+        "MarshallIslands":"Marshall",
+        "Martinique":"Martinique",
+        "Mauritania":"Mauritania",
+        "Mauritius":"Mauritius",
+        "Mayotte":"Mayotte",
+        "Mexico":"Mexico",
+        "Micronesia":"Micronesia",
+        "Moldova":"Moldova",
+        "Monaco":"Monaco",
+        "Mongolia":"Mongolia",
+        "Montenegro":"Montenegro",
+        "Montserrat":"Montserrat",
+        "Morocco":"Morocco",
+        "Mozambique":"Mozambique",
+        "Myanmar":"Myanmar",
+        "Namibia":"Namibia",
+        "Nauru":"Nauru",
+        "Nepal":"Nepal",
+        "Netherlands":"Netherlands",
+        "NewCaledonia":"N Caledonia",
+        "NewZealand":"N Zealand",
+        "Nicaragua":"Nicaragua",
+        "Niger":"Niger",
+        "Nigeria":"Nigeria",
+        "Niue":"Niue",
+        "NorfolkIsland":"Norfolk",
+        "NorthKorea":"North Korea",
+        "NorthernMarianaIslands":"Mariana",
+        "Norway":"Norway",
+        "Oman":"Oman",
+        "Pakistan":"Pakistan",
+        "Palau":"Palau",
+        "Panama":"Panama",
+        "PapuaNewGuinea":"P N Guinea",
+        "Paraguay":"Paraguay",
+        "Peru":"Peru",
+        "Philippines":"Philippines",
+        "PitcairnIslands":"Pitcairn",
+        "Poland":"Poland",
+        "Portugal":"Portugal",
+        "PuertoRico":"Puerto Rico",
+        "Qatar":"Qatar",
+        "RepublicofCongo":"Rep Congo",
+        "Reunion":"Réunion",
+        "Romania":"Romania",
+        "RussianFederation":"Russia",
+        "Rwanda":"Rwanda",
+        "SaintBarthelemy":"Barthélemy",
+        "SaintHelena":"St Helena",
+        "SaintLucia":"St Lucia",
+        "SaintMartin":"St Martin",
+        "SaintPierreandMiquelon":"St Pierre",
+        "SaintVincentandGrenadines":"St Vincents",
+        "Samoa":"Samoa",
+        "SanMarino":"San Marino",
+        "SaoTomeandPrincipe":"São Tomé",
+        "SaudiArabia":"Saudi Arabia",
+        "Senegal":"Senegal",
+        "Serbia":"Serbia",
+        "Seychelles":"Seychelles",
+        "SierraLeone":"Sierra Leone",
+        "Singapore":"Singapore",
+        "SintMaarten":"St Maarten",
+        "Slovakia":"Slovakia",
+        "Slovenia":"Slovenia",
+        "SolomonIslands":"Solomon",
+        "Somalia":"Somalia",
+        "SouthAfrica":"South Africa",
+        "SouthGeorgiaAndSouthSandwichIslands":"S Georgia",
+        "SouthKorea":"South Korea",
+        "SouthSudan":"S Sudan",
+        "Spain":"Spain",
+        "SriLanka":"Sri Lanka",
+        "SaintKittsandNevis":"St Kitts",
+        "StateofPalestine":"Palestine",
+        "Sudan":"Sudan",
+        "Suriname":"Suriname",
+        "SvalbardandJanMayen":"Svalbard",
+        "Sweden":"Sweden",
+        "Switzerland":"Switzerland",
+        "Syria":"Syria",
+        "Taiwan":"Taiwan",
+        "Tajikistan":"Tajikistan",
+        "Tanzania":"Tanzania",
+        "Thailand":"Thailand",
+        "TimorLeste":"Timor Leste",
+        "Togo":"Togo",
+        "Tokelau":"Tokelau",
+        "Tonga":"Tonga",
+        "TrinidadandTobago":"Trinidad",
+        "Tunisia":"Tunisia",
+        "Turkey":"Turkey",
+        "TurkishRepublicofNorthernCyprus":"TRNC",
+        "Turkmenistan":"Turkmenistan",
+        "TurksandCaicosIslands":"Turks Caicos",
+        "Tuvalu":"Tuvalu",
+        "Uganda":"Uganda",
+        "Ukraine":"Ukraine",
+        "UnitedArabEmirates":"UAE",
+        "UnitedKingdom":"UK",
+        "UnitedStatesofAmerica":"USA",
+        "UnitedStatesMinorOutlyingIslands":"US Minor",
+        "UnitedStatesVirginIslands":"USVI",
+        "Uruguay":"Uruguay",
+        "Uzbekistan":"Uzbekistan",
+        "Vanuatu":"Vanuatu",
+        "VaticanCityAndHolySee":"Vatican",
+        "Venezuela":"Venezuela",
+        "Vietnam":"Vietnam",
+        "WallisandFutuna":"Wallis",
+        "WesternSahara":"West Sahara",
+        "Yemen":"Yemen",
+        "Zambia":"Zambia",
+        "Zimbabwe":"Zimbabwe"
+    };

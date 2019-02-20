@@ -10,13 +10,10 @@ var DEFAULTURL = "http://www.k12k20.com";
 //  Keep Adding new Application Languages (both Text and Data)
 var selectedApplicationLanguageName = {"Turkish":["Turkish", "Turkey", "http://www.k12k20tr.com"],
     "Slovak":["Slovak", "Slovakia", "http://www.k12k20sk.com"]};
-// var selectedApplicationLanguageData = {"English":"İngilizce", "Turkish":"Türkçe", "Slovak":"Slovakça", ....};
-// var selectedApplicationLanguageData = {"English":"Anglický", "Turkish":"Turecký", "Slovak":"Slovenský, ...."};
 
 // DEFAULT REGION Application Start UP Values which will be used to load into Local Storage Area
-// console.log(encodeURIComponent(JSON.stringify(selectedApplicationLanguageTexts))) and encodeURIComponent(JSON.stringify(languageOfCountries)
+// OTHER Languages: console.log(encodeURIComponent(xhttploadTagsTexts.responseText)); in utilityForAll
 // and JSON.parse(decodeURIComponent("%7B%22Flag%20Colo
-// others are Arrays: Console.log(flagOfCountries);  console.log(flagOfCountriesFullName); console.log(languageOfCountries);
 var DEFAULTREGIONAPPLICATIONLANGUAGETEXT =
 JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","id_Asia":"Asia","id_Europe":"Europe","id_Income":"Income",' +
 '"id_IncomeDisplay":"Income","id_DrivingSideDisplay":"Driving Side","id_DrivingSide":"Driving Side","id_WeatherDisplay":"Weather","id_SeatRatioDisplay":"Seat Ratio",' +
@@ -77,22 +74,36 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"- The internationalization (i18n) as the core of the community service has been designed not just for the Application Web Page Text language but the very Data language, too.",' +
 '"id_Country CodesThText":"Country Codes","id_AboutTextFive":"- The implementation of the Accessibility features is a gradual goal to accomplish."}');
 
+var sixRegionsValues = [  // 0: North America 1: South America 2: Europe 3: Africa 4: Oceania 5: Asia
+    ["Anguilla", "AntiguaandBarbuda", "Bahamas", "Barbados", "Belize", "Bermuda", "BonaireSintEustatiusandSaba", "BritishVirginIslands", "Canada", "CaymanIslands", "CostaRica", "Cuba",
+    "Curacao", "Dominica", "DominicanRepublic", "ElSalvador", "Greenland", "Grenada", "Guadeloupe", "Guatemala", "Haiti", "Honduras", "Jamaica", "Martinique", "Mexico",
+    "Montserrat", "Nicaragua", "Panama", "PuertoRico", "SaintBarthelemy", "SaintKittsandNevis", "SaintLucia", "SaintMartin", "SaintPierreandMiquelon",
+    "SaintVincentandGrenadines", "SintMaarten", "TrinidadandTobago", "TurksandCaicosIslands", "UnitedStatesofAmerica", "UnitedStatesVirginIslands"],
+
+    ["AntarcticTreatySystem","Argentina","Aruba","Bolivia","Brazil","Chile","Colombia","Ecuador","FalklandIslands","FrenchGuiana","Guyana","Paraguay",
+    "Peru","SouthGeorgiaAndSouthSandwichIslands","Suriname","Uruguay","Venezuela"],
+
+    ["AlandIslands","Albania","Andorra","Armenia","Austria","Azerbaijan","Belarus","Belgium","BosniaandHerzegovina","Bulgaria","Croatia","Cyprus","Czechia",
+    "Denmark","Estonia","FaroeIslands","Finland","France","Georgia","Germany","Gibraltar","Greece","Guernsey","Hungary","Iceland","Ireland","IsleofMan","Italy","Jersey","Kosovo",
+    "Latvia","Liechtenstein","Lithuania","Luxembourg","Macedonia","Malta","Moldova","Monaco","Montenegro","Netherlands","Norway","Poland","Portugal","Romania","RussianFederation",
+    "SanMarino","Serbia","Slovakia","Slovenia","Spain","SvalbardandJanMayen","Sweden","Switzerland","Turkey","TurkishRepublicofNorthernCyprus","Ukraine","UnitedKingdom",
+    "VaticanCityAndHolySee"],
+
+    ["Algeria","Angola","Benin","Botswana","BouvetIsland","BurkinaFaso","Burundi","Cameroon","CanaryIslands","CaboVerde","CentralAfricanRepublic","Chad",
+    "Comoros","CotedIvoire","DemocraticRepublicoftheCongo","Djibouti","Egypt","EquatorialGuinea","Eritrea","Eswatini","Ethiopia","FrenchSouthernandAntarcticLands","Gabon","Gambia","Ghana",
+    "Guinea","GuineaBissau","Kenya","Lesotho","Liberia","Libya","Madagascar","Malawi","Mali","Mauritania","Mauritius","Mayotte","Morocco","Mozambique","Namibia","Niger","Nigeria",
+    "RepublicofCongo","Reunion","Rwanda","SaintHelena","SaoTomeandPrincipe","Senegal","Seychelles","SierraLeone","Somalia","SouthAfrica","SouthSudan","Sudan","Tanzania",
+    "Togo","Tunisia","Uganda","WesternSahara","Zambia","Zimbabwe"],
+
+    ["AmericanSamoa","Australia","ChristmasIsland","CocosIslands","CookIslands","Fiji","FrenchPolynesia","Guam","HeardIslandandMcDonaldIslands",
+    "Kiribati","MarshallIslands","Micronesia","Nauru","NewCaledonia","NewZealand","Niue","NorfolkIsland","NorthernMarianaIslands","Palau","PapuaNewGuinea","PitcairnIslands",
+    "Samoa","SolomonIslands","Tokelau","Tonga","Tuvalu","UnitedStatesMinorOutlyingIslands","Vanuatu","WallisandFutuna"],
+
+    ["Afghanistan","Bahrain","Bangladesh","Bhutan","BritishIndianOceanTerritory","Brunei","Cambodia","China","HongKong","India","Indonesia","Iran","Iraq",
+    "Israel","Japan","Jordan","Kazakhstan","Kuwait","Kyrgyzstan","Laos","Lebanon","Macau","Malaysia","Maldives","Mongolia","Myanmar","Nepal","NorthKorea","Oman","Pakistan",
+    "Philippines","Qatar","RussianFederation","SaudiArabia","Singapore","SouthKorea","SriLanka","StateofPalestine","Syria","Taiwan","Tajikistan","Thailand","TimorLeste",
+    "Turkey","Turkmenistan","UnitedArabEmirates","Uzbekistan","Vietnam","Yemen"]
+];
+
 // North America Region Lists
-var DEFAULTREGIONFLAGOFCOUNTRIES = ["Anguilla","AntiguaandBarbuda","Bahamas","Barbados","Belize","Bermuda","BonaireSintEustatiusandSaba","BritishVirginIslands",
-"Canada","CaymanIslands","CostaRica","Cuba","Curacao","Dominica","DominicanRepublic","ElSalvador","Greenland","Grenada","Guadeloupe","Guatemala","Haiti",
-"Honduras","Jamaica","Martinique","Mexico","Montserrat","Nicaragua","Panama","PuertoRico","SaintBarthelemy","SaintKittsandNevis","SaintLucia","SaintMartin",
-"SaintPierreandMiquelon","SaintVincentandGrenadines","SintMaarten","TrinidadandTobago","TurksandCaicosIslands","UnitedStatesofAmerica","UnitedStatesVirginIslands"];
-
-var DEFAULTREGIONFLAGOFCOUNTRIESFULLNAME =
-["Anguilla","Antigua and Barbuda","Bahamas","Barbados","Belize","Bermuda","Bonaire Sint Eustatius and Saba","British Virgin Islands","Canada","Cayman Islands","Costa Rica",
-"Cuba","Curaçao","Dominica","Dominican Republic","El Salvador","Greenland","Grenada","Guadeloupe","Guatemala","Haiti","Honduras","Jamaica","Martinique","Mexico",
-"Montserrat","Nicaragua","Panama","Puerto Rico","Saint Barthélemy","St. Kitts & Nevis","Saint Lucia","Saint Martin","Saint Pierre and Miquelon",
-"Saint Vincent and the Grenadines","Sint Maarten","Trinidad and Tobago","Turks and Caicos Islands","United States","United States Virgin Islands"];
-
-var DEFAULTREGIONLANGUAGEOFCOUNTRIES = JSON.parse('{"Anguilla":"English","AntiguaandBarbuda":"English","Bahamas":"English","Barbados":"English","Belize":"English","Bermuda":"English",' +
-'"BonaireSintEustatiusandSaba":"Dutch","BritishVirginIslands":"English","Canada":"English","CaymanIslands":"English","CostaRica":"Spanish","Cuba":"Spanish","Curacao":"Dutch",' +
-'"Dominica":"English","DominicanRepublic":"Spanish","ElSalvador":"Spanish","Greenland":"Greenlandic","Grenada":"English","Guadeloupe":"French","Guatemala":"Spanish",' +
-'"Haiti":"French","Honduras":"Spanish","Jamaica":"English","Martinique":"French","Mexico":"Spanish","Montserrat":"English","Nicaragua":"Spanish","Panama":"Spanish",' +
-'"PuertoRico":"Spanish","SaintBarthelemy":"French","SaintKittsandNevis":"English","SaintLucia":"English","SaintMartin":"French","SaintPierreandMiquelon":"French",' +
-'"SaintVincentandGrenadines":"English","SintMaarten":"Dutch","TrinidadandTobago":"English","TurksandCaicosIslands":"English",' +
-'"UnitedStatesofAmerica":"English","UnitedStatesVirginIslands":"English"}');
+var DEFAULTREGIONFLAGOFCOUNTRIES = sixRegionsValues[0];

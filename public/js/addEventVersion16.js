@@ -1,4 +1,3 @@
-
 'use strict';
 
 // immediately self-evoking function (function () {..} ) ();
@@ -596,7 +595,7 @@ function selectACountryMap(event)
 function showSmallEntityTourismWebsite(countryName)
 {
     // the Country Name to be displayed:
-    document.getElementById("id_CountryFacts").innerHTML = flagOfCountriesFullName[previousFlag.substring(6)];
+    document.getElementById("id_CountryFacts").innerHTML = allCountryFullNames[previousFlag.substring(6)];
     // Retrieve and Display Country Information
     retrieveAndDisplayCountryInformation(countryName);
     var smallEntityGoogleMapParagraph = document.createElement('p');
@@ -645,7 +644,7 @@ function getTheCountryMapData(mapCountry1, importedCountryMap, twoDigitCountryCo
         mapCountry1.load();
         // the Country Name to be displayed:
         if (previousFlag != -1)
-            document.getElementById("id_CountryFacts").innerHTML = flagOfCountriesFullName[previousFlag.substring(6)];
+            document.getElementById("id_CountryFacts").innerHTML = allCountryFullNames[previousFlag.substring(6)];
         else document.getElementById("id_CountryFacts").innerHTML = countryName; // find the full name from country-data-name
         putTheFlagsForACountry(countryName, twoDigitCountryCode, mapCountry1);
     }
