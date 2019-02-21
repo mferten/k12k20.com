@@ -1179,14 +1179,11 @@ function hideWithTitle(element)
 }
 
 function addShowDescription (dropDownDescription) {
-    if (!dropDownDescription.getAttribute("class"))
-        dropDownDescription.setAttribute("class", "dropdown-content-left-description dropDownPBorder");
+    dropDownDescription.setAttribute("class", "dropdown-content-left-description dropDownPBorder");
 }
 
 function removeShowDescription (dropDownDescription) {
-    if (dropDownDescription.getAttribute("class"))
-        if (dropDownDescription.classList.contains("displayNone") == false)
-            dropDownDescription.classList.add("displayNone");
+    dropDownDescription.setAttribute("class", "displayNone");
 }
 
 function showUNReportedExtraFields(featuresOfEachCountry)
