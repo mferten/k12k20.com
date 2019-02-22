@@ -120,5 +120,6 @@ function finalizeGlobalPage() {
     // only one region in World view map: 0, all countries in it
     worldMap.load();
     setNavFooterTags("Searching");
-    countrySelectableFeatureLocation = countrySelectableFeatureLocationApple; // Apple IOS less criteria
+    if (appleProduct)
+        countrySelectableFeatureLocation = countrySelectableFeatureLocationApple; // Apple IOS less criteria
 }

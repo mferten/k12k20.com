@@ -776,7 +776,7 @@ function addApplicationLanguageSelectionDropDownBox(addIntoTag) // See Global on
     setTimeout(function() {
         createAnImageInA(dropDownButton, DEFAULTLANGUAGE,
             DEFAULTCOUNTRY, DEFAULTURL, "dropDownFlagText", true);
-    }, 100);
+    }, 50);
     dropDownTopDiv.appendChild(dropDownButton);
     var dropDownInnerDiv = document.createElement("div");
     dropDownInnerDiv.setAttribute("class", "dropdown-content");
