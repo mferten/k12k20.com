@@ -1,7 +1,6 @@
-// Get all the Country Names
-// Run SELECT concat('"', country, '",' FROM worldflags.countries order by country; Copy Row Unquoted
-function getAllCountriesNames() {
-    return ['Afghanistan','AlandIslands','Albania','Algeria','AmericanSamoa','Andorra','Angola','Anguilla','AntiguaandBarbuda','AntarcticTreatySystem','Argentina','Armenia','Aruba',
+// Get all the Country Names: Hard Key: Keep it sorted by Country for all...
+// Run SELECT concat('"', country, '",') FROM countries order by country; Copy Row Unquoted
+var allCountryNames = ['Afghanistan','AlandIslands','Albania','Algeria','AmericanSamoa','Andorra','Angola','Anguilla','AntiguaandBarbuda','AntarcticTreatySystem','Argentina','Armenia','Aruba',
 'Australia','Austria','Azerbaijan','Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bermuda','Bhutan','Bolivia','BonaireSintEustatiusandSaba',
 'BosniaandHerzegovina','Botswana','BouvetIsland','Brazil','BritishIndianOceanTerritory','BritishVirginIslands','Brunei','Bulgaria','BurkinaFaso','Burundi','Cambodia','Cameroon',
 'Canada','CanaryIslands','CaboVerde','CaymanIslands','CentralAfricanRepublic','Chad','Chile','China','ChristmasIsland','CocosIslands','Colombia','Comoros','CookIslands','CostaRica',
@@ -20,59 +19,104 @@ function getAllCountriesNames() {
 'Tunisia','Turkey','TurkishRepublicofNorthernCyprus','Turkmenistan','TurksandCaicosIslands','Tuvalu','Uganda','Ukraine','UnitedArabEmirates','UnitedKingdom',
 'UnitedStatesMinorOutlyingIslands','UnitedStatesofAmerica','UnitedStatesVirginIslands','Uruguay','Uzbekistan','Vanuatu','VaticanCityAndHolySee','Venezuela','Vietnam',
 'WallisandFutuna','WesternSahara','Yemen','Zambia','Zimbabwe'];
-}
 
-// Get all the Country Long Names
-// Run SELECT concat('"', long_name, '",' FROM worldflags.countries order by country order by country; (change 'Côte d\'Ivoire' to "Côte d'Ivoire",)
-// Copy Row Unquoted
-function getAllCountriesFullNames() {
-    return ['Afghanistan','Åland Islands','Albania','Algeria','American Samoa','Andorra','Angola','Anguilla','Antigua and Barbuda','Antarctic Treaty System','Argentina','Armenia','Aruba',
-'Australia','Austria','Azerbaijan','Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium','Belize','Benin','Bermuda','Bhutan','Bolivia','Bonaire Sint Eustatius and Saba',
-'Bosnia and Herzegovina','Botswana','Bouvet Island','Brazil','British Indian Ocean Territory','British Virgin Islands','Brunei','Bulgaria','Burkina Faso','Burundi','Cambodia',
-'Cameroon','Canada','Canary Islands','Cabo Verde','Cayman Islands','Central African Republic','Chad','Chile','China','Christmas Island','Cocos Islands','Colombia','Comoros',
-'Cook Islands','Costa Rica',"Côte d'Ivoire",'Croatia','Cuba','Curaçao','Cyprus','Czechia','Democratic Republic of the Congo','Denmark','Djibouti','Dominica','Dominican Republic',
-'Ecuador','Egypt','El Salvador','Equatorial Guinea','Eritrea','Estonia','Eswatini','Ethiopia','Falkland Islands','Faroe Islands','Fiji','Finland','France','French Guiana',
-'French Polynesia','French Southern and Antarctic Lands','Gabon','Gambia','Georgia','Germany','Ghana','Gibraltar','Greece','Greenland','Grenada','Guadeloupe','Guam','Guatemala',
-'Guernsey','Guinea','Guinea-Bissau','Guyana','Haiti','Heard Island and McDonald Islands','Honduras','Hong Kong','Hungary','Iceland','India','Indonesia','Iran','Iraq','Ireland',
-'Isle of Man','Israel','Italy','Jamaica','Japan','Jersey','Jordan','Kazakhstan','Kenya','Kiribati','Kosovo','Kuwait','Kyrgyzstan','Laos','Latvia','Lebanon','Lesotho','Liberia','Libya',
-'Liechtenstein','Lithuania','Luxembourg','Macau','Macedonia','Madagascar','Malawi','Malaysia','Maldives','Mali','Malta','Marshall Islands','Martinique','Mauritania','Mauritius',
-'Mayotte','Mexico','Micronesia','Moldova','Monaco','Mongolia','Montenegro','Montserrat','Morocco','Mozambique','Myanmar','Namibia','Nauru','Nepal','Netherlands','New Caledonia',
-'New Zealand','Nicaragua','Niger','Nigeria','Niue','Norfolk Island','Northern Mariana Islands','North Korea','Norway','Oman','Pakistan','Palau','Panama','Papua New Guinea',
-'Paraguay','Peru','Philippines','Pitcairn Islands','Poland','Portugal','Puerto Rico','Qatar','Republic of Congo','Réunion','Romania','Russian Federation','Rwanda',
-'Saint Barthélemy','Saint Helena','St. Kitts & Nevis','Saint Lucia','Saint Martin','Saint Pierre and Miquelon','Saint Vincent and the Grenadines','Samoa','San Marino',
-'São Tomé and Príncipe','Saudi Arabia','Senegal','Serbia','Seychelles','Sierra Leone','Singapore','Sint Maarten','Slovakia','Slovenia','Solomon Islands','Somalia','South Africa',
-'South Georgia And South Sandwich Islands','South Korea','South Sudan','Spain','Sri Lanka','State of Palestine','Sudan','Suriname','Svalbard and Jan Mayen',
-'Sweden','Switzerland','Syria','Taiwan: Republic of China','Tajikistan','Tanzania','Thailand','Timor-Leste','Togo','Tokelau','Tonga','Trinidad and Tobago','Tunisia','Turkey',
-'Turkish Republic of Northern Cyprus','Turkmenistan','Turks and Caicos Islands','Tuvalu','Uganda','Ukraine','United Arab Emirates','United Kingdom',
-'United States Minor Outlying Islands','United States','United States Virgin Islands','Uruguay','Uzbekistan','Vanuatu','Vatican City and Holy See','Venezuela','Vietnam',
-'Wallis and Futuna','Western Sahara','Yemen','Zambia','Zimbabwe']; }
+// SELECT concat('"', country, '":"', long_name,'",') FROM countries order by long_name; MUST BE SORTED by long_name: Display Value: Soft Key
+var fullNameForCountry = {"Afghanistan":"Afghanistan","AlandIslands":"Åland Islands","Albania":"Albania","Algeria":"Algeria",
+"AmericanSamoa":"American Samoa","Andorra":"Andorra","Angola":"Angola","Anguilla":"Anguilla","AntarcticTreatySystem":"Antarctic Treaty System",
+"AntiguaandBarbuda":"Antigua and Barbuda","Argentina":"Argentina","Armenia":"Armenia","Aruba":"Aruba","Australia":"Australia","Austria":"Austria",
+"Azerbaijan":"Azerbaijan","Bahamas":"Bahamas","Bahrain":"Bahrain","Bangladesh":"Bangladesh","Barbados":"Barbados","Belarus":"Belarus",
+"Belgium":"Belgium","Belize":"Belize","Benin":"Benin","Bermuda":"Bermuda","Bhutan":"Bhutan","Bolivia":"Bolivia",
+"BonaireSintEustatiusandSaba":"Bonaire Sint Eustatius and Saba","BosniaandHerzegovina":"Bosnia and Herzegovina","Botswana":"Botswana",
+"BouvetIsland":"Bouvet Island","Brazil":"Brazil","BritishIndianOceanTerritory":"British Indian Ocean Territory",
+"BritishVirginIslands":"British Virgin Islands","Brunei":"Brunei","Bulgaria":"Bulgaria","BurkinaFaso":"Burkina Faso","Burundi":"Burundi",
+"CaboVerde":"Cabo Verde","Cambodia":"Cambodia","Cameroon":"Cameroon","Canada":"Canada","CanaryIslands":"Canary Islands",
+"CaymanIslands":"Cayman Islands","CentralAfricanRepublic":"Central African Republic","Chad":"Chad","Chile":"Chile","China":"China",
+"ChristmasIsland":"Christmas Island","CocosIslands":"Cocos Islands","Colombia":"Colombia","Comoros":"Comoros","CookIslands":"Cook Islands",
+"CostaRica":"Costa Rica","CotedIvoire":"Côte d'Ivoire","Croatia":"Croatia","Cuba":"Cuba","Curacao":"Curaçao","Cyprus":"Cyprus",
+"Czechia":"Czechia","DemocraticRepublicoftheCongo":"Democratic Republic of the Congo","Denmark":"Denmark","Djibouti":"Djibouti",
+"Dominica":"Dominica","DominicanRepublic":"Dominican Republic","Ecuador":"Ecuador","Egypt":"Egypt","ElSalvador":"El Salvador",
+"EquatorialGuinea":"Equatorial Guinea","Eritrea":"Eritrea","Estonia":"Estonia","Eswatini":"Eswatini","Ethiopia":"Ethiopia",
+"FalklandIslands":"Falkland Islands","FaroeIslands":"Faroe Islands","Fiji":"Fiji","Finland":"Finland","France":"France",
+"FrenchGuiana":"French Guiana","FrenchPolynesia":"French Polynesia","FrenchSouthernandAntarcticLands":"French Southern and Antarctic Lands",
+"Gabon":"Gabon","Gambia":"Gambia","Georgia":"Georgia","Germany":"Germany","Ghana":"Ghana","Gibraltar":"Gibraltar","Greece":"Greece",
+"Greenland":"Greenland","Grenada":"Grenada","Guadeloupe":"Guadeloupe","Guam":"Guam","Guatemala":"Guatemala","Guernsey":"Guernsey",
+"Guinea":"Guinea","GuineaBissau":"Guinea-Bissau","Guyana":"Guyana","Haiti":"Haiti","HeardIslandandMcDonaldIslands":"Heard Island and McDonald Islands",
+"Honduras":"Honduras","HongKong":"Hong Kong","Hungary":"Hungary","Iceland":"Iceland","India":"India","Indonesia":"Indonesia",
+"Iran":"Iran","Iraq":"Iraq","Ireland":"Ireland","IsleofMan":"Isle of Man","Israel":"Israel","Italy":"Italy","Jamaica":"Jamaica","Japan":"Japan",
+"Jersey":"Jersey","Jordan":"Jordan","Kazakhstan":"Kazakhstan","Kenya":"Kenya","Kiribati":"Kiribati","Kosovo":"Kosovo","Kuwait":"Kuwait",
+"Kyrgyzstan":"Kyrgyzstan","Laos":"Laos","Latvia":"Latvia","Lebanon":"Lebanon","Lesotho":"Lesotho","Liberia":"Liberia","Libya":"Libya",
+"Liechtenstein":"Liechtenstein","Lithuania":"Lithuania","Luxembourg":"Luxembourg","Macau":"Macau","Macedonia":"Macedonia","Madagascar":"Madagascar",
+"Malawi":"Malawi","Malaysia":"Malaysia","Maldives":"Maldives","Mali":"Mali","Malta":"Malta","MarshallIslands":"Marshall Islands",
+"Martinique":"Martinique","Mauritania":"Mauritania","Mauritius":"Mauritius","Mayotte":"Mayotte","Mexico":"Mexico","Micronesia":"Micronesia",
+"Moldova":"Moldova","Monaco":"Monaco","Mongolia":"Mongolia","Montenegro":"Montenegro","Montserrat":"Montserrat","Morocco":"Morocco",
+"Mozambique":"Mozambique","Myanmar":"Myanmar","Namibia":"Namibia","Nauru":"Nauru","Nepal":"Nepal","Netherlands":"Netherlands",
+"NewCaledonia":"New Caledonia","NewZealand":"New Zealand","Nicaragua":"Nicaragua","Niger":"Niger","Nigeria":"Nigeria","Niue":"Niue",
+"NorfolkIsland":"Norfolk Island","NorthKorea":"North Korea","NorthernMarianaIslands":"Northern Mariana Islands","Norway":"Norway",
+"Oman":"Oman","Pakistan":"Pakistan","Palau":"Palau","Panama":"Panama","PapuaNewGuinea":"Papua New Guinea","Paraguay":"Paraguay",
+"Peru":"Peru","Philippines":"Philippines","PitcairnIslands":"Pitcairn Islands","Poland":"Poland","Portugal":"Portugal",
+"PuertoRico":"Puerto Rico","Qatar":"Qatar","RepublicofCongo":"Republic of Congo","Reunion":"Réunion","Romania":"Romania",
+"RussianFederation":"Russian Federation","Rwanda":"Rwanda","SaintBarthelemy":"Saint Barthélemy","SaintHelena":"Saint Helena",
+"SaintLucia":"Saint Lucia","SaintMartin":"Saint Martin","SaintPierreandMiquelon":"Saint Pierre and Miquelon",
+"SaintVincentandGrenadines":"Saint Vincent and the Grenadines","Samoa":"Samoa","SanMarino":"San Marino",
+"SaoTomeandPrincipe":"São Tomé and Príncipe","SaudiArabia":"Saudi Arabia","Senegal":"Senegal","Serbia":"Serbia","Seychelles":"Seychelles",
+"SierraLeone":"Sierra Leone","Singapore":"Singapore","SintMaarten":"Sint Maarten","Slovakia":"Slovakia","Slovenia":"Slovenia",
+"SolomonIslands":"Solomon Islands","Somalia":"Somalia","SouthAfrica":"South Africa",
+"SouthGeorgiaAndSouthSandwichIslands":"South Georgia And South Sandwich Islands","SouthKorea":"South Korea","SouthSudan":"South Sudan",
+"Spain":"Spain","SriLanka":"Sri Lanka","SaintKittsandNevis":"St. Kitts & Nevis","StateofPalestine":"State of Palestine","Sudan":"Sudan",
+"Suriname":"Suriname","SvalbardandJanMayen":"Svalbard and Jan Mayen","Sweden":"Sweden","Switzerland":"Switzerland","Syria":"Syria",
+"Taiwan":"Taiwan: Republic of China","Tajikistan":"Tajikistan","Tanzania":"Tanzania","Thailand":"Thailand","TimorLeste":"Timor-Leste",
+"Togo":"Togo","Tokelau":"Tokelau","Tonga":"Tonga","TrinidadandTobago":"Trinidad and Tobago","Tunisia":"Tunisia","Turkey":"Turkey",
+"TurkishRepublicofNorthernCyprus":"Turkish Republic of Northern Cyprus","Turkmenistan":"Turkmenistan",
+"TurksandCaicosIslands":"Turks and Caicos Islands","Tuvalu":"Tuvalu","Uganda":"Uganda","Ukraine":"Ukraine",
+"UnitedArabEmirates":"United Arab Emirates","UnitedKingdom":"United Kingdom","UnitedStatesofAmerica":"United States",
+"UnitedStatesMinorOutlyingIslands":"United States Minor Outlying Islands","UnitedStatesVirginIslands":"United States Virgin Islands",
+"Uruguay":"Uruguay","Uzbekistan":"Uzbekistan","Vanuatu":"Vanuatu","VaticanCityAndHolySee":"Vatican City and Holy See","Venezuela":"Venezuela",
+"Vietnam":"Vietnam","WallisandFutuna":"Wallis and Futuna","WesternSahara":"Western Sahara","Yemen":"Yemen","Zambia":"Zambia","Zimbabwe":"Zimbabwe"};
 
-// used in utilityForAllVersion... in createTableRows(...) concat('"', country, '":"',long_name, '",' (make it all countries)
-var longNameFromCountry = {"AmericanSamoa":"American Samoa", "AntarcticTreatySystem":"Antarctic Treaty System", "AntiguaandBarbuda":"Antigua and Barbuda",
-"BonaireSintEustatiusandSaba":"Bonaire Sint Eustatius and Saba", "BosniaandHerzegovina":"Bosnia and Herzegovina", "BritishVirginIslands":"British Virgin Islands",
-"BritishIndianOceanTerritory":"British Indian Ocean Territory", "BurkinaFaso":"Burkina Faso", "CaboVerde":"Cabo Verde", "CanaryIslands":"Canary Islands",
-"CaymanIslands":"Cayman Islands", "CentralAfricanRepublic":"Central African Republic", "ChristmasIsland":"Christmas Island", "CocosIslands":"Cocos Islands",
-"CookIslands":"Cook Islands", "CostaRica":"Costa Rica", "DemocraticRepublicoftheCongo":"Democratic Republic of the Congo", "RepublicofCongo":"Republic of Congo",
-"CotedIvoire":"Côte d'Ivoire", "DominicanRepublic":"Dominican Republic", "ElSalvador":"El Salvador", "EquatorialGuinea":"Equatorial Guinea",
-"FalklandIslands":"Falkland Islands", "FaroeIslands":"Faroe Islands", "FrenchGuiana":"French Guiana", "FrenchPolynesia":"French Polynesia",
-"FrenchSouthernandAntarcticLands":"French Southern and Antarctic Lands", "GuineaBissau":"Guinea-Bissau", "HongKong":"Hong Kong", "IsleofMan":"Isle of Man",
-"MarshallIslands":"Marshall Islands", "NewCaledonia":"New Caledonia", "NewZealand":"New Zealand", "NorfolkIsland":"Norfolk Island",
-"NorthernMarianaIslands":"Northern Mariana Islands", "NorthKorea":"North Korea",  "PapuaNewGuinea":"Papua New Guinea", "PitcairnIslands":"Pitcairn Islands",
-"PuertoRico":"Puerto Rico", "RussianFederation":"Russian Federation", "SaintBarthelemy":"Saint Barthélemy", "SaintHelena":"Saint Helena",
-"SaintKittsandNevis":"St. Kitts & Nevis", "SaintLucia":"Saint Lucia", "SaintPierreandMiquelon":"Saint Pierre and Miquelon",
-"SaintVincentandGrenadines":"Saint Vincent and the Grenadines", "SanMarino":"San Marino", "SaoTomeandPrincipe":"São Tomé and Príncipe", "SaudiArabia":"Saudi Arabia",
-"SierraLeone":"Sierra Leone", "SintMaarten":"Sint Maarten", "SolomonIslands":"Solomon Islands", "SouthAfrica":"South Africa", "SouthKorea":"South Korea",
-"SouthSudan":"South Sudan", "SriLanka":"Sri Lanka", "StateofPalestine":"State of Palestine", "SvalbardandJanMayen":"Svalbard and Jan Mayen",
-"Taiwan":"Taiwan: Republic of China", "TimorLeste":"Timor-Leste", "TrinidadandTobago":"Trinidad and Tobago",
-"TurkishRepublicofNorthernCyprus":"Turkish Republic of Northern Cyprus", "TurksandCaicosIslands":"Turks and Caicos Islands", "UnitedKingdom":"United Kingdom",
-"UnitedStatesofAmerica":"United States", "UnitedStatesVirginIslands":"United States Virgin Islands", "UnitedArabEmirates":"United Arab Emirates",
-"WesternSahara":"Western Sahara", "VaticanCityAndHolySee":"Vatican City and Holy See", "WallisandFutuna":"Wallis and Futuna", "AlandIslands":"Åland Islands",
-"BouvetIsland":"Bouvet Island", "HeardIslandandMcDonaldIslands":"Heard Island and McDonald Islands",
-"SouthGeorgiaAndSouthSandwichIslands":"South Georgia And South Sandwich Islands", "UnitedStatesMinorOutlyingIslands":"United States Minor Outlying Islands" }
+// these two will be used in Text and Data Languages Modules
+// Run SELECT concat('"', language, '",') FROM languages order by language; Copy Row Unquoted
+var languagesFromLanguageTable = ["Afrikaans","Albanian","Amharic","Arabic","Armenian","Asante","Assamese","Aymara","Azerbaijani","Bahasa","Bahasa Indonesia",
+"Bajan","Bambara","Bangla","Belarusian","Bemba","Bengali","Bhojpuri","Bislama","Bosnian","Bulgarian","Burmese","Catalan","Chamorro","Chichewa",
+"Creole","Crioulo","Croatian","Czech","Danish","Dari","Dhivehi","Dioula","Dutch","Dzongkha","Emakhuwa","English","Estonian","Ewe","Fante",
+"Fijian","Filipino","Finnish","French","Fula","Gaelic","Ganda","Georgian","German","Greek","Greenlandic","Guarani","Gujarati","Hebrew","Hindi",
+"Hiri Motu","Hungarian","I-Kiribati","Icelandic","Irish","isiZulu","Italian","Japanese","Javanese","Kannada","Kashmiri","Kazakh","Khmer",
+"Kinyarwanda","Kirundi","Korean","Krio","Kurdish","Kyrgyz","Lao","Latvian","Lhotshamkha","Lingala","Lithuanian","Luganda","Luxembourgish",
+"Macedonian","Maithali","Makasai","Malagasy","Malay","Malayalam","Maltese","Mambai","Mandarin","Mandinka","Marathi","Marshallese","Maya",
+"Melanesian pidgin","Mende","Moldovan","Mongolian","Monokutuba","Montenegrin","Nauruan","Nawat","Ndebele","Nepali","Niuean","Norwegian",
+"Nyanja","Oriya","Oromo","Palauan","Papiamento","Pashto","Persian","Polish","Portuguese","Punjabi","Quechua","Rarotongan","Romanian",
+"Romansch","Russian","Samoan","Sango","Sanskrit","Saraiki","Scots","Sekalanga","Sepedi","Serbian","Sesotho","Setswana","Seychellois Creole",
+"Sharchhopka","Shona","Sindhi","Sinhala","siSwati","Slovak","Slovenian","Somali","Spanish","Swahili","Swedish","Tajik","Tamil","Tatar",
+"Telugu","Temne","Tetum","Thai","Tigrinya","Tok Pisin","Tokelauan","Tonga","Tongan","Turkish","Turkmen","Tuvaluan","Ukrainian","Umbundu",
+"Urdu","Uzbek","Vietnamese","Welsh","Wolof","Xichangana"];
 
-// Run SELECT distinct concate('{"value":"',value, '"},' FROM worldflags.features where feature = "Language" order by value; Copy Row Unquoted
-function getWorldLanguagesDropDownValues() {
-    return [{"value":"Afrikaans"},{"value":"Albanian"},{"value":"Amharic"},{"value":"Arabic"},{"value":"Armenian"},{"value":"Asante"},{"value":"Assamese"},
+// Run SELECT concat('"', language, '":"', long_name, '",') FROM languages order by language; Copy Row Unquoted
+var fullNameForLanguage = {"Afrikaans":"Afrikaans","Albanian":"Albanian","Amharic":"Amharic","Arabic":"Arabic","Armenian":"Armenian",
+"Asante":"Asante","Assamese":"Assamese","Aymara":"Aymara","Azerbaijani":"Azerbaijani","Bahasa":"Bahasa","Bahasa Indonesia":"Bahasa Indonesia",
+"Bajan":"Bajan","Bambara":"Bambara","Bangla":"Bangla","Belarusian":"Belarusian","Bemba":"Bemba","Bengali":"Bengali","Bhojpuri":"Bhojpuri",
+"Bislama":"Bislama","Bosnian":"Bosnian","Bulgarian":"Bulgarian","Burmese":"Burmese","Catalan":"Catalan","Chamorro":"Chamorro","Chichewa":"Chichewa",
+"Creole":"Creole","Crioulo":"Crioulo","Croatian":"Croatian","Czech":"Czech","Danish":"Danish","Dari":"Dari","Dhivehi":"Dhivehi","Dioula":"Dioula",
+"Dutch":"Dutch","Dzongkha":"Dzongkha","Emakhuwa":"Emakhuwa","English":"English","Estonian":"Estonian","Ewe":"Ewe","Fante":"Fante","Fijian":"Fijian",
+"Filipino":"Filipino","Finnish":"Finnish","French":"French","Fula":"Fula","Gaelic":"Gaelic","Ganda":"Ganda","Georgian":"Georgian","German":"German",
+"Greek":"Greek","Greenlandic":"Greenlandic","Guarani":"Guarani","Gujarati":"Gujarati","Hebrew":"Hebrew","Hindi":"Hindi","Hiri Motu":"Hiri Motu",
+"Hungarian":"Hungarian","I-Kiribati":"I-Kiribati","Icelandic":"Icelandic","Irish":"Irish","isiZulu":"isiZulu","Italian":"Italian","Japanese":"Japanese",
+"Javanese":"Javanese","Kannada":"Kannada","Kashmiri":"Kashmiri","Kazakh":"Kazakh","Khmer":"Khmer","Kinyarwanda":"Kinyarwanda","Kirundi":"Kirundi",
+"Korean":"Korean","Krio":"Krio","Kurdish":"Kurdish","Kyrgyz":"Kyrgyz","Lao":"Lao","Latvian":"Latvian","Lhotshamkha":"Lhotshamkha","Lingala":"Lingala",
+"Lithuanian":"Lithuanian","Luganda":"Luganda","Luxembourgish":"Luxembourgish","Macedonian":"Macedonian","Maithali":"Maithali","Makasai":"Makasai",
+"Malagasy":"Malagasy","Malay":"Malay","Malayalam":"Malayalam","Maltese":"Maltese","Mambai":"Mambai","Mandarin":"Mandarin","Mandinka":"Mandinka",
+"Marathi":"Marathi","Marshallese":"Marshallese","Maya":"Maya","Melanesian pidgin":"Melanesian pidgin","Mende":"Mende","Moldovan":"Moldovan",
+"Mongolian":"Mongolian","Monokutuba":"Monokutuba","Montenegrin":"Montenegrin","Nauruan":"Nauruan","Nawat":"Nawat","Ndebele":"Ndebele",
+"Nepali":"Nepali","Niuean":"Niuean","Norwegian":"Norwegian","Nyanja":"Nyanja","Oriya":"Oriya","Oromo":"Oromo","Palauan":"Palauan","Papiamento":"Papiamento",
+"Pashto":"Pashto","Persian":"Persian","Polish":"Polish","Portuguese":"Portuguese","Punjabi":"Punjabi","Quechua":"Quechua","Rarotongan":"Rarotongan",
+"Romanian":"Romanian","Romansch":"Romansch","Russian":"Russian","Samoan":"Samoan","Sango":"Sango","Sanskrit":"Sanskrit","Saraiki":"Saraiki",
+"Scots":"Scots","Sekalanga":"Sekalanga","Sepedi":"Sepedi","Serbian":"Serbian","Sesotho":"Sesotho","Setswana":"Setswana",
+"Seychellois Creole":"Seychellois Creole","Sharchhopka":"Sharchhopka","Shona":"Shona","Sindhi":"Sindhi","Sinhala":"Sinhala","siSwati":"siSwati",
+"Slovak":"Slovak","Slovenian":"Slovenian","Somali":"Somali","Spanish":"Spanish","Swahili":"Swahili","Swedish":"Swedish","Tajik":"Tajik",
+"Tamil":"Tamil","Tatar":"Tatar","Telugu":"Telugu","Temne":"Temne","Tetum":"Tetum","Thai":"Thai","Tigrinya":"Tigrinya","Tok Pisin":"Tok Pisin",
+"Tokelauan":"Tokelauan","Tonga":"Tonga","Tongan":"Tongan","Turkish":"Turkish","Turkmen":"Turkmen","Tuvaluan":"Tuvaluan","Ukrainian":"Ukrainian",
+"Umbundu":"Umbundu","Urdu":"Urdu","Uzbek":"Uzbek","Vietnamese":"Vietnamese","Welsh":"Welsh","Wolof":"Wolof","Xichangana":"Xichangana"};
+
+// Run SELECT distinct concat('{"value":"',value, '"},') FROM features where feature = "Language" order by value; Copy Row Unquoted
+var worldLanguagesDropDownValues = [{"value":"Afrikaans"},{"value":"Albanian"},{"value":"Amharic"},{"value":"Arabic"},{"value":"Armenian"},{"value":"Asante"},{"value":"Assamese"},
 {"value":"Aymara"},{"value":"Azerbaijani"},{"value":"Bahasa"},{"value":"Bahasa Indonesia"},{"value":"Bajan"},{"value":"Bambara"},{"value":"Bangla"},{"value":"Belarusian"},
 {"value":"Bemba"},{"value":"Bengali"},{"value":"Bhojpuri"},{"value":"Bislama"},{"value":"Bosnian"},{"value":"Bulgarian"},{"value":"Burmese"},{"value":"Catalan"},
 {"value":"Chamorro"},{"value":"Chichewa"},{"value":"Creole"},{"value":"Crioulo"},{"value":"Croatian"},{"value":"Czech"},{"value":"Danish"},{"value":"Dari"},{"value":"Dhivehi"},
@@ -92,16 +136,14 @@ function getWorldLanguagesDropDownValues() {
 {"value":"Slovenian"},{"value":"Somali"},{"value":"Spanish"},{"value":"Swahili"},{"value":"Swedish"},{"value":"Tajik"},{"value":"Tamil"},{"value":"Tatar"},
 {"value":"Telugu"},{"value":"Temne"},{"value":"Tetum"},{"value":"Thai"},{"value":"Tigrinya"},{"value":"Tok Pisin"},{"value":"Tokelauan"},{"value":"Tonga"},{"value":"Tongan"},
 {"value":"Turkish"},{"value":"Turkmen"},{"value":"Tuvaluan"},{"value":"Ukrainian"},{"value":"Umbundu"},{"value":"Urdu"},{"value":"Uzbek"},{"value":"Vietnamese"},
-{"value":"Welsh"},{"value":"Wolof"},{"value":"Xichangana"}]; }
+{"value":"Welsh"},{"value":"Wolof"},{"value":"Xichangana"}];
 
-// Run SELECT distinct concate('{"value":"',value, '"},' FROM worldflags.features where feature = "Religion" order by value; Copy Row Unquoted
-function getWorldReligionsDropDownValues() {
-    return [{"value":"Agnostic"},{"value":"Animism"},{"value":"Buddhism"},{"value":"Christianity"},{"value":"Confucianism"},{"value":"Druze"},{"value":"Folk"},{"value":"Hinduism"},
-{"value":"Indigenous"},{"value":"Islam"},{"value":"Judism"},{"value":"Shamanism "},{"value":"Shintoism"},{"value":"Taoism"},{"value":"Unaffiliated"}];}
+// Run SELECT distinct concat('{"value":"',value, '"},') FROM features where feature = "Religion" order by value; Copy Row Unquoted
+var worldReligionsDropDownValues = [{"value":"Agnostic"},{"value":"Animism"},{"value":"Buddhism"},{"value":"Christianity"},{"value":"Confucianism"},{"value":"Druze"},{"value":"Folk"},{"value":"Hinduism"},
+{"value":"Indigenous"},{"value":"Islam"},{"value":"Judism"},{"value":"Shamanism "},{"value":"Shintoism"},{"value":"Taoism"},{"value":"Unaffiliated"}];
 
-// Run SELECT distinct 'concate('{"value":"',value, '"},' FROM worldflags.features where feature = "Water" order by value; Copy Row Unquoted
-function getWorldWatersDropDownValues() {
-    return [{"value":"Adriatic"},{"value":"Aegean"},{"value":"Andaman"},{"value":"Antarctic"},{"value":"Arabian"},{"value":"Arafura"},{"value":"Arctic"},{"value":"Atlantic"},
+// Run SELECT distinct 'concat('{"value":"',value, '"},') FROM features where feature = "Water" order by value; Copy Row Unquoted
+var worldWatersDropDownValues = [{"value":"Adriatic"},{"value":"Aegean"},{"value":"Andaman"},{"value":"Antarctic"},{"value":"Arabian"},{"value":"Arafura"},{"value":"Arctic"},{"value":"Atlantic"},
 {"value":"Bali"},{"value":"Baltic"},{"value":"Banda"},{"value":"Barent"},{"value":"Bay of Bengal"},{"value":"Bay of Biscay"},{"value":"Bering"},{"value":"Bering Seas"},
 {"value":"Bismarck"},{"value":"Black"},{"value":"Caribbean"},{"value":"Caspian"},{"value":"Celebes"},{"value":"Celtic"},{"value":"Ceram"},{"value":"Chukchi"},
 {"value":"East China"},{"value":"East Siberian"},{"value":"English Channel"},{"value":"Flores"},{"value":"Gulf of Aden"},{"value":"Gulf of Aqaba"},{"value":"Gulf of California"},
@@ -111,16 +153,14 @@ function getWorldWatersDropDownValues() {
 {"value":"Mediterranean"},{"value":"Molucca"},{"value":"Natuna"},{"value":"North"},{"value":"Norwegian"},{"value":"Pacific"},{"value":"Persian Gulf"},
 {"value":"Philippine"},{"value":"Read"},{"value":"Red"},{"value":"Savu"},{"value":"Sea of Azov"},{"value":"Sea of Japan"},{"value":"Sea of Okhotsk"},
 {"value":"See of Japan"},{"value":"Solomon"},{"value":"South China"},{"value":"Southern"},{"value":"Sulu"},{"value":"Tasman"},
-{"value":" Timor"},{"value":" Yellow"},{"value":"Yellow Sea"}]; }
+{"value":" Timor"},{"value":" Yellow"},{"value":"Yellow Sea"}];
 
-// Run SELECT distinct 'concate('{"value":"',value, '"},' FROM worldflags.features where feature = "Color" order by value; Copy Row Unquoted
-function getFlagsColorsDropDownValues() {
-    return [ {"value":"Black"},{"value":"Blue"},{"value":"Brown"},{"value":"Gray"},{"value":"Green"},{"value":"Maroon"},{"value":"Orange"},{"value":"Pink"},
-{"value":"Purple"},{"value":"Red"},{"value":"Saffron"},{"value":"White"},{"value":"Yellow"}]; }
+// Run SELECT distinct 'concat('{"value":"',value, '"},') FROM features where feature = "Color" order by value; Copy Row Unquoted
+var flagsColorsDropDownValues = [ {"value":"Black"},{"value":"Blue"},{"value":"Brown"},{"value":"Gray"},{"value":"Green"},{"value":"Maroon"},{"value":"Orange"},{"value":"Pink"},
+{"value":"Purple"},{"value":"Red"},{"value":"Saffron"},{"value":"White"},{"value":"Yellow"}];
 
-// Run SELECT distinct 'concate('{"value":"',value, '"},' FROM worldflags.features where feature = "Shape" order by value; Copy Row Unquoted
-function getFlagsShapesDropDownValues() {
-    return [{"value":"Alpaca"},{"value":"Anchor"},{"value":"Angkor Wat"},{"value":"Animal"},{"value":"Arabic"},{"value":"Armillary sphere"},{"value":"Armour"},{"value":"Armoured"},
+// Run SELECT distinct 'concat('{"value":"',value, '"},') FROM features where feature = "Shape" order by value; Copy Row Unquoted
+var flagsShapesDropDownValues = [{"value":"Alpaca"},{"value":"Anchor"},{"value":"Angkor Wat"},{"value":"Animal"},{"value":"Arabic"},{"value":"Armillary sphere"},{"value":"Armour"},{"value":"Armoured"},
 {"value":"Arrow"},{"value":"Arrowhead"},{"value":"Axe"},{"value":"Banana"},{"value":"Band"},{"value":"Bar"},{"value":"Barrel"},{"value":"Bay"},{"value":"Bay laurel"},{"value":"Bayonet"},
 {"value":"Bible"},{"value":"Bird"},{"value":"Book"},{"value":"Border"},{"value":"Bow"},{"value":"Branch"},{"value":"Bridge"},{"value":"British-Flag"},{"value":"Bugle"},{"value":"Building"},
 {"value":"Cacao"},{"value":"Cactus"},{"value":"Candor"},{"value":"Cannon"},{"value":"Canoe"},{"value":"Canton"},{"value":"Cap"},{"value":"Carpet"},{"value":"Castle"},{"value":"Cedar"},
@@ -145,4 +185,4 @@ function getFlagsShapesDropDownValues() {
 {"value":"Tent"},{"value":"Thuluth"},{"value":"Torch"},{"value":"Totem"},{"value":"Tower"},{"value":"Trapezium"},{"value":"Trapezoid"},{"value":"Tree"},{"value":"Triangle"},
 {"value":"Trident"},{"value":"Trigram"},{"value":"Tulip"},{"value":"Turtle"},{"value":"Tusk"},{"value":"Twelve-Pointed Star"},{"value":"Twenty-Four-Pointed Star"},{"value":"Vertical"},
 {"value":"Volcano"},{"value":"Water"},{"value":"Wave"},{"value":"Waves"},{"value":"Weapon"},{"value":"Wheat"},{"value":"Wheel"},{"value":"Wheelbarrow"},{"value":"White Saltire"},
-{"value":"Wing"},{"value":"Wreath"},{"value":"Yin Yang"},{"value":"Zodiac"}]; }
+{"value":"Wing"},{"value":"Wreath"},{"value":"Yin Yang"},{"value":"Zodiac"}];

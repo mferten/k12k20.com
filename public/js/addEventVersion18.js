@@ -72,9 +72,9 @@ function fillOneCountryMapWithItsFlag(twoDigit, startUpCountryName)
         worldMap.refresh_state(twoDigit);
     }
     // Make the flag Visible if Hidden
-    if (document.getElementById(countryBayrakIdByName[startUpCountryName]) &&
-        document.getElementById(countryBayrakIdByName[startUpCountryName]).classList.contains("displayNone"))
-        document.getElementById(countryBayrakIdByName[startUpCountryName]).classList.remove("displayNone");
+    if (document.getElementById("bayrak" + countryArrayKeyValue[startUpCountryName]) &&
+        document.getElementById("bayrak" + countryArrayKeyValue[startUpCountryName]).classList.contains("displayNone"))
+        document.getElementById("bayrak" + countryArrayKeyValue[startUpCountryName]).classList.remove("displayNone");
 }
 
 function emptyOneCountryMapWithItsFlag(twoDigit, startUpCountryName)
@@ -88,9 +88,9 @@ function emptyOneCountryMapWithItsFlag(twoDigit, startUpCountryName)
         worldMap.refresh_state(twoDigit);
     }
     // Make the flag Hidden if Visible
-    if (document.getElementById(countryBayrakIdByName[startUpCountryName]) &&
-        !document.getElementById(countryBayrakIdByName[startUpCountryName]).classList.contains("displayNone"))
-        document.getElementById(countryBayrakIdByName[startUpCountryName]).classList.add("displayNone");
+    if (document.getElementById("bayrak" + countryArrayKeyValue[startUpCountryName]) &&
+        !document.getElementById("bayrak" + countryArrayKeyValue[startUpCountryName]).classList.contains("displayNone"))
+        document.getElementById("bayrak" + countryArrayKeyValue[startUpCountryName]).classList.add("displayNone");
 }
 
 function keyPressed(event)
@@ -301,7 +301,7 @@ function processOneSelection(oneCountryFlag, selectionIdOrOneCountry)
     }
     if (oneCountryFlag) {
         setTimeout(function () {
-            triggerAMouseEvent(countryBayrakIdByName[oneCountry]);
+            triggerAMouseEvent("bayrak" + countryArrayKeyValue[oneCountry]);
             document.getElementById("Country").selectedIndex = "0";
             oneCountrySelectedFlag = true;
         },150);
@@ -595,7 +595,7 @@ function selectACountryMap(event)
 function showSmallEntityTourismWebsite(countryName)
 {
     // the Country Name to be displayed:
-    document.getElementById("id_CountryFacts").innerHTML = allCountryFullNames[previousFlag.substring(6)];
+    document.getElementById("id_CountryFacts").innerHTML = fullNameForCountry[countryFromId[previousFlag.substring(6)]];
     // Retrieve and Display Country Information
     retrieveAndDisplayCountryInformation(countryName);
     var smallEntityGoogleMapParagraph = document.createElement('p');
@@ -644,7 +644,7 @@ function getTheCountryMapData(mapCountry1, importedCountryMap, twoDigitCountryCo
         mapCountry1.load();
         // the Country Name to be displayed:
         if (previousFlag != -1)
-            document.getElementById("id_CountryFacts").innerHTML = allCountryFullNames[previousFlag.substring(6)];
+            document.getElementById("id_CountryFacts").innerHTML = fullNameForCountry[countryNameFromKeyValue[previousFlag.substring(6)]];
         else document.getElementById("id_CountryFacts").innerHTML = countryName; // find the full name from country-data-name
         putTheFlagsForACountry(countryName, twoDigitCountryCode, mapCountry1);
     }

@@ -178,7 +178,7 @@ class ApplicationLanguageDataTableSeeder extends Seeder
         "Meksika körfezi","Umman Körfezi","Tayland Körfezi","Tayland Körfezi ve Pasifik Okyanusu","Halmahera","Hint","Hint Okyanusu",
         "İyon","İrlanda","Java","Kara","Laccadive","Malavi Gölü","Victoria Gölü","Kara İle Çevrili","Laptev","Liguria","Marmara",
         "Akdeniz","Molacca","Natuna","Kuzey","Norveççe","Pasifik (Büyük)","İran Körfezi","Filipin","Kızıl","Savu","Azov denizi",
-        "Japon Denizi","Okhotsk Denizi","Solomon","Güney Çin","Güney","Sulu","Tasman","Timor","Sarı","Sarı Deniz (Yellow)"];
+        "Japon Denizi","Okhotsk Denizi","Solomon","Güney Çin","Güney","Sulu","Tasman","Timor","Sarı","Sarı Deniz"];
 
         $dataSK = ["Nízky","Stredný","Vysoký","a","Jazero","Oceán","More","Moria","Afganistan","Afganistan","Alandy",
         "Alandské ostrovy","Albánsko","Albánsko","Alžírsko","Alžírsko",

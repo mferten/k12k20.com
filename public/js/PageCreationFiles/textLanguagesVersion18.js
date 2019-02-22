@@ -1,8 +1,5 @@
 'use strict';
 
-// World Languages Drop Down Values
-if (typeof worldLanguagesDropDownValues == 'undefined') // global.js may define this variable
-var worldLanguagesDropDownValues = getWorldLanguagesDropDownValues();
 // Application (Page) Name
 currentEWorldPage = "Text Languages";
 
@@ -42,8 +39,8 @@ var textLanguageSelect = document.createElement("select");
 textLanguageSelect.setAttribute("id","appCountry");
 textLanguageSelect.setAttribute("class","selectBoxStyles applicationLanguage resetAnchor appLanguageSel");
 textLanguageSelect.appendChild(setFirstOption(selectedApplicationLanguageTexts["id_ChooseOne"], "ChooseOne", textLanguageSelect), true);
-for (var key in allCountryNames) {
-    createOneOption(textLanguageSelect, allCountryFullNames[key], allCountryNames[key]);
+for (var key in fullNameForCountry) {
+    createOneOption(textLanguageSelect, fullNameForCountry[key], 1+parseInt(countryArrayKeyValue[key]));
 }
 
 textLanguageLabel.appendChild(textLanguageSelect);
@@ -62,7 +59,9 @@ var textLanguageSelectTwo = document.createElement("select");
 textLanguageSelectTwo.setAttribute("id","appLanguage");
 textLanguageSelectTwo.setAttribute("class","selectBoxStyles applicationLanguage resetAnchor appLanguageSel");
 textLanguageSelectTwo.appendChild(setFirstOption(selectedApplicationLanguageTexts["id_ChooseOne"], "ChooseOne", textLanguageSelectTwo), true);
-setOptionsFromSavedData(textLanguageSelectTwo,worldLanguagesDropDownValues);
+for (var key in fullNameForLanguage) {
+    createOneOption(textLanguageSelectTwo, fullNameForLanguage[key], 1+parseInt(languageArrayKeyValue[key]));
+}
 
 var textLanguageI = document.createElement("i");
 textLanguageI.setAttribute("id", "id_SaveStartupValues");
@@ -280,8 +279,8 @@ function saveApplicationLanguageTexts()
     // Pass: the Country_id(1) and language_id(2) (it does not exist); [TagId and Text] Array (3):
     else
     {
-        dataWorlds.append("countryId", document.getElementById("appCountry").selectedIndex);
-        dataWorlds.append("languageId", document.getElementById("appLanguage").selectedIndex);
+        dataWorlds.append("countryId", document.getElementById("appCountry").value);
+        dataWorlds.append("languageId", document.getElementById("appLanguage").value);
         xhttpsaveTagsTexts.open("POST", "/ajax/texts/create", true);
     }
     xhttpsaveTagsTexts.setRequestHeader('X-CSRF-TOKEN', document.getElementsByName('csrf-token')[0].getAttribute('content'));
@@ -309,9 +308,9 @@ function getThisApplicationLanguageTexts()
         }
     };
     xhttploadTagsTexts.open("GET", "/ajax/texts?countryId="
-        +document.getElementById("appCountry").selectedIndex
+        +document.getElementById("appCountry").value
         +"&languageId="
-        +document.getElementById("appLanguage").selectedIndex, true);
+        +document.getElementById("appLanguage").value, true);
     // Start the Ajax Communication (call PHP program through Route => Controller)
     xhttploadTagsTexts.send();
 }

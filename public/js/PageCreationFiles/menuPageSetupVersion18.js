@@ -2,14 +2,14 @@
 
 var currentEWorldPage = "Menu"; // this should be up here all the time to work again from the menu (after the first time)
 
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForAll", "js/utilityForAllVersion16.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("UtilityForFlag", "js/utilityForFlagsVersion16.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("WorldFlags", "js/OneCountryLanguageTextJSFiles/worldFlags.js");
-importAnExternalJSFileIfNotYetWithNoProcessing("SVGFiles", "js/OneCountryLanguageTextJSFiles/flagsSVGFilesVersion16.js");
+importAnExternalUtilityJSFile("UtilityForAll", "js/utilityForAllVersion18.js");
+importAnExternalUtilityJSFile("UtilityForFlag", "js/utilityForFlagsVersion18.js");
+importAnExternalUtilityJSFile("WorldFlags", "js/OneCountryLanguageTextJSFiles/worldFlags.js");
+importAnExternalUtilityJSFile("SVGFiles", "js/OneCountryLanguageTextJSFiles/flagsSVGFilesVersion18.js");
 
 function finalizeMenuPage() {
-    initializationUtilityForAll(); // get the initial application values (default or saved)
 
+    initializationUtilityForAll(); // get the initial application values (default or saved)
     var startupProgram = startupValuesJSONObject.startWith;
     if (startupProgram && startupProgram == "id_MenuStart") {
         setMenuImage(true);
@@ -26,7 +26,6 @@ function finalizeMenuPage() {
 }
 
 function setMenuImage(firstTime) {
-    if (firstTime) {} else initializationUtilityForAll();
     var menuBody = document.createElement("body");
     menuBody.setAttribute("name","menu");
     var menuHeader = document.createElement("header");
@@ -76,7 +75,7 @@ function setMenuImage(firstTime) {
   }, 100);
 }
 
-function importAnExternalJSFileIfNotYetWithNoProcessing(jsFileName, jsURL)
+function importAnExternalUtilityJSFile(jsFileName, jsURL)
 {
     var ifExternalJSExist = document.getElementById("id_" + jsFileName + "Script");
     if (ifExternalJSExist) {

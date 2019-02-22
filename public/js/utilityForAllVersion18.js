@@ -144,16 +144,18 @@ var allCountryLanguages =  {"Afghanistan":"Pashto","AlandIslands":"Swedish","Alb
     "Uruguay":"Spanish","Uzbekistan":"Uzbek","Vanuatu":"Bislama","VaticanCityAndHolySee":"Italian","Venezuela":"Spanish","Vietnam":"Vietnamese","WallisandFutuna":"French",
     "WesternSahara":"Arabic","Yemen":"Arabic","Zambia":"English","Zimbabwe":"English"}
 
-var allCountryNames = getAllCountriesNames();
-var allCountryFullNames = getAllCountriesFullNames();
-
-var countryBayrakIdByName = {};
 var countryArrayKeyValue = {};
-
-// set the country names with the sequence number and vice versa: country (252) key (0 to 251)
+var countryNameFromKeyValue = {};
+// For Flag objects: set the country names with the sequence number and vice versa: country (252) key (0 to 251)
 for (var arrayKeyValue in allCountryNames) {
     countryArrayKeyValue[allCountryNames[arrayKeyValue]] = arrayKeyValue;
-    countryBayrakIdByName[allCountryNames[arrayKeyValue]] = "bayrak" + arrayKeyValue; // if map is clicked, this will be used...
+    countryNameFromKeyValue[arrayKeyValue] = allCountryNames[arrayKeyValue];
+}
+
+var languageArrayKeyValue = {};
+// From the Language Description this will help to get the Language Table Id Value... description to country to id (key)
+for (var arrayKeyValue in languagesFromLanguageTable) {
+    languageArrayKeyValue[languagesFromLanguageTable[arrayKeyValue]] = arrayKeyValue;
 }
 
 // ****     2- Functions     ******
@@ -193,35 +195,35 @@ function eWorldMenuSetup() {
 // rename one CSS file individually
 
 function eWorldGlobalSetup() {
-    importAnExternalJSFile("id_Searching", "js/PageCreationFiles/globalVersion16.js", "Searching"); // import a javascript external file
+    importAnExternalJSFile("id_Searching", "js/PageCreationFiles/globalVersion18.js", "Searching"); // import a javascript external file
 }
 
 function eWorldRegionalSetup() {
-    importAnExternalJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion16.js", "Surfing"); // import a javascript external file
+    importAnExternalJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion18.js", "Surfing"); // import a javascript external file
 }
 
 function eWorldCountriesSetup() {
-    importAnExternalJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion16.js", "CountryCodes"); // import a javascript external file
+    importAnExternalJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion18.js", "CountryCodes"); // import a javascript external file
 }
 
 function eWorldStartupSetup(  ) {
-    importAnExternalJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion16.js", "Register"); // import a javascript external file
+    importAnExternalJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion18.js", "Register"); // import a javascript external file
 }
 
 function eWorldCitationsSetup() {
-    importAnExternalJSFile("id_Citations", "js/PageCreationFiles/citationsVersion16.js", "Citations"); // import a javascript external file
+    importAnExternalJSFile("id_Citations", "js/PageCreationFiles/citationsVersion18.js", "Citations"); // import a javascript external file
 }
 
 function eWorldAboutSetup() {
-    importAnExternalJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion16.js", "AboutMe"); // import a javascript external file
+    importAnExternalJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion18.js", "AboutMe"); // import a javascript external file
 }
 
 function eWorldTextLanguagesSetup() {
-    importAnExternalJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion16.js", "TextLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion18.js", "TextLanguages"); // import a javascript external file
 }
 
 function eWorldDataLanguagesSetup() {
-    importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion16.js", "DataLanguages"); // import a javascript external file
+    importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion18.js", "DataLanguages"); // import a javascript external file
 }
 
 function isAppleProduct()
@@ -577,13 +579,14 @@ function setOptionValues(selectElement, titleLabel)
     // add rest of the values
     if (titleLabel == "Country")
     {
-        for (var key in allCountryNames)
+        for (var key in fullNameForCountry)
         {
-            createOneOption(selectElement, allCountryFullNames[key], allCountryNames[key]);
+            createOneOption(selectElement, fullNameForCountry[key], key);
         }
     }
     else
     {
+        // the rest in setSelectOptionsFromServerData()
         var optionCodeValues = window[optionCode[titleLabel]+"Code"];
         var optionTextValues = window[optionCode[titleLabel]+"OptionTexts"];
         for (var key in optionCodeValues)
@@ -1006,15 +1009,15 @@ function createTableRows(htmlTableWithTexts, trElement, tdElement, textElement, 
         if (staticFlag && usedTableRowCount > howManyRows) trElement.classList.add("displayNone");
         createOneTd(trElement, tdElement, textElement, loop);
         if (objectType != "Object") { // Create a line with Long (Full) Country Name if NOT "Color", "Shape", "Water", "Language", "Religion"
-            if (objectType == "Array") createOneTd(trElement, tdElement, textElement, (longNameFromCountry[country])?longNameFromCountry[country]:country, staticFlag, country);
-            else createOneTd(trElement, tdElement, textElement, (longNameFromCountry[tableData[country]])?longNameFromCountry[tableData[country]]:tableData[country]);
+            if (objectType == "Array") createOneTd(trElement, tdElement, textElement, fullNameForCountry[country], staticFlag, country);
+            else createOneTd(trElement, tdElement, textElement, fullNameForCountry[tableData[country]]);
         }
         if (columnLocations == -999) { // all data will be used: Country Codes
             // get the Country Codes as an Array from JSON object: For the Country Codes Listing
             var codesArray = tableData[country];
             loop++;
             for (var x in codesArray) {
-                createOneTd(trElement, tdElement, textElement, (longNameFromCountry[codesArray[x]])?longNameFromCountry[codesArray[x]]:codesArray[x]);
+                createOneTd(trElement, tdElement, textElement, fullNameForCountry[codesArray[x]]);
             }
         }
         else { // only Features with the Column location will be used for the report (table)
@@ -1276,9 +1279,9 @@ function setCountryWikiValues(countryName)
     else if (countryName == "VaticanCityAndHolySee") document.getElementById("info_WikiCountry").href = "https://en.wikipedia.org/wiki/Vatican_City";
     else
     {
-        if (previousFlag != -1 && allCountryFullNames[previousFlag.substring(6)])
+        if (previousFlag != -1 && fullNameForCountry[countryNameFromKeyValue[previousFlag.substring(6)]])
             document.getElementById("info_WikiCountry").href = "https://en.wikipedia.org/wiki/" +
-                allCountryFullNames[previousFlag.substring(6)];
+                fullNameForCountry[countryNameFromKeyValue[previousFlag.substring(6)]];
         else document.getElementById("info_WikiCountry").href = "https://en.wikipedia.org/wiki/" + countryName;
     }
 }

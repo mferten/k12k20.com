@@ -6,22 +6,12 @@ dashBoardFlag = true;
 removeAnExternalJSFileIfExist("Mapdata"); // only conflicting JS file with other Mapdata
 // retrieve the external js files if not open yet
 setTimeout(function () {
-    importAnExternalJSFileIfNotYetWithNoProcessing("DashBoardmapdata", "js/dashBoardmapdata.js");
-    importAnExternalJSFileIfNotYetWithNoProcessing("Worldmap", "js/worldmap.js");
+    importAnExternalUtilityJSFile("DashBoardmapdata", "js/dashBoardmapdata.js");
+    importAnExternalUtilityJSFile("Worldmap", "js/worldmap.js");
 
     initializationUtilityForFlags();
 }, 50);
 
-if (typeof worldLanguagesDropDownValues == 'undefined') // text or data lanageues.js may define this variable
-    var worldLanguagesDropDownValues;
-// World Religions Drop Down Values
-var worldReligionsDropDownValues;
-// World Waters Drop Down Values
-var worldWatersDropDownValues;
-// Flags Colors Drop Down Values
-var flagsColorsDropDownValues;
-// Flags Shapes Drop Down Values
-var flagsShapesDropDownValues;
 var globalBody =  document.createElement("body");
 var globalMain;
 
@@ -72,17 +62,6 @@ setTimeout(function () {
 
     globalBody.appendChild(globalNav);
     globalBody.appendChild(globalFooter);
-
-    // World Languages Drop Down Values
-    worldLanguagesDropDownValues = getWorldLanguagesDropDownValues();
-    // World Religions Drop Down Values
-    worldReligionsDropDownValues = getWorldReligionsDropDownValues();
-    // World Waters Drop Down Values
-    worldWatersDropDownValues = getWorldWatersDropDownValues();
-    // Flags Colors Drop Down Values
-    flagsColorsDropDownValues = getFlagsColorsDropDownValues();
-    // Flags Shapes Drop Down Values
-    flagsShapesDropDownValues = getFlagsShapesDropDownValues();
 }, 75);
 
 function finalizeGlobalPage() {

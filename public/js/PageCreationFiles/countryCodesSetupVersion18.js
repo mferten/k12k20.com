@@ -3,7 +3,7 @@
 currentEWorldPage = "eWorld Countries"; // this should be up here all the time to work again from the menu (after the first time)
 
 // retrieve the external js files if not open yet
-importAnExternalJSFileIfNotYetWithNoProcessing("CountriesTableData", "js/OneCountryLanguageTextJSFiles/countriesTableData.js");
+importAnExternalUtilityJSFile("CountriesTableData", "js/OneCountryLanguageTextJSFiles/countriesTableData.js");
 
 // add this into master.blade.php <script src="js/countryCodes.js"></script> for Table Data
 // add this into master.blade.php <script src="js/oneLanguageSpecificTextAndCodeGeneration.js"> to Create World View or Each Region Flags object.
