@@ -142,7 +142,7 @@ var worldLanguagesDropDownValues = [{"value":"Afrikaans"},{"value":"Albanian"},{
 var worldReligionsDropDownValues = [{"value":"Agnostic"},{"value":"Animism"},{"value":"Buddhism"},{"value":"Christianity"},{"value":"Confucianism"},{"value":"Druze"},{"value":"Folk"},{"value":"Hinduism"},
 {"value":"Indigenous"},{"value":"Islam"},{"value":"Judism"},{"value":"Shamanism "},{"value":"Shintoism"},{"value":"Taoism"},{"value":"Unaffiliated"}];
 
-// Run SELECT distinct 'concat('{"value":"',value, '"},') FROM features where feature = "Water" order by value; Copy Row Unquoted
+// Run SELECT distinct concat('{"value":"',value, '"},') FROM features where feature = "Water" order by value; Copy Row Unquoted
 var worldWatersDropDownValues = [{"value":"Adriatic"},{"value":"Aegean"},{"value":"Andaman"},{"value":"Antarctic"},{"value":"Arabian"},{"value":"Arafura"},{"value":"Arctic"},{"value":"Atlantic"},
 {"value":"Bali"},{"value":"Baltic"},{"value":"Banda"},{"value":"Barent"},{"value":"Bay of Bengal"},{"value":"Bay of Biscay"},{"value":"Bering"},{"value":"Bering Seas"},
 {"value":"Bismarck"},{"value":"Black"},{"value":"Caribbean"},{"value":"Caspian"},{"value":"Celebes"},{"value":"Celtic"},{"value":"Ceram"},{"value":"Chukchi"},
@@ -155,11 +155,11 @@ var worldWatersDropDownValues = [{"value":"Adriatic"},{"value":"Aegean"},{"value
 {"value":"See of Japan"},{"value":"Solomon"},{"value":"South China"},{"value":"Southern"},{"value":"Sulu"},{"value":"Tasman"},
 {"value":" Timor"},{"value":" Yellow"},{"value":"Yellow Sea"}];
 
-// Run SELECT distinct 'concat('{"value":"',value, '"},') FROM features where feature = "Color" order by value; Copy Row Unquoted
+// Run SELECT distinct concat('{"value":"',value, '"},') FROM features where feature = "Color" order by value; Copy Row Unquoted
 var flagsColorsDropDownValues = [ {"value":"Black"},{"value":"Blue"},{"value":"Brown"},{"value":"Gray"},{"value":"Green"},{"value":"Maroon"},{"value":"Orange"},{"value":"Pink"},
 {"value":"Purple"},{"value":"Red"},{"value":"Saffron"},{"value":"White"},{"value":"Yellow"}];
 
-// Run SELECT distinct 'concat('{"value":"',value, '"},') FROM features where feature = "Shape" order by value; Copy Row Unquoted
+// Run SELECT distinct concat('{"value":"',value, '"},') FROM features where feature = "Shape" order by value; Copy Row Unquoted
 var flagsShapesDropDownValues = [{"value":"Alpaca"},{"value":"Anchor"},{"value":"Angkor Wat"},{"value":"Animal"},{"value":"Arabic"},{"value":"Armillary sphere"},{"value":"Armour"},{"value":"Armoured"},
 {"value":"Arrow"},{"value":"Arrowhead"},{"value":"Axe"},{"value":"Banana"},{"value":"Band"},{"value":"Bar"},{"value":"Barrel"},{"value":"Bay"},{"value":"Bay laurel"},{"value":"Bayonet"},
 {"value":"Bible"},{"value":"Bird"},{"value":"Book"},{"value":"Border"},{"value":"Bow"},{"value":"Branch"},{"value":"Bridge"},{"value":"British-Flag"},{"value":"Bugle"},{"value":"Building"},

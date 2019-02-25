@@ -1,3 +1,11 @@
+// these will be used in dataLanguage... to convert the data into a new language
+var bayAndGulfNamesFromJSON = { "Bay of Bengal":"Bengal Körfezi", "Biscay Körfezi":"Bay_of_Biscay", "Bering Seas":"Bering Denizleri",
+    "East China":"Doğu Çin", "East Siberian":"Doğu Sibirya", "English Channel":"İngiliz kanalı","Gulf of Aden":"Aden Körfezi",
+    "Gulf of Aqaba":"Akabe Körfezi", "Gulf of California":"Kaliforniya Körfezi","Gulf of Guinea":"Gine Körfezi", "Gulf of Mexico":"Meksika körfezi",
+    "Gulf of Oman":"Umman Körfezi", "Gulf of Thailand":"Tayland Körfezi","Gulf_of_Thailand and Pacific Ocean":"Tayland Körfezi ve Pasifik Okyanusu",
+    "Persian Gulf":"İran Körfezi", "Sea of Azov":"Azov denizi","Sea_of_Japan":"Japon Denizi", "Sea of Okhotsk":"Okhotsk Denizi",
+    "South China":"Güney Çin", "Yellow Sea":"Sarı Deniz" };
+
 // SELECT concat('"',country,'":"',short_name,'",') FROM countries order by long_name;
 var flagOfCountriesShortNames = {
     "Afghanistan":"Afghanistan",

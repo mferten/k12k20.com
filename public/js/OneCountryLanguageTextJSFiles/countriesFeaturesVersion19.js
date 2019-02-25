@@ -400,8 +400,7 @@ var featuresOfAllCountries =
 						{ "value":"0.83 High", "feature":"HDI", "comment":""},
 						{ "value":"Buenos Aires", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Buenos_Aires"},
 						{ "value":"Spanish", "feature":"Language", "comment":""},
-						{ "value":"Antarctic and Pacific Ocean", "feature":"WaterDisplay", "comment":""},
-						{ "value":"Christianity", "feature":"Religion", "comment":""},
+						{ "value":"Atlantic", "feature":"Water", "comment":""},
 						{ "value":"95.9", "feature":"SexRatio", "comment":""},
 						{ "value":"38.9", "feature":"SeatRatio", "comment":""},
 						{ "value":"South America", "feature":"Region", "comment":""},
@@ -413,9 +412,6 @@ var featuresOfAllCountries =
 						{ "value":76, "feature":"LifeExpectancy", "comment":""},
 						{ "value":632343000000, "feature":"Income", "comment":""},
 						{ "value":14564, "feature":"GDP", "comment":""},
-
-						{ "value":"Antarctic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Pacific", "feature":"Water", "comment":"Ocean"},
 
 						{ "value":"Buenos Aires", "feature":"CapitalCitiesPopulationDisplay", "comment":15180200},
 
@@ -1686,8 +1682,8 @@ var featuresOfAllCountries =
 						{ "value":"$18B $1158", "feature":"IncomeDisplay", "comment":""},
 						{ "value":"37.9", "feature":"Gini", "comment":""},
 						{ "value":"0.563 medium", "feature":"HDI", "comment":""},
-						{ "value":"Khmer", "feature":"Language", "comment":""},
 						{ "value":"Phnom Penh", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Phnom_Penh"},
+						{ "value":"Khmer", "feature":"Language", "comment":""},
 						{ "value":"Gulf of Thailand and Pacific Ocean", "feature":"Water", "comment":""},
 						{ "value":"Buddhism", "feature":"Religion", "comment":""},
 						{ "value":"95.3", "feature":"SexRatio", "comment":""},
@@ -9769,7 +9765,7 @@ var featuresOfAllCountries =
 						{ "value":"Sesotho", "feature":"Language", "comment":""},
 
 						{ "value":"Atlantic", "feature":"Water", "comment":"Ocean"},
-						{ "value":"Indian Ocean", "feature":"Water", "comment":"Ocean"},
+						{ "value":"Indian", "feature":"Water", "comment":"Ocean"},
 						{ "value":"Unaffiliated", "feature":"Religion", "comment":""},
 						{ "value":"Christianity", "feature":"Religion", "comment":""},
 
