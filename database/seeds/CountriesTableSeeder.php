@@ -139,7 +139,7 @@ class CountriesTableSeeder extends Seeder
             "DominicanRepublic" => "Dominican Republic",
             "ElSalvador" => "El Salvador",
             "FrenchGuiana" => "French Guiana",
-            "SaintKittsandNevis" => "St. Kitts & Nevis",
+            "SaintKittsandNevis" => "St. Kitts and Nevis",
             "SaintLucia" => "Saint Lucia",
             "SaintVincentandGrenadines" => "Saint Vincent and the Grenadines",
             "TrinidadandTobago" => "Trinidad and Tobago",

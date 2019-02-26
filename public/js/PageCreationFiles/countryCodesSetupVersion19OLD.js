@@ -4,9 +4,11 @@ currentEWorldPage = "eWorld Countries"; // this should be up here all the time t
 
 // retrieve the external js files if not open yet
 importAnExternalUtilityJSFile("CountriesTableData", "js/OneCountryLanguageTextJSFiles/countriesTableDataVersion19.js");
+// importAnExternalUtilityJSFile("CountriesTableData", "js/countryCodesVersion19.js"); // re-create the table
 
 initializationUtilityForFlags();
 
+// (0) getCountryCodesTableData(); // call if data is not saved but this is for to save it.
 var eWorldCountriesBody =  document.createElement("body");
 eWorldCountriesBody.setAttribute("name","register");
 var eWorldCountriesHeader = document.createElement("header");
@@ -23,7 +25,6 @@ eWorldCountriesH2.setAttribute("class", "registerH2");
 eWorldCountriesHeader.appendChild(eWorldCountriesH2); // must be here before h2HeaderCodes(
 
 setTimeout(function () {
-    getCountryCodesTableData(); // (0) // call if data is not saved but this is for to save it.
     h2HeaderCodes(eWorldCountriesHeader);
     muteTheSoundCodes(" ");
     addApplicationLanguageSelectionDropDownBox(h2First); // (): adds into h2First (redundant) but the variable will force it to skip class: dashBoardCombine
@@ -46,19 +47,19 @@ setTimeout(function () {
     }
     var eWorldCountriesMainDivTwo = document.createElement("div");
     eWorldCountriesMainDivTwo.setAttribute("id", "myInfoPageCountryList");
-    var eWorldCountriesAlphabetLetters = document.createElement("div");
-    eWorldCountriesAlphabetLetters.setAttribute("id", "id_Letters26");
-    eWorldCountriesAlphabetLetters.setAttribute("class", "worldCountryCodes");
-    // eWorldCountriesAlphabetLetters.innerHTML = decodeURIComponent(aToZObject); // if the A to Z Object is Saved
-    createAtoZTags(eWorldCountriesAlphabetLetters);
+    var eWorldCountries26Letters = document.createElement("div");
+    eWorldCountries26Letters.setAttribute("id", "id_Letters26");
+    eWorldCountries26Letters.setAttribute("class", "worldCountryCodes");
+    eWorldCountries26Letters.innerHTML = decodeURIComponent(aToZObject); // if the A to Z Object is Saved
 
-    eWorldCountriesMainDivTwo.appendChild(eWorldCountriesAlphabetLetters);
+    eWorldCountriesMainDivTwo.appendChild(eWorldCountries26Letters);
     var eWorldCountriesTableDiv = document.createElement("div");
     eWorldCountriesTableDiv.setAttribute("id", "id_CountryListMenuDiv");
     eWorldCountriesTableDiv.setAttribute("class", "displayNone");
     var eWorldCountriesTable = document.createElement("table");
     eWorldCountriesTable.setAttribute("id", "id_CountryListMenu");
     eWorldCountriesTable.setAttribute("class", "displayNone");
+    // (1) if the Table Data is Saved, to rebuild comment this decodeURI out
     eWorldCountriesTableDiv.appendChild(eWorldCountriesTable);
     eWorldCountriesMainDivTwo.appendChild(eWorldCountriesTableDiv);
 
@@ -97,11 +98,60 @@ setTimeout(function () {
     eWorldCountriesBody.appendChild(eWorldCountriesMain);
     eWorldCountriesBody.appendChild(eWorldCountriesNav);
     eWorldCountriesBody.appendChild(eWorldCountriesFooter);
+
+    // (2) to rebuld the Table use this one
+    /*
+        createATable("id_CountryListMenu", ["Country","Region","Capital","Largest","Population","Surface","Income","Country Codes"],
+            countryCodesOfAllCountries, -999, "Array", myUndefined, true, 16);
+     */
 }, 50);
 
+var aToZObject = "%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_A%22%20class%3D%22selectedInputTag%20aToZ%22%3EA%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_B%22%20class%3D%22aToZ%22%3EB%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_C%22%20class%3D%22aToZ%22%3EC%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_D%22%20class%3D%22aToZ%22%3ED%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_E%22%20class%3D%22aToZ%22%3EE%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_F%22%20class%3D%22aToZ%22%3EF%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_G%22%20class%3D%22aToZ%22%3EG%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_H%22%20class%3D%22aToZ%22%3EH%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_I%22%20class%3D%22aToZ%22%3EI%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_J%22%20class%3D%22aToZ%22%3EJ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_K%22%20class%3D%22aToZ%22%3EK%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_L%22%20class%3D%22aToZ%22%3EL%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_M%22%20class%3D%22aToZ%22%3EM%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_N%22%20class%3D%22aToZ%22%3EN%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_O%22%20class%3D%22aToZ%22%3EO%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_P%22%20class%3D%22aToZ%22%3EP%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Q%22%20class%3D%22aToZ%22%3EQ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_R%22%20class%3D%22aToZ%22%3ER%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_S%22%20class%3D%22aToZ%22%3ES%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_T%22%20class%3D%22aToZ%22%3ET%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_U%22%20class%3D%22aToZ%22%3EU%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_V%22%20class%3D%22aToZ%22%3EV%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_W%22%20class%3D%22aToZ%22%3EW%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_X%22%20class%3D%22aToZ%22%3E%3Cdel%3EX%3C%2Fdel%3E%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Y%22%20class%3D%22aToZ%22%3EY%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_Z%22%20class%3D%22aToZ%22%3EZ%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cspan%20id%3D%22id_All%22%20class%3D%22aToZ%22%3EAll%3C%2Fspan%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20";
+
+/*
+    if needed: the A to Z HTML tags
+
+<span id="id_A" class="selectedInputTag aToZ">A</span>
+<span id="id_B" class="aToZ">B</span>
+<span id="id_C" class="aToZ">C</span>
+<span id="id_D" class="aToZ">D</span>
+<span id="id_E" class="aToZ">E</span>
+<span id="id_F" class="aToZ">F</span>
+<span id="id_G" class="aToZ">G</span>
+<span id="id_H" class="aToZ">H</span>
+<span id="id_I" class="aToZ">I</span>
+<span id="id_J" class="aToZ">J</span>
+<span id="id_K" class="aToZ">K</span>
+<span id="id_L" class="aToZ">L</span>
+<span id="id_M" class="aToZ">M</span>
+<span id="id_N" class="aToZ">N</span>
+<span id="id_O" class="aToZ">O</span>
+<span id="id_P" class="aToZ">P</span>
+<span id="id_Q" class="aToZ">Q</span>
+<span id="id_R" class="aToZ">R</span>
+<span id="id_S" class="aToZ">S</span>
+<span id="id_T" class="aToZ">T</span>
+<span id="id_U" class="aToZ">U</span>
+<span id="id_V" class="aToZ">V</span>
+<span id="id_W" class="aToZ">W</span>
+<span id="id_X" class="aToZ"><del>X</del></span>
+<span id="id_Y" class="aToZ">Y</span>
+<span id="id_Z" class="aToZ">Z</span>
+<span id="id_All" class="aToZ">All</span>
+ */
+
+// Controls (events)
+
+var rowsByLetter = { "id_A":{"start":1,"end":16}, "id_B":{"start":17,"end":38}, "id_C":{"start":39,"end":61}, "id_D":{"start":62,"end":65}, "id_E":{"start":66,"end":74},
+    "id_F":{"start":75,"end":82}, "id_G":{"start":83,"end":98}, "id_H":{"start":99,"end":104}, "id_I":{"start":105,"end":113}, "id_J":{"start":114,"end":117},
+    "id_K":{"start":118,"end":125}, "id_L":{"start":126,"end":134}, "id_M":{"start":135,"end":157}, "id_N":{"start":158,"end":170}, "id_O":{"start":171,"end":171},
+    "id_P":{"start":172,"end":183}, "id_Q":{"start":184,"end":184}, "id_R":{"start":185,"end":188}, "id_S":{"start":189,"end":223}, "id_T":{"start":224,"end":237},
+    "id_U":{"start":238,"end":245}, "id_V":{"start":246,"end":250}, "id_W":{"start":251,"end":252}, "id_Y":{"start":253,"end":253}, "id_Z":{"start":254,"end":255},
+    "id_All":{"start":1,"end":255} };
+
 var processTheseTH = {0:true,1:true,2:true,4:true,5:true,6:true};
-var threeBelongsToOthers = {"UnitedStatesMinorOutlyingIslands":"UnitedStatesofAmerica",
-    "HeardIslandandMcDonaldIslands":"Australia", "BouvetIsland":"Norway" };
+var fourBelongsToOthers = {"United States Minor Outlying Islands (the)":"UnitedStatesofAmerica",
+    "Heard Island and McDonald Islands":"Australia", "Bouvet Island":"Norway" };
 var currentLetter = myUndefined;
 var tableRowsByCapitalCity = {};
 var currentSortIcon;
@@ -139,7 +189,7 @@ function setTheTableRows(tableRows)
             addCodesClassToEachTd(tableRows[oneRow].cells);
             var countryNameFromTD = tableRows[oneRow].cells[1].innerHTML;
             tableRows[oneRow].setAttribute("id", "id_" + oneRow);
-            tableRows[oneRow].setAttribute("name", countryFromISOLongName[countryNameFromTD]?countryFromISOLongName[countryNameFromTD]:countryNameFromTD);
+            tableRows[oneRow].setAttribute("name", countryFromLongName[countryNameFromTD]?countryFromLongName[countryNameFromTD]:countryNameFromTD);
             tableRows[oneRow].cells[0].classList.add("displayNone");
             tableRows[oneRow].cells[9].classList.add("displayNone");
             oneFlagImageElement = document.createElement("img");
@@ -148,29 +198,25 @@ function setTheTableRows(tableRows)
             if (countryNameFromTD.indexOf("|") != -1) {
                 countryNameFromTD = countryNameFromTD.substring(0, countryNameFromTD.indexOf("|"));
                 tableRows[oneRow].cells[1].innerHTML = tableRows[oneRow].cells[1].innerHTML.substring(0, tableRows[oneRow].cells[1].innerHTML.indexOf("|"));
-            } // Set the flags
-            if (flagsSVGFiles[countryNameFromTD]) {
+            }
+            if (countryNameFromTD && (countryNameFromTD.indexOf("-1") != -1 || countryNameFromTD.indexOf("-2") != -1 || countryNameFromTD.indexOf("-3") != -1)) {
+                countryNameFromTD = countryNameFromTD.substring(0, countryNameFromTD.indexOf("-"));
+                tableRows[oneRow].cells[1].innerHTML = countryNameFromTD;
+            }
+            if (countryFromLongName[countryNameFromTD]) {
+                fourBelongsToOthers[countryNameFromTD]?oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles[fourBelongsToOthers[countryNameFromTD]].svg
+                    :oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles[countryFromLongName[countryNameFromTD]].svg;
+            }
+            else if (flagsSVGFiles[countryNameFromTD])
                 oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles[countryNameFromTD].svg;
-                setAnIdForAFlag(oneFlagImageElement, countryNameFromTD)
-            }
-            else if (flagsSVGFiles[countryNameFromLongName[countryNameFromTD]]) {
-                oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles[countryNameFromLongName[countryNameFromTD]].svg;
-                setAnIdForAFlag(oneFlagImageElement, countryNameFromLongName[countryNameFromTD]);
-            }
-            else if (threeBelongsToOthers[countryNameFromLongName[countryNameFromTD]]) {
-                oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles[threeBelongsToOthers[countryNameFromLongName[countryNameFromTD]]].svg;
-                setAnIdForAFlag(oneFlagImageElement, threeBelongsToOthers[countryNameFromLongName[countryNameFromTD]]);
-            }
             else console.log(countryNameFromTD);
             oneFlagImageElement.alt = "Entity: " + countryNameFromTD;
+            oneFlagImageElement.name =
+                countryFromLongName[countryNameFromTD]?countryFromLongName[countryNameFromTD]:countryNameFromTD;
+            oneFlagImageElement.id = "id_" + (countryFromLongName[countryNameFromTD]?countryFromLongName[countryNameFromTD]:countryNameFromTD);
             tableRows[oneRow].cells[1].prepend(oneFlagImageElement);
         }
     }
-}
-
-function setAnIdForAFlag(oneFlagImageElement, idText) {
-    oneFlagImageElement.id = "id_" + idText;
-    oneFlagImageElement.name = idText;
 }
 
 function addCodesClassToEachTd(aRowCells)
@@ -203,7 +249,7 @@ function setHeaderRowIds(headerRow)
 function addTheAscendingDescendingSortIcon(oneTH, number)
 {
     var oneSortImageIconElement = document.createElement("img");
-    var iconName = oneTH.getAttribute("id").substring(3, oneTH.getAttribute("id").indexOf("Th"));
+    var iconName = oneTH.innerHTML.substring(oneTH.innerHTML.indexOf("<",1),oneTH.innerHTML.indexOf(">")+1);
     oneSortImageIconElement.setAttribute("id", "id_Sort" + iconName);
     oneSortImageIconElement.setAttribute("class", "sortIconTh vertialAlignMiddle");
     oneSortImageIconElement.setAttribute("alt", "Sort-" + iconName);
@@ -273,7 +319,7 @@ function aSortIconIsSelected(idIcon)
         var tableRows = document.getElementById("id_CountryListMenu");
         tableRows.innerHTML = "";
         tableRows.appendChild(headerRow);
-        var newOrder = iconJSONData[sortIconSelectionID[idIcon]];
+        var newOrder = sortIconSelectionID[idIcon];
         for (var addThis in newOrder)
         {
             if (idIcon == "id_SortCapital" || idIcon == "id_CapitalTh")
@@ -375,9 +421,8 @@ function getCountryCodesTableData()
     var capitalCitiesOfAllCountriesRaw = {};
     for (var aCountry in countryCodesOfAllCountries)
     {   /* countryListOfAllCountries { "Afghanistan":["Region","CapitalCity","Big City", "Population", "Surface", "Income", "Alpha-2, Alpha-3, Numeric, GEC & Calling"],... } */
-        if (countryFromISOLongName[aCountry])
-            oneCountryName = countryFromISOLongName[aCountry];
-        else oneCountryName = englishCountryFromEnglishLongName[aCountry];
+        if (countryFromLongName[aCountry]) oneCountryName = countryFromLongName[aCountry];
+        else oneCountryName = aCountry;
         oneCountryFeatures = featuresOfAllCountries[oneCountryName];
         oneCountryCodes = countryCodesOfAllCountries[aCountry];
         if (oneCountryFeatures[14]['feature'] == "CapitalCitiesDisplay") {
@@ -439,17 +484,12 @@ function getTheRatio(value, worldValue)
 
 function finalizeCountriesPage() {
     document.getElementById("topHTML").replaceChild(eWorldCountriesBody, document.body);
-    // (2) to rebuild the Table use this one
-    // /*
-        createATable("id_CountryListMenu", ["Country","Region","Capital","Largest","Population","Surface","Income","Country Codes"],
-            countryCodesOfAllCountries, -999, "Array", myUndefined, true, 16);
-    // */
-    // document.getElementById("id_CountryListMenu").innerHTML = decodeURIComponent(countriesTableData); // (1) if the Table Data is Saved, to rebuild comment this decodeURI out
+    document.getElementById("id_CountryListMenu").innerHTML = decodeURIComponent(countriesTableData); // (1) if the Table Data is Saved, to rebuild comment this decodeURI out
     document.getElementById("id_CountryFacts").innerHTML = selectedApplicationLanguageTexts["id_Countries"]; // start place holder
     triggerAMouseEvent("id_A");
     document.getElementsByTagName("body")[0].classList.add("countryCodeBodyBackground");
-    setTheTableData(); // (3) if the Table Data is NOT saved
-    /* (4) if table data is SAVED
+    // setTheTableData(); // (3) if the Table Data is NOT saved
+    // /* (4) if table data is SAVED
     var tableRows = document.getElementById("id_CountryListMenu").rows; // if the Table Data is Saved
     headerRow = tableRows[0];
     for (var oneRow in tableRows)
@@ -464,14 +504,14 @@ function finalizeCountriesPage() {
     }
     document.getElementById("id_Country CodesThText").innerHTML = selectedApplicationLanguageTexts["id_Country CodesThText"];
     document.getElementById("id_LargestThText").innerHTML = selectedApplicationLanguageTexts["id_LargestThText"];
-    */ // end of (4)
+    // end of (4) */
     document.getElementById("id_CountryListMenu").classList.remove("displayNone");
     document.getElementById("id_CountryListMenuDiv").classList.remove("displayNone");
     // set the default (initial) sort
     currentSortIcon = "id_CountryTh";
     if (document.getElementById(currentSortIcon+"Text"))
         document.getElementById(currentSortIcon+"Text").classList.add("selectedInputTag");
-    // console.log(encodeURIComponent(document.getElementById("id_CountryListMenu").innerHTML)); // (5) // print if not SAVED (to be SAVED)
+    // (5) console.log(encodeURIComponent(document.getElementById("id_CountryListMenu").innerHTML)); // print if not SAVED (to be SAVED)
     // (6) console.log(encodeURIComponent(document.getElementById("id_Letters26").innerHTML)); // to save A-Z
     // id_A to Z and ALL add Click Event for iPhone/iPad
     if (appleProduct) {
@@ -739,283 +779,3 @@ var countryCodesOfAllCountries =
     "Zambia":["ZM","ZMB","894","ZA","260"],
     "Zimbabwe":["ZW","ZWE","716","ZI","263"]
 }
-
-// this is only applicable for ISO related Country Names in Countries Module: not System-wide..
-var countryFromISOLongName = { "American Samoa":"AmericanSamoa", "Antarctic Treaty System":"AntarcticTreatySystem", "Antigua and Barbuda":"AntiguaandBarbuda",
-    "Bonaire, Sint Eustatius and Saba":"BonaireSintEustatiusandSaba", "Bosnia and Herzegovina":"BosniaandHerzegovina", "Virgin Islands (British)":"BritishVirginIslands",
-    "British Indian Ocean Territory (the)":"BritishIndianOceanTerritory", "Burkina Faso":"BurkinaFaso", "Cabo Verde":"CaboVerde", "Canary Islands":"CanaryIslands",
-    "Cayman Islands (the)":"CaymanIslands", "Central African Republic (the)":"CentralAfricanRepublic", "Christmas Island":"ChristmasIsland", "Cocos (Keeling) Islands (the)":"CocosIslands",
-    "Cook Islands (the)":"CookIslands", "Costa Rica":"CostaRica", "Congo (the Democratic Republic of the)":"DemocraticRepublicoftheCongo", "Congo (the)":"RepublicofCongo",
-    "Côte d'Ivoire":"CotedIvoire", "Dominican Republic (the)":"DominicanRepublic", "El Salvador":"ElSalvador", "Equatorial Guinea":"EquatorialGuinea", "Syrian Arab Republic":"Syria",
-    "Falkland Islands (the) [Malvinas]":"FalklandIslands", "Faroe Islands (the)":"FaroeIslands", "French Guiana":"FrenchGuiana", "French Polynesie":"FrenchPolynesia",
-    "French Southern Territories (the)":"FrenchSouthernandAntarcticLands", "Guinea-Bissau":"GuineaBissau", "Hong Kong":"HongKong", "Isle of Man":"IsleofMan",
-    "Marshall Islands (the)":"MarshallIslands", "New Caledonia":"NewCaledonia", "New Zealand":"NewZealand", "Norfolk Island":"NorfolkIsland", "Comoros (the)":"Comoros",
-    "Northern Mariana Islands (the)":"NorthernMarianaIslands", "Korea (the Democratic People's Republic of)":"NorthKorea", "Papua New Guinea":"PapuaNewGuinea", "Pitcairn Islands":"PitcairnIslands",
-    "Puerto Rico":"PuertoRico", "Russian Federation (the)":"RussianFederation", "Saint Barthélemy":"SaintBarthelemy", "Saint Helena, Ascension and Tristan da Cunha":"SaintHelena", "Curaçao":"Curacao",
-    "Saint Kitts and Nevis":"SaintKittsandNevis", "Saint Lucia":"SaintLucia", "Saint Pierre and Miquelon":"SaintPierreandMiquelon", "Brunei Darussalam":"Brunei",
-    "Saint Vincent and the Grenadines":"SaintVincentandGrenadines", "San Marino":"SanMarino", "São Tomé and Príncipe":"SaoTomeandPrincipe", "Saudi Arabia":"SaudiArabia",
-    "Sierra Leone":"SierraLeone", "Sint Maarten (Dutch part)":"SintMaarten", "Solomon Islands":"SolomonIslands", "South Africa":"SouthAfrica", "Korea (the Republic of)":"SouthKorea",
-    "South Sudan":"SouthSudan", "Sri Lanka":"SriLanka", "Palestine, State of":"StateofPalestine", "Svalbard and Jan Mayen":"SvalbardandJanMayen", "Gambia (the)":"Gambia",
-    "Taiwan (Province of China)":"Taiwan", "Timor-Leste":"TimorLeste", "Trinidad and Tobago":"TrinidadandTobago", "Antarctica":"AntarcticTreatySystem", "Tanzania, United Republic of":"Tanzania",
-    "Turkish Republic of Northern Cyprus":"TurkishRepublicofNorthernCyprus", "Turks and Caicos Islands (the)":"TurksandCaicosIslands",
-    "United Kingdom of Great Britain and Northern Ireland (the)":"UnitedKingdom", "Venezuela (Bolivarian Republic of)":"Venezuela", "Viet Nam":"Vietnam",
-    "United States of America (the)":"UnitedStatesofAmerica", "Virgin Islands (U.S.)":"UnitedStatesVirginIslands", "United Arab Emirates (the)":"UnitedArabEmirates", "SÃ£o TomÃ© and PrÃ­ncipe":"SaoTomeandPrincipe",
-    "Western Sahara":"WesternSahara", "Holy See (the)":"VaticanCityAndHolySee", "Wallis and Futuna":"WallisandFutuna", "Åland Islands":"AlandIslands", "Sudan (the)":"Sudan",
-    "Bouvet Island":"BouvetIsland", "Heard Island and McDonald Islands":"HeardIslandandMcDonaldIslands","Bahamas (the)":"Bahamas", "Bolivia (Plurinational State of)":"Bolivia", "Saint Martin (French part)":"SaintMartin",
-    "Iran (Islamic Republic of)":"Iran", "Lao People's Democratic Republic (the)":"Laos", "Macedonia (the former Yugoslav Republic of)":"Macedonia", "Réunion":"Reunion",
-    "Micronesia (Federated States of)":"Micronesia", "Moldova (the Republic of)":"Moldova", "Netherlands (the)":"Netherlands", "Niger (the)":"Niger", "Philippines (the)":"Philippines",
-    "South Georgia and the South Sandwich Islands":"SouthGeorgiaAndSouthSandwichIslands", "United States Minor Outlying Islands (the)":"UnitedStatesMinorOutlyingIslands" }
-
-    // For Conversion: English and English: SELECT concat('"', long_name, '":"', country,'",') FROM countries order by country;
-    var englishCountryFromEnglishLongName = {"Afghanistan":"Afghanistan",
-    "Åland Islands":"AlandIslands",
-    "Albania":"Albania",
-    "Algeria":"Algeria",
-    "American Samoa":"AmericanSamoa",
-    "Andorra":"Andorra",
-    "Angola":"Angola",
-    "Anguilla":"Anguilla",
-    "Antarctic Treaty System":"AntarcticTreatySystem",
-    "Antigua and Barbuda":"AntiguaandBarbuda",
-    "Argentina":"Argentina",
-    "Armenia":"Armenia",
-    "Aruba":"Aruba",
-    "Australia":"Australia",
-    "Austria":"Austria",
-    "Azerbaijan":"Azerbaijan",
-    "Bahamas":"Bahamas",
-    "Bahrain":"Bahrain",
-    "Bangladesh":"Bangladesh",
-    "Barbados":"Barbados",
-    "Belarus":"Belarus",
-    "Belgium":"Belgium",
-    "Belize":"Belize",
-    "Benin":"Benin",
-    "Bermuda":"Bermuda",
-    "Bhutan":"Bhutan",
-    "Bolivia":"Bolivia",
-    "Bonaire Sint Eustatius and Saba":"BonaireSintEustatiusandSaba",
-    "Bosnia and Herzegovina":"BosniaandHerzegovina",
-    "Botswana":"Botswana",
-    "Bouvet Island":"BouvetIsland",
-    "Brazil":"Brazil",
-    "British Indian Ocean Territory":"BritishIndianOceanTerritory",
-    "British Virgin Islands":"BritishVirginIslands",
-    "Brunei":"Brunei",
-    "Bulgaria":"Bulgaria",
-    "Burkina Faso":"BurkinaFaso",
-    "Burundi":"Burundi",
-    "Cabo Verde":"CaboVerde",
-    "Cambodia":"Cambodia",
-    "Cameroon":"Cameroon",
-    "Canada":"Canada",
-    "Canary Islands":"CanaryIslands",
-    "Cayman Islands":"CaymanIslands",
-    "Central African Republic":"CentralAfricanRepublic",
-    "Chad":"Chad",
-    "Chile":"Chile",
-    "China":"China",
-    "Christmas Island":"ChristmasIsland",
-    "Cocos Islands":"CocosIslands",
-    "Colombia":"Colombia",
-    "Comoros":"Comoros",
-    "Cook Islands":"CookIslands",
-    "Costa Rica":"CostaRica",
-    "Côte d'Ivoire":"CotedIvoire",
-    "Croatia":"Croatia",
-    "Cuba":"Cuba",
-    "Curaçao":"Curacao",
-    "Cyprus":"Cyprus",
-    "Czechia":"Czechia",
-    "Democratic Republic of the Congo":"DemocraticRepublicoftheCongo",
-    "Denmark":"Denmark",
-    "Djibouti":"Djibouti",
-    "Dominica":"Dominica",
-    "Dominican Republic":"DominicanRepublic",
-    "Ecuador":"Ecuador",
-    "Egypt":"Egypt",
-    "El Salvador":"ElSalvador",
-    "Equatorial Guinea":"EquatorialGuinea",
-    "Eritrea":"Eritrea",
-    "Estonia":"Estonia",
-    "Eswatini":"Eswatini",
-    "Ethiopia":"Ethiopia",
-    "Falkland Islands":"FalklandIslands",
-    "Faroe Islands":"FaroeIslands",
-    "Fiji":"Fiji",
-    "Finland":"Finland",
-    "France":"France",
-    "French Guiana":"FrenchGuiana",
-    "French Polynesia":"FrenchPolynesia",
-    "French Southern and Antarctic Lands":"FrenchSouthernandAntarcticLands",
-    "Gabon":"Gabon",
-    "Gambia":"Gambia",
-    "Georgia":"Georgia",
-    "Germany":"Germany",
-    "Ghana":"Ghana",
-    "Gibraltar":"Gibraltar",
-    "Greece":"Greece",
-    "Greenland":"Greenland",
-    "Grenada":"Grenada",
-    "Guadeloupe":"Guadeloupe",
-    "Guam":"Guam",
-    "Guatemala":"Guatemala",
-    "Guernsey":"Guernsey",
-    "Guinea":"Guinea",
-    "Guinea-Bissau":"GuineaBissau",
-    "Guyana":"Guyana",
-    "Haiti":"Haiti",
-    "Heard Island and McDonald Islands":"HeardIslandandMcDonaldIslands",
-    "Honduras":"Honduras",
-    "Hong Kong":"HongKong",
-    "Hungary":"Hungary",
-    "Iceland":"Iceland",
-    "India":"India",
-    "Indonesia":"Indonesia",
-    "Iran":"Iran",
-    "Iraq":"Iraq",
-    "Ireland":"Ireland",
-    "Isle of Man":"IsleofMan",
-    "Israel":"Israel",
-    "Italy":"Italy",
-    "Jamaica":"Jamaica",
-    "Japan":"Japan",
-    "Jersey":"Jersey",
-    "Jordan":"Jordan",
-    "Kazakhstan":"Kazakhstan",
-    "Kenya":"Kenya",
-    "Kiribati":"Kiribati",
-    "Kosovo":"Kosovo",
-    "Kuwait":"Kuwait",
-    "Kyrgyzstan":"Kyrgyzstan",
-    "Laos":"Laos",
-    "Latvia":"Latvia",
-    "Lebanon":"Lebanon",
-    "Lesotho":"Lesotho",
-    "Liberia":"Liberia",
-    "Libya":"Libya",
-    "Liechtenstein":"Liechtenstein",
-    "Lithuania":"Lithuania",
-    "Luxembourg":"Luxembourg",
-    "Macau":"Macau",
-    "Macedonia":"Macedonia",
-    "Madagascar":"Madagascar",
-    "Malawi":"Malawi",
-    "Malaysia":"Malaysia",
-    "Maldives":"Maldives",
-    "Mali":"Mali",
-    "Malta":"Malta",
-    "Marshall Islands":"MarshallIslands",
-    "Martinique":"Martinique",
-    "Mauritania":"Mauritania",
-    "Mauritius":"Mauritius",
-    "Mayotte":"Mayotte",
-    "Mexico":"Mexico",
-    "Micronesia":"Micronesia",
-    "Moldova":"Moldova",
-    "Monaco":"Monaco",
-    "Mongolia":"Mongolia",
-    "Montenegro":"Montenegro",
-    "Montserrat":"Montserrat",
-    "Morocco":"Morocco",
-    "Mozambique":"Mozambique",
-    "Myanmar":"Myanmar",
-    "Namibia":"Namibia",
-    "Nauru":"Nauru",
-    "Nepal":"Nepal",
-    "Netherlands":"Netherlands",
-    "New Caledonia":"NewCaledonia",
-    "New Zealand":"NewZealand",
-    "Nicaragua":"Nicaragua",
-    "Niger":"Niger",
-    "Nigeria":"Nigeria",
-    "Niue":"Niue",
-    "Norfolk Island":"NorfolkIsland",
-    "Northern Mariana Islands":"NorthernMarianaIslands",
-    "North Korea":"NorthKorea",
-    "Norway":"Norway",
-    "Oman":"Oman",
-    "Pakistan":"Pakistan",
-    "Palau":"Palau",
-    "Panama":"Panama",
-    "Papua New Guinea":"PapuaNewGuinea",
-    "Paraguay":"Paraguay",
-    "Peru":"Peru",
-    "Philippines":"Philippines",
-    "Pitcairn Islands":"PitcairnIslands",
-    "Poland":"Poland",
-    "Portugal":"Portugal",
-    "Puerto Rico":"PuertoRico",
-    "Qatar":"Qatar",
-    "Republic of Congo":"RepublicofCongo",
-    "Réunion":"Reunion",
-    "Romania":"Romania",
-    "Russian Federation":"RussianFederation",
-    "Rwanda":"Rwanda",
-    "Saint Barthélemy":"SaintBarthelemy",
-    "Saint Helena":"SaintHelena",
-    "St. Kitts and Nevis":"SaintKittsandNevis",
-    "Saint Lucia":"SaintLucia",
-    "Saint Martin":"SaintMartin",
-    "Saint Pierre and Miquelon":"SaintPierreandMiquelon",
-    "Saint Vincent and the Grenadines":"SaintVincentandGrenadines",
-    "Samoa":"Samoa",
-    "San Marino":"SanMarino",
-    "São Tomé and Príncipe":"SaoTomeandPrincipe",
-    "Saudi Arabia":"SaudiArabia",
-    "Senegal":"Senegal",
-    "Serbia":"Serbia",
-    "Seychelles":"Seychelles",
-    "Sierra Leone":"SierraLeone",
-    "Singapore":"Singapore",
-    "Sint Maarten":"SintMaarten",
-    "Slovakia":"Slovakia",
-    "Slovenia":"Slovenia",
-    "Solomon Islands":"SolomonIslands",
-    "Somalia":"Somalia",
-    "South Africa":"SouthAfrica",
-    "South Georgia And South Sandwich Islands":"SouthGeorgiaAndSouthSandwichIslands",
-    "South Korea":"SouthKorea",
-    "South Sudan":"SouthSudan",
-    "Spain":"Spain",
-    "Sri Lanka":"SriLanka",
-    "State of Palestine":"StateofPalestine",
-    "Sudan":"Sudan",
-    "Suriname":"Suriname",
-    "Svalbard and Jan Mayen":"SvalbardandJanMayen",
-    "Sweden":"Sweden",
-    "Switzerland":"Switzerland",
-    "Syria":"Syria",
-    "Taiwan: Republic of China":"Taiwan",
-    "Tajikistan":"Tajikistan",
-    "Tanzania":"Tanzania",
-    "Thailand":"Thailand",
-    "Timor-Leste":"TimorLeste",
-    "Togo":"Togo",
-    "Tokelau":"Tokelau",
-    "Tonga":"Tonga",
-    "Trinidad and Tobago":"TrinidadandTobago",
-    "Tunisia":"Tunisia",
-    "Turkey":"Turkey",
-    "Turkish Republic of Northern Cyprus":"TurkishRepublicofNorthernCyprus",
-    "Turkmenistan":"Turkmenistan",
-    "Turks and Caicos Islands":"TurksandCaicosIslands",
-    "Tuvalu":"Tuvalu",
-    "Uganda":"Uganda",
-    "Ukraine":"Ukraine",
-    "United Arab Emirates":"UnitedArabEmirates",
-    "United Kingdom":"UnitedKingdom",
-    "United States Minor Outlying Islands":"UnitedStatesMinorOutlyingIslands",
-    "United States":"UnitedStatesofAmerica",
-    "United States Virgin Islands":"UnitedStatesVirginIslands",
-    "Uruguay":"Uruguay",
-    "Uzbekistan":"Uzbekistan",
-    "Vanuatu":"Vanuatu",
-    "Vatican City and Holy See":"VaticanCityAndHolySee",
-    "Venezuela":"Venezuela",
-    "Vietnam":"Vietnam",
-    "Wallis and Futuna":"WallisandFutuna",
-    "Western Sahara":"WesternSahara",
-    "Yemen":"Yemen",
-    "Zambia":"Zambia",
-    "Zimbabwe":"Zimbabwe"}
