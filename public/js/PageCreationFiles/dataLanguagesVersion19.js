@@ -1,7 +1,7 @@
 'use strict';
 
 
-importAnExternalUtilityJSFile("FlagsShortName", "js/OneCountryLanguageTextJSFiles/languageConversionHelperVersion19.js");
+// importAnExternalUtilityJSFile("ConversionHelper", "js/OneCountryLanguageTextJSFiles/languageConversionHelperVersion19.js");
 
 // Application (Page) Name
 currentEWorldPage = "Data Languages";
@@ -339,7 +339,7 @@ function getThisApplicationLanguageData()
             else {
                 tagsTextsArray = JSON.parse(tagsTextsArray);
                 var basedOnId = tagsTextsArray[0].based_on_application_language_id;
-                newLanguageCodeTextGeneration(tagsTextsArray);
+                // newLanguageCodeTextGeneration(tagsTextsArray); // conversion method...
             }
         }
     };
