@@ -3,8 +3,8 @@
 currentEWorldPage = "eWorld Countries"; // this should be up here all the time to work again from the menu (after the first time)
 
 // retrieve the external js files if not open yet
-importAnExternalUtilityJSFile("CountriesTableData", "js/OneCountryLanguageTextJSFiles/countriesTableDataVersion19.js");
-// importAnExternalUtilityJSFile("ConversionHelper", "js/OneCountryLanguageTextJSFiles/languageConversionHelperVersion19.js");
+importAnExternalUtilityJSFile("CountriesTableData", "js/OneCountryLanguageTextJSFiles/countriesTableDataVersion20.js");
+// importAnExternalUtilityJSFile("ConversionHelper", "js/OneCountryLanguageTextJSFiles/languageConversionHelperVersion20.js");
 
 initializationUtilityForFlags();
 
@@ -24,7 +24,7 @@ eWorldCountriesH2.setAttribute("class", "registerH2");
 eWorldCountriesHeader.appendChild(eWorldCountriesH2); // must be here before h2HeaderCodes(
 
 setTimeout(function () {
-    // (0) getCountryCodesTableData(); // call if data is not saved but this is for to save it.
+    // getCountryCodesTableData(); // (0) // call if data is not saved but this is for to save it.
     h2HeaderCodes(eWorldCountriesHeader);
     muteTheSoundCodes(" ");
     addApplicationLanguageSelectionDropDownBox(h2First); // (): adds into h2First (redundant) but the variable will force it to skip class: dashBoardCombine
@@ -51,7 +51,7 @@ setTimeout(function () {
     eWorldCountriesAlphabetLetters.setAttribute("id", "id_Letters26");
     eWorldCountriesAlphabetLetters.setAttribute("class", "worldCountryCodes");
     eWorldCountriesAlphabetLetters.innerHTML = decodeURIComponent(aToZObject); // if the A to Z Object is Saved
-    // createAtoZTags(eWorldCountriesAlphabetLetters); // to recreate A to Z
+    // createAtoZTags(eWorldCountriesAlphabetLetters);
 
     eWorldCountriesMainDivTwo.appendChild(eWorldCountriesAlphabetLetters);
     var eWorldCountriesTableDiv = document.createElement("div");
@@ -374,13 +374,10 @@ function getCountryCodesTableData()
     var worldIncome = 87500000000000;
     var worldSurfaceArea = 149000000;
     var capitalCitiesOfAllCountriesRaw = {};
-    for (var aCountry in countryCodesOfAllCountries)
+    for (var aCountry in countryCodesOfAllCountriesSortedByTurkishLongNames)
     {   /* countryListOfAllCountries { "Afghanistan":["Region","CapitalCity","Big City", "Population", "Surface", "Income", "Alpha-2, Alpha-3, Numeric, GEC & Calling"],... } */
-        if (countryFromISOLongName[aCountry])
-            oneCountryName = countryFromISOLongName[aCountry];
-        else oneCountryName = englishCountryFromEnglishLongName[aCountry];
-        oneCountryFeatures = featuresOfAllCountries[oneCountryName];
-        oneCountryCodes = countryCodesOfAllCountries[aCountry];
+        oneCountryFeatures = featuresOfAllCountries[aCountry];
+        oneCountryCodes = countryCodesOfAllCountriesSortedByTurkishLongNames[aCountry];
         if (oneCountryFeatures[14]['feature'] == "CapitalCitiesDisplay") {
               var indexCapital = 0;
               for (var oneFeature in oneCountryFeatures) {
@@ -404,7 +401,7 @@ function getCountryCodesTableData()
                 oneCountryCodes[0] + ", " + oneCountryCodes[1] + ", " + oneCountryCodes[2] + ", " + oneCountryCodes[3] + ", " + oneCountryCodes[4], oneCountryFeatures[14]['value']];
         }
     }
-    countryCodesOfAllCountries = capitalCitiesOfAllCountriesRaw;
+    countryCodesOfAllCountriesSortedByTurkishLongNames = capitalCitiesOfAllCountriesRaw;
 }
 
 // maybe + 'comment'/population... % == use this as a base to find out Capital City Population Population to world population, Surface to world surface is a direct function call..
@@ -443,13 +440,13 @@ function finalizeCountriesPage() {
     // (2) to rebuild the Table use this one
     /*
         createATable("id_CountryListMenu", ["Country","Region","Capital","Largest","Population","Surface","Income","Country Codes"],
-            countryCodesOfAllCountries, -999, "Array", myUndefined, true, 16);
+            countryCodesOfAllCountriesSortedByTurkishLongNames, -999, "Array", myUndefined, true, 16);
      */
     document.getElementById("id_CountryListMenu").innerHTML = decodeURIComponent(countriesTableData); // (1) if the Table Data is Saved, to rebuild comment this decodeURI out
     document.getElementById("id_CountryFacts").innerHTML = selectedApplicationLanguageTexts["id_Countries"]; // start place holder
     triggerAMouseEvent("id_A");
     document.getElementsByTagName("body")[0].classList.add("countryCodeBodyBackground");
-    // (3) setTheTableData(); if the Table Data is NOT saved
+    // setTheTableData(); // (3) if the Table Data is NOT saved
     // /* (4) if table data is SAVED
     var tableRows = document.getElementById("id_CountryListMenu").rows; // if the Table Data is Saved
     headerRow = tableRows[0];
@@ -472,11 +469,12 @@ function finalizeCountriesPage() {
     currentSortIcon = "id_CountryTh";
     if (document.getElementById(currentSortIcon+"Text"))
         document.getElementById(currentSortIcon+"Text").classList.add("selectedInputTag");
-    // console.log(encodeURIComponent(document.getElementById("id_CountryListMenu").innerHTML)); // (5) // print if not SAVED (to be SAVED)
-    // (6) console.log(encodeURIComponent(document.getElementById("id_Letters26").innerHTML)); // to save A-Z
+    //console.log(encodeURIComponent(document.getElementById("id_CountryListMenu").innerHTML)); // (5) // print if not SAVED (to be SAVED)
+    //console.log(encodeURIComponent(document.getElementById("id_Letters26").innerHTML)); // (6) // to save A-Z
     // id_A to Z and ALL add Click Event for iPhone/iPad
     if (appleProduct) {
-        var letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','Y','Z','All'];
+        var letters = ["A", "B", "C", "Ç", "D", "E", "F", "G", "H", "I", "İ", "J", "K", "L", "M", "N", "O", "Ö", "P", "R", "S",
+            "Ş", "T", "U", "Ü", "V", "Y", "Z",'All'];
         for (var i in letters) {
             document.getElementById("id_"+letters[i]).addEventListener("click", countryCodesClickEvents, false);
         }
