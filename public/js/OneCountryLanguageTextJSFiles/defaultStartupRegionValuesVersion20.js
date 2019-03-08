@@ -56,7 +56,7 @@ JSON.parse('{"id_Required":"required","id_World":"World","id_Africa":"Africa","i
 '"id_SeatRatioDM":"From UN <p>Seats held by women in national parliaments<p>-- %<p>Social indicators",' +
 '"id_HDIDM":"Human Development Index (HDI)<p>A long and healthy life, being knowledgeable and<p>have a decent standard of living.",' +
 '"id_GiniDM":"Distribution of family income...<p>Zero: The best, 100: The worst",' +
-'"id_CountryCodesDM":"ISO 2 and 3<p>Calling# and GEO",' +
+'"id_CountryCodesDM":"ISO 2 and 3<p>Calling# and GEO","id_ReverseImage":"This is a Reverse Image of ",' +
 
 '"id_InternationalizationI18n":"Internationalization(i18n)","id_And":"And","id_Or":"Or",' +
 '"Flag Color":"Flag Color","Second Flag Color":"Second Flag Color","Third Flag Color":"Third Flag Color","Flag Shape":"Flag Shape","Second Flag Shape":"Second Flag Shape",' +
