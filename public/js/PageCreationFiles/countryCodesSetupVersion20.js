@@ -140,7 +140,7 @@ function setTheTableRows(tableRows)
             addCodesClassToEachTd(tableRows[oneRow].cells);
             var countryNameFromTD = tableRows[oneRow].cells[1].innerHTML;
             tableRows[oneRow].setAttribute("id", "id_" + oneRow);
-            tableRows[oneRow].setAttribute("name", countryFromISOLongName[countryNameFromTD]?countryFromISOLongName[countryNameFromTD]:countryNameFromTD);
+            tableRows[oneRow].setAttribute("name", countryNameFromLongName[countryNameFromTD]);
             tableRows[oneRow].cells[0].classList.add("displayNone");
             tableRows[oneRow].cells[9].classList.add("displayNone");
             oneFlagImageElement = document.createElement("img");
@@ -469,8 +469,8 @@ function finalizeCountriesPage() {
     currentSortIcon = "id_CountryTh";
     if (document.getElementById(currentSortIcon+"Text"))
         document.getElementById(currentSortIcon+"Text").classList.add("selectedInputTag");
-    //console.log(encodeURIComponent(document.getElementById("id_CountryListMenu").innerHTML)); // (5) // print if not SAVED (to be SAVED)
-    //console.log(encodeURIComponent(document.getElementById("id_Letters26").innerHTML)); // (6) // to save A-Z
+    // console.log(encodeURIComponent(document.getElementById("id_CountryListMenu").innerHTML)); // (5) // print if not SAVED (to be SAVED)
+    // console.log(encodeURIComponent(document.getElementById("id_Letters26").innerHTML)); // (6) // to save A-Z
     // id_A to Z and ALL add Click Event for iPhone/iPad
     if (appleProduct) {
         for (var indexNo in capitalCitiesOptionTexts) {
