@@ -101,8 +101,6 @@ setTimeout(function () {
 }, 50);
 
 var processTheseTH = {0:true,1:true,2:true,4:true,5:true,6:true};
-var threeBelongsToOthers = {"UnitedStatesMinorOutlyingIslands":"UnitedStatesofAmerica",
-    "HeardIslandandMcDonaldIslands":"Australia", "BouvetIsland":"Norway" };
 var currentLetter = myUndefined;
 var tableRowsByCapitalCity = {};
 var currentSortIcon;
@@ -149,8 +147,8 @@ function setTheTableRows(tableRows)
             if (countryNameFromTD.indexOf("|") != -1) {
                 countryNameFromTD = countryNameFromTD.substring(0, countryNameFromTD.indexOf("|"));
                 tableRows[oneRow].cells[1].innerHTML = tableRows[oneRow].cells[1].innerHTML.substring(0, tableRows[oneRow].cells[1].innerHTML.indexOf("|"));
-            } // Set the flags
-            if (flagsSVGFiles[countryNameFromTD]) {
+            }
+            if (flagsSVGFiles[countryNameFromTD]) { // Set the flags
                 oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles[countryNameFromTD].svg;
                 setAnIdForAFlag(oneFlagImageElement, countryNameFromTD)
             }
@@ -160,7 +158,7 @@ function setTheTableRows(tableRows)
             }
             else if (threeBelongsToOthers[countryNameFromLongName[countryNameFromTD]]) {
                 oneFlagImageElement.src = "data:image/svg+xml," + flagsSVGFiles[threeBelongsToOthers[countryNameFromLongName[countryNameFromTD]]].svg;
-                setAnIdForAFlag(oneFlagImageElement, threeBelongsToOthers[countryNameFromLongName[countryNameFromTD]]);
+                setAnIdForAFlag(oneFlagImageElement, countryNameFromLongName[countryNameFromTD]);
             }
             else console.log(countryNameFromTD);
             oneFlagImageElement.alt = "Entity: " + countryNameFromTD;
