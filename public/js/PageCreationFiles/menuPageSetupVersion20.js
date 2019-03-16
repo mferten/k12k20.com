@@ -55,6 +55,11 @@ function setMenuImage(firstTime) {
     menuFooter.appendChild(menuFooterP);
     menuFooter.appendChild(menuFooterP2);
 
+    var menuImageCaption = document.createElement("figcaption");
+    menuImageCaption.setAttribute("class","borderImage");
+    menuImageCaption.innerHTML = "Prototyping a High-tech Organic Family Farm-Inn-Office";
+    menuMain.appendChild(menuImageCaption);
+
     var menuImage = document.createElement("img");
     menuImage.setAttribute("src","/images/_world.png");
     menuImage.setAttribute("alt","World View");
