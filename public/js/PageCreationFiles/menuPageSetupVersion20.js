@@ -57,7 +57,7 @@ function setMenuImage(firstTime) {
 
     var menuImageCaption = document.createElement("figcaption");
     menuImageCaption.setAttribute("class","borderImage");
-    menuImageCaption.innerHTML = "Prototyping an Organic Farm Inn Web Company";
+    menuImageCaption.innerHTML = "Prototyping a Web Company within an Organic Farm Inn";
     menuMain.appendChild(menuImageCaption);
 
     var menuImage = document.createElement("img");
