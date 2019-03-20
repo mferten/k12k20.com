@@ -240,35 +240,35 @@ function eWorldMenuSetup() {
 // rename one CSS file individually
 
 function eWorldGlobalSetup() {
-   importAnExternalJSFile("id_Searching", "js/PageCreationFiles/globalVersion20.js", "Searching"); // import a javascript external file
+   importAnExternalPageJSFile("id_Searching", "js/PageCreationFiles/globalVersion21.js", "Searching"); // import a javascript external file
 }
 
 function eWorldRegionalSetup() {
-   importAnExternalJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion20.js", "Surfing"); // import a javascript external file
+   importAnExternalPageJSFile("id_Surfing", "js/PageCreationFiles/regionalVersion21.js", "Surfing"); // import a javascript external file
 }
 
 function eWorldCountriesSetup() {
-   importAnExternalJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion20.js", "CountryCodes"); // import a javascript external file
+   importAnExternalPageJSFile("id_Countries", "js/PageCreationFiles/countryCodesSetupVersion21.js", "CountryCodes"); // import a javascript external file
 }
 
 function eWorldStartupSetup(  ) {
-   importAnExternalJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion20.js", "Register"); // import a javascript external file
+   importAnExternalPageJSFile("id_Register", "js/PageCreationFiles/registerSetupVersion21.js", "Register"); // import a javascript external file
 }
 
 function eWorldCitationsSetup() {
-   importAnExternalJSFile("id_Citations", "js/PageCreationFiles/citationsVersion20.js", "Citations"); // import a javascript external file
+   importAnExternalPageJSFile("id_Citations", "js/PageCreationFiles/citationsVersion21.js", "Citations"); // import a javascript external file
 }
 
 function eWorldAboutSetup() {
-   importAnExternalJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion20.js", "AboutMe"); // import a javascript external file
+   importAnExternalPageJSFile("id_AboutMe", "js/PageCreationFiles/aboutMeVersion21.js", "AboutMe"); // import a javascript external file
 }
 
 function eWorldTextLanguagesSetup() {
-   importAnExternalJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion20.js", "TextLanguages"); // import a javascript external file
+   importAnExternalPageJSFile("id_TextLanguages", "js/PageCreationFiles/textLanguagesVersion21.js", "TextLanguages"); // import a javascript external file
 }
 
 function eWorldDataLanguagesSetup() {
-   importAnExternalJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion20.js", "DataLanguages"); // import a javascript external file
+   importAnExternalPageJSFile("id_DataLanguages", "js/PageCreationFiles/dataLanguagesVersion21.js", "DataLanguages"); // import a javascript external file
 }
 
 function isAppleProduct()
@@ -1511,7 +1511,27 @@ function positionCurser(fieldName)
    document.getElementById(fieldName).focus();
 }
 
-function importAnExternalJSFile(templateTagId, externalJSFileName, navigationName)
+function setFooter() {
+    var footerElement = document.createElement("footer");
+    footerElement.setAttribute("class","center");
+    var footerP = document.createElement("p");
+    footerP.setAttribute("id","id_CopyRight");
+    var footerP2 = document.createElement("p");
+    footerP2.setAttribute("id","id_LanguageImplementedBy");
+    footerElement.appendChild(footerP);
+    footerElement.appendChild(footerP2);
+    return footerElement;
+}
+
+function setNavigation(dataNav) {
+    var navigationElement = document.createElement("nav");
+    navigationElement.setAttribute("id", "id_Navigation");
+    navigationElement.setAttribute("class", "center");
+    navigationElement.setAttribute("data-nav", dataNav);
+    return navigationElement;
+}
+
+function importAnExternalPageJSFile(templateTagId, externalJSFileName, navigationName)
 {
    initializationUtilityForAll(navigationName);
    var ifExternalJSExist = document.getElementById("id_" + navigationName + "Script");
@@ -1541,18 +1561,9 @@ function setNavFooterTags(navigationName) {
 }
 
 function createNavFooterAddIntoBodyAndReplaceBody(tagBody, tagHeader, tagMain, navigationName) {
-   var tagNav = document.createElement("nav");
-   tagNav.setAttribute("id","id_Navigation");
-   tagNav.setAttribute("data-nav", "PlaceHolder");
-   tagNav.setAttribute("class","center");
-   var tagFooter = document.createElement("footer");
-   tagFooter.setAttribute("class","center");
-   var tagFooterP = document.createElement("p");
-   tagFooterP.setAttribute("id","id_CopyRight");
-   var tagFooterP2 = document.createElement("p"); // This and others the same code should be in a function.. single entry point... (MEHMET to do list)
-   tagFooterP2.setAttribute("id","id_LanguageImplementedBy");
-   tagFooter.appendChild(tagFooterP);
-   tagFooter.appendChild(tagFooterP2);
+   var tagNav = setNavigation("PlaceHolder");
+
+   var tagFooter = setFooter();
 
    tagBody.appendChild(tagHeader);
    tagBody.appendChild(tagMain);
