@@ -1310,9 +1310,11 @@ function setCountryTimeDateWeatherValues(countryName, featuresOfEachCountry)
    if (appleProduct == false) {
        if (stateIsShowing) // set the Country Weather Link: Trim and Replace space with "-"
        {
-           document.getElementById("info_Weather").href = "https://www.timeanddate.com/weather/usa/" +
-               (timeDateOrWeather[countryCapitals[countryName]]?timeDateOrWeather[countryCapitals[countryName]]:countryCapitals[countryName]
-                   .trim().replace(/ /g, "-"));
+           document.getElementById("info_Weather").href = "https://www.timeanddate.com/weather/usa/";
+               if (timeDateOrWeather[usStates[countryName]]?timeDateOrWeather[usStates[countryName]]:usStates[countryName])
+                   document.getElementById("info_Weather").href +=
+                   (timeDateOrWeather[usStates[countryName]]?timeDateOrWeather[usStates[countryName]]:usStates[countryName]
+                      .trim().replace(/_/g, "-"));
        }
        else if (timeDateOrWeatherSmallEntities[countryName])
        {

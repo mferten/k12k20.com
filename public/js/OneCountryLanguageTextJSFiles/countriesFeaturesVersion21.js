@@ -206,7 +206,7 @@ var featuresOfAllCountries =
 				    { "value":"http://visitandorra.com/en/", "feature":"Tourism", "comment":""},
 				    { "value":"Right", "feature":"DrivingSide", "comment":""},
 				    { "value":"https://www.govern.ad/", "feature":"Government", "comment":""},
-						{ "value":"$2.8B $39896", "feature":"IncomeDisplay", "comment":""},
+						{ "value":"$2.8B $36987", "feature":"IncomeDisplay", "comment":""},
 				    { "value":"27.21 Low", "feature":"Gini", "comment":""},
 						{ "value":"0.858 High", "feature":"HDI", "comment":""},
 				    { "value":"Andorra la Vella", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Andorra_la_Vella"},
@@ -217,13 +217,13 @@ var featuresOfAllCountries =
 				    { "value":"32.1", "feature":"SeatRatio", "comment":""},
 						{ "value":"Europe", "feature":"Region", "comment":""},
 						{ "value":88.1, "feature":"Cell", "comment":""},
-						{ "value":96.9, "feature":"Internet", "comment":""},
+						{ "value":97.9, "feature":"Internet", "comment":""},
 						{ "value":0, "feature":"RandD", "comment":""},
 						{ "value":100, "feature":"CleanWater", "comment":"100.0 / 100.0"},
 						{ "value":100, "feature":"CleanToilet", "comment":"100.0 / 100.0"},
 						{ "value":82.9, "feature":"LifeExpectancy", "comment":""},
 						{ "value":3250000000, "feature":"Income", "comment":""},
-						{ "value":39896, "feature":"GDP", "comment":""},
+						{ "value":36987, "feature":"GDP", "comment":""},
 
 						{ "value":"Andorra la Vella", "feature":"CapitalCitiesPopulationDisplay", "comment":23400},
 
@@ -245,7 +245,7 @@ var featuresOfAllCountries =
 				],
 		"Angola":
 				[
-						{ "value":29784000, "feature":"Population", "comment":""},
+						{ "value":30774000, "feature":"Population", "comment":""},
 						{ "value":"AO AGO 244", "feature":"CountryCodes", "comment":"AO"},
 						{ "value":"-11.202692", "feature":"latitude", "comment":""},
 						{ "value":"17.873887", "feature":"longitude", "comment":""},
@@ -256,7 +256,7 @@ var featuresOfAllCountries =
 						{ "value":"http://www.angolanembassy.org/", "feature":"Tourism", "comment":""},
 						{ "value":"Right", "feature":"DrivingSide", "comment":""},
 						{ "value":"http://www.governo.gov.ao/", "feature":"Government", "comment":""},
-						{ "value":"$118B $4714", "feature":"IncomeDisplay", "comment":""},
+						{ "value":"$107B $3711", "feature":"IncomeDisplay", "comment":""},
 						{ "value":"42.7", "feature":"Gini", "comment":""},
 						{ "value":"0.533 Low", "feature":"HDI", "comment":""},
 						{ "value":"Luanda", "feature":"CapitalCities", "comment":"https://en.wikipedia.org/wiki/Luanda"},
@@ -272,8 +272,8 @@ var featuresOfAllCountries =
 						{ "value":51.8, "feature":"CleanWater", "comment":"75.4 / 28.2"},
 						{ "value":54.55, "feature":"CleanToilet", "comment":"88.6 / 22.5"},
 						{ "value":60, "feature":"LifeExpectancy", "comment":""},
-						{ "value":112500000000, "feature":"Income", "comment":""},
-						{ "value":4714, "feature":"GDP", "comment":""},
+						{ "value":106918000, "feature":"Income", "comment":""},
+						{ "value":3711, "feature":"GDP", "comment":""},
 
 						{ "value":"Portuguese", "feature":"Language", "comment":""},
 						{ "value":"Umbundu", "feature":"Language", "comment":""},

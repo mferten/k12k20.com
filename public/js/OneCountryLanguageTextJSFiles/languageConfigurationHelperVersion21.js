@@ -60,7 +60,7 @@ var rowsByLetter = { "id_A":{"start":1,"end":16}, "id_B":{"start":17,"end":38}, 
     "id_F":{"start":75,"end":82}, "id_G":{"start":83,"end":98}, "id_H":{"start":99,"end":104}, "id_I":{"start":105,"end":113}, "id_J":{"start":114,"end":117},
     "id_K":{"start":118,"end":125}, "id_L":{"start":126,"end":134}, "id_M":{"start":135,"end":157}, "id_N":{"start":158,"end":170}, "id_O":{"start":171,"end":171},
     "id_P":{"start":172,"end":183}, "id_Q":{"start":184,"end":184}, "id_R":{"start":185,"end":188}, "id_S":{"start":189,"end":223}, "id_T":{"start":224,"end":237},
-    "id_U":{"start":238,"end":245}, "id_V":{"start":246,"end":250}, "id_W":{"start":251,"end":252}, "id_Y":{"start":253,"end":253}, "id_Z":{"start":254,"end":255},
+    "id_U":{"start":238,"end":246}, "id_V":{"start":247,"end":250}, "id_W":{"start":251,"end":252}, "id_Y":{"start":253,"end":253}, "id_Z":{"start":254,"end":255},
     "id_All":{"start":1,"end":255} };
 
 var sortIconSelectionID = {"id_SortCountry":0,"id_CountryTh":0,"id_SortSurface":1,"id_SurfaceTh":1,"id_SortIncome":2,"id_IncomeTh":2,
