@@ -108,4 +108,4 @@ var sixRegionsValues = [  // 0: North America 1: South America 2: Europe 3: Afri
 // North America Region Lists
 var DEFAULTREGIONFLAGOFCOUNTRIES = sixRegionsValues[0];
 
-var TARGETEDENTITY = "Prototyping a Web Company within an Organic Farm Inn";
+var TARGETEDENTITY = "Prototyping a High Tech Organic Farm Inn";
