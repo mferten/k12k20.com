@@ -56,10 +56,10 @@ function createAtoZTags(eWorldCountriesAlphabetLetters) {
     The Turkish counts: I and I, C and Ç, ect are the same (no correct sorting)
     A, 26 B, 25 C, 7 D, 4 E, 9 F, 11 G, 17 H, 7 İ, 9 J, 3 K, 26 L, 9 M, 24 N, 10 O, 2 P, 10 R, 4 Ş, 19 T, 14 Ü, 5 V, 4 W, 1 Y, 4 Z, 2
  */
-var rowsByLetter = { "id_A":{"start":1,"end":16}, "id_B":{"start":17,"end":38}, "id_C":{"start":39,"end":61}, "id_D":{"start":62,"end":65}, "id_E":{"start":66,"end":74},
-    "id_F":{"start":75,"end":82}, "id_G":{"start":83,"end":98}, "id_H":{"start":99,"end":104}, "id_I":{"start":105,"end":113}, "id_J":{"start":114,"end":117},
-    "id_K":{"start":118,"end":125}, "id_L":{"start":126,"end":134}, "id_M":{"start":135,"end":157}, "id_N":{"start":158,"end":170}, "id_O":{"start":171,"end":171},
-    "id_P":{"start":172,"end":183}, "id_Q":{"start":184,"end":184}, "id_R":{"start":185,"end":188}, "id_S":{"start":189,"end":223}, "id_T":{"start":224,"end":237},
+var rowsByLetter = { "id_A":{"start":1,"end":16}, "id_B":{"start":17,"end":39}, "id_C":{"start":40,"end":60}, "id_D":{"start":61,"end":65}, "id_E":{"start":66,"end":74},
+    "id_F":{"start":75,"end":82}, "id_G":{"start":83,"end":98}, "id_H":{"start":99,"end":103}, "id_I":{"start":104,"end":112}, "id_J":{"start":113,"end":116},
+    "id_K":{"start":117,"end":122}, "id_L":{"start":123,"end":131}, "id_M":{"start":132,"end":154}, "id_N":{"start":155,"end":168}, "id_O":{"start":169,"end":169},
+    "id_P":{"start":170,"end":180}, "id_Q":{"start":181,"end":181}, "id_R":{"start":182,"end":186}, "id_S":{"start":187,"end":223}, "id_T":{"start":224,"end":237},
     "id_U":{"start":238,"end":246}, "id_V":{"start":247,"end":250}, "id_W":{"start":251,"end":252}, "id_Y":{"start":253,"end":253}, "id_Z":{"start":254,"end":255},
     "id_All":{"start":1,"end":255} };
 
